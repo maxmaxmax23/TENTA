@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import tentaLogo from './assets/tenta.svg'
+import { useEffect, useState, Fragment } from 'react'
 import './App.css'
 import { Html5QrcodeScanType, Html5QrcodeScanner } from 'html5-qrcode'
+import './components/modal'
+import MyModal from './components/modal';
+
 
 //function App() {
 //  const [count, setCount] = useState(0)
@@ -27,6 +28,7 @@ import { Html5QrcodeScanType, Html5QrcodeScanner } from 'html5-qrcode'
 
 function App() {
   const [scanResult, setScanResult] = useState(null);
+  let [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     const scanner = new Html5QrcodeScanner('reader', {
       qrbox: {
@@ -53,19 +55,16 @@ function App() {
   return (
 
    <>
-      <div>
-        <a href="https://instagram.com/tentacionesdeco" target="_blank">
-          <img src={tentaLogo} className="logo" alt="logo" />
-        </a>
-      </div>
-      <h1>BAZAR | DECO | COSMÉTICA</h1>
     <div className='App'>
       { scanResult
-      ? <div> Codigo: {scanResult}</div>
+      ? <div> Codigo:</div>
       : <div id="reader"></div>
-}
+      }
     </div>
-  </>
+    <div>
+      <MyModal/>
+     </div>
+  </>  
   );
 }
 export default App
