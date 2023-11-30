@@ -412,7 +412,7 @@ audio,
 iframe,
 embed,
 object {
-  display: block;
+  display: middle;
   /* 1 */
   vertical-align: middle;
   /* 2 */
