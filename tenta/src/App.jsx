@@ -45,17 +45,19 @@ function App() {
         <Popover.Button>{scanResult}</Popover.Button>
 
         <Popover.Panel className="absolute z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></div>          
-          <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4 text-lg text-black font-semibold">
             {Lista.filter((precio) => precio.id === scanResult).map((precio) => (
-              <div key={precio.precio}>{precio.precio}</div>
+              <div key={precio.precio}>${precio.precio}</div>
             ))}
           </div>
-          <div>
+          <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4 text-lg text-black font-semibold">
             {Lista.filter((precio) => precio.id === scanResult).map((precio) => (
               <div key={precio.descripcion}>{precio.descripcion}</div>
             ))}
           </div>
+          </div>          
+
           <img src="/solutions.jpg" alt="" />
         </Popover.Panel>
       </Popover>
