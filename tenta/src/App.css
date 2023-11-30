@@ -37,6 +37,11 @@
   padding: 2em;
 }
 
+@media (max-width: 768px) {
+  .card {
+    padding: 1em;
+  }
+}
 .read-the-docs {
   color: #888;
 }

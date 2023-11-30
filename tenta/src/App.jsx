@@ -45,7 +45,7 @@ function App() {
         <Popover.Button>{scanResult}</Popover.Button>
 
         <Popover.Panel className="absolute z-10">
-          <div className="grid grid-cols-2"></div>          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></div>          
           <div>
             {Lista.filter((precio) => precio.id === scanResult).map((precio) => (
               <div key={precio.precio}>{precio.precio}</div>
