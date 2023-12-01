@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './App.css'
 import tentaLogo from './assets/tenta.svg'
-import tentalogov2 from './assets/tentalogov2.png'
+import tentalogov2 from './assets/tentalogov2.svg'
 
 export default function Main() {  
 
