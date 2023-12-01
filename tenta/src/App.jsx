@@ -1,6 +1,5 @@
 import { useEffect, useState, Fragment} from 'react'
 import './App.css'
-import './index.css'
 import { Html5QrcodeScanner } from 'html5-qrcode'
 import { Popover } from '@headlessui/react'
 import './index.jsx'
@@ -40,14 +39,14 @@ function App() {
    
    <div className='App'>
   {scanResult ? (
-    <div>
-      Codigo:
+      <div>
+      CODIGO:
       <Popover className="relative">
-        <Popover.Button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">{scanResult}</Popover.Button>
+       <Popover.Button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">{scanResult}</Popover.Button>
 
-        <Popover.Panel className="absolute z-10">
+        <Popover.Panel className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5 absolute z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <div className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
+          <div className="mt-1 text-xl font-bold uppercase leading-tight truncate">
             {Lista.filter((precio) => precio.id === scanResult).map((precio) => (
               <div key={precio.precio}>${precio.precio}</div>
             ))}
@@ -62,11 +61,12 @@ function App() {
           <img src="/solutions.jpg" alt="" />
         </Popover.Panel>
       </Popover>
-    </div>
+      </div>
   ) : (
     <div id="reader"></div>
   )}
 </div>
+<button onClick={() => window.location.reload(true)}>NUEVO CODIGO</button>
  
     </>  
   );
