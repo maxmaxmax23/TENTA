@@ -42,23 +42,22 @@ function App() {
       <div>
       CODIGO:
       <Popover className="relative">
-       <Popover.Button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">{scanResult}</Popover.Button>
+       <Popover.Button className="px-4 py-1 text-sm text-logo-shaddow font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-pink-shaddow hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">{scanResult}</Popover.Button>
 
-        <Popover.Panel className="rounded-lg shadow-lg ring-1 ring-black/5 absolute z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <div className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
+        <Popover.Panel className="justify-content-center rounded-lg shadow-lg ring-1 ring-black/5 absolute z-10">
+          <div className="grid-flow-col grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="justify-self-center mt-1 text-xl font-semibold uppercase leading-tight truncate">
             {Lista.filter((precio) => precio.id === scanResult).map((precio) => (
               <div key={precio.precio}>${precio.precio}</div>
             ))}
           </div>
-          <div className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
+          <div className="justify-self-center mt-1 text-xl font-semibold uppercase leading-tight truncate">
             {Lista.filter((precio) => precio.id === scanResult).map((precio) => (
               <div key={precio.descripcion}>{precio.descripcion}</div>
             ))}
           </div>
           </div>          
 
-          <img src="/solutions.jpg" alt="" />
         </Popover.Panel>
       </Popover>
       </div>
