@@ -970,6 +970,14 @@ video {
   line-height: 1.25;
 }
 
+.text-logo-pink {
+  --tw-text-opacity: 1;
+  color: rgb(255 123 186 / var(--tw-text-opacity));
+}
+.text-logo-shaddow {
+  --tw-text-opacity: 1;
+  color: rgb(255 82 165 / var(--tw-text-opacity));
+}
 .text-blue-900 {
   --tw-text-opacity: 1;
   color: rgb(30 58 138 / var(--tw-text-opacity));
@@ -2065,6 +2073,11 @@ button:focus-visible {
 .hover\:bg-gray-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-pink-shaddow:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 82 165 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-purple-600:hover {

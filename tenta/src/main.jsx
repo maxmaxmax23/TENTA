@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <img src={tentalogov2} className="logo" alt="logo" />
         </a>
       </div>
-      <h1>BAZAR | DECO | COSMÉTICA</h1>
+      <button className="px-4 py-1 text-sm text-logo-shaddow font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-pink-shaddow hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={() => window.location.reload(true)}>NUEVO CODIGO</button>
 </>
     
    <App />
