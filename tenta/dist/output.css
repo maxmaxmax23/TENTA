@@ -1149,7 +1149,7 @@ video {
 }
 
 .logo {
-  height: 35em;
+  height: 15em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
