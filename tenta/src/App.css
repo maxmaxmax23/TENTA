@@ -10,8 +10,10 @@
 }
 
 .logo {
-  height: 35em;
-  padding: 1.5em;
+  width: 100%; /* Make the logo fill its container */
+  max-width: 700px; /* Set a maximum width to prevent it from getting too large */
+  height: auto; /* Maintain aspect ratio when resizing */
+  padding: 1%;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -41,9 +43,12 @@
   padding: 2em;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .card {
     padding: 1em;
+  }
+  .logo {
+    max-width: 500px;
   }
 }
 .read-the-docs {
