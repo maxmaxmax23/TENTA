@@ -42,7 +42,7 @@ function App() {
       <div>
       CODIGO:
       <Popover className="relative">
-       <Popover.Button className="px-1.5em py-2em text-lgtext-logo-shaddow font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-pink-shaddow hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">{scanResult}</Popover.Button>
+       <Popover.Button className="px-1.5em py-2em text-lg text-logo-shaddow font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-pink-shaddow hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">{scanResult}</Popover.Button>
 
         <Popover.Panel className="justify-content-center rounded-lg shadow-lg ring-1 ring-black/5 absolute z-10">
           <div className="grid-flow-col grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
