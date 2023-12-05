@@ -16,7 +16,9 @@ function App() {
         width:250,
         height: 250,
       },
-      fps: 5,
+      fps: 10,
+      aspectRatio: 2,
+      focusMode: "continuous",
     });
   
    scanner.render(success, error);

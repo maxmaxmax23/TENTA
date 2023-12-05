@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './App.css';
 import tentaLogo from './assets/tenta.svg';
-import tentalogov2 from './assets/tentalogov2.svg';
+import tentalogov2Light from './assets/tentalogov2Light.svg';
+import tentalogov2Dark from './assets/tentalogov2Dark.svg'
 
 function Main() {
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
   return (
     <React.StrictMode>
       <>
         <div className="flex justify-center items-center">
           <a href="https://instagram.com/tentacionesdeco" target="_blank">
-            <img src={tentalogov2} className="logo" alt="logo" />
+            <img src={prefersDarkMode ? tentalogov2Dark : tentalogov2Light} className="logo" alt="logo" />
           </a>
         </div>
         <button
