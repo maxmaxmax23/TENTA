@@ -2,6 +2,10 @@
 	"folders": [
 		{
 			"path": "tenta"
+		},
+		{
+			"name": "olioli",
+			"path": "olioli"
 		}
 	],
 	"settings": {}
