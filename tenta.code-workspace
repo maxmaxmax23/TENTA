@@ -4,8 +4,8 @@
 			"path": "tenta"
 		},
 		{
-			"name": "olioli",
-			"path": "olioli"
+			"name": "olioli-1",
+			"path": "../olioli/olioli-1"
 		}
 	],
 	"settings": {}
