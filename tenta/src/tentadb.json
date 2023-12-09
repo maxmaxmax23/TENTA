@@ -1516,7 +1516,7 @@
       "descripcion": "MINI GLOBO LISO X9",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45265,
+      "vigencia": 45268,
       "precio": 1100
     },
     {
@@ -12275,8 +12275,8 @@
       "descripcion": "PESEBRE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44879,
-      "precio": 1650
+      "vigencia": 45268,
+      "precio": 6100
     },
     {
       "id": "4894130912731",
@@ -20925,6 +20925,14 @@
       "precio": 400
     },
     {
+      "id": "6909168888021",
+      "descripcion": "LUZ LED CALIDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4000
+    },
+    {
       "id": "6909303197889",
       "descripcion": "BOLSO VIANDA C/BOTELLA",
       "lista": "LISTA1",
@@ -20963,6 +20971,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 44912,
       "precio": 990
+    },
+    {
+      "id": "6912001176346",
+      "descripcion": "LUZ LED ESTRELLAS MULTICOLOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4800
     },
     {
       "id": "6912325253105",
@@ -21489,7 +21505,7 @@
       "descripcion": "LUZ ALAMBRE MULTICOLOR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45225,
+      "vigencia": 45268,
       "precio": 800
     },
     {
@@ -21497,7 +21513,7 @@
       "descripcion": "LED CALIDA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45225,
+      "vigencia": 45268,
       "precio": 800
     },
     {
@@ -21505,7 +21521,7 @@
       "descripcion": "LUZ ALAMBRE BLANCA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45258,
+      "vigencia": 45268,
       "precio": 800
     },
     {
@@ -33249,8 +33265,8 @@
       "descripcion": "CARTAS ESPAÑOLAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45262,
-      "precio": 700
+      "vigencia": 45268,
+      "precio": 900
     },
     {
       "id": "7453077200089",
@@ -34451,6 +34467,38 @@
       "listadesc": "PUBLICO",
       "vigencia": 45015,
       "precio": 490
+    },
+    {
+      "id": "7764790905015",
+      "descripcion": "GIRNALDA LED CALIDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 18900
+    },
+    {
+      "id": "7764790905022",
+      "descripcion": "GIRNALDA CLED CALIDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 18900
+    },
+    {
+      "id": "7764790905039",
+      "descripcion": "GIRNALDA LED CALIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 18900
+    },
+    {
+      "id": "7764790905053",
+      "descripcion": "GIRNALDA LED CALIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 20000
     },
     {
       "id": "7766",
@@ -35939,6 +35987,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 44994,
       "precio": 600
+    },
+    {
+      "id": "7790051540039",
+      "descripcion": "PINCEL SILICONA CHICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 1000
     },
     {
       "id": "7790150014738",
@@ -37609,8 +37665,8 @@
       "descripcion": "CANASTO PLASTICO RECTANGULAR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44727,
-      "precio": 1190
+      "vigencia": 45268,
+      "precio": 2900
     },
     {
       "id": "7790918242977",
@@ -37625,8 +37681,8 @@
       "descripcion": "CANASTA PLASTICO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44727,
-      "precio": 250
+      "vigencia": 45268,
+      "precio": 2900
     },
     {
       "id": "7790918243066",
@@ -38251,6 +38307,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45266,
       "precio": 19550
+    },
+    {
+      "id": "7791612109368",
+      "descripcion": "TAPON TERMO PICO MATERO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 2000
     },
     {
       "id": "7791625000102",
@@ -44649,8 +44713,8 @@
       "descripcion": "SERPENTINA NASHVILLE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45223,
-      "precio": 1200
+      "vigencia": 45268,
+      "precio": 900
     },
     {
       "id": "7798047030205",
@@ -44665,8 +44729,8 @@
       "descripcion": "NIEVE ARTIFICIAL NASHVILLE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45223,
-      "precio": 1000
+      "vigencia": 45268,
+      "precio": 1050
     },
     {
       "id": "7798047031509",
@@ -54123,6 +54187,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 44968,
       "precio": 1490
+    },
+    {
+      "id": "7799032012084",
+      "descripcion": "VELA X6 20CM ORO/PLATA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 1100
     },
     {
       "id": "7799032012428",
@@ -64045,6 +64117,38 @@
       "precio": 3500
     },
     {
+      "id": "900425",
+      "descripcion": "LUD LED BOLSA ESTRELLAS LUNAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 3500
+    },
+    {
+      "id": "900429",
+      "descripcion": "LUZ LED ESTRELLAS LUNA BOLSA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 3500
+    },
+    {
+      "id": "900431",
+      "descripcion": "MICRO LED ALAMBRE MULTICOLOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 800
+    },
+    {
+      "id": "900432",
+      "descripcion": "MICRO LED ALAMBRE CALIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 800
+    },
+    {
       "id": "902-1",
       "descripcion": "SONAJERO",
       "lista": "LISTA1",
@@ -64185,8 +64289,8 @@
       "descripcion": "SET MANICURA LISOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45266,
-      "precio": 1600
+      "vigencia": 45268,
+      "precio": 2700
     },
     {
       "id": "91513",
@@ -66629,6 +66733,14 @@
       "precio": 4350
     },
     {
+      "id": "AB01495",
+      "descripcion": "AUTO RADIO CONTROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4700
+    },
+    {
       "id": "AB01687",
       "descripcion": "SET COMIDA",
       "lista": "LISTA1",
@@ -66645,6 +66757,22 @@
       "precio": 1990
     },
     {
+      "id": "AB01779",
+      "descripcion": "BURBUJEROS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 1400
+    },
+    {
+      "id": "AB01861",
+      "descripcion": "AUTO RADIO CONTROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4700
+    },
+    {
       "id": "AB11214",
       "descripcion": "AUTO TRANSFORMER",
       "lista": "LISTA1",
@@ -66654,11 +66782,11 @@
     },
     {
       "id": "AB11298",
-      "descripcion": "AUTO TRANSFORMER",
+      "descripcion": "AUTO TRANSFORMABLE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44918,
-      "precio": 1700
+      "vigencia": 45268,
+      "precio": 2700
     },
     {
       "id": "AB11455",
@@ -66717,12 +66845,44 @@
       "precio": 4990
     },
     {
+      "id": "AB11531",
+      "descripcion": "AUTO RADIO CONTROL C/LUZ",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4700
+    },
+    {
       "id": "AB12",
       "descripcion": "LUZ ALAMBRE CALIDA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45225,
+      "vigencia": 45268,
       "precio": 800
+    },
+    {
+      "id": "AB12173",
+      "descripcion": "AUTO TRANSFORMABLE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4500
+    },
+    {
+      "id": "AB12198",
+      "descripcion": "DINOSAURIO GOMA 9PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4200
+    },
+    {
+      "id": "AB12237",
+      "descripcion": "PISTOLA DE AGUA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4900
     },
     {
       "id": "AB20034",
@@ -66907,6 +67067,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45117,
       "precio": 2000
+    },
+    {
+      "id": "AB62",
+      "descripcion": "LUZ LED CALIDA EN BOLSA ESCARCHA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 3500
     },
     {
       "id": "AC010",
@@ -70997,12 +71165,60 @@
       "precio": 450
     },
     {
+      "id": "BA01083",
+      "descripcion": "ANIMALES 12 PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 3900
+    },
+    {
+      "id": "BA01086",
+      "descripcion": "ANIMALES 12PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 1900
+    },
+    {
+      "id": "BA01314",
+      "descripcion": "DINOSAURIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 2900
+    },
+    {
+      "id": "BA01733",
+      "descripcion": "ANIMALES 6PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 990
+    },
+    {
       "id": "BA01772",
       "descripcion": "WALKIE TALKIE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45226,
       "precio": 20250
+    },
+    {
+      "id": "BA01854",
+      "descripcion": "DINISAURIO GOMA X2",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 3500
+    },
+    {
+      "id": "BA01996",
+      "descripcion": "ANIMALITOS 9PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4200
     },
     {
       "id": "BA02110",
@@ -71061,6 +71277,22 @@
       "precio": 1100
     },
     {
+      "id": "BA10792",
+      "descripcion": "SET DINO CAJA X3",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 1990
+    },
+    {
+      "id": "BA10794",
+      "descripcion": "SET DINO CAJA X3",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 1990
+    },
+    {
       "id": "BA11",
       "descripcion": "BONDER LAS VARANO",
       "lista": "LISTA1",
@@ -71085,12 +71317,44 @@
       "precio": 3200
     },
     {
+      "id": "BA18563",
+      "descripcion": "PALETA C/PELOTA EN RED",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 2100
+    },
+    {
+      "id": "BA18606",
+      "descripcion": "ANIMALITOS 3PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 350
+    },
+    {
       "id": "BA19539",
       "descripcion": "JUEGO P/ARMAR PULSERAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45226,
       "precio": 16150
+    },
+    {
+      "id": "BA19813",
+      "descripcion": "AUTO RADIO CONTROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4700
+    },
+    {
+      "id": "BA19921",
+      "descripcion": "AUTO RADIO CONTROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 4700
     },
     {
       "id": "BA20195",
@@ -74623,16 +74887,16 @@
       "descripcion": "CABAÑA C/3 FIGURAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44881,
-      "precio": 1600
+      "vigencia": 45268,
+      "precio": 6500
     },
     {
       "id": "CF02",
       "descripcion": "CABAÑA C/ 5 FIGURAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44881,
-      "precio": 3100
+      "vigencia": 45268,
+      "precio": 7900
     },
     {
       "id": "CF03",
@@ -74663,16 +74927,16 @@
       "descripcion": "CABAÑA C/ 6 FIGURAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44881,
-      "precio": 6600
+      "vigencia": 45268,
+      "precio": 16500
     },
     {
       "id": "CF07",
       "descripcion": "CABAÑA C/ 5 FIGURAS 12CM",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44881,
-      "precio": 5000
+      "vigencia": 45268,
+      "precio": 12500
     },
     {
       "id": "CF08",
@@ -76359,7 +76623,7 @@
       "descripcion": "CANASTO C/TAPA 5L",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45019,
+      "vigencia": 45268,
       "precio": 2800
     },
     {
@@ -78781,8 +79045,8 @@
       "descripcion": "BATIDOR CAFÉ CAJA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45092,
-      "precio": 990
+      "vigencia": 45268,
+      "precio": 2000
     },
     {
       "id": "DI761",
@@ -83145,6 +83409,14 @@
       "precio": 990
     },
     {
+      "id": "EPT842891",
+      "descripcion": "ANIMALITOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 1450
+    },
+    {
       "id": "EPT855327",
       "descripcion": "BEBOTE",
       "lista": "LISTA1",
@@ -83175,6 +83447,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45226,
       "precio": 27350
+    },
+    {
+      "id": "EPT867525",
+      "descripcion": "PISTA DE AUTOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 30900
     },
     {
       "id": "EPT868120",
@@ -83233,6 +83513,14 @@
       "precio": 5490
     },
     {
+      "id": "EPT871340",
+      "descripcion": "SET SOLDADOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 17900
+    },
+    {
       "id": "EPT873615",
       "descripcion": "REGISTRADORA",
       "lista": "LISTA1",
@@ -83247,6 +83535,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45226,
       "precio": 6100
+    },
+    {
+      "id": "EPY870471",
+      "descripcion": "PISTA DE AUTOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45268,
+      "precio": 22900
     },
     {
       "id": "EQY609",
@@ -92250,8 +92546,8 @@
       "descripcion": "SERVILLETAS NAVIDEÑAS X20",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45257,
-      "precio": 1500
+      "vigencia": 45268,
+      "precio": 1390
     },
     {
       "id": "JL2207191",
@@ -92290,15 +92586,15 @@
       "descripcion": "SERVILLETAS NAVIDEÑAS X20",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45257,
-      "precio": 1500
+      "vigencia": 45268,
+      "precio": 1390
     },
     {
       "id": "JL2207202",
       "descripcion": "PACK X20 SERVILLETAS NAVIDEÑAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45264,
+      "vigencia": 45268,
       "precio": 1390
     },
     {
@@ -96298,8 +96594,8 @@
       "descripcion": "MINI LINTERNA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45104,
-      "precio": 350
+      "vigencia": 45269,
+      "precio": 400
     },
     {
       "id": "LNP3183",
@@ -105994,7 +106290,7 @@
       "descripcion": "PESEBRE NAVIDEÑO 5PCS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45247,
+      "vigencia": 45268,
       "precio": 6100
     },
     {
@@ -106002,7 +106298,7 @@
       "descripcion": "PESEBRE 7PCS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45232,
+      "vigencia": 45268,
       "precio": 18850
     },
     {
@@ -107776,8 +108072,8 @@
       "descripcion": "PISAPAPAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45173,
-      "precio": 1290
+      "vigencia": 45268,
+      "precio": 1490
     },
     {
       "id": "SO6962",
@@ -118277,7 +118573,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1600
+      "precio": 850
     },
     {
       "id": "331300000064",
@@ -121600,7 +121896,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1290
+      "precio": 1490
     },
     {
       "id": "4894130970779",
@@ -121827,12 +122123,60 @@
       "precio": 590
     },
     {
+      "id": "4894457010837",
+      "descripcion": "ANIMALES 12 PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 3900
+    },
+    {
+      "id": "4894457010868",
+      "descripcion": "ANIMALES 12PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 1900
+    },
+    {
+      "id": "4894457013142",
+      "descripcion": "DINOSAURIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 2900
+    },
+    {
+      "id": "4894457017331",
+      "descripcion": "ANIMALES 6PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 990
+    },
+    {
       "id": "4894457017720",
       "descripcion": "WALKIE TALKIE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
       "precio": 20250
+    },
+    {
+      "id": "4894457018543",
+      "descripcion": "DINISAURIO GOMA X2",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 3500
+    },
+    {
+      "id": "4894457019960",
+      "descripcion": "ANIMALITOS 9PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4200
     },
     {
       "id": "4894457105809",
@@ -121851,12 +122195,60 @@
       "precio": 1100
     },
     {
+      "id": "4894457107926",
+      "descripcion": "SET DINO CAJA X3",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 1990
+    },
+    {
+      "id": "4894457107940",
+      "descripcion": "SET DINO CAJA X3",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 1990
+    },
+    {
+      "id": "4894457185634",
+      "descripcion": "PALETA C/PELOTA EN RED",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 2100
+    },
+    {
+      "id": "4894457186068",
+      "descripcion": "ANIMALITOS 3PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 350
+    },
+    {
       "id": "4894457195398",
       "descripcion": "JUEGO P/ARMAR PULSERAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
       "precio": 16150
+    },
+    {
+      "id": "4894457198139",
+      "descripcion": "AUTO RADIO CONTROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4700
+    },
+    {
+      "id": "4894457199211",
+      "descripcion": "AUTO RADIO CONTROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4700
     },
     {
       "id": "4894457201952",
@@ -122219,6 +122611,14 @@
       "precio": 1750
     },
     {
+      "id": "4894653014950",
+      "descripcion": "AUTO RADIO CONTROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4700
+    },
+    {
       "id": "4894653016879",
       "descripcion": "SET COMIDA",
       "lista": "LISTA1",
@@ -122233,6 +122633,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 44868,
       "precio": 1990
+    },
+    {
+      "id": "4894653017791",
+      "descripcion": "BURBUJEROS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 1400
+    },
+    {
+      "id": "4894653018613",
+      "descripcion": "AUTO RADIO CONTROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4700
     },
     {
       "id": "4894653114605",
@@ -122267,12 +122683,44 @@
       "precio": 4990
     },
     {
+      "id": "4894653115312",
+      "descripcion": "AUTO RADIO CONTROL C/LUZ",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4700
+    },
+    {
       "id": "4894653118023",
       "descripcion": "BURBUJERO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
       "precio": 350
+    },
+    {
+      "id": "4894653121733",
+      "descripcion": "AUTO TRANSFORMABLE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4500
+    },
+    {
+      "id": "4894653121986",
+      "descripcion": "DINOSAURIO GOMA 9PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4200
+    },
+    {
+      "id": "4894653122372",
+      "descripcion": "PISTOLA DE AGUA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 4900
     },
     {
       "id": "4894653200346",
@@ -124855,6 +125303,14 @@
       "precio": 490
     },
     {
+      "id": "6854214541248",
+      "descripcion": "ANIMALITOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 1450
+    },
+    {
       "id": "6859328978812",
       "descripcion": "DELINEADOR  SIRENA",
       "lista": "LISTA1",
@@ -125532,7 +125988,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3000
+      "precio": 600
     },
     {
       "id": "6920100230128",
@@ -125540,7 +125996,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3000
+      "precio": 2300
     },
     {
       "id": "6920100230159",
@@ -125580,7 +126036,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3000
+      "precio": 600
     },
     {
       "id": "6920100230364",
@@ -125596,7 +126052,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 2300
+      "precio": 1200
     },
     {
       "id": "6920100230883",
@@ -137915,7 +138371,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 990
+      "precio": 2000
     },
     {
       "id": "7791396120108",
@@ -149642,7 +150098,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883236",
@@ -149674,7 +150130,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883489",
@@ -149682,7 +150138,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883502",
@@ -149690,7 +150146,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7993496972421",
@@ -151019,6 +151475,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 44868,
       "precio": 600
+    },
+    {
+      "id": "900427",
+      "descripcion": "LUZ LED CALIDA EN BOLSA ESCARCHA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 3500
     },
     {
       "id": "901936",
@@ -153011,6 +153475,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 44868,
       "precio": 6100
+    },
+    {
+      "id": "EPT870471",
+      "descripcion": "PISTA DE AUTOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 44868,
+      "precio": 22900
     },
     {
       "id": "F105",
