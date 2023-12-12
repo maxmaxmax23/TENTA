@@ -4499,8 +4499,8 @@
       "descripcion": "CAMION CHICO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3350
+      "vigencia": 45271,
+      "precio": 7000
     },
     {
       "id": "20123/O20",
@@ -4603,8 +4603,8 @@
       "descripcion": "CAMION A GRANEL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 11400
+      "vigencia": 45271,
+      "precio": 19950
     },
     {
       "id": "2020080177995",
@@ -4739,8 +4739,8 @@
       "descripcion": "CONSTRUCTOR4",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45157,
-      "precio": 11690
+      "vigencia": 45271,
+      "precio": 20300
     },
     {
       "id": "2030138536308",
@@ -4955,16 +4955,16 @@
       "descripcion": "CONSTRUCTOR 1",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 7250
+      "vigencia": 45271,
+      "precio": 14100
     },
     {
       "id": "205",
       "descripcion": "CONSTRUCTOR 2",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 15790
+      "vigencia": 45271,
+      "precio": 27450
     },
     {
       "id": "2050",
@@ -4995,16 +4995,16 @@
       "descripcion": "EXCAVADORA CHICA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3350
+      "vigencia": 45271,
+      "precio": 7000
     },
     {
       "id": "207",
       "descripcion": "SET DE BOMBEROS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5850
+      "vigencia": 45271,
+      "precio": 11300
     },
     {
       "id": "2079000011116",
@@ -5027,8 +5027,8 @@
       "descripcion": "CAMION",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3650
+      "vigencia": 45271,
+      "precio": 7200
     },
     {
       "id": "2082000540043",
@@ -5059,16 +5059,16 @@
       "descripcion": "CAMION CHICO/VOLQUETE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 7000
+      "vigencia": 45271,
+      "precio": 13600
     },
     {
       "id": "210",
       "descripcion": "TRACTOR CHICO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2490
+      "vigencia": 45271,
+      "precio": 4950
     },
     {
       "id": "210-3",
@@ -5083,8 +5083,8 @@
       "descripcion": "EXCAVADORA GRANDE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 8150
+      "vigencia": 45271,
+      "precio": 16100
     },
     {
       "id": "21110/070",
@@ -5123,24 +5123,24 @@
       "descripcion": "TRACTOR GRANDE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 8950
+      "vigencia": 45271,
+      "precio": 17600
     },
     {
       "id": "213",
       "descripcion": "SUPER TRACTOR RURAL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 14550
+      "vigencia": 45271,
+      "precio": 25200
     },
     {
       "id": "214",
       "descripcion": "SUPER TRUCK SUPER FUEGO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 16390
+      "vigencia": 45271,
+      "precio": 28600
     },
     {
       "id": "2145796544784",
@@ -5155,8 +5155,8 @@
       "descripcion": "MINI TRUCK",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45157,
-      "precio": 4990
+      "vigencia": 45271,
+      "precio": 12100
     },
     {
       "id": "2158796541110",
@@ -5195,16 +5195,16 @@
       "descripcion": "TRACTOR C/ACOPLADO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5890
+      "vigencia": 45271,
+      "precio": 11450
     },
     {
       "id": "218",
       "descripcion": "CONSTRUCTOR 3",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 17000
+      "vigencia": 45271,
+      "precio": 29700
     },
     {
       "id": "2188",
@@ -5227,8 +5227,8 @@
       "descripcion": "TAMBERITO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 4890
+      "vigencia": 45271,
+      "precio": 9450
     },
     {
       "id": "2190",
@@ -5283,16 +5283,16 @@
       "descripcion": "CAMION MEDIANO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5450
+      "vigencia": 45271,
+      "precio": 10750
     },
     {
       "id": "221",
       "descripcion": "CAMION C PALAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 6450
+      "vigencia": 45271,
+      "precio": 12650
     },
     {
       "id": "221974",
@@ -5515,8 +5515,8 @@
       "descripcion": "CAMION C PALA Y BALDE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 9600
+      "vigencia": 45271,
+      "precio": 17250
     },
     {
       "id": "2245300",
@@ -5563,8 +5563,8 @@
       "descripcion": "CAMION MEDIANO C/BOCKS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 8100
+      "vigencia": 45271,
+      "precio": 16600
     },
     {
       "id": "2255000000033",
@@ -5587,16 +5587,16 @@
       "descripcion": "CUATRICICLO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2490
+      "vigencia": 45271,
+      "precio": 4850
     },
     {
       "id": "229",
       "descripcion": "SUPER RALLY CUATRI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 16150
+      "vigencia": 45271,
+      "precio": 28200
     },
     {
       "id": "22901/005",
@@ -5755,8 +5755,8 @@
       "descripcion": "EXCAVADORA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5350
+      "vigencia": 45271,
+      "precio": 10400
     },
     {
       "id": "230623",
@@ -5771,24 +5771,24 @@
       "descripcion": "VOLCADOR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5500
+      "vigencia": 45271,
+      "precio": 10800
     },
     {
       "id": "232",
       "descripcion": "SET VOLCADOR /PALA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 10190
+      "vigencia": 45271,
+      "precio": 17900
     },
     {
       "id": "233",
       "descripcion": "TRANSPORTE CHCONSTRUCTOR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 7490
+      "vigencia": 45271,
+      "precio": 14600
     },
     {
       "id": "2349",
@@ -8131,80 +8131,80 @@
       "descripcion": "MINI CITROEN",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "354",
       "descripcion": "MINI CAMIONETA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "355",
       "descripcion": "MINI FORMULA 1",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "356",
       "descripcion": "JEP MINI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "358",
       "descripcion": "MINI FRONTAL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45147,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "360",
       "descripcion": "FRONTAL Y RETRO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2850
+      "vigencia": 45271,
+      "precio": 5500
     },
     {
       "id": "361",
       "descripcion": "CAMION GRUA C AUTO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3550
+      "vigencia": 45271,
+      "precio": 6950
     },
     {
       "id": "362",
       "descripcion": "FRONTAL /TRAILER RETRO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 4700
+      "vigencia": 45271,
+      "precio": 9150
     },
     {
       "id": "363",
       "descripcion": "MINI EXCAVADORA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "364",
       "descripcion": "BOMBERO MINI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "3648",
@@ -8219,16 +8219,16 @@
       "descripcion": "AMBULANCIA MINI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45154,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "366",
       "descripcion": "SET EMERGENCIAS MINI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2850
+      "vigencia": 45271,
+      "precio": 5500
     },
     {
       "id": "3666663040028",
@@ -8259,8 +8259,8 @@
       "descripcion": "SET BOMBEROS MINI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2850
+      "vigencia": 45271,
+      "precio": 5500
     },
     {
       "id": "367AL",
@@ -8275,16 +8275,16 @@
       "descripcion": "SET POLICIA MINI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2850
+      "vigencia": 45271,
+      "precio": 5500
     },
     {
       "id": "369",
       "descripcion": "POLICIA ESPECIAL MINI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45154,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "372230",
@@ -9363,8 +9363,8 @@
       "descripcion": "MIS HERRAMIENTAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1850
+      "vigencia": 45271,
+      "precio": 3600
     },
     {
       "id": "41024",
@@ -9419,8 +9419,8 @@
       "descripcion": "BANCO DE HERRAMIENTAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 9250
+      "vigencia": 45271,
+      "precio": 17800
     },
     {
       "id": "4135080",
@@ -9995,8 +9995,8 @@
       "descripcion": "GUINCHE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45213,
-      "precio": 3550
+      "vigencia": 45271,
+      "precio": 7000
     },
     {
       "id": "4501",
@@ -10019,8 +10019,8 @@
       "descripcion": "VOLCADOR GUINCHE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 6990
+      "vigencia": 45271,
+      "precio": 13600
     },
     {
       "id": "4511",
@@ -14811,8 +14811,8 @@
       "descripcion": "CHOP GEL 1L",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2290
+      "vigencia": 45271,
+      "precio": 5050
     },
     {
       "id": "5010000310110",
@@ -15211,8 +15211,8 @@
       "descripcion": "SET DE LIMPIEZA C/BALDE DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2950
+      "vigencia": 45271,
+      "precio": 5800
     },
     {
       "id": "5050-4.",
@@ -15275,8 +15275,8 @@
       "descripcion": "CANASTA FRUTA DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2950
+      "vigencia": 45271,
+      "precio": 5700
     },
     {
       "id": "50606",
@@ -15403,8 +15403,8 @@
       "descripcion": "SET DE FRUTAS Y VERDURAS DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1350
+      "vigencia": 45271,
+      "precio": 2600
     },
     {
       "id": "50731",
@@ -15595,8 +15595,8 @@
       "descripcion": "VALIJA X 29 MINI BLOQUES",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2650
+      "vigencia": 45271,
+      "precio": 5100
     },
     {
       "id": "5111142",
@@ -16691,8 +16691,8 @@
       "descripcion": "CARRETILLA EN BOLSA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 8550
+      "vigencia": 45271,
+      "precio": 16400
     },
     {
       "id": "55",
@@ -16707,24 +16707,24 @@
       "descripcion": "BOLSO C/BLOCKS  X42",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 7100
+      "vigencia": 45271,
+      "precio": 14100
     },
     {
       "id": "551",
       "descripcion": "BOLSO C/BLOCKS X100",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 15300
+      "vigencia": 45271,
+      "precio": 27400
     },
     {
       "id": "552",
       "descripcion": "BARCO FLOTADOR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3590
+      "vigencia": 45271,
+      "precio": 6950
     },
     {
       "id": "5520100416235",
@@ -17003,8 +17003,8 @@
       "descripcion": "BALDE BLOCKS GDE X36",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 7250
+      "vigencia": 45271,
+      "precio": 14400
     },
     {
       "id": "5555",
@@ -17019,8 +17019,8 @@
       "descripcion": "BOLSO C/BLOCKS X30",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5500
+      "vigencia": 45271,
+      "precio": 11000
     },
     {
       "id": "5589",
@@ -17643,8 +17643,8 @@
       "descripcion": "CARRETILLA CON ACCESORIOS PASTEL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 11690
+      "vigencia": 45271,
+      "precio": 20300
     },
     {
       "id": "6016",
@@ -17715,8 +17715,8 @@
       "descripcion": "CARRITO C/VERDURAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 4350
+      "vigencia": 45271,
+      "precio": 8400
     },
     {
       "id": "604045",
@@ -17899,16 +17899,16 @@
       "descripcion": "CARRITO MUÑECAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45161,
-      "precio": 3050
+      "vigencia": 45271,
+      "precio": 5900
     },
     {
       "id": "609",
       "descripcion": "CARRITO SUPERMERCADO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45161,
-      "precio": 3100
+      "vigencia": 45271,
+      "precio": 6000
     },
     {
       "id": "60932",
@@ -17931,8 +17931,8 @@
       "descripcion": "COCINA DURAVIT CHICA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 9250
+      "vigencia": 45271,
+      "precio": 16000
     },
     {
       "id": "6100000017054",
@@ -18003,8 +18003,8 @@
       "descripcion": "COCINA GRANDE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 14700
+      "vigencia": 45271,
+      "precio": 25600
     },
     {
       "id": "611360",
@@ -18019,8 +18019,8 @@
       "descripcion": "SET COCINA DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45155,
-      "precio": 1700
+      "vigencia": 45271,
+      "precio": 3400
     },
     {
       "id": "6120000210125",
@@ -18059,16 +18059,16 @@
       "descripcion": "CANASTA JUEGO DE TE Y COCINA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 4050
+      "vigencia": 45271,
+      "precio": 7950
     },
     {
       "id": "614",
       "descripcion": "ANAFE DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3390
+      "vigencia": 45271,
+      "precio": 6700
     },
     {
       "id": "6140000011010",
@@ -18195,8 +18195,8 @@
       "descripcion": "PIC-NIC DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 7750
+      "vigencia": 45271,
+      "precio": 7800
     },
     {
       "id": "61734.",
@@ -18347,8 +18347,8 @@
       "descripcion": "VAGON PRIMERAS FORMAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45196,
-      "precio": 3450
+      "vigencia": 45271,
+      "precio": 6650
     },
     {
       "id": "6255000670799",
@@ -18379,8 +18379,8 @@
       "descripcion": "LOCOMOTORA DIDACTICA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 3650
+      "vigencia": 45271,
+      "precio": 5100
     },
     {
       "id": "6268",
@@ -18395,8 +18395,8 @@
       "descripcion": "TREN DIDACTICO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 8000
+      "vigencia": 45271,
+      "precio": 11250
     },
     {
       "id": "6272101812316",
@@ -18419,8 +18419,8 @@
       "descripcion": "AROS DE COLOR MORDILLO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 800
+      "vigencia": 45271,
+      "precio": 1700
     },
     {
       "id": "6280",
@@ -18603,8 +18603,8 @@
       "descripcion": "SET DEL CAMPO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1250
+      "vigencia": 45271,
+      "precio": 2500
     },
     {
       "id": "630010126",
@@ -19082,8 +19082,8 @@
       "descripcion": "BOMBERO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3550
+      "vigencia": 45271,
+      "precio": 7000
     },
     {
       "id": "6500038866417",
@@ -19098,24 +19098,24 @@
       "descripcion": "CAMION CEMENTERO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 4250
+      "vigencia": 45271,
+      "precio": 8250
     },
     {
       "id": "652",
       "descripcion": "TRACTOR C/ARADO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 4150
+      "vigencia": 45271,
+      "precio": 8000
     },
     {
       "id": "653",
       "descripcion": "ANILLOS APILABLES DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2250
+      "vigencia": 45271,
+      "precio": 4300
     },
     {
       "id": "6530000804239",
@@ -19138,8 +19138,8 @@
       "descripcion": "CAMION CH BLOCKS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5800
+      "vigencia": 45271,
+      "precio": 11650
     },
     {
       "id": "6540000008933",
@@ -19170,8 +19170,8 @@
       "descripcion": "WAGHON GIGANTE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 15250
+      "vigencia": 45271,
+      "precio": 26850
     },
     {
       "id": "6550002348333",
@@ -19186,8 +19186,8 @@
       "descripcion": "BALDE PRIMERAS FORMAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 3950
+      "vigencia": 45271,
+      "precio": 5500
     },
     {
       "id": "656750775776",
@@ -19202,16 +19202,16 @@
       "descripcion": "MAXI MOLDES DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 6850
+      "vigencia": 45271,
+      "precio": 8150
     },
     {
       "id": "658",
       "descripcion": "BALDE TORRES MINI DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 2500
+      "vigencia": 45271,
+      "precio": 2550
     },
     {
       "id": "6584612512617",
@@ -19370,16 +19370,16 @@
       "descripcion": "PRIMEROS NUMEROS DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2850
+      "vigencia": 45271,
+      "precio": 5500
     },
     {
       "id": "660",
       "descripcion": "BALDE BLOCKS X60",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5100
+      "vigencia": 45271,
+      "precio": 10400
     },
     {
       "id": "6601225667555",
@@ -19394,8 +19394,8 @@
       "descripcion": "BALDE BLOCKS CHICO 120 PIESAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 9350
+      "vigencia": 45271,
+      "precio": 17400
     },
     {
       "id": "6610000802111",
@@ -19410,16 +19410,16 @@
       "descripcion": "BALDE BLOCKS CHICOS X240",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 16950
+      "vigencia": 45271,
+      "precio": 31400
     },
     {
       "id": "663",
       "descripcion": "BLOQUES X 24 DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1550
+      "vigencia": 45271,
+      "precio": 3100
     },
     {
       "id": "66338",
@@ -19434,16 +19434,16 @@
       "descripcion": "BLOCKS X 36 DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1990
+      "vigencia": 45271,
+      "precio": 3950
     },
     {
       "id": "665",
       "descripcion": "MINI BLOCKS X29",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2550
+      "vigencia": 45271,
+      "precio": 5000
     },
     {
       "id": "6650000008816",
@@ -19482,8 +19482,8 @@
       "descripcion": "CUBO PRIMERAS FORMAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 6200
+      "vigencia": 45271,
+      "precio": 6350
     },
     {
       "id": "6660000009010",
@@ -19554,8 +19554,8 @@
       "descripcion": "BALDECITOS X 3 DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2100
+      "vigencia": 45271,
+      "precio": 4100
     },
     {
       "id": "6680000064048",
@@ -19586,8 +19586,8 @@
       "descripcion": "ESFERA CON CASCABEL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 2000
+      "vigencia": 45271,
+      "precio": 2800
     },
     {
       "id": "6698923530007",
@@ -19602,24 +19602,24 @@
       "descripcion": "LLAVE MORDILLO DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 790
+      "vigencia": 45271,
+      "precio": 1500
     },
     {
       "id": "671",
       "descripcion": "BOLA C/MORDILLO DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 3550
+      "vigencia": 45271,
+      "precio": 3600
     },
     {
       "id": "672",
       "descripcion": "SET DIDACTICO 2 EN 1",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 11650
+      "vigencia": 45271,
+      "precio": 12100
     },
     {
       "id": "6721A",
@@ -19650,16 +19650,16 @@
       "descripcion": "SET DIDACTICO 3 EN 1",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3950
+      "vigencia": 45271,
+      "precio": 7600
     },
     {
       "id": "674",
       "descripcion": "MINI CONSTRUCTOR 1",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 12250
+      "vigencia": 45271,
+      "precio": 21500
     },
     {
       "id": "6740000200904",
@@ -19674,16 +19674,16 @@
       "descripcion": "MINI CONSTRUCTOR 2",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 21000
+      "vigencia": 45271,
+      "precio": 36900
     },
     {
       "id": "676",
       "descripcion": "GIRABOLA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2750
+      "vigencia": 45271,
+      "precio": 5300
     },
     {
       "id": "6772",
@@ -19698,8 +19698,8 @@
       "descripcion": "ANILLO Y SONAJERO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 4750
+      "vigencia": 45271,
+      "precio": 6600
     },
     {
       "id": "6789000070193",
@@ -19730,8 +19730,8 @@
       "descripcion": "MINI CAMION VOLCADOR COLOR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "6800200410159",
@@ -19794,8 +19794,8 @@
       "descripcion": "RETRO MINI INFANTIL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "68100",
@@ -19826,8 +19826,8 @@
       "descripcion": "FRONTAL /RETRO INFANTL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2800
+      "vigencia": 45271,
+      "precio": 5500
     },
     {
       "id": "6820002302568",
@@ -19930,16 +19930,16 @@
       "descripcion": "TRAILER RETO INFANTIL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3550
+      "vigencia": 45271,
+      "precio": 6950
     },
     {
       "id": "684",
       "descripcion": "FRONTAL,TRAILER Y RETRO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 4700
+      "vigencia": 45271,
+      "precio": 9150
     },
     {
       "id": "6845162323444",
@@ -20018,8 +20018,8 @@
       "descripcion": "MINI PALA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "6855422563848",
@@ -20042,16 +20042,16 @@
       "descripcion": "CAMIONETA MINI INFANTIL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "687",
       "descripcion": "SUV MINI INFANTIL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45147,
-      "precio": 1150
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "6874145100062",
@@ -30593,8 +30593,8 @@
       "descripcion": "ESTACION 2 RAMPAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45157,
-      "precio": 10990
+      "vigencia": 45271,
+      "precio": 23700
     },
     {
       "id": "6990065476671",
@@ -30793,8 +30793,8 @@
       "descripcion": "ESTACION 4 RAMPAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45157,
-      "precio": 14990
+      "vigencia": 45271,
+      "precio": 32750
     },
     {
       "id": "7001",
@@ -31017,15 +31017,15 @@
       "descripcion": "MASA X1 GRANDE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 900
+      "vigencia": 45271,
+      "precio": 1300
     },
     {
       "id": "705",
       "descripcion": "DURA MASA X2 DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
+      "vigencia": 45271,
       "precio": 2650
     },
     {
@@ -31049,7 +31049,7 @@
       "descripcion": "MASAS X4 GRANDE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
+      "vigencia": 45271,
       "precio": 4750
     },
     {
@@ -31161,8 +31161,8 @@
       "descripcion": "PACK MASAS X10",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3050
+      "vigencia": 45271,
+      "precio": 5850
     },
     {
       "id": "7092353527610",
@@ -31209,8 +31209,8 @@
       "descripcion": "PALA DE TORTA RECTANGULAR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 650
+      "vigencia": 45271,
+      "precio": 2300
     },
     {
       "id": "710011",
@@ -31585,8 +31585,8 @@
       "descripcion": "DURA MASA BURGER KIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 3190
+      "vigencia": 45271,
+      "precio": 6200
     },
     {
       "id": "7150000883271",
@@ -31625,8 +31625,8 @@
       "descripcion": "MASAS MONSTRUOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 7950
+      "vigencia": 45271,
+      "precio": 8700
     },
     {
       "id": "717017",
@@ -31641,8 +31641,8 @@
       "descripcion": "MASAS EN POTE DURA MASA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 4990
+      "vigencia": 45271,
+      "precio": 10150
     },
     {
       "id": "7190/453",
@@ -31777,8 +31777,8 @@
       "descripcion": "MASAS EN VALIJA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45260,
-      "precio": 8150
+      "vigencia": 45271,
+      "precio": 9000
     },
     {
       "id": "720012",
@@ -31817,8 +31817,8 @@
       "descripcion": "MASAS ZOO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2950
+      "vigencia": 45271,
+      "precio": 5750
     },
     {
       "id": "7210175",
@@ -31985,8 +31985,8 @@
       "descripcion": "DURA MASA AMIGUITOS EN LA GRANJA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2950
+      "vigencia": 45271,
+      "precio": 5750
     },
     {
       "id": "722252",
@@ -32081,8 +32081,8 @@
       "descripcion": "DURA MASA PIZZA PARTY DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5000
+      "vigencia": 45271,
+      "precio": 9750
     },
     {
       "id": "725011",
@@ -32121,8 +32121,8 @@
       "descripcion": "DURA MASA FELIZ CUMPLEAÑOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 5490
+      "vigencia": 45271,
+      "precio": 10600
     },
     {
       "id": "726021",
@@ -32209,7 +32209,7 @@
       "descripcion": "PANZOTAS KIDS  DURAMASA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
+      "vigencia": 45271,
       "precio": 4600
     },
     {
@@ -32225,8 +32225,8 @@
       "descripcion": "PANZOTAS DURAMASA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2350
+      "vigencia": 45271,
+      "precio": 4600
     },
     {
       "id": "728220",
@@ -32249,8 +32249,8 @@
       "descripcion": "KITCHEN MASA DE COCINA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45143,
-      "precio": 2950
+      "vigencia": 45271,
+      "precio": 5650
     },
     {
       "id": "7296162458961",
@@ -32281,8 +32281,8 @@
       "descripcion": "JUNIOR CHEF DURAVIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45230,
-      "precio": 13300
+      "vigencia": 45271,
+      "precio": 15500
     },
     {
       "id": "7310006403389",
@@ -40329,8 +40329,8 @@
       "descripcion": "BOWLING",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45153,
-      "precio": 3700
+      "vigencia": 45271,
+      "precio": 7200
     },
     {
       "id": "7792435004106",
@@ -105418,16 +105418,16 @@
       "descripcion": "PINO NAV 0,45CM DEC ROJO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45253,
-      "precio": 6190
+      "vigencia": 45271,
+      "precio": 3800
     },
     {
       "id": "RO91793",
       "descripcion": "PINO NAV 0,60CM DEC ROJO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45253,
-      "precio": 8450
+      "vigencia": 45271,
+      "precio": 5200
     },
     {
       "id": "ROL500",
@@ -123724,7 +123724,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3550
+      "precio": 6950
     },
     {
       "id": "6,93E+12",
@@ -123748,7 +123748,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3550
+      "precio": 6950
     },
     {
       "id": "6,95215E+12",
@@ -134684,7 +134684,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 2100
+      "precio": 4100
     },
     {
       "id": "7790000131547",
@@ -138867,7 +138867,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1250
+      "precio": 2500
     },
     {
       "id": "7792281007016",
@@ -138915,7 +138915,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 650
+      "precio": 2300
     },
     {
       "id": "7792281007139",
@@ -139451,7 +139451,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 11690
+      "precio": 20300
     },
     {
       "id": "7792435002096",
@@ -139459,7 +139459,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 7000
+      "precio": 13600
     },
     {
       "id": "7792435002140",
@@ -139467,7 +139467,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 16390
+      "precio": 28600
     },
     {
       "id": "7792435002157",
@@ -139475,7 +139475,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 4990
+      "precio": 12100
     },
     {
       "id": "7792435002258",
@@ -139483,7 +139483,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 8100
+      "precio": 16600
     },
     {
       "id": "7792435002294",
@@ -139491,7 +139491,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 16150
+      "precio": 28200
     },
     {
       "id": "7792435002317",
@@ -139499,7 +139499,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 5500
+      "precio": 10800
     },
     {
       "id": "7792435002331",
@@ -139507,7 +139507,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 7490
+      "precio": 14600
     },
     {
       "id": "7792435005547",
@@ -139515,7 +139515,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 7250
+      "precio": 14400
     },
     {
       "id": "7792435006018",
@@ -139523,7 +139523,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 11690
+      "precio": 20300
     },
     {
       "id": "7792435006261",
@@ -139531,7 +139531,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3650
+      "precio": 5100
     },
     {
       "id": "7792435006278",
@@ -139539,7 +139539,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 8000
+      "precio": 11250
     },
     {
       "id": "7792435006285",
@@ -139547,7 +139547,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 800
+      "precio": 1700
     },
     {
       "id": "7792435006308",
@@ -139555,7 +139555,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1250
+      "precio": 2500
     },
     {
       "id": "7792435006506",
@@ -139563,7 +139563,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3550
+      "precio": 7000
     },
     {
       "id": "7792435006605",
@@ -139571,7 +139571,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 5100
+      "precio": 10400
     },
     {
       "id": "7792435006698",
@@ -139579,7 +139579,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 2000
+      "precio": 2800
     },
     {
       "id": "7792435006735",
@@ -139587,7 +139587,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3950
+      "precio": 7600
     },
     {
       "id": "7792435006766",
@@ -139595,7 +139595,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 2750
+      "precio": 5300
     },
     {
       "id": "7792435006834",
@@ -139603,7 +139603,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3550
+      "precio": 6950
     },
     {
       "id": "7792435006995",
@@ -139611,7 +139611,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 10990
+      "precio": 23700
     },
     {
       "id": "7792435007008",
@@ -139619,7 +139619,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 14990
+      "precio": 32750
     },
     {
       "id": "7792435007091",
@@ -139627,7 +139627,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 3050
+      "precio": 5850
     },
     {
       "id": "7792435007268",
@@ -139635,7 +139635,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 5490
+      "precio": 10600
     },
     {
       "id": "7792435007299",
@@ -139643,7 +139643,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 2950
+      "precio": 5650
     },
     {
       "id": "7793291001131",
@@ -153722,7 +153722,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 900
+      "precio": 1300
     },
     {
       "id": "MI023",
