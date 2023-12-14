@@ -316,8 +316,8 @@
       "descripcion": "VELAS DE NOCHE EN FRASCO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45164,
-      "precio": 100
+      "vigencia": 45273,
+      "precio": 150
     },
     {
       "id": "00648260499860",
@@ -2437,6 +2437,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 44782,
       "precio": 990
+    },
+    {
+      "id": "105.4",
+      "descripcion": "PORTARRETRATO 10X15",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45273,
+      "precio": 2150
     },
     {
       "id": "105.5",
@@ -43889,8 +43897,8 @@
       "descripcion": "CAMION ARENERO LUNI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 44995,
-      "precio": 3000
+      "vigencia": 45274,
+      "precio": 15000
     },
     {
       "id": "7797076011162",
@@ -49306,7 +49314,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45273,
-      "precio": 1750
+      "precio": 2100
     },
     {
       "id": "7798317827245",
@@ -54937,8 +54945,8 @@
       "descripcion": "ALICATE GRANDE AA211",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45206,
-      "precio": 550
+      "vigencia": 45273,
+      "precio": 650
     },
     {
       "id": "7821544108181",
@@ -101762,8 +101770,8 @@
       "descripcion": "PERFUMERO GRANDE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
-      "vigencia": 45264,
-      "precio": 2490
+      "vigencia": 45273,
+      "precio": 2950
     },
     {
       "id": "OL1019",
@@ -115889,7 +115897,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45273,
-      "precio": 1150
+      "precio": 1400
     },
     {
       "id": "YH202344",
@@ -122176,7 +122184,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 4990
+      "precio": 3300
     },
     {
       "id": "4894130971264",
@@ -126212,7 +126220,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 2300
+      "precio": 3000
     },
     {
       "id": "6920100230159",
@@ -129324,7 +129332,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1150
+      "precio": 1400
     },
     {
       "id": "6947790508290",
@@ -150346,7 +150354,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883236",
@@ -150354,7 +150362,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133883298",
@@ -150362,7 +150370,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883328",
@@ -150370,7 +150378,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883359",
@@ -150378,7 +150386,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883489",
@@ -150394,7 +150402,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 44868,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7993496972421",
