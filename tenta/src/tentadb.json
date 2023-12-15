@@ -1,5 +1,1269 @@
 [
     {
+      "id": "106721",
+      "descripcion": "SAPO TOTO SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4650
+    },
+    {
+      "id": "124067",
+      "descripcion": "MONOPATIN PLASTICO FIORELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 31790
+    },
+    {
+      "id": "14090",
+      "descripcion": "SELLO STAMPING",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1900
+    },
+    {
+      "id": "26957",
+      "descripcion": "CARRITO PASEO MUÑECA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6350
+    },
+    {
+      "id": "2763",
+      "descripcion": "POTE CLICK 2,85L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5400
+    },
+    {
+      "id": "2832",
+      "descripcion": "POTE T/ROSCA 3,2L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5700
+    },
+    {
+      "id": "2833",
+      "descripcion": "POTE T/ROSCA 1,4L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4800
+    },
+    {
+      "id": "2835",
+      "descripcion": "POTE T/ROSCA 2L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5600
+    },
+    {
+      "id": "2836",
+      "descripcion": "POTE T/ROSCA 7,6L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9500
+    },
+    {
+      "id": "2837",
+      "descripcion": "POTE T/ROSCA 2,1L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 7400
+    },
+    {
+      "id": "32901",
+      "descripcion": "ARO BASQUET METAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 16400
+    },
+    {
+      "id": "33424",
+      "descripcion": "GUITARRA MADERA N5",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 12650
+    },
+    {
+      "id": "34482",
+      "descripcion": "LOTERIA EN CAJA SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5600
+    },
+    {
+      "id": "366",
+      "descripcion": "SET EMERGENCIAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5490
+    },
+    {
+      "id": "367",
+      "descripcion": "SET DE BOMBEROS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5490
+    },
+    {
+      "id": "36758",
+      "descripcion": "JUEGO DE LA OCA SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2950
+    },
+    {
+      "id": "36759",
+      "descripcion": "DAMAS SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2950
+    },
+    {
+      "id": "36761",
+      "descripcion": "LUDO SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3200
+    },
+    {
+      "id": "368",
+      "descripcion": "SET POLICIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5490
+    },
+    {
+      "id": "36934",
+      "descripcion": "SENKU",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2750
+    },
+    {
+      "id": "411",
+      "descripcion": "SET  DE HERRAMIENTAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4950
+    },
+    {
+      "id": "413",
+      "descripcion": "CASCO Y HERRAMIENTAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4100
+    },
+    {
+      "id": "4251202100173",
+      "descripcion": "DOTTING P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1600
+    },
+    {
+      "id": "43468",
+      "descripcion": "TRICICLO SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 29590
+    },
+    {
+      "id": "4648",
+      "descripcion": "POTE CLICK ROSCA 2,6L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4700
+    },
+    {
+      "id": "47273",
+      "descripcion": "CANASTO RED N3 COLOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1550
+    },
+    {
+      "id": "4758",
+      "descripcion": "JARRA C/TAPA 1,25",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1750
+    },
+    {
+      "id": "5001",
+      "descripcion": "TENEDOR DYNAMIC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
+      "id": "5002",
+      "descripcion": "CUCHILLO DYNAMIC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
+      "id": "5003",
+      "descripcion": "CUCHARA SOPERA DYNAMIC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
+      "id": "50035",
+      "descripcion": "GENERALA DOBLE SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1650
+    },
+    {
+      "id": "5004",
+      "descripcion": "CUCHARA DE TE DYNAMIC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1800
+    },
+    {
+      "id": "502",
+      "descripcion": "SET LIMPIEZA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4250
+    },
+    {
+      "id": "505",
+      "descripcion": "SET LIMPIEZA C/BALDE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5790
+    },
+    {
+      "id": "521",
+      "descripcion": "BALDE CHICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1100
+    },
+    {
+      "id": "523",
+      "descripcion": "BALDE CHICO C/ACCESORIOS PLAYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2750
+    },
+    {
+      "id": "524",
+      "descripcion": "BARCO C/BALDE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 7790
+    },
+    {
+      "id": "526",
+      "descripcion": "BALDE MEDIANO C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3250
+    },
+    {
+      "id": "527",
+      "descripcion": "BOLSO BALDE MEDIANO C/ACC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8800
+    },
+    {
+      "id": "528",
+      "descripcion": "BOLSO BALDE MEDIANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 10100
+    },
+    {
+      "id": "529",
+      "descripcion": "BALDE CH C/ACC PLAYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4900
+    },
+    {
+      "id": "530",
+      "descripcion": "BALDE MEDIANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1790
+    },
+    {
+      "id": "531",
+      "descripcion": "BOLSO BALDE MEDIANO C/ACC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5900
+    },
+    {
+      "id": "532",
+      "descripcion": "CANASTA PLAYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5250
+    },
+    {
+      "id": "533",
+      "descripcion": "BALDE MEDIANO C/ACC PLAYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4500
+    },
+    {
+      "id": "537",
+      "descripcion": "BALDE CH C/MOLINO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6390
+    },
+    {
+      "id": "543",
+      "descripcion": "REGADERA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3650
+    },
+    {
+      "id": "544",
+      "descripcion": "BALDE MEDIANO C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5150
+    },
+    {
+      "id": "552",
+      "descripcion": "BARCO FLOTADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6950
+    },
+    {
+      "id": "560",
+      "descripcion": "BALDE MEDIANO C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6350
+    },
+    {
+      "id": "56002",
+      "descripcion": "EMBROMATE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5950
+    },
+    {
+      "id": "56014",
+      "descripcion": "JUEGO MATE FIORELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4290
+    },
+    {
+      "id": "561",
+      "descripcion": "BALDE GRANDE C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3400
+    },
+    {
+      "id": "562",
+      "descripcion": "BALDE CASTILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2200
+    },
+    {
+      "id": "564",
+      "descripcion": "BALDE CASTILLO C/PALA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3650
+    },
+    {
+      "id": "565",
+      "descripcion": "BALDE CASTILLO C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5550
+    },
+    {
+      "id": "566",
+      "descripcion": "BOLSO BALDE CASTILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8190
+    },
+    {
+      "id": "604",
+      "descripcion": "CARRITO FRUTAS Y VERDURAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8450
+    },
+    {
+      "id": "60927",
+      "descripcion": "LOTERIA EN BOLSA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6250
+    },
+    {
+      "id": "618",
+      "descripcion": "SET DE MATE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3800
+    },
+    {
+      "id": "619",
+      "descripcion": "MATE EN BANDEJA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5100
+    },
+    {
+      "id": "65867",
+      "descripcion": "TIC TAC OCA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5390
+    },
+    {
+      "id": "677",
+      "descripcion": "SET DE AGUA 3 EN 1",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 14200
+    },
+    {
+      "id": "68484",
+      "descripcion": "CABALLITO C/PALO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4050
+    },
+    {
+      "id": "6935353842509",
+      "descripcion": "GEMAS P/CARA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
+      "id": "6971733422305",
+      "descripcion": "GEMAS P/CARA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
+      "id": "6971968591012",
+      "descripcion": "CORRECTOR PINK KEY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 500
+    },
+    {
+      "id": "6973726259608",
+      "descripcion": "GEMAS P/CARA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
+      "id": "6974482583891",
+      "descripcion": "BASE PRIMER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1250
+    },
+    {
+      "id": "6975222510788",
+      "descripcion": "CORRECTOR BARRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 500
+    },
+    {
+      "id": "6988865854553",
+      "descripcion": "GEMAS P/CARA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
+      "id": "704",
+      "descripcion": "MASA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1290
+    },
+    {
+      "id": "708",
+      "descripcion": "MASAS C/CORTANTES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8750
+    },
+    {
+      "id": "709",
+      "descripcion": "MASA PACK X10",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5850
+    },
+    {
+      "id": "71210401",
+      "descripcion": "RECIPIENTE RECT 6,5L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6500
+    },
+    {
+      "id": "712231",
+      "descripcion": "RECIPIENTE P/RECIDUOS 7L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6700
+    },
+    {
+      "id": "712232",
+      "descripcion": "RECIPIENTE RED 10L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8400
+    },
+    {
+      "id": "713",
+      "descripcion": "MASAS C/EXTRUSOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6450
+    },
+    {
+      "id": "715",
+      "descripcion": "MASAS BURGUER KIT",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6200
+    },
+    {
+      "id": "716",
+      "descripcion": "MASAS MI COCINA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9850
+    },
+    {
+      "id": "717",
+      "descripcion": "MASAS MOUNSTROS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8700
+    },
+    {
+      "id": "718",
+      "descripcion": "MASAS  EN POTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 10150
+    },
+    {
+      "id": "719",
+      "descripcion": "MASAS C/SOLAPA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3190
+    },
+    {
+      "id": "720",
+      "descripcion": "VALIJA MASAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 10100
+    },
+    {
+      "id": "721",
+      "descripcion": "MASAS ZOO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5750
+    },
+    {
+      "id": "722",
+      "descripcion": "MASAS GRANJA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5750
+    },
+    {
+      "id": "725",
+      "descripcion": "MASAS PIZZA PARTY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9750
+    },
+    {
+      "id": "726",
+      "descripcion": "MASAS FELIZ CUMPLE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 10650
+    },
+    {
+      "id": "729",
+      "descripcion": "MASAS KITCHEN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5650
+    },
+    {
+      "id": "730",
+      "descripcion": "MASAS JUNIOR CHEF",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 15490
+    },
+    {
+      "id": "732",
+      "descripcion": "MASAS DINOSAURIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5250
+    },
+    {
+      "id": "76504",
+      "descripcion": "ARO ULA ULA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
+      "id": "76705",
+      "descripcion": "ZAPATILLA ANDADOR FIORELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9350
+    },
+    {
+      "id": "7798040802175",
+      "descripcion": "CORRECTOR TEJAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 950
+    },
+    {
+      "id": "7798184527477",
+      "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1150
+    },
+    {
+      "id": "7798187885420",
+      "descripcion": "MAQUILLAJE BARRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1550
+    },
+    {
+      "id": "7798317822608",
+      "descripcion": "APLICADORLATEX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1400
+    },
+    {
+      "id": "7798317823339",
+      "descripcion": "CONTORNO E ILU",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1350
+    },
+    {
+      "id": "7798373791399",
+      "descripcion": "DELINEADOR LIQUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1700
+    },
+    {
+      "id": "7896042037202",
+      "descripcion": "POTE REDONDO PLASTICO 660ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2300
+    },
+    {
+      "id": "7896042041650",
+      "descripcion": "PORTA QUESO RALLADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1500
+    },
+    {
+      "id": "ACFS310A",
+      "descripcion": "COORECTOR BARRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1050
+    },
+    {
+      "id": "AN096201",
+      "descripcion": "CORRECTOR BELENDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1400
+    },
+    {
+      "id": "AN414338",
+      "descripcion": "CORRECTOR KARITE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1500
+    },
+    {
+      "id": "AN520076",
+      "descripcion": "CORRECTOR BARRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1650
+    },
+    {
+      "id": "BOX1000",
+      "descripcion": "BOLSA DE BOXEO CON CINTURON",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 12700
+    },
+    {
+      "id": "CS21082338",
+      "descripcion": "SET ESPONJAS X4",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3600
+    },
+    {
+      "id": "CS2427",
+      "descripcion": "POLVO COMPACTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1900
+    },
+    {
+      "id": "CS3399",
+      "descripcion": "POLVO COMPACTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1900
+    },
+    {
+      "id": "DI4567",
+      "descripcion": "SET YEB/AZUC ESTAMPADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3390
+    },
+    {
+      "id": "DI4590",
+      "descripcion": "TARRO ESTAMPADO 1K",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1850
+    },
+    {
+      "id": "DI4712",
+      "descripcion": "JARRA PLASTICO DECORADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1950
+    },
+    {
+      "id": "DI47161",
+      "descripcion": "CANASTO RCT N1",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1450
+    },
+    {
+      "id": "DI47162",
+      "descripcion": "CANASTO RECT N2",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1500
+    },
+    {
+      "id": "DI47163",
+      "descripcion": "CANASTO RECT N3",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1750
+    },
+    {
+      "id": "DI47271",
+      "descripcion": "CANASTO REDONDO N1",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
+      "id": "DI47272",
+      "descripcion": "CANASTO REDONDO N2",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1300
+    },
+    {
+      "id": "DI47273",
+      "descripcion": "CANASTO REDONDO N3",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1550
+    },
+    {
+      "id": "DI4728",
+      "descripcion": "JARRA PLASTICA C/TAPA 4L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2300
+    },
+    {
+      "id": "DI4729",
+      "descripcion": "JARRA PLASTICA C/TAPA 2L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1800
+    },
+    {
+      "id": "DI47881",
+      "descripcion": "HERMETICO CUADRADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 300
+    },
+    {
+      "id": "DI47882",
+      "descripcion": "HERMETICO RECT N2",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 550
+    },
+    {
+      "id": "DI47883",
+      "descripcion": "HERMETICO RECT N3",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 650
+    },
+    {
+      "id": "DI47884",
+      "descripcion": "HERMETICO RECT N4",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 800
+    },
+    {
+      "id": "DI47886",
+      "descripcion": "SET HERMETICOS X3",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2000
+    },
+    {
+      "id": "FA5545",
+      "descripcion": "CORRECTOR HUGME",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1500
+    },
+    {
+      "id": "FER1922",
+      "descripcion": "LIMA DECORADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 400
+    },
+    {
+      "id": "FER5020",
+      "descripcion": "POLVO COMPACTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2100
+    },
+    {
+      "id": "KMG712112",
+      "descripcion": "RECIPIENTE RESIDUOS 12L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8900
+    },
+    {
+      "id": "M2232",
+      "descripcion": "MASCARA P/PESTAÑAS FIT ME",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1600
+    },
+    {
+      "id": "PLUS1234",
+      "descripcion": "PELOTA FUTBOL DECORADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5800
+    },
+    {
+      "id": "PLUS1235",
+      "descripcion": "PELOTA VOLEY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 7000
+    },
+    {
+      "id": "PLUS1236",
+      "descripcion": "PELOTA PULPA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3700
+    },
+    {
+      "id": "PLUS1237",
+      "descripcion": "PELOTA MESSI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2500
+    },
+    {
+      "id": "SI2189",
+      "descripcion": "POTE CLIC 1250ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2400
+    },
+    {
+      "id": "SI2190",
+      "descripcion": "POTE CLIC 1,43L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3600
+    },
+    {
+      "id": "SI2614",
+      "descripcion": "POTE T/ROSCA 1L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2500
+    },
+    {
+      "id": "SI5989",
+      "descripcion": "POTE TRIO 1,5L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3700
+    },
+    {
+      "id": "TEJ219",
+      "descripcion": "DELINEADOR LIQUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
+      "id": "TEJ246",
+      "descripcion": "POLVO COMPACTO C/CISNE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2050
+    },
+    {
+      "id": "TEJ254",
+      "descripcion": "MAQUILLAJE POLVO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
+      "id": "TEJ339",
+      "descripcion": "MAQUILLAJE EN BARRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1550
+    },
+    {
+      "id": "TEJ4120",
+      "descripcion": "POLVO COMPACTO C/ESPEJO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3300
+    },
+    {
+      "id": "TEJ4137",
+      "descripcion": "POLVO COMPACTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2600
+    },
+    {
+      "id": "TEJ5048",
+      "descripcion": "CORRECTOR LIQUIDO LOVE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2350
+    },
+    {
+      "id": "TEJ5080",
+      "descripcion": "LIQUID CONCEALER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2500
+    },
+    {
+      "id": "TEJ808",
+      "descripcion": "ARQUEADOR DE PESTAÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1100
+    },
+    {
+      "id": "TYL0009",
+      "descripcion": "LAPIZ LABIAL TRATAMIENTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1600
+    },
+    {
+      "id": "TYL0076",
+      "descripcion": "TOALLITAS DESMAQUILLANTES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1150
+    },
+    {
+      "id": "TYL1708",
+      "descripcion": "TOALLITAS HUMEDAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1150
+    },
+    {
+      "id": "TYL1710",
+      "descripcion": "TOALLITAS HUMEDAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1150
+    },
+    {
+      "id": "XRL66",
+      "descripcion": "PAPEL FOIL X6",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1900
+    },
+    {
+      "id": "YC9003",
+      "descripcion": "ARQUEADOR C/GLITER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "YH202312",
+      "descripcion": "CORRECTOR BARRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1050
+    },
+    {
+      "id": "ZEC1250",
+      "descripcion": "TATUAJES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 800
+    },
+    {
+      "id": "ZEC1251",
+      "descripcion": "GEMAS P/CARA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
+      "id": "ZEC1252",
+      "descripcion": "STRASS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 800
+    },
+    {
+      "id": "ZEC1261",
+      "descripcion": "PELOTA FUTBOL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 7900
+    },
+    {
       "id": " DEC1532",
       "descripcion": "PILOTO ADULTO",
       "lista": "LISTA1",
@@ -1838,7 +3102,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 4200
+      "precio": 4650
     },
     {
       "id": "108",
@@ -4209,7 +5473,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 850
+      "precio": 700
     },
     {
       "id": "3252695256959",
@@ -4225,7 +5489,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 850
+      "precio": 950
     },
     {
       "id": "3252695258014",
@@ -4233,7 +5497,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 850
+      "precio": 1390
     },
     {
       "id": "3252695259219",
@@ -4241,7 +5505,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 850
+      "precio": 1600
     },
     {
       "id": "3252695259332",
@@ -7562,14 +8826,6 @@
       "precio": 1200
     },
     {
-      "id": "4251202100173",
-      "descripcion": "DOTTING P/UÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1300
-    },
-    {
       "id": "426",
       "descripcion": "MAFFINS X 12",
       "lista": "LISTA1",
@@ -8175,14 +9431,6 @@
       "precio": 650
     },
     {
-      "id": "47273",
-      "descripcion": "CANASTO RED N3 COLOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 390
-    },
-    {
       "id": "472730",
       "descripcion": "CANASTO REDONDO N3",
       "lista": "LISTA1",
@@ -8333,14 +9581,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 150
-    },
-    {
-      "id": "4758",
-      "descripcion": "JARRA C/TAPA 1,25",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1450
     },
     {
       "id": "4761",
@@ -12316,7 +13556,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 4200
+      "precio": 4650
     },
     {
       "id": "5,01241E+12",
@@ -12324,7 +13564,15 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 28900
+      "precio": 31790
+    },
+    {
+      "id": "5,01E+12",
+      "descripcion": "MONOPATIN PLASTICO FIORELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 31790
     },
     {
       "id": "5,25398E+12",
@@ -12332,7 +13580,15 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2500
+      "precio": 2750
+    },
+    {
+      "id": "5,25E+12",
+      "descripcion": "SENKU",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2750
     },
     {
       "id": "5,32901E+12",
@@ -12340,7 +13596,15 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 14900
+      "precio": 16400
+    },
+    {
+      "id": "5,33E+12",
+      "descripcion": "ARO BASQUET METAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 16400
     },
     {
       "id": "5,34482E+12",
@@ -12348,7 +13612,15 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 5100
+      "precio": 5600
+    },
+    {
+      "id": "5,34E+12",
+      "descripcion": "LOTERIA EN CAJA SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5600
     },
     {
       "id": "5,36758E+12",
@@ -12356,7 +13628,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2700
+      "precio": 2950
     },
     {
       "id": "5,36759E+12",
@@ -12364,7 +13636,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2700
+      "precio": 2950
     },
     {
       "id": "5,36761E+12",
@@ -12372,7 +13644,15 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2900
+      "precio": 3200
+    },
+    {
+      "id": "5,37E+12",
+      "descripcion": "LUDO SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3200
     },
     {
       "id": "5,68484E+12",
@@ -12380,7 +13660,15 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 3700
+      "precio": 4050
+    },
+    {
+      "id": "5,68E+12",
+      "descripcion": "CABALLITO C/PALO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4050
     },
     {
       "id": "5,76504E+12",
@@ -12388,7 +13676,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2390
+      "precio": 2650
     },
     {
       "id": "5,76505E+12",
@@ -12396,7 +13684,15 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 8500
+      "precio": 9350
+    },
+    {
+      "id": "5,77E+12",
+      "descripcion": "ZAPATILLA ANDADOR FIORELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9350
     },
     {
       "id": "5,90202E+12",
@@ -12447,12 +13743,28 @@
       "precio": 650
     },
     {
+      "id": "5010672100002",
+      "descripcion": "SAPO TOTO SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4650
+    },
+    {
       "id": "5010685200003",
       "descripcion": "PELELA 3EN1 NENA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 3500
+    },
+    {
+      "id": "5012406700007",
+      "descripcion": "MONOPATIN PLASTICO FIORELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 31790
     },
     {
       "id": "5012892300804",
@@ -12676,7 +13988,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 850
+      "precio": 1450
     },
     {
       "id": "5012895315218",
@@ -12773,21 +14085,6 @@
       "precio": 5050
     },
     {
-      "id": "502",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1390
-    },
-    {
-      "id": "505",
-      "descripcion": "SET DE LIMPIEZA C/BALDE DURAVIT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 5800
-    },
-    {
       "id": "5050-4.",
       "descripcion": "HEBILLA CALADA",
       "lista": "LISTA1",
@@ -12847,7 +14144,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 500
+      "precio": 2750
     },
     {
       "id": "5293457278725",
@@ -12866,6 +14163,14 @@
       "precio": 750
     },
     {
+      "id": "5329010000004",
+      "descripcion": "ARO BASQUET METAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 16400
+    },
+    {
       "id": "533299028832",
       "descripcion": "MOCHILA JANSPORT SIGNO PAZ",
       "lista": "LISTA1",
@@ -12882,12 +14187,20 @@
       "precio": 700
     },
     {
-      "id": "5367580000000",
-      "descripcion": "JUEGO DE LA OCA",
+      "id": "5344820000006",
+      "descripcion": "LOTERIA EN CAJA SAN REMO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 450
+      "precio": 5600
+    },
+    {
+      "id": "5367580000000",
+      "descripcion": "JUEGO DE LA OCA SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2950
     },
     {
       "id": "5367590000007",
@@ -12895,7 +14208,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 990
+      "precio": 2950
     },
     {
       "id": "5367610000000",
@@ -12903,7 +14216,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 450
+      "precio": 3200
     },
     {
       "id": "5384635137887",
@@ -13426,6 +14739,14 @@
       "precio": 3650
     },
     {
+      "id": "5684840000007",
+      "descripcion": "CABALLITO C/PALO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4050
+    },
+    {
       "id": "5700000184315",
       "descripcion": "CANASTO RECT  MADERA",
       "lista": "LISTA1",
@@ -13440,6 +14761,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 4000
+    },
+    {
+      "id": "5765040000001",
+      "descripcion": "ARO ULA ULA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
+      "id": "5765050000008",
+      "descripcion": "ZAPATILLA ANDADOR FIORELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9350
     },
     {
       "id": "5807430000007",
@@ -14035,11 +15372,11 @@
     },
     {
       "id": "6,94E+12",
-      "descripcion": "TRAILER RETO INFANTIL",
+      "descripcion": "GEMAS P/CARA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 6950
+      "precio": 4800
     },
     {
       "id": "6,95215E+12",
@@ -14243,11 +15580,11 @@
     },
     {
       "id": "6,97E+12",
-      "descripcion": "POLVO DE  HADAS",
+      "descripcion": "GEMAS P/CARA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2000
+      "precio": 4800
     },
     {
       "id": "6,9802E+12",
@@ -14304,6 +15641,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 900
+    },
+    {
+      "id": "6,99E+12",
+      "descripcion": "GEMAS P/CARA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4800
     },
     {
       "id": "6008101990460",
@@ -14655,7 +16000,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1450
+      "precio": 800
     },
     {
       "id": "6048-15",
@@ -14799,7 +16144,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 450
+      "precio": 700
     },
     {
       "id": "6064-15",
@@ -14823,7 +16168,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 400
+      "precio": 2750
     },
     {
       "id": "6072-15",
@@ -17022,7 +18367,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1300
+      "precio": 1500
     },
     {
       "id": "6903072419593",
@@ -17630,7 +18975,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1600
+      "precio": 1900
     },
     {
       "id": "6920013151077",
@@ -17710,7 +19055,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 600
+      "precio": 3000
     },
     {
       "id": "6920100230364",
@@ -17718,7 +19063,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "6920100230623",
@@ -18934,7 +20279,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1250
+      "precio": 1500
     },
     {
       "id": "6924269776602",
@@ -19070,7 +20415,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 850
+      "precio": 1050
     },
     {
       "id": "6924372655573",
@@ -20062,7 +21407,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1800
+      "precio": 2250
     },
     {
       "id": "6928609595069",
@@ -20190,7 +21535,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1150
+      "precio": 1400
     },
     {
       "id": "6932159601965",
@@ -22638,7 +23983,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1600
+      "precio": 1900
     },
     {
       "id": "6952938412919",
@@ -22910,7 +24255,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1600
+      "precio": 1900
     },
     {
       "id": "6952938456012",
@@ -24193,14 +25538,6 @@
       "precio": 2300
     },
     {
-      "id": "6971733422305",
-      "descripcion": "GEMAS P/CARA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1200
-    },
-    {
       "id": "6971764112268",
       "descripcion": "SERUM VITAMINAC",
       "lista": "LISTA1",
@@ -24343,14 +25680,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1800
-    },
-    {
-      "id": "6971968591012",
-      "descripcion": "CORRECTOR PINK KEY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 400
     },
     {
       "id": "6972038403006",
@@ -24910,7 +26239,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 890
+      "precio": 1050
     },
     {
       "id": "6972545510419",
@@ -26134,7 +27463,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1350
+      "precio": 1650
     },
     {
       "id": "6973162601108",
@@ -26551,14 +27880,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 2150
-    },
-    {
-      "id": "6975222510788",
-      "descripcion": "CORRECTOR BARRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 400
     },
     {
       "id": "6975222513574",
@@ -27217,14 +28538,6 @@
       "precio": 250
     },
     {
-      "id": "6988865854553",
-      "descripcion": "GEMAS P/CARA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1200
-    },
-    {
       "id": "6989532512530",
       "descripcion": "AURICULARES P47",
       "lista": "LISTA1",
@@ -27462,7 +28775,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 26900
+      "precio": 29590
     },
     {
       "id": "7,79808E+12",
@@ -27562,11 +28875,11 @@
     },
     {
       "id": "7,80E+12",
-      "descripcion": "VELON ROSA",
+      "descripcion": "TRICICLO SAN REMO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1490
+      "precio": 29590
     },
     {
       "id": "7,82154E+12",
@@ -27590,7 +28903,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1550
+      "precio": 1900
     },
     {
       "id": "7,88E+12",
@@ -27598,7 +28911,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1550
+      "precio": 1900
     },
     {
       "id": "7,91901E+12",
@@ -38513,11 +39826,11 @@
     },
     {
       "id": "7792281007085",
-      "descripcion": "ESPATULA CALADA ACERO",
+      "descripcion": "MASAS C/CORTANTES",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 800
+      "precio": 8750
     },
     {
       "id": "7792281007108",
@@ -38537,11 +39850,11 @@
     },
     {
       "id": "7792281007139",
-      "descripcion": "PISAPAPAS ACERO",
+      "descripcion": "MASAS C/EXTRUSOR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1200
+      "precio": 6450
     },
     {
       "id": "7792281008174",
@@ -39937,27 +41250,27 @@
     },
     {
       "id": "7792435003666",
-      "descripcion": "SET EMERGENCIAS MINI",
+      "descripcion": "SET EMERGENCIAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 5500
+      "precio": 5490
     },
     {
       "id": "7792435003673",
-      "descripcion": "SET BOMBEROS MINI",
+      "descripcion": "SET DE BOMBEROS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 5500
+      "precio": 5490
     },
     {
       "id": "7792435003680",
-      "descripcion": "SET POLICIA MINI",
+      "descripcion": "SET POLICIA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 5500
+      "precio": 5490
     },
     {
       "id": "7792435003697",
@@ -39974,6 +41287,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 3400
+    },
+    {
+      "id": "7792435004113",
+      "descripcion": "SET  DE HERRAMIENTAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4950
+    },
+    {
+      "id": "7792435004137",
+      "descripcion": "CASCO Y HERRAMIENTAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4100
     },
     {
       "id": "7792435004502",
@@ -40000,12 +41329,20 @@
       "precio": 2600
     },
     {
-      "id": "7792435005059",
-      "descripcion": "SET DE LIMPIEZA C/BALDE DURAVIT",
+      "id": "7792435005028",
+      "descripcion": "SET LIMPIEZA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 5800
+      "precio": 4250
+    },
+    {
+      "id": "7792435005059",
+      "descripcion": "SET LIMPIEZA C/BALDE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5790
     },
     {
       "id": "7792435005066",
@@ -40032,6 +41369,118 @@
       "precio": 5100
     },
     {
+      "id": "7792435005219",
+      "descripcion": "BALDE CHICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1100
+    },
+    {
+      "id": "7792435005233",
+      "descripcion": "BALDE CHICO C/ACCESORIOS PLAYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2750
+    },
+    {
+      "id": "7792435005240",
+      "descripcion": "BARCO C/BALDE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 7790
+    },
+    {
+      "id": "7792435005264",
+      "descripcion": "BALDE MEDIANO C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3250
+    },
+    {
+      "id": "7792435005271",
+      "descripcion": "BOLSO BALDE MEDIANO C/ACC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8800
+    },
+    {
+      "id": "7792435005288",
+      "descripcion": "BOLSO BALDE MEDIANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 10100
+    },
+    {
+      "id": "7792435005295",
+      "descripcion": "BALDE CH C/ACC PLAYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4900
+    },
+    {
+      "id": "7792435005301",
+      "descripcion": "BALDE MEDIANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1790
+    },
+    {
+      "id": "7792435005318",
+      "descripcion": "BOLSO BALDE MEDIANO C/ACC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5900
+    },
+    {
+      "id": "7792435005325",
+      "descripcion": "CANASTA PLAYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5250
+    },
+    {
+      "id": "7792435005332",
+      "descripcion": "BALDE MEDIANO C/ACC PLAYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4500
+    },
+    {
+      "id": "7792435005370",
+      "descripcion": "BALDE CH C/MOLINO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6390
+    },
+    {
+      "id": "7792435005431",
+      "descripcion": "REGADERA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3650
+    },
+    {
+      "id": "7792435005448",
+      "descripcion": "BALDE MEDIANO C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5150
+    },
+    {
       "id": "7792435005493",
       "descripcion": "CARRETILLA EN BOLSA",
       "lista": "LISTA1",
@@ -40054,6 +41503,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 27400
+    },
+    {
+      "id": "7792435005523",
+      "descripcion": "BARCO FLOTADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6950
     },
     {
       "id": "7792435005547",
@@ -40080,6 +41537,54 @@
       "precio": 1200
     },
     {
+      "id": "7792435005608",
+      "descripcion": "BALDE MEDIANO C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6350
+    },
+    {
+      "id": "7792435005615",
+      "descripcion": "BALDE GRANDE C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3400
+    },
+    {
+      "id": "7792435005622",
+      "descripcion": "BALDE CASTILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2200
+    },
+    {
+      "id": "7792435005646",
+      "descripcion": "BALDE CASTILLO C/PALA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3650
+    },
+    {
+      "id": "7792435005653",
+      "descripcion": "BALDE CASTILLO C/ACCESORIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5550
+    },
+    {
+      "id": "7792435005660",
+      "descripcion": "BOLSO BALDE CASTILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8190
+    },
+    {
       "id": "7792435006018",
       "descripcion": "CARRETILLA CON ACCESORIOS PASTEL",
       "lista": "LISTA1",
@@ -40089,11 +41594,11 @@
     },
     {
       "id": "7792435006049",
-      "descripcion": "CARRITO C/VERDURAS",
+      "descripcion": "CARRITO FRUTAS Y VERDURAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 8400
+      "precio": 8450
     },
     {
       "id": "7792435006087",
@@ -40158,6 +41663,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 7800
+    },
+    {
+      "id": "7792435006186",
+      "descripcion": "SET DE MATE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3800
+    },
+    {
+      "id": "7792435006193",
+      "descripcion": "MATE EN BANDEJA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5100
     },
     {
       "id": "7792435006261",
@@ -40400,6 +41921,14 @@
       "precio": 5300
     },
     {
+      "id": "7792435006773",
+      "descripcion": "SET DE AGUA 3 EN 1",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 14200
+    },
+    {
       "id": "7792435006780",
       "descripcion": "ANILLO Y SONAJERO",
       "lista": "LISTA1",
@@ -40489,11 +42018,11 @@
     },
     {
       "id": "7792435007046",
-      "descripcion": "MASA X1 GRANDE",
+      "descripcion": "MASA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1300
+      "precio": 1290
     },
     {
       "id": "7792435007053",
@@ -40513,31 +42042,47 @@
     },
     {
       "id": "7792435007084",
-      "descripcion": "ESPATULA CALADA ACERO",
+      "descripcion": "MASAS C/CORTANTES",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 800
+      "precio": 8750
     },
     {
       "id": "7792435007091",
-      "descripcion": "PACK MASAS X10",
+      "descripcion": "MASA PACK X10",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 5850
     },
     {
+      "id": "7792435007138",
+      "descripcion": "MASAS C/EXTRUSOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6450
+    },
+    {
       "id": "7792435007152",
-      "descripcion": "DURA MASA BURGER KIT",
+      "descripcion": "MASAS BURGUER KIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 6200
     },
     {
+      "id": "7792435007169",
+      "descripcion": "MASAS MI COCINA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9850
+    },
+    {
       "id": "7792435007176",
-      "descripcion": "MASAS MONSTRUOS",
+      "descripcion": "MASAS MOUNSTROS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
@@ -40545,19 +42090,27 @@
     },
     {
       "id": "7792435007183",
-      "descripcion": "MASAS EN POTE DURA MASA",
+      "descripcion": "MASAS  EN POTE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 10150
     },
     {
-      "id": "7792435007206",
-      "descripcion": "MASAS EN VALIJA",
+      "id": "7792435007190",
+      "descripcion": "MASAS C/SOLAPA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 9000
+      "precio": 3190
+    },
+    {
+      "id": "7792435007206",
+      "descripcion": "VALIJA MASAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 10100
     },
     {
       "id": "7792435007213",
@@ -40569,7 +42122,7 @@
     },
     {
       "id": "7792435007220",
-      "descripcion": "DURA MASA AMIGUITOS EN LA GRANJA",
+      "descripcion": "MASAS GRANJA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
@@ -40577,7 +42130,7 @@
     },
     {
       "id": "7792435007251",
-      "descripcion": "DURA MASA PIZZA PARTY DURAVIT",
+      "descripcion": "MASAS PIZZA PARTY",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
@@ -40585,11 +42138,11 @@
     },
     {
       "id": "7792435007268",
-      "descripcion": "DURA MASA FELIZ CUMPLEAÑOS",
+      "descripcion": "MASAS FELIZ CUMPLE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 10600
+      "precio": 10650
     },
     {
       "id": "7792435007275",
@@ -40609,7 +42162,7 @@
     },
     {
       "id": "7792435007299",
-      "descripcion": "KITCHEN MASA DE COCINA",
+      "descripcion": "MASAS KITCHEN",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
@@ -40617,11 +42170,19 @@
     },
     {
       "id": "7792435007305",
-      "descripcion": "JUNIOR CHEF DURAVIT",
+      "descripcion": "MASAS JUNIOR CHEF",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 15500
+      "precio": 15490
+    },
+    {
+      "id": "7792435007329",
+      "descripcion": "MASAS DINOSAURIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5250
     },
     {
       "id": "7792533787765",
@@ -42564,7 +44125,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 5400
+      "precio": 6500
     },
     {
       "id": "7795357005084",
@@ -42612,7 +44173,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 7400
+      "precio": 8900
     },
     {
       "id": "7795357007521",
@@ -42644,7 +44205,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 7000
+      "precio": 8400
     },
     {
       "id": "7795357007972",
@@ -42652,7 +44213,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 5600
+      "precio": 6700
     },
     {
       "id": "7795357008023",
@@ -46191,12 +47752,52 @@
       "precio": 230
     },
     {
+      "id": "7798032480626",
+      "descripcion": "GUITARRA MADERA N5",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 12650
+    },
+    {
+      "id": "7798032480947",
+      "descripcion": "CARRITO PASEO MUÑECA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6350
+    },
+    {
       "id": "7798032481074",
       "descripcion": "FORMA PALABRAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 550
+    },
+    {
+      "id": "7798032481265",
+      "descripcion": "TRICICLO SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 29590
+    },
+    {
+      "id": "7798032481517",
+      "descripcion": "GENERALA DOBLE SAN REMO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1650
+    },
+    {
+      "id": "7798032482675",
+      "descripcion": "ARO ULA ULA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
     },
     {
       "id": "7798032483818",
@@ -46212,7 +47813,15 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 800
+      "precio": 5950
+    },
+    {
+      "id": "7798032483948",
+      "descripcion": "JUEGO MATE FIORELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4290
     },
     {
       "id": "7798032484266",
@@ -46229,6 +47838,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 500
+    },
+    {
+      "id": "7798032484396",
+      "descripcion": "LOTERIA EN BOLSA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 6250
+    },
+    {
+      "id": "7798032484709",
+      "descripcion": "TIC TAC OCA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 5390
     },
     {
       "id": "7798032484716",
@@ -46332,7 +47957,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1700
+      "precio": 2050
     },
     {
       "id": "7798040802298",
@@ -46372,7 +47997,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2200
+      "precio": 2650
     },
     {
       "id": "7798040802380",
@@ -47428,7 +49053,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1350
+      "precio": 1100
     },
     {
       "id": "7798125004425",
@@ -47436,7 +49061,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 350
+      "precio": 400
     },
     {
       "id": "7798125004470",
@@ -48644,7 +50269,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 950
+      "precio": 1150
     },
     {
       "id": "7798184526968",
@@ -48892,7 +50517,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 950
+      "precio": 1150
     },
     {
       "id": "7798184529204",
@@ -48900,7 +50525,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 950
+      "precio": 1150
     },
     {
       "id": "7798184529358",
@@ -49076,7 +50701,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1300
+      "precio": 1550
     },
     {
       "id": "7798187884201",
@@ -51124,7 +52749,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1750
+      "precio": 2100
     },
     {
       "id": "7798317822028",
@@ -51324,7 +52949,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2750
+      "precio": 3300
     },
     {
       "id": "7798317822905",
@@ -51356,7 +52981,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2150
+      "precio": 2600
     },
     {
       "id": "7798317823155",
@@ -51397,14 +53022,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 2500
-    },
-    {
-      "id": "7798317823339",
-      "descripcion": "CONTORNO E ILUMINADOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1100
     },
     {
       "id": "7798317823353",
@@ -51844,7 +53461,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1950
+      "precio": 2350
     },
     {
       "id": "7798317828549",
@@ -53980,7 +55597,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2100
+      "precio": 2500
     },
     {
       "id": "7798373792273",
@@ -55836,7 +57453,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1550
+      "precio": 1900
     },
     {
       "id": "7890112565961",
@@ -58684,7 +60301,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 3100
+      "precio": 3700
     },
     {
       "id": "7896042001302",
@@ -58852,7 +60469,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2000
+      "precio": 2400
     },
     {
       "id": "7896042021904",
@@ -58860,7 +60477,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2100
+      "precio": 3600
     },
     {
       "id": "7896042021911",
@@ -59004,7 +60621,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1400
+      "precio": 2500
     },
     {
       "id": "7896042026152",
@@ -59052,7 +60669,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 4500
+      "precio": 5400
     },
     {
       "id": "7896042027647",
@@ -59100,7 +60717,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 4800
+      "precio": 5700
     },
     {
       "id": "7896042028330",
@@ -59108,7 +60725,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 4000
+      "precio": 4800
     },
     {
       "id": "7896042028347",
@@ -59124,7 +60741,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 4700
+      "precio": 5600
     },
     {
       "id": "7896042028361",
@@ -59132,7 +60749,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 8750
+      "precio": 9500
     },
     {
       "id": "7896042028378",
@@ -59140,7 +60757,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 6150
+      "precio": 7400
     },
     {
       "id": "7896042028477",
@@ -59199,14 +60816,6 @@
       "precio": 4600
     },
     {
-      "id": "7896042037202",
-      "descripcion": "POTE REDONDO PLASTICO 660ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1900
-    },
-    {
       "id": "7896042041179",
       "descripcion": "CUBRE TODO",
       "lista": "LISTA1",
@@ -59221,14 +60830,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 7800
-    },
-    {
-      "id": "7896042041650",
-      "descripcion": "PORTA QUESO RALLADO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1300
     },
     {
       "id": "7896042046464",
@@ -59252,7 +60853,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 3900
+      "precio": 4700
     },
     {
       "id": "7896042046525",
@@ -59284,7 +60885,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 3100
+      "precio": 3700
     },
     {
       "id": "7896042059907",
@@ -61924,7 +63525,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133882765",
@@ -61956,7 +63557,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133883175",
@@ -62012,7 +63613,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883502",
@@ -62020,7 +63621,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7993496972414",
@@ -64748,7 +66349,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 4600
+      "precio": 800
     },
     {
       "id": "9020230247304",
@@ -64756,7 +66357,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 4600
+      "precio": 800
     },
     {
       "id": "9020230247328",
@@ -69319,14 +70920,6 @@
       "precio": 2900
     },
     {
-      "id": "CS21082338",
-      "descripcion": "SET ESPONJAS X4",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 3000
-    },
-    {
       "id": "CS21082339",
       "descripcion": "SET ESPONJAS MAKE UP X6",
       "lista": "LISTA1",
@@ -69575,14 +71168,6 @@
       "precio": 220
     },
     {
-      "id": "DI4567",
-      "descripcion": "SET YEB/AZUC ESTAMPADO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 3390
-    },
-    {
       "id": "DI4573",
       "descripcion": "SET AZUC/YEB LISO",
       "lista": "LISTA1",
@@ -69639,36 +71224,12 @@
       "precio": 1300
     },
     {
-      "id": "DI47161",
-      "descripcion": "CANASTO RCT N1",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1190
-    },
-    {
       "id": "DI471611",
       "descripcion": "CANASTO RECT N1 NAV",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1190
-    },
-    {
-      "id": "DI47162",
-      "descripcion": "CANASTO RECT N2",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "DI47163",
-      "descripcion": "CANASTO RECT N3",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1450
     },
     {
       "id": "DI4721",
@@ -69711,52 +71272,12 @@
       "precio": 850
     },
     {
-      "id": "DI47271",
-      "descripcion": "CANASTO REDONDO N1",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 990
-    },
-    {
       "id": "DI472711",
       "descripcion": "CANSTO REDONDO N1 NAV",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 990
-    },
-    {
-      "id": "DI47272",
-      "descripcion": "CANASTO REDONDO N2",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1100
-    },
-    {
-      "id": "DI47273",
-      "descripcion": "CANASTO REDONDO N3",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1290
-    },
-    {
-      "id": "DI4728",
-      "descripcion": "JARRA PLASTICA C/TAPA 4L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1900
-    },
-    {
-      "id": "DI4729",
-      "descripcion": "JARRA PLASTICA C/TAPA 2L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1500
     },
     {
       "id": "DI4738",
@@ -69789,46 +71310,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 790
-    },
-    {
-      "id": "DI47881",
-      "descripcion": "HERMETICO CUADRADO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 250
-    },
-    {
-      "id": "DI47882",
-      "descripcion": "HERMETICO RECT N2",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 450
-    },
-    {
-      "id": "DI47883",
-      "descripcion": "HERMETICO RECT N3",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "DI47884",
-      "descripcion": "HERMETICO RECT N4",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 650
-    },
-    {
-      "id": "DI47886",
-      "descripcion": "SET HERMETICOS X3",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1650
     },
     {
       "id": "DI4815",
@@ -75384,11 +76865,11 @@
     },
     {
       "id": "MASAS",
-      "descripcion": "MASA X1 GRANDE",
+      "descripcion": "MASA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1300
+      "precio": 1290
     },
     {
       "id": "MASASV",
@@ -75877,38 +77358,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 600
-    },
-    {
-      "id": "PLUS1234",
-      "descripcion": "PELOTA FUTBOL DECORADA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 5800
-    },
-    {
-      "id": "PLUS1235",
-      "descripcion": "PELOTA VOLEY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 7000
-    },
-    {
-      "id": "PLUS1236",
-      "descripcion": "PELOTA PULPA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 3700
-    },
-    {
-      "id": "PLUS1237",
-      "descripcion": "PELOTA MESSI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 2500
     },
     {
       "id": "PN20008",
@@ -77255,14 +78704,6 @@
       "precio": 3000
     },
     {
-      "id": "TEJ219",
-      "descripcion": "DELINEADOR LIQUIDO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 2650
-    },
-    {
       "id": "TEJ224",
       "descripcion": "MAQUILLAJE FLUIDO",
       "lista": "LISTA1",
@@ -77303,14 +78744,6 @@
       "precio": 800
     },
     {
-      "id": "TEJ246",
-      "descripcion": "POLVO COMPACTO C/CISNE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1700
-    },
-    {
       "id": "TEJ248",
       "descripcion": "LAPIZ LABIAL",
       "lista": "LISTA1",
@@ -77341,14 +78774,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1200
-    },
-    {
-      "id": "TEJ254",
-      "descripcion": "MAQUILLAJE POLVO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 2200
     },
     {
       "id": "TEJ2657",
@@ -79071,14 +80496,6 @@
       "precio": 200
     },
     {
-      "id": "TYL0009",
-      "descripcion": "LAPIZ LABIAL TRATAMIENTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1600
-    },
-    {
       "id": "TYL0011",
       "descripcion": "LABIAL LIQ LARGA DURACION",
       "lista": "LISTA1",
@@ -79919,30 +81336,6 @@
       "precio": 5600
     },
     {
-      "id": "ZEC1250",
-      "descripcion": "TATUAJES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 800
-    },
-    {
-      "id": "ZEC1251",
-      "descripcion": "GEMAS P/CARA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1200
-    },
-    {
-      "id": "ZEC1252",
-      "descripcion": "STRASS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 800
-    },
-    {
       "id": "bs'19c",
       "descripcion": "AURICULAR BLUETOOH",
       "lista": "LISTA1",
@@ -80238,22 +81631,6 @@
       "precio": 1350
     },
     {
-      "id": "106721",
-      "descripcion": "SAPO TOTO SAN REMO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 4200
-    },
-    {
-      "id": "124067",
-      "descripcion": "MONOPATIN PLASTICO FIORELLA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 28900
-    },
-    {
       "id": "2001",
       "descripcion": "TENEDOR NEW KOLOR",
       "lista": "LISTA1",
@@ -80310,14 +81687,6 @@
       "precio": 9000
     },
     {
-      "id": "26957",
-      "descripcion": "CARRITO PASEO MUÑECA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 5790
-    },
-    {
       "id": "3001",
       "descripcion": "TENEDOR IPANEMA",
       "lista": "LISTA1",
@@ -80348,62 +81717,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 1100
-    },
-    {
-      "id": "32901",
-      "descripcion": "ARO BASQUET METAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 14900
-    },
-    {
-      "id": "33424",
-      "descripcion": "GUITARRA MADERA N5",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 11500
-    },
-    {
-      "id": "34482",
-      "descripcion": "LOTERIA EN CAJA SAN REMO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 5100
-    },
-    {
-      "id": "36758",
-      "descripcion": "JUEGO DE LA OCA SAN REMO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2700
-    },
-    {
-      "id": "36759",
-      "descripcion": "DAMAS SAN REMO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2700
-    },
-    {
-      "id": "36761",
-      "descripcion": "LUDO SAN REMO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2900
-    },
-    {
-      "id": "36934",
-      "descripcion": "SENKU",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2500
     },
     {
       "id": "4001",
@@ -80438,76 +81751,12 @@
       "precio": 2050
     },
     {
-      "id": "43468",
-      "descripcion": "TRICICLO SAN REMO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 26900
-    },
-    {
-      "id": "5001",
-      "descripcion": "TENEDOR DYNAMIC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2750
-    },
-    {
-      "id": "5002",
-      "descripcion": "CUCHILLO DYNAMIC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2750
-    },
-    {
-      "id": "5003",
-      "descripcion": "CUCHARA SOPERA DYNAMIC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2750
-    },
-    {
-      "id": "50035",
-      "descripcion": "GENERALA DOBLE SAN REMO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1500
-    },
-    {
-      "id": "5004",
-      "descripcion": "CUCHARA DE TE DYNAMIC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1800
-    },
-    {
       "id": "5081C",
       "descripcion": "LABIAL GO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 1350
-    },
-    {
-      "id": "56002",
-      "descripcion": "EMBROMATE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 5400
-    },
-    {
-      "id": "56014",
-      "descripcion": "JUEGO MATE FIORELLA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 3900
     },
     {
       "id": "6001",
@@ -80550,22 +81799,6 @@
       "precio": 6400
     },
     {
-      "id": "60927",
-      "descripcion": "LOTERIA EN BOLSA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 5700
-    },
-    {
-      "id": "65867",
-      "descripcion": "TIC TAC OCA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 4900
-    },
-    {
       "id": "6689304080014",
       "descripcion": "delineador glitter",
       "lista": "LISTA1",
@@ -80596,14 +81829,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 1050
-    },
-    {
-      "id": "68484",
-      "descripcion": "CABALLITO C/PALO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 3700
     },
     {
       "id": "6900200040131",
@@ -80708,14 +81933,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 2200
-    },
-    {
-      "id": "6935353842509",
-      "descripcion": "GEMAS P/CARA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1200
     },
     {
       "id": "6937118803145",
@@ -81134,14 +82351,6 @@
       "precio": 1450
     },
     {
-      "id": "6973726259608",
-      "descripcion": "GEMAS P/CARA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1200
-    },
-    {
       "id": "6974482582719",
       "descripcion": "PALETA DE SOMBRAS",
       "lista": "LISTA1",
@@ -81196,30 +82405,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 11750
-    },
-    {
-      "id": "718",
-      "descripcion": "MASAS EN POTE DURA MASA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 10150
-    },
-    {
-      "id": "76504",
-      "descripcion": "ARO ULA ULA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2390
-    },
-    {
-      "id": "76705",
-      "descripcion": "ZAPATILLA ANDADOR FIORELLA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 8500
     },
     {
       "id": "776",
@@ -81500,14 +82685,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 16200
-    },
-    {
-      "id": "7798317822608",
-      "descripcion": "APLICADORLATEX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1400
     },
     {
       "id": "7798317822981",
@@ -82404,14 +83581,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 3500
-    },
-    {
-      "id": "DI4712",
-      "descripcion": "JARRA PLASTICO DECORADA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1800
     },
     {
       "id": "DI4924",
@@ -83988,14 +85157,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 1800
-    },
-    {
-      "id": "TEJ808",
-      "descripcion": "ARQUEADOR DE PESTAÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1350
     },
     {
       "id": "TEJ8849",
@@ -86166,30 +87327,6 @@
       "precio": 2300
     },
     {
-      "id": "366",
-      "descripcion": "SET EMERGENCIAS MINI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 5500
-    },
-    {
-      "id": "367",
-      "descripcion": "SET BOMBEROS MINI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 5500
-    },
-    {
-      "id": "368",
-      "descripcion": "SET POLICIA MINI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 5500
-    },
-    {
       "id": "369",
       "descripcion": "POLICIA ESPECIAL MINI",
       "lista": "LISTA1",
@@ -86278,14 +87415,6 @@
       "precio": 27400
     },
     {
-      "id": "552",
-      "descripcion": "BARCO FLOTADOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 6950
-    },
-    {
       "id": "554",
       "descripcion": "BALDE BLOCKS GDE X36",
       "lista": "LISTA1",
@@ -86308,14 +87437,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45271,
       "precio": 20300
-    },
-    {
-      "id": "604",
-      "descripcion": "CARRITO C/VERDURAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 8400
     },
     {
       "id": "608",
@@ -86710,14 +87831,6 @@
       "precio": 32750
     },
     {
-      "id": "704",
-      "descripcion": "MASA X1 GRANDE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 1300
-    },
-    {
       "id": "705",
       "descripcion": "DURA MASA X2 DURAVIT",
       "lista": "LISTA1",
@@ -86734,76 +87847,12 @@
       "precio": 4750
     },
     {
-      "id": "709",
-      "descripcion": "PACK MASAS X10",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 5850
-    },
-    {
       "id": "710",
       "descripcion": "PALA DE TORTA RECTANGULAR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45271,
       "precio": 2300
-    },
-    {
-      "id": "715",
-      "descripcion": "DURA MASA BURGER KIT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 6200
-    },
-    {
-      "id": "717",
-      "descripcion": "MASAS MONSTRUOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 8700
-    },
-    {
-      "id": "720",
-      "descripcion": "MASAS EN VALIJA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 9000
-    },
-    {
-      "id": "721",
-      "descripcion": "MASAS ZOO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 5750
-    },
-    {
-      "id": "722",
-      "descripcion": "DURA MASA AMIGUITOS EN LA GRANJA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 5750
-    },
-    {
-      "id": "725",
-      "descripcion": "DURA MASA PIZZA PARTY DURAVIT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 9750
-    },
-    {
-      "id": "726",
-      "descripcion": "DURA MASA FELIZ CUMPLEAÑOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 10600
     },
     {
       "id": "727",
@@ -86820,22 +87869,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45271,
       "precio": 4600
-    },
-    {
-      "id": "729",
-      "descripcion": "KITCHEN MASA DE COCINA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 5650
-    },
-    {
-      "id": "730",
-      "descripcion": "JUNIOR CHEF DURAVIT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 15500
     },
     {
       "id": "7790918248191",
@@ -87310,14 +88343,6 @@
       "precio": 2500
     },
     {
-      "id": "2763",
-      "descripcion": "POTE CLICK 2,85L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 4500
-    },
-    {
       "id": "2826",
       "descripcion": "JARRA C/EXPRIMIDOR",
       "lista": "LISTA1",
@@ -87326,52 +88351,12 @@
       "precio": 2750
     },
     {
-      "id": "2832",
-      "descripcion": "POTE T/ROSCA 3,2L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 4800
-    },
-    {
-      "id": "2833",
-      "descripcion": "POTE T/ROSCA 1,4L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 4000
-    },
-    {
       "id": "2834",
       "descripcion": "POTE T/ROSCA 4,5L",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45267,
       "precio": 6600
-    },
-    {
-      "id": "2835",
-      "descripcion": "POTE T/ROSCA 2L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 4700
-    },
-    {
-      "id": "2836",
-      "descripcion": "POTE T/ROSCA 7,6L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 8750
-    },
-    {
-      "id": "2837",
-      "descripcion": "POTE T/ROSCA 2,1L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 6150
     },
     {
       "id": "2874",
@@ -87398,14 +88383,6 @@
       "precio": 3000
     },
     {
-      "id": "4648",
-      "descripcion": "POTE CLICK ROSCA 2,6L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 3900
-    },
-    {
       "id": "4653",
       "descripcion": "VERTEDOR 700ML",
       "lista": "LISTA1",
@@ -87428,30 +88405,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45267,
       "precio": 4500
-    },
-    {
-      "id": "71210401",
-      "descripcion": "RECIPIENTE RECT 6,5L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 5400
-    },
-    {
-      "id": "712231",
-      "descripcion": "RECIPIENTE P/RECIDUOS 7L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 5600
-    },
-    {
-      "id": "712232",
-      "descripcion": "RECIPIENTE RED 10L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 7000
     },
     {
       "id": "723053",
@@ -87630,14 +88583,6 @@
       "precio": 2100
     },
     {
-      "id": "DI4590",
-      "descripcion": "TARRO ESTAMPADO 1K",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 1850
-    },
-    {
       "id": "DI4806",
       "descripcion": "BOTELLA ANIMAL TAPA FLIP",
       "lista": "LISTA1",
@@ -87686,14 +88631,6 @@
       "precio": 2750
     },
     {
-      "id": "KMG712112",
-      "descripcion": "RECIPIENTE RESIDUOS 12L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 7400
-    },
-    {
       "id": "KMG723050",
       "descripcion": "BOWL OVAL 2L",
       "lista": "LISTA1",
@@ -87716,22 +88653,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45267,
       "precio": 1800
-    },
-    {
-      "id": "SI2189",
-      "descripcion": "POTE CLIC 1250ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 2000
-    },
-    {
-      "id": "SI5989",
-      "descripcion": "POTE TRIO 1,5L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 3100
     },
     {
       "id": "SK34655",
@@ -88204,14 +89125,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45266,
       "precio": 1700
-    },
-    {
-      "id": "FER5020",
-      "descripcion": "POLVO COMPACTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45266,
-      "precio": 1750
     },
     {
       "id": "JL1234",
@@ -88894,14 +89807,6 @@
       "precio": 650
     },
     {
-      "id": "7798184527477",
-      "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45264,
-      "precio": 950
-    },
-    {
       "id": "7999969580025",
       "descripcion": "DECO UÑAS FRUTAS",
       "lista": "LISTA1",
@@ -89148,30 +90053,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45264,
       "precio": 2800
-    },
-    {
-      "id": "TYL0076",
-      "descripcion": "TOALLITAS DESMAQUILLANTES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45264,
-      "precio": 950
-    },
-    {
-      "id": "TYL1708",
-      "descripcion": "TOALLITAS HUMEDAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45264,
-      "precio": 950
-    },
-    {
-      "id": "TYL1710",
-      "descripcion": "TOALLITAS HUMEDAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45264,
-      "precio": 950
     },
     {
       "id": "YH202353",
@@ -89931,14 +90812,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45261,
       "precio": 25800
-    },
-    {
-      "id": "FER1922",
-      "descripcion": "LIMA DECORADA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45261,
-      "precio": 350
     },
     {
       "id": "MY8544",
@@ -96212,14 +97085,6 @@
       "precio": 4900
     },
     {
-      "id": "CS2427",
-      "descripcion": "POLVO COMPACTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45238,
-      "precio": 1600
-    },
-    {
       "id": "CS2898",
       "descripcion": "LIP GLOSS",
       "lista": "LISTA1",
@@ -96322,14 +97187,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45238,
       "precio": 2000
-    },
-    {
-      "id": "TEJ5080",
-      "descripcion": "LIQUID CONCEALER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45238,
-      "precio": 2100
     },
     {
       "id": "7793291011611",
@@ -101220,14 +102077,6 @@
       "precio": 750
     },
     {
-      "id": "YH202312",
-      "descripcion": "CORRECTOR BARRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45225,
-      "precio": 890
-    },
-    {
       "id": "YH431",
       "descripcion": "PESTAÑAS MAGNETICAS",
       "lista": "LISTA1",
@@ -101612,36 +102461,12 @@
       "precio": 1200
     },
     {
-      "id": "AN096201",
-      "descripcion": "CORRECTOR BELENDA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45223,
-      "precio": 1150
-    },
-    {
       "id": "AN103065",
       "descripcion": "CORRECTOR FIT ME",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45223,
       "precio": 1600
-    },
-    {
-      "id": "AN414338",
-      "descripcion": "CORRECTOR KARITE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45223,
-      "precio": 1300
-    },
-    {
-      "id": "AN520076",
-      "descripcion": "CORRECTOR BARRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45223,
-      "precio": 1350
     },
     {
       "id": "AN60952",
@@ -101770,14 +102595,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45223,
       "precio": 650
-    },
-    {
-      "id": "M2232",
-      "descripcion": "MASCARA P/PESTAÑAS FIT ME",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45223,
-      "precio": 1600
     },
     {
       "id": "M752",
@@ -103002,14 +103819,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45220,
       "precio": 1200
-    },
-    {
-      "id": "XRL66",
-      "descripcion": "PAPEL FOIL X6",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 1600
     },
     {
       "id": "YH20231",
@@ -104346,14 +105155,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45217,
       "precio": 4000
-    },
-    {
-      "id": "FA5545",
-      "descripcion": "CORRECTOR HUGME",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45217,
-      "precio": 1250
     },
     {
       "id": "HB500",
@@ -106380,14 +107181,6 @@
       "precio": 1300
     },
     {
-      "id": "14090",
-      "descripcion": "SELLO STAMPING",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1550
-    },
-    {
       "id": "2001B",
       "descripcion": "MATE URBANO CLASICO",
       "lista": "LISTA1",
@@ -107708,14 +108501,6 @@
       "precio": 11800
     },
     {
-      "id": "6974482583891",
-      "descripcion": "BASE PRIMER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 1050
-    },
-    {
       "id": "6985469530111",
       "descripcion": "CC FUNDATION BASE 24HS",
       "lista": "LISTA1",
@@ -107740,28 +108525,12 @@
       "precio": 600
     },
     {
-      "id": "7798040802175",
-      "descripcion": "CORRECTOR TEJAR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 800
-    },
-    {
       "id": "7798122368094",
       "descripcion": "MAQUILLAJE FLUIDO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45209,
       "precio": 1950
-    },
-    {
-      "id": "7798187885420",
-      "descripcion": "MAQUILLAJE BARRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 1300
     },
     {
       "id": "7798187887745",
@@ -107874,14 +108643,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45209,
       "precio": 2500
-    },
-    {
-      "id": "CS3399",
-      "descripcion": "POLVO COMPACTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 1600
     },
     {
       "id": "CX6162",
@@ -108116,38 +108877,6 @@
       "precio": 9500
     },
     {
-      "id": "TEJ339",
-      "descripcion": "MAQUILLAJE EN BARRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 1300
-    },
-    {
-      "id": "TEJ4120",
-      "descripcion": "POLVO COMPACTO C/ESPEJO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 2750
-    },
-    {
-      "id": "TEJ4137",
-      "descripcion": "POLVO COMPACTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 2150
-    },
-    {
-      "id": "TEJ5048",
-      "descripcion": "CORRECTOR LIQUIDO LOVE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 1950
-    },
-    {
       "id": "CL7585",
       "descripcion": "APOYA CELULAR",
       "lista": "LISTA1",
@@ -108274,14 +109003,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45204,
       "precio": 990
-    },
-    {
-      "id": "ACFS310A",
-      "descripcion": "COORECTOR BARRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45204,
-      "precio": 850
     },
     {
       "id": "103597",
