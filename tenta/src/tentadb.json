@@ -24,6 +24,30 @@
       "precio": 1900
     },
     {
+      "id": "2417",
+      "descripcion": "POTE CLICK CUAD 6,6L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9700
+    },
+    {
+      "id": "2418",
+      "descripcion": "POTE CLICK 3,2L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 8300
+    },
+    {
+      "id": "2498",
+      "descripcion": "PORTA INGREDIENTES 3L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3800
+    },
+    {
       "id": "26957",
       "descripcion": "CARRITO PASEO MUÑECA",
       "lista": "LISTA1",
@@ -504,6 +528,22 @@
       "precio": 14200
     },
     {
+      "id": "6820002302568",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1800
+    },
+    {
+      "id": "6820202302269",
+      "descripcion": "LABIAL LIQUIDO QIAO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
       "id": "68484",
       "descripcion": "CABALLITO C/PALO",
       "lista": "LISTA1",
@@ -512,12 +552,188 @@
       "precio": 4050
     },
     {
+      "id": "6900779252690",
+      "descripcion": "DELINEADOR LABIOS + BROCHA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 850
+    },
+    {
+      "id": "6903072419593",
+      "descripcion": "LIP GLOSS GLITTER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1650
+    },
+    {
+      "id": "6923263710032",
+      "descripcion": "MASCARILLA FACIAL PEPINO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 750
+    },
+    {
+      "id": "6923263710056",
+      "descripcion": "MASCARILLA FACIAL PALTA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 750
+    },
+    {
+      "id": "6923263710063",
+      "descripcion": "MASCARILLA FACIAL MILK",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 750
+    },
+    {
+      "id": "6923263710377",
+      "descripcion": "MASCARILLA FACIAL ARANDANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6923263710391",
+      "descripcion": "MASCARA FACIAL DARRY LOVE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6923263710568",
+      "descripcion": "MASCARA FACIAL DARRYLOVE LEMON",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6923263710582",
+      "descripcion": "MASCARA CARCHOAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6923263710643",
+      "descripcion": "MASCARILLA TOMATE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 750
+    },
+    {
+      "id": "6923263710650",
+      "descripcion": "MASCARILLA ZANAHORIA DEAR SHE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 750
+    },
+    {
+      "id": "6924372614693",
+      "descripcion": "BRILLO LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1700
+    },
+    {
+      "id": "6924372671610",
+      "descripcion": "DELINEADOR USHAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1500
+    },
+    {
       "id": "6935353842509",
       "descripcion": "GEMAS P/CARA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1200
+    },
+    {
+      "id": "6956219100731",
+      "descripcion": "MASCARILLA PARA OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 500
+    },
+    {
+      "id": "6960037160952",
+      "descripcion": "LIP GLOSS KISS MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6970071921358",
+      "descripcion": "LIP MASK",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 500
+    },
+    {
+      "id": "6970071924014",
+      "descripcion": "MASCARA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6970071924038",
+      "descripcion": "MASCARA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6970071925387",
+      "descripcion": "MASCARILLA CARBON MOND SUB TRANSPARENT",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 800
+    },
+    {
+      "id": "6970071927954",
+      "descripcion": "MASCARA FACIAL MOND VITAMIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6970071927961",
+      "descripcion": "MASCARA FACIAL MOND VITAMIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "6970071927978",
+      "descripcion": "MASCARA FACIAL MOND VITAMIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
     },
     {
       "id": "6971733422305",
@@ -536,6 +752,14 @@
       "precio": 500
     },
     {
+      "id": "6973627128560",
+      "descripcion": "DELINEADOR C/IMAN P/PESTAÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1250
+    },
+    {
       "id": "6973726259608",
       "descripcion": "GEMAS P/CARA",
       "lista": "LISTA1",
@@ -552,6 +776,14 @@
       "precio": 1250
     },
     {
+      "id": "6974707510763",
+      "descripcion": "REMOVEDOR FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 500
+    },
+    {
       "id": "6975222510788",
       "descripcion": "CORRECTOR BARRA",
       "lista": "LISTA1",
@@ -560,12 +792,28 @@
       "precio": 500
     },
     {
+      "id": "6987584580026",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1900
+    },
+    {
       "id": "6988865854553",
       "descripcion": "GEMAS P/CARA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1200
+    },
+    {
+      "id": "6999992586187",
+      "descripcion": "CONTENEDOR PLASTICO RECTANGULAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1800
     },
     {
       "id": "704",
@@ -704,6 +952,38 @@
       "precio": 10650
     },
     {
+      "id": "726021",
+      "descripcion": "HERMETICO 3L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4100
+    },
+    {
+      "id": "726022",
+      "descripcion": "HERMETICO  4L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4500
+    },
+    {
+      "id": "726023",
+      "descripcion": "HERMETICO RECT 5L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 4500
+    },
+    {
+      "id": "726031",
+      "descripcion": "HERMETICO 1,8L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3100
+    },
+    {
       "id": "729",
       "descripcion": "MASAS KITCHEN",
       "lista": "LISTA1",
@@ -752,6 +1032,302 @@
       "precio": 950
     },
     {
+      "id": "7798118410073",
+      "descripcion": "PLATO PLAYO COSMOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1250
+    },
+    {
+      "id": "7798118410080",
+      "descripcion": "PLATO POSTRE FORJADO BLANCO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 750
+    },
+    {
+      "id": "7798118410097",
+      "descripcion": "PLATO HONDO COSMOS BCO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1250
+    },
+    {
+      "id": "7798118410103",
+      "descripcion": "PLATO POSTRE ORQUIDEA BLANCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 750
+    },
+    {
+      "id": "7798118410158",
+      "descripcion": "PLATO POSTRE COSMOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118410172",
+      "descripcion": "VASO CORALINE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 900
+    },
+    {
+      "id": "7798118410196",
+      "descripcion": "PLATO LABRADO PLAYO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118410202",
+      "descripcion": "PLATO LABRADO HONDO DURAX TRANSPARENTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118410240",
+      "descripcion": "PLATO POSTRE LABRADO BCO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 850
+    },
+    {
+      "id": "7798118410264",
+      "descripcion": "PLATO PLAYO GOLD DURAX KEY IMPORT",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1150
+    },
+    {
+      "id": "7798118410271",
+      "descripcion": "PLATO HONDO GOLD DURAX BLANCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1150
+    },
+    {
+      "id": "7798118410288",
+      "descripcion": "PLATO POSTRE GOLD DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118410332",
+      "descripcion": "VASO CÓNICO TANGO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118410455",
+      "descripcion": "VASO CONICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1150
+    },
+    {
+      "id": "7798118410493",
+      "descripcion": "PLATO PLAYO GEMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1450
+    },
+    {
+      "id": "7798118410653",
+      "descripcion": "PLATO HONDO GEMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1250
+    },
+    {
+      "id": "7798118410660",
+      "descripcion": "PLATO POSTRE GEMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118410769",
+      "descripcion": "VASO IRUPE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 900
+    },
+    {
+      "id": "7798118410776",
+      "descripcion": "VASO DURAX COBRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 900
+    },
+    {
+      "id": "7798118410790",
+      "descripcion": "VASP FRESH",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118410806",
+      "descripcion": "VASO COCTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118411001",
+      "descripcion": "PLATO POSTRE ROMA BLANCO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "7798118412152",
+      "descripcion": "VASO LUNITA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 750
+    },
+    {
+      "id": "7798118412510",
+      "descripcion": "VASO PAMPA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1150
+    },
+    {
+      "id": "7798118412688",
+      "descripcion": "PLATO PLAYO GEMA HORIZONTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118412718",
+      "descripcion": "PLATO PLAYO GEMA ATARDECER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118412725",
+      "descripcion": "PLATO PLAYO GEMA MORA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118412732",
+      "descripcion": "PLATO HONDO GEMA OCEANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118412749",
+      "descripcion": "PLATO HONDO GEMA HORIZONTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118412756",
+      "descripcion": "PLATO HONDO GEMA ARENA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118412763",
+      "descripcion": "PLATO HONDO GEMA ESMERALDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118412770",
+      "descripcion": "PLATO HONDO GEMA ATARDECER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118412787",
+      "descripcion": "PLATO HONDO GEMA MORA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2250
+    },
+    {
+      "id": "7798118415009",
+      "descripcion": "PLATO PLAYO ORQUIDEA BLANCO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 950
+    },
+    {
+      "id": "7798118415016",
+      "descripcion": "PLATO HONDO ORQUIDEA BCO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 950
+    },
+    {
+      "id": "7798118416006",
+      "descripcion": "PLATO PLAYO FORJADO BCO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 950
+    },
+    {
+      "id": "7798118416013",
+      "descripcion": "PLATO HONDO FORJADO BCO DURAX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 950
+    },
+    {
       "id": "7798184527477",
       "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
       "lista": "LISTA1",
@@ -776,12 +1352,36 @@
       "precio": 1400
     },
     {
+      "id": "7798317823322",
+      "descripcion": "POLVO COMPACTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1600
+    },
+    {
       "id": "7798317823339",
       "descripcion": "CONTORNO E ILU",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1350
+      "precio": 1600
+    },
+    {
+      "id": "7798317827283",
+      "descripcion": "BRILLO LABIAL MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2500
+    },
+    {
+      "id": "7798317828525",
+      "descripcion": "LIP GLOSS 24 HORAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1800
     },
     {
       "id": "7798373791399",
@@ -790,6 +1390,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1700
+    },
+    {
+      "id": "7896042002132",
+      "descripcion": "TUPPER 5,6L PLASUTIL 213",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 9900
     },
     {
       "id": "7896042037202",
@@ -808,6 +1416,38 @@
       "precio": 1500
     },
     {
+      "id": "8542",
+      "descripcion": "LIP GLOSS MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1450
+    },
+    {
+      "id": "8955155821173",
+      "descripcion": "DELINEADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
+      "id": "AC250017",
+      "descripcion": "LABIAL IHUIDIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1350
+    },
+    {
+      "id": "AC253348",
+      "descripcion": "LABIAL NOTE PERFECT",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1350
+    },
+    {
       "id": "ACFS310A",
       "descripcion": "COORECTOR BARRA",
       "lista": "LISTA1",
@@ -822,6 +1462,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1400
+    },
+    {
+      "id": "AN160980",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1900
     },
     {
       "id": "AN414338",
@@ -840,12 +1488,36 @@
       "precio": 1650
     },
     {
+      "id": "AN5802",
+      "descripcion": "LIP LOOK",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1800
+    },
+    {
       "id": "BOX1000",
       "descripcion": "BOLSA DE BOXEO CON CINTURON",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 12700
+    },
+    {
+      "id": "BQY1099",
+      "descripcion": "GEL LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 500
+    },
+    {
+      "id": "CS1262",
+      "descripcion": "BRILLO LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1750
     },
     {
       "id": "CS21082338",
@@ -864,6 +1536,22 @@
       "precio": 1900
     },
     {
+      "id": "CS2898",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2300
+    },
+    {
+      "id": "CS3352",
+      "descripcion": "BRILLO LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1750
+    },
+    {
       "id": "CS3399",
       "descripcion": "POLVO COMPACTO",
       "lista": "LISTA1",
@@ -872,12 +1560,28 @@
       "precio": 1900
     },
     {
+      "id": "CS3422",
+      "descripcion": "DELINEADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 800
+    },
+    {
       "id": "DI4567",
       "descripcion": "SET YEB/AZUC ESTAMPADO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 3390
+    },
+    {
+      "id": "DI4573",
+      "descripcion": "SET AZUC/YEB LISO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 3400
     },
     {
       "id": "DI4590",
@@ -1008,12 +1712,36 @@
       "precio": 1500
     },
     {
+      "id": "FER1447",
+      "descripcion": "BRILLO LABIAL MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
       "id": "FER1922",
       "descripcion": "LIMA DECORADA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 400
+    },
+    {
+      "id": "FER2655",
+      "descripcion": "LIP  GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2200
+    },
+    {
+      "id": "FER2666",
+      "descripcion": "LIP GLOSS MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2500
     },
     {
       "id": "FER5020",
@@ -1032,12 +1760,60 @@
       "precio": 8900
     },
     {
+      "id": "KMG725032",
+      "descripcion": "HERMETICO 850ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1450
+    },
+    {
+      "id": "L442",
+      "descripcion": "LIP GLOSS HADA HUDAMOJI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1350
+    },
+    {
+      "id": "LG232",
+      "descripcion": "BRILLO LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1600
+    },
+    {
+      "id": "LG2411A",
+      "descripcion": "LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1900
+    },
+    {
+      "id": "LSA07",
+      "descripcion": "LABIAL DE HADAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1200
+    },
+    {
       "id": "M2232",
       "descripcion": "MASCARA P/PESTAÑAS FIT ME",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1600
+    },
+    {
+      "id": "OR12052025",
+      "descripcion": "MASCARA P/OJOS COLAGENO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 500
     },
     {
       "id": "PLUS1234",
@@ -1072,6 +1848,14 @@
       "precio": 2500
     },
     {
+      "id": "SE289",
+      "descripcion": "LIP GLOSS SHI ZHI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1700
+    },
+    {
       "id": "SI2189",
       "descripcion": "POTE CLIC 1250ML",
       "lista": "LISTA1",
@@ -1104,6 +1888,14 @@
       "precio": 3700
     },
     {
+      "id": "TEJ1446",
+      "descripcion": "BRILLO LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2500
+    },
+    {
       "id": "TEJ219",
       "descripcion": "DELINEADOR LIQUIDO",
       "lista": "LISTA1",
@@ -1128,12 +1920,36 @@
       "precio": 2650
     },
     {
+      "id": "TEJ2605",
+      "descripcion": "BRILLO LABIAL MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2650
+    },
+    {
       "id": "TEJ339",
       "descripcion": "MAQUILLAJE EN BARRA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1550
+    },
+    {
+      "id": "TEJ389",
+      "descripcion": "GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2350
+    },
+    {
+      "id": "TEJ394",
+      "descripcion": "BRILLO LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2500
     },
     {
       "id": "TEJ4120",
@@ -1152,6 +1968,14 @@
       "precio": 2600
     },
     {
+      "id": "TEJ4169",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2500
+    },
+    {
       "id": "TEJ5048",
       "descripcion": "CORRECTOR LIQUIDO LOVE",
       "lista": "LISTA1",
@@ -1160,12 +1984,28 @@
       "precio": 2350
     },
     {
+      "id": "TEJ5075",
+      "descripcion": "BRILLO P/LABIOS MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2400
+    },
+    {
       "id": "TEJ5080",
       "descripcion": "LIQUID CONCEALER",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 2500
+    },
+    {
+      "id": "TEJ731412",
+      "descripcion": "DELINEADOR LIQUIDO LOVE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1800
     },
     {
       "id": "TEJ808",
@@ -1208,6 +2048,22 @@
       "precio": 1150
     },
     {
+      "id": "TYL1803",
+      "descripcion": "MASCARA COLAGENO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 900
+    },
+    {
+      "id": "TYL1804",
+      "descripcion": "MASCARA COLAGENO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 900
+    },
+    {
       "id": "XRL66",
       "descripcion": "PAPEL FOIL X6",
       "lista": "LISTA1",
@@ -1224,12 +2080,84 @@
       "precio": 2250
     },
     {
+      "id": "YH202",
+      "descripcion": "LIP GLOSS NUDE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1000
+    },
+    {
+      "id": "YH20231",
+      "descripcion": "MASCARILLA DOLANJN BANANA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1100
+    },
+    {
       "id": "YH202312",
       "descripcion": "CORRECTOR BARRA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1050
+    },
+    {
+      "id": "YH20232",
+      "descripcion": "MASCARILLA PANDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 900
+    },
+    {
+      "id": "YH202327",
+      "descripcion": "LABIAL MAGICO C/ANILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1600
+    },
+    {
+      "id": "YH202338",
+      "descripcion": "LIP GLOSS CORAZON",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1900
+    },
+    {
+      "id": "YH202347",
+      "descripcion": "LABIAL NUD 2 EN 1",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 2200
+    },
+    {
+      "id": "YH202353",
+      "descripcion": "LIP GLOSS CONEJO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1600
+    },
+    {
+      "id": "YH202361",
+      "descripcion": "LIP GLOSS 5 EN 1",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1750
+    },
+    {
+      "id": "YH208",
+      "descripcion": "LIP GLOSS MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 800
     },
     {
       "id": "ZEC1250",
@@ -16288,7 +17216,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1100
+      "precio": 1350
     },
     {
       "id": "6131682533587",
@@ -17400,7 +18328,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1950
+      "precio": 1600
     },
     {
       "id": "6700000131066",
@@ -18248,7 +19176,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1800
+      "precio": 2200
     },
     {
       "id": "6901605603839",
@@ -18368,14 +19296,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1500
-    },
-    {
-      "id": "6903072419593",
-      "descripcion": "LIP GLOSS GLITTER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1350
     },
     {
       "id": "6903072426959",
@@ -20295,7 +21215,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1350
+      "precio": 1600
     },
     {
       "id": "6924372612743",
@@ -20319,7 +21239,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1600
+      "precio": 1900
     },
     {
       "id": "6924372614457",
@@ -23431,7 +24351,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 1100
     },
     {
       "id": "6947790508306",
@@ -23439,7 +24359,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 1100
     },
     {
       "id": "6947790508313",
@@ -23447,7 +24367,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 1100
     },
     {
       "id": "6947790513553",
@@ -23479,7 +24399,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "6947790513713",
@@ -23487,7 +24407,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "6947790513720",
@@ -23495,7 +24415,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "6947790766652",
@@ -23519,7 +24439,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 400
+      "precio": 500
     },
     {
       "id": "6947802300362",
@@ -23935,7 +24855,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1450
+      "precio": 1750
     },
     {
       "id": "6952938338608",
@@ -24191,7 +25111,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1450
+      "precio": 1750
     },
     {
       "id": "6952938455787",
@@ -24359,7 +25279,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 600
+      "precio": 800
     },
     {
       "id": "6952938456401",
@@ -24919,7 +25839,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1450
+      "precio": 1750
     },
     {
       "id": "6956133603851",
@@ -24967,7 +25887,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 650
+      "precio": 800
     },
     {
       "id": "6956569384560",
@@ -24975,7 +25895,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 800
+      "precio": 1000
     },
     {
       "id": "6956987100030",
@@ -25064,14 +25984,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1650
-    },
-    {
-      "id": "6960037160952",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1600
     },
     {
       "id": "6960202119297",
@@ -25615,7 +26527,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1300
+      "precio": 1900
     },
     {
       "id": "6971846337060",
@@ -25623,7 +26535,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1300
+      "precio": 1600
     },
     {
       "id": "6971904044077",
@@ -25999,7 +26911,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1200
+      "precio": 1450
     },
     {
       "id": "6972456515275",
@@ -26007,7 +26919,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1100
+      "precio": 1350
     },
     {
       "id": "6972456515626",
@@ -26183,7 +27095,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1900
+      "precio": 2300
     },
     {
       "id": "6972545243126",
@@ -27711,7 +28623,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1100
+      "precio": 1350
     },
     {
       "id": "6974482580074",
@@ -27832,14 +28744,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 300
-    },
-    {
-      "id": "6974707510763",
-      "descripcion": "REMOVEDOR FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 350
     },
     {
       "id": "6974724470309",
@@ -28498,14 +29402,6 @@
       "precio": 690
     },
     {
-      "id": "6987584580026",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1550
-    },
-    {
       "id": "6987752497217",
       "descripcion": "CARAMELERA VIDRIO",
       "lista": "LISTA1",
@@ -28666,14 +29562,6 @@
       "precio": 400
     },
     {
-      "id": "6999992586187",
-      "descripcion": "CONTENEDOR PLASTICO RECTANGULAR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1500
-    },
-    {
       "id": "6999992586255",
       "descripcion": "VIANDA DOBLE PLASTICA REDONDA CON CUBIERTO",
       "lista": "LISTA1",
@@ -28815,7 +29703,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "7,79829E+12",
@@ -44013,7 +44901,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 3800
+      "precio": 4500
     },
     {
       "id": "7795357004551",
@@ -44061,7 +44949,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1200
+      "precio": 1450
     },
     {
       "id": "7795357004698",
@@ -44077,7 +44965,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 3400
+      "precio": 4100
     },
     {
       "id": "7795357004889",
@@ -44085,7 +44973,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 3800
+      "precio": 4500
     },
     {
       "id": "7795357004902",
@@ -44093,7 +44981,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2600
+      "precio": 3100
     },
     {
       "id": "7795357004919",
@@ -48696,38 +49584,6 @@
       "precio": 220
     },
     {
-      "id": "7798118410080",
-      "descripcion": "PLATO POSTRE FORJADO BLANCO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 450
-    },
-    {
-      "id": "7798118410097",
-      "descripcion": "PLATO HONDO COSMOS BCO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "7798118410103",
-      "descripcion": "PLATO POSTRE ORQUIDEA BLANCO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 450
-    },
-    {
-      "id": "7798118410172",
-      "descripcion": "VASO CORALINE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 450
-    },
-    {
       "id": "7798118410189",
       "descripcion": "VASO IMPERIAL BCO DURAX",
       "lista": "LISTA1",
@@ -48736,88 +49592,8 @@
       "precio": 200
     },
     {
-      "id": "7798118410196",
-      "descripcion": "PLATO LABRADO PLAYO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "7798118410202",
-      "descripcion": "PLATO LABRADO HONDO DURAX TRANSPARENTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "7798118410240",
-      "descripcion": "PLATO POSTRE LABRADO BCO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 450
-    },
-    {
-      "id": "7798118410264",
-      "descripcion": "PLATO PLAYO GOLD DURAX KEY IMPORT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 650
-    },
-    {
-      "id": "7798118410271",
-      "descripcion": "PLATO HONDO GOLD DURAX BLANCO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 650
-    },
-    {
-      "id": "7798118410288",
-      "descripcion": "PLATO POSTRE GOLD DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "7798118410332",
-      "descripcion": "VASO CÓNICO TANGO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
       "id": "7798118410479",
       "descripcion": "VASO FACETADO BAJO 350CC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "7798118410493",
-      "descripcion": "PLATO PLAYO GEMA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 690
-    },
-    {
-      "id": "7798118410653",
-      "descripcion": "PLATO HONDO GEMA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 690
-    },
-    {
-      "id": "7798118410660",
-      "descripcion": "PLATO POSTRE GEMA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
@@ -48856,124 +49632,12 @@
       "precio": 450
     },
     {
-      "id": "7798118411001",
-      "descripcion": "PLATO POSTRE ROMA BLANCO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
       "id": "7798118411810",
       "descripcion": "TAZON FACETADO VIDRIO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 280
-    },
-    {
-      "id": "7798118412688",
-      "descripcion": "PLATO PLAYO GEMA HORIZONTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118412718",
-      "descripcion": "PLATO PLAYO GEMA ATARDECER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118412725",
-      "descripcion": "PLATO PLAYO GEMA MORA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118412732",
-      "descripcion": "PLATO HONDO GEMA OCEANO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118412749",
-      "descripcion": "PLATO HONDO GEMA HORIZONTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118412756",
-      "descripcion": "PLATO HONDO GEMA ARENA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118412763",
-      "descripcion": "PLATO HONDO GEMA ESMERALDA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118412770",
-      "descripcion": "PLATO HONDO GEMA ATARDECER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118412787",
-      "descripcion": "PLATO HONDO GEMA MORA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1250
-    },
-    {
-      "id": "7798118415009",
-      "descripcion": "PLATO PLAYO ORQUIDEA BLANCO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "7798118415016",
-      "descripcion": "PLATO HONDO ORQUIDEA BCO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "7798118416006",
-      "descripcion": "PLATO PLAYO FORJADO BCO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
-    },
-    {
-      "id": "7798118416013",
-      "descripcion": "PLATO HONDO FORJADO BCO DURAX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 550
     },
     {
       "id": "7798118418338",
@@ -50349,7 +51013,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "7798184528122",
@@ -50357,7 +51021,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "7798184528139",
@@ -50365,7 +51029,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "7798184528146",
@@ -50373,7 +51037,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "7798184528153",
@@ -50381,7 +51045,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "7798184528245",
@@ -50389,7 +51053,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 750
+      "precio": 900
     },
     {
       "id": "7798184528252",
@@ -50829,7 +51493,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1950
+      "precio": 2350
     },
     {
       "id": "7798187887479",
@@ -50869,7 +51533,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2100
+      "precio": 2500
     },
     {
       "id": "7798187887783",
@@ -51005,7 +51669,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2100
+      "precio": 2500
     },
     {
       "id": "7798187888667",
@@ -51013,7 +51677,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2150
+      "precio": 2650
     },
     {
       "id": "7798187888711",
@@ -53333,7 +53997,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2100
+      "precio": 2500
     },
     {
       "id": "7798317826934",
@@ -53397,7 +54061,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2250
+      "precio": 2650
     },
     {
       "id": "7798317827207",
@@ -53573,7 +54237,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 1750
+      "precio": 2200
     },
     {
       "id": "7798317829461",
@@ -55469,7 +56133,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2050
+      "precio": 2500
     },
     {
       "id": "7798373792013",
@@ -55565,7 +56229,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 2000
+      "precio": 2400
     },
     {
       "id": "7798373792204",
@@ -57221,7 +57885,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 900
+      "precio": 1200
     },
     {
       "id": "7808802565597",
@@ -60525,7 +61189,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 8100
+      "precio": 9700
     },
     {
       "id": "7896042024189",
@@ -60533,7 +61197,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 6900
+      "precio": 8300
     },
     {
       "id": "7896042024318",
@@ -60565,7 +61229,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
-      "precio": 3150
+      "precio": 3800
     },
     {
       "id": "7896042025445",
@@ -69896,14 +70560,6 @@
       "precio": 1500
     },
     {
-      "id": "AN5802",
-      "descripcion": "LIP LOOK",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1500
-    },
-    {
       "id": "AND1234",
       "descripcion": "REMOVEDOR ESMALTE GEL",
       "lista": "LISTA1",
@@ -71166,14 +71822,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 220
-    },
-    {
-      "id": "DI4573",
-      "descripcion": "SET AZUC/YEB LISO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 2850
     },
     {
       "id": "DI47010",
@@ -77264,14 +77912,6 @@
       "precio": 2750
     },
     {
-      "id": "OR12052025",
-      "descripcion": "MASCARA P/OJOS COLAGENO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 350
-    },
-    {
       "id": "PA44400467",
       "descripcion": "BOLSA CLASICA 22*30",
       "lista": "LISTA1",
@@ -77992,14 +78632,6 @@
       "precio": 1400
     },
     {
-      "id": "SE289",
-      "descripcion": "LIP GLOSS SHI ZHI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1400
-    },
-    {
       "id": "SI018",
       "descripcion": "VASO SIMONES 360ML",
       "lista": "LISTA1",
@@ -78486,14 +79118,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 900
-    },
-    {
-      "id": "TEJ1446",
-      "descripcion": "BRILLO LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 2100
     },
     {
       "id": "TEJ1452",
@@ -80760,14 +81384,6 @@
       "precio": 700
     },
     {
-      "id": "TYL1803",
-      "descripcion": "MASCARA COLAGENO LABIOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 750
-    },
-    {
       "id": "TYL1806",
       "descripcion": "SPRAY FIJADOR MAQUILLAJE",
       "lista": "LISTA1",
@@ -81581,6 +82197,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1500
+    },
+    {
+      "id": "tej731214",
+      "descripcion": "DELINEADOR LIQUIDO LOVE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45275,
+      "precio": 1800
     },
     {
       "id": "tf10109",
@@ -83005,14 +83629,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 4800
-    },
-    {
-      "id": "AN160980",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1600
     },
     {
       "id": "AN222811",
@@ -85151,14 +85767,6 @@
       "precio": 3700
     },
     {
-      "id": "TEJ731412",
-      "descripcion": "DELINEADOR LIQUIDO LOVE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1800
-    },
-    {
       "id": "TEJ8849",
       "descripcion": "BLUSH",
       "lista": "LISTA1",
@@ -85397,14 +86005,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 2350
-    },
-    {
-      "id": "YH202327",
-      "descripcion": "LABIAL MAGICO C/ANILLO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1950
     },
     {
       "id": "YH202329",
@@ -88327,14 +88927,6 @@
       "precio": 3900
     },
     {
-      "id": "2417",
-      "descripcion": "POTE CLICK CUAD 6,6L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 8100
-    },
-    {
       "id": "2431",
       "descripcion": "VERTEDOR 740ML",
       "lista": "LISTA1",
@@ -88413,38 +89005,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45267,
       "precio": 2500
-    },
-    {
-      "id": "726021",
-      "descripcion": "HERMETICO 3L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 3400
-    },
-    {
-      "id": "726022",
-      "descripcion": "HERMETICO  4L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 3800
-    },
-    {
-      "id": "726023",
-      "descripcion": "HERMETICO RECT 5L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 3800
-    },
-    {
-      "id": "726031",
-      "descripcion": "HERMETICO 1,8L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 2600
     },
     {
       "id": "726033",
@@ -88637,14 +89197,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45267,
       "precio": 2000
-    },
-    {
-      "id": "KMG725032",
-      "descripcion": "HERMETICO 850ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45267,
-      "precio": 1200
     },
     {
       "id": "KMG725033",
@@ -88871,22 +89423,6 @@
       "precio": 18500
     },
     {
-      "id": "2418",
-      "descripcion": "POTE CLICK 3,2L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45266,
-      "precio": 6900
-    },
-    {
-      "id": "2498",
-      "descripcion": "PORTA INGREDIENTES 3L",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45266,
-      "precio": 3150
-    },
-    {
       "id": "53320",
       "descripcion": "CONJUNTO MILITAR",
       "lista": "LISTA1",
@@ -88941,14 +89477,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45266,
       "precio": 14700
-    },
-    {
-      "id": "7896042002132",
-      "descripcion": "TUPPER 5,6L PLASUTIL 213",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45266,
-      "precio": 9900
     },
     {
       "id": "DS103000",
@@ -89591,14 +90119,6 @@
       "precio": 1100
     },
     {
-      "id": "YH202338",
-      "descripcion": "LIP GLOSS CORAZON",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45265,
-      "precio": 1300
-    },
-    {
       "id": "YH446",
       "descripcion": "BROCHAS ZIP ROSA 7PC",
       "lista": "LISTA1",
@@ -89943,14 +90463,6 @@
       "precio": 1300
     },
     {
-      "id": "AC253348",
-      "descripcion": "LABIAL NOTE PERFECT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45264,
-      "precio": 1100
-    },
-    {
       "id": "AC25349",
       "descripcion": "DECP X12 NAIL ART",
       "lista": "LISTA1",
@@ -90053,14 +90565,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45264,
       "precio": 2800
-    },
-    {
-      "id": "YH202353",
-      "descripcion": "LIP GLOSS CONEJO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45264,
-      "precio": 1300
     },
     {
       "id": "YH239",
@@ -90172,14 +90676,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45262,
       "precio": 3690
-    },
-    {
-      "id": "CS3422",
-      "descripcion": "DELINEADOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45262,
-      "precio": 600
     },
     {
       "id": "PF0304",
@@ -91478,14 +91974,6 @@
       "precio": 2500
     },
     {
-      "id": "TYL1804",
-      "descripcion": "MASCARA COLAGENO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45260,
-      "precio": 750
-    },
-    {
       "id": "TYL1838",
       "descripcion": "AGUA MICELAR 70ML",
       "lista": "LISTA1",
@@ -91620,14 +92108,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45259,
       "precio": 1200
-    },
-    {
-      "id": "7798118412152",
-      "descripcion": "VASO LUNITA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 450
     },
     {
       "id": "7798135960186",
@@ -97085,22 +97565,6 @@
       "precio": 4900
     },
     {
-      "id": "CS2898",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45238,
-      "precio": 1900
-    },
-    {
-      "id": "CS3352",
-      "descripcion": "BRILLO LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45238,
-      "precio": 1450
-    },
-    {
       "id": "DEC1532",
       "descripcion": "PILOTO ADULTO",
       "lista": "LISTA1",
@@ -97179,14 +97643,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45238,
       "precio": 800
-    },
-    {
-      "id": "TEJ5075",
-      "descripcion": "BRILLO P/LABIOS MATTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45238,
-      "precio": 2000
     },
     {
       "id": "7793291011611",
@@ -103197,92 +103653,12 @@
       "precio": 1200
     },
     {
-      "id": "6820202302269",
-      "descripcion": "LABIAL LIQUIDO QIAO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 1000
-    },
-    {
       "id": "6920768761262",
       "descripcion": "PESTAÑAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45220,
       "precio": 1000
-    },
-    {
-      "id": "6923263710032",
-      "descripcion": "MASCARILLA FACIAL PEPINO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 600
-    },
-    {
-      "id": "6923263710056",
-      "descripcion": "MASCARILLA FACIAL PALTA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 600
-    },
-    {
-      "id": "6923263710063",
-      "descripcion": "MASCARILLA FACIAL MILK",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 600
-    },
-    {
-      "id": "6923263710377",
-      "descripcion": "MASCARILLA FACIAL ARANDANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
-    },
-    {
-      "id": "6923263710391",
-      "descripcion": "MASCARA FACIAL DARRY LOVE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
-    },
-    {
-      "id": "6923263710568",
-      "descripcion": "MASCARA FACIAL DARRYLOVE LEMON",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
-    },
-    {
-      "id": "6923263710582",
-      "descripcion": "MASCARA CARCHOAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
-    },
-    {
-      "id": "6923263710643",
-      "descripcion": "MASCARILLA TOMATE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 600
-    },
-    {
-      "id": "6923263710650",
-      "descripcion": "MASCARILLA ZANAHORIA DEAR SHE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 600
     },
     {
       "id": "6929123480718",
@@ -103301,76 +103677,12 @@
       "precio": 1000
     },
     {
-      "id": "6956219100731",
-      "descripcion": "MASCARILLA PARA OJOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 350
-    },
-    {
       "id": "6958864456874",
       "descripcion": "SET DE UÑAS DECORADAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45220,
       "precio": 900
-    },
-    {
-      "id": "6970071921358",
-      "descripcion": "LIP MASK",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 400
-    },
-    {
-      "id": "6970071924014",
-      "descripcion": "MASCARA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
-    },
-    {
-      "id": "6970071924038",
-      "descripcion": "MASCARA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
-    },
-    {
-      "id": "6970071925387",
-      "descripcion": "MASCARILLA CARBON MOND SUB TRANSPARENT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 650
-    },
-    {
-      "id": "6970071927954",
-      "descripcion": "MASCARA FACIAL MOND VITAMIN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
-    },
-    {
-      "id": "6970071927961",
-      "descripcion": "MASCARA FACIAL MOND VITAMIN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
-    },
-    {
-      "id": "6970071927978",
-      "descripcion": "MASCARA FACIAL MOND VITAMIN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 800
     },
     {
       "id": "6972204670911",
@@ -103597,14 +103909,6 @@
       "precio": 1100
     },
     {
-      "id": "AC250017",
-      "descripcion": "LABIAL IHUIDIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 1100
-    },
-    {
       "id": "AC25111",
       "descripcion": "GOMITAS /HEBILLAS",
       "lista": "LISTA1",
@@ -103643,14 +103947,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45220,
       "precio": 1000
-    },
-    {
-      "id": "BQY1099",
-      "descripcion": "GEL LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 400
     },
     {
       "id": "FER1794",
@@ -103699,14 +103995,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45220,
       "precio": 900
-    },
-    {
-      "id": "L442",
-      "descripcion": "LIP GLOSS HADA HUDAMOJI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 1100
     },
     {
       "id": "LH10812",
@@ -103819,22 +104107,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45220,
       "precio": 1200
-    },
-    {
-      "id": "YH20231",
-      "descripcion": "MASCARILLA DOLANJN BANANA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 750
-    },
-    {
-      "id": "YH20232",
-      "descripcion": "MASCARILLA PANDA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45220,
-      "precio": 750
     },
     {
       "id": "YH202337",
@@ -104933,14 +105205,6 @@
       "precio": 8250
     },
     {
-      "id": "6820002302568",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45217,
-      "precio": 1500
-    },
-    {
       "id": "6938926508550",
       "descripcion": "GLITTER GEL",
       "lista": "LISTA1",
@@ -105047,14 +105311,6 @@
     {
       "id": "8168",
       "descripcion": "LIP TINTS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45217,
-      "precio": 1200
-    },
-    {
-      "id": "8542",
-      "descripcion": "LIP GLOSS MATTE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45217,
@@ -105187,14 +105443,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45217,
       "precio": 1500
-    },
-    {
-      "id": "LG2411A",
-      "descripcion": "LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45217,
-      "precio": 1600
     },
     {
       "id": "LO2456B",
@@ -105429,14 +105677,6 @@
       "precio": 2490
     },
     {
-      "id": "FER1447",
-      "descripcion": "BRILLO LABIAL MATTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45216,
-      "precio": 2150
-    },
-    {
       "id": "FER1735",
       "descripcion": "BROCHA MAQUILLAJE 16CM",
       "lista": "LISTA1",
@@ -105477,28 +105717,12 @@
       "precio": 250
     },
     {
-      "id": "FER2655",
-      "descripcion": "LIP  GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45216,
-      "precio": 1750
-    },
-    {
       "id": "FER2656",
       "descripcion": "DELINEADOR LIQUIDO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45216,
       "precio": 1950
-    },
-    {
-      "id": "FER2666",
-      "descripcion": "LIP GLOSS MATTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45216,
-      "precio": 2050
     },
     {
       "id": "FER2675",
@@ -105829,56 +106053,8 @@
       "precio": 1450
     },
     {
-      "id": "7798118410455",
-      "descripcion": "VASO CONICO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45213,
-      "precio": 600
-    },
-    {
       "id": "7798118410691",
       "descripcion": "VASO LONG DRINK",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45213,
-      "precio": 600
-    },
-    {
-      "id": "7798118410769",
-      "descripcion": "VASO IRUPE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45213,
-      "precio": 450
-    },
-    {
-      "id": "7798118410776",
-      "descripcion": "VASO DURAX COBRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45213,
-      "precio": 450
-    },
-    {
-      "id": "7798118410790",
-      "descripcion": "VASP FRESH",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45213,
-      "precio": 550
-    },
-    {
-      "id": "7798118410806",
-      "descripcion": "VASO COCTEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45213,
-      "precio": 550
-    },
-    {
-      "id": "7798118412510",
-      "descripcion": "VASO PAMPA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45213,
@@ -106661,14 +106837,6 @@
       "precio": 600
     },
     {
-      "id": "6973627128560",
-      "descripcion": "DELINEADOR C/IMAN P/PESTAÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45212,
-      "precio": 1050
-    },
-    {
       "id": "6973726200044",
       "descripcion": "DELINEADOR CON CEPILLO",
       "lista": "LISTA1",
@@ -106731,14 +106899,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45212,
       "precio": 950
-    },
-    {
-      "id": "8955155821173",
-      "descripcion": "DELINEADOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45212,
-      "precio": 650
     },
     {
       "id": "AC1888",
@@ -106955,14 +107115,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45211,
       "precio": 500
-    },
-    {
-      "id": "6924372671610",
-      "descripcion": "DELINEADOR USHAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45211,
-      "precio": 1000
     },
     {
       "id": "6952938413220",
@@ -107285,14 +107437,6 @@
       "precio": 2150
     },
     {
-      "id": "6900779252690",
-      "descripcion": "DELINEADOR LABIOS + BROCHA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 700
-    },
-    {
       "id": "6900962036298",
       "descripcion": "PINCEL DOTTING",
       "lista": "LISTA1",
@@ -107323,14 +107467,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45210,
       "precio": 850
-    },
-    {
-      "id": "6924372614693",
-      "descripcion": "BRILLO LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1400
     },
     {
       "id": "6932354807551",
@@ -107627,22 +107763,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45210,
       "precio": 2350
-    },
-    {
-      "id": "7798317827283",
-      "descripcion": "BRILLO LABIAL MATTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 2100
-    },
-    {
-      "id": "7798317828525",
-      "descripcion": "LIP GLOSS 24 HORAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1500
     },
     {
       "id": "7798375121149",
@@ -107949,14 +108069,6 @@
       "precio": 250
     },
     {
-      "id": "CS1262",
-      "descripcion": "BRILLO LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1450
-    },
-    {
       "id": "CS2944",
       "descripcion": "GLITTER",
       "lista": "LISTA1",
@@ -108109,14 +108221,6 @@
       "precio": 850
     },
     {
-      "id": "LG232",
-      "descripcion": "BRILLO LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
       "id": "LG2455",
       "descripcion": "VOLUMINIZADOR USHAS",
       "lista": "LISTA1",
@@ -108147,14 +108251,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45210,
       "precio": 2450
-    },
-    {
-      "id": "LSA07",
-      "descripcion": "LABIAL DE HADAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 900
     },
     {
       "id": "MS1000",
@@ -108245,39 +108341,7 @@
       "precio": 1700
     },
     {
-      "id": "TEJ2605",
-      "descripcion": "BRILLO LABIAL MATTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 2250
-    },
-    {
-      "id": "TEJ389",
-      "descripcion": "GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1950
-    },
-    {
-      "id": "TEJ394",
-      "descripcion": "BRILLO LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 2100
-    },
-    {
       "id": "TEJ4168",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 2100
-    },
-    {
-      "id": "TEJ4169",
       "descripcion": "LIP GLOSS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
@@ -108333,44 +108397,12 @@
       "precio": 350
     },
     {
-      "id": "YH202",
-      "descripcion": "LIP GLOSS NUDE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 800
-    },
-    {
       "id": "YH202335",
       "descripcion": "BOB 3EN 1",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45210,
       "precio": 1050
-    },
-    {
-      "id": "YH202347",
-      "descripcion": "LABIAL NUD 2 EN 1",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1800
-    },
-    {
-      "id": "YH202361",
-      "descripcion": "LIP GLOSS 5 EN 1",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1450
-    },
-    {
-      "id": "YH208",
-      "descripcion": "LIP GLOSS MATTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 650
     },
     {
       "id": "YH256",
@@ -108547,14 +108579,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45209,
       "precio": 4300
-    },
-    {
-      "id": "7798317823322",
-      "descripcion": "POLVO COMPACTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 1300
     },
     {
       "id": "7798317828501",
