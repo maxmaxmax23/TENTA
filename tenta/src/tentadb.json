@@ -1,11 +1,1403 @@
 [
     {
+      "id": "10",
+      "descripcion": "PUZZLE GRANJA 4 PIEZAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2500
+    },
+    {
+      "id": "100U",
+      "descripcion": "SAHUMERIOS ORGANICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "100V",
+      "descripcion": "SAHUMERIOS 7 CHACRAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "101K",
+      "descripcion": "PASTILLAS 7 CHACRAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1300
+    },
+    {
+      "id": "101Q",
+      "descripcion": "SAHUMERIOS MAGISTRALES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "101S",
+      "descripcion": "ESFERAS MAGICAS X4",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 700
+    },
+    {
+      "id": "101T",
+      "descripcion": "SAHUMERIOS MAGICOS HECHIZO ORIENTAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "101W",
+      "descripcion": "SAHUMERIOS PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "507",
+      "descripcion": "SET DE FRUTAS Y VERDURAS DURAVIT",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2600
+    },
+    {
+      "id": "6922901031232",
+      "descripcion": "FLANERA TEFLON  PP0396",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 4900
+    },
+    {
+      "id": "7798040803776",
+      "descripcion": "BRILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 750
+    },
+    {
+      "id": "7798081513139",
+      "descripcion": "VELONCITO FRUTILLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1300
+    },
+    {
+      "id": "7798081513153",
+      "descripcion": "VELONCITO VAILILLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1300
+    },
+    {
+      "id": "7798081513726",
+      "descripcion": "VELONCITO AROMATICO SANDALO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1300
+    },
+    {
+      "id": "7798081516291",
+      "descripcion": "VELONCITO AROMATICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1300
+    },
+    {
+      "id": "7798161642537",
+      "descripcion": "VELONCITO VOTIVO C/VASO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3000
+    },
+    {
+      "id": "7798311150806",
+      "descripcion": "LABIAL LIQUIDO MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3000
+    },
+    {
+      "id": "7798311150882",
+      "descripcion": "LAPIZ RETRACTIL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798311151223",
+      "descripcion": "DELINEADOR GLITER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2800
+    },
+    {
+      "id": "7798311151391",
+      "descripcion": "DELINEADOR EN FIBRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1950
+    },
+    {
+      "id": "7798311151490",
+      "descripcion": "BASE LIQUIDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 4850
+    },
+    {
+      "id": "7798311151506",
+      "descripcion": "CORRECTOR LIQUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3350
+    },
+    {
+      "id": "7798311151599",
+      "descripcion": "ILUMINADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2900
+    },
+    {
+      "id": "7798311151650",
+      "descripcion": "EXFOLIANTE P/ROSTRO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1450
+    },
+    {
+      "id": "7798311151766",
+      "descripcion": "BASE CREMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3650
+    },
+    {
+      "id": "7798311151810",
+      "descripcion": "DELINEADOR P/LABIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1200
+    },
+    {
+      "id": "7798348231837",
+      "descripcion": "PERLAS AROMATICAS LIMON",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 600
+    },
+    {
+      "id": "7798375121187",
+      "descripcion": "SAHU TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375121200",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375121224",
+      "descripcion": "SAHUMERIO TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375121231",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375121392",
+      "descripcion": "SAHU TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375121460",
+      "descripcion": "VELONCITO VOTIVO C/VASO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3000
+    },
+    {
+      "id": "7798375124485",
+      "descripcion": "SAHUMERIO EN RAMA NARANJA PIMIENTA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375124492",
+      "descripcion": "SAHUMERIO EN RAMA DE LA INDIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375124508",
+      "descripcion": "SAHUMERIO EN RAMA SUPER PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375124539",
+      "descripcion": "SAHUMERIO EN RAMA REAL CHAMPA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375124911",
+      "descripcion": "SAHUMERIO EN RAMA GARDENIA FLORES BLANCA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375124928",
+      "descripcion": "SAHUMERIO EN RAMA BERRY KISS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375124935",
+      "descripcion": "SAHUMERIO EN RAMA SANDALO CONSAGRADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375124942",
+      "descripcion": "SAHUMERIO EN RAMA VAINILLAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375125543",
+      "descripcion": "SAHU TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375125550",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375125581",
+      "descripcion": "SAHUMERIO TIBETANO BENJUI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375125604",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375125628",
+      "descripcion": "SAHU TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375125680",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127493",
+      "descripcion": "ESFERAS MAGICAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 700
+    },
+    {
+      "id": "7798375127608",
+      "descripcion": "ESFERAS MAGICAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 700
+    },
+    {
+      "id": "7798375127684",
+      "descripcion": "SAHU TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127691",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127707",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127714",
+      "descripcion": "SAHUMERIOS TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127721",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127745",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127752",
+      "descripcion": "SAHUMERIO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127769",
+      "descripcion": "SAHUMERIOS TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375127905",
+      "descripcion": "MINI TIBETANOS AQUÍ",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375127936",
+      "descripcion": "MINI TEBETANOS 8 FRAGANCIAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375128520",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128537",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128544",
+      "descripcion": "SAHUMERIOS TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128551",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128568",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128575",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128582",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128605",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128612",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128629",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128636",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128643",
+      "descripcion": "TIBETANO SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128650",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128667",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128674",
+      "descripcion": "TBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128681",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128698",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128704",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128711",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128728",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128735",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128742",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128759",
+      "descripcion": "TIBETANOS SLIM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1350
+    },
+    {
+      "id": "7798375128841",
+      "descripcion": "SAHUMERIO PALO SANTO COMBINADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7798375128902",
+      "descripcion": "SAHUMERIOS TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375128919",
+      "descripcion": "SAHUMERIOS TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375128940",
+      "descripcion": "SAHUMERIO PALO SANTO COMBINADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7798375128957",
+      "descripcion": "SAHUMERIO EN RAMA FRAG ORIENTAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
+      "id": "7798375129077",
+      "descripcion": "SAHUMERIOS TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375129107",
+      "descripcion": "MINI TIBETANOS ABUNADANCIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375129121",
+      "descripcion": "MINI TIBETANOS CALIDEZ",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375129138",
+      "descripcion": "MINI  TIBETANOS ATRACCION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375129282",
+      "descripcion": "MINI TIBETANOS BUENA ONDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375129299",
+      "descripcion": "MINI TEBETANOS BIENESTAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375129305",
+      "descripcion": "MINI TEBETANOS LIMPIEZA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375129329",
+      "descripcion": "MINI TIBETANOS HUMILDAD",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7798375129961",
+      "descripcion": "VELONCITO VOTIVO C/VASO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3000
+    },
+    {
+      "id": "7798375129985",
+      "descripcion": "SAHUMERIOS TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7798375129992",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799032017270",
+      "descripcion": "SAHUMERIOS MAGISTRALES ROMERO VAINILLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799032017416",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7799032017447",
+      "descripcion": "SAHUMERIOS TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7799032017454",
+      "descripcion": "SAHUMERIO TIBETANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7799032017461",
+      "descripcion": "TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7799032017478",
+      "descripcion": "SAHUMERIOS TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7799175000030",
+      "descripcion": "MINI PALO SANTP",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000047",
+      "descripcion": "SAHUMERIO MINI PAL0 SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000054",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000061",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000078",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000085",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000092",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000108",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000115",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000122",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000139",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7799175000283",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000290",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000306",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000313",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000320",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000337",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000344",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000368",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000375",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000399",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000412",
+      "descripcion": "SAHUMERIOS MAGICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2250
+    },
+    {
+      "id": "7799175000436",
+      "descripcion": "MINI TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1790
+    },
+    {
+      "id": "7799175000467",
+      "descripcion": "SAHUMERIO TIBETANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2390
+    },
+    {
+      "id": "7799175000603",
+      "descripcion": "SAHUMERIOS ORGANICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799175000610",
+      "descripcion": "SAHUMERIOS ORGANICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799175000627",
+      "descripcion": "SAHUMERIOS ORGANICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799175000634",
+      "descripcion": "SAHUMERIOS ORGANICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799175000641",
+      "descripcion": "SAHUMERIOS ORGANICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799175000658",
+      "descripcion": "SAHUMERIOS ORGANICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799175000665",
+      "descripcion": "SAHUMERIOS ORGANICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799175000788",
+      "descripcion": "SAHUMERIOS PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "7799175001068",
+      "descripcion": "SAHUMERIOS MINI PALO SANTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 950
+    },
+    {
+      "id": "7800056061986",
+      "descripcion": "TRANSROBOTS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 12900
+    },
+    {
+      "id": "CJ7515",
+      "descripcion": "TAPON CORCHO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7502",
+      "descripcion": "CUCHARITA PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 200
+    },
+    {
+      "id": "CL7503",
+      "descripcion": "UNTADOR PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 200
+    },
+    {
+      "id": "CL7512",
+      "descripcion": "TAPON CIRCULO PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7513",
+      "descripcion": "CUCHARA LARGA PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7518",
+      "descripcion": "TAPA CERVEZA PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 150
+    },
+    {
+      "id": "CL7520",
+      "descripcion": "CIERRA BOLSAS PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 150
+    },
+    {
+      "id": "CL7521",
+      "descripcion": "TAPON ANIMALITOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7522",
+      "descripcion": "TRABAPUERTAS PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 500
+    },
+    {
+      "id": "CL7524",
+      "descripcion": "REMOVEDOR MANITO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 150
+    },
+    {
+      "id": "CL7526",
+      "descripcion": "TAPON MERMELADA NOMBRES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 500
+    },
+    {
+      "id": "CL7528",
+      "descripcion": "TAPON CORONA PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7533",
+      "descripcion": "TAPA C/IDENTIF",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7535",
+      "descripcion": "TAPA MERMELADA CONDIMENTOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 500
+    },
+    {
+      "id": "CL7553",
+      "descripcion": "TAPON BACHA PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7554",
+      "descripcion": "TAPON REJILLA PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7561",
+      "descripcion": "EXPRIMIDOR PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1200
+    },
+    {
+      "id": "CL7565",
+      "descripcion": "TAPON BOTELLA COLGANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 450
+    },
+    {
+      "id": "CL7585",
+      "descripcion": "APOYA CELULAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1200
+    },
+    {
+      "id": "CL7586",
+      "descripcion": "COLADOR P/OLLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 450
+    },
+    {
+      "id": "CL7589",
+      "descripcion": "FILTRO P/PILETA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7591",
+      "descripcion": "TAPON BACHA MANITO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 450
+    },
+    {
+      "id": "CL7592",
+      "descripcion": "TAPON MEREMLADA P/SORBETES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "CL7596",
+      "descripcion": "TAPON MERMELADA ANIMALES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 350
+    },
+    {
+      "id": "HB100113",
+      "descripcion": "GLITTER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 500
+    },
+    {
+      "id": "HB101600",
+      "descripcion": "DELINEADOR LIQUIDO GLITTER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2800
+    },
+    {
+      "id": "HB101799",
+      "descripcion": "EXFOLIADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1450
+    },
+    {
+      "id": "HB102072",
+      "descripcion": "LABIAL LARGA DURACION ROJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3000
+    },
+    {
+      "id": "HB102074",
+      "descripcion": "CORRECTOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3350
+    },
+    {
+      "id": "HB102075",
+      "descripcion": "BASE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 4850
+    },
+    {
+      "id": "HB102161",
+      "descripcion": "BASE MAQUILLAJE CREMOSA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 3650
+    },
+    {
+      "id": "HB102202",
+      "descripcion": "DELNEADOR FIBRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1950
+    },
+    {
+      "id": "HB102227",
+      "descripcion": "DELINEADOR P/LABIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1200
+    },
+    {
+      "id": "HB102228",
+      "descripcion": "GLITTER EN GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
+    },
+    {
       "id": "HCAN25290",
       "descripcion": "LABIAL PALOMA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
       "precio": 1200
+    },
+    {
+      "id": "ILU100M",
+      "descripcion": "SAHUMERIOS MAGISTRALES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 1590
+    },
+    {
+      "id": "ILU100O",
+      "descripcion": "SAHUMERIO EN RAMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45286,
+      "precio": 2490
     },
     {
       "id": " DEC1532",
@@ -1700,7 +3092,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1650
+      "precio": 2250
     },
     {
       "id": "1010000265490",
@@ -1795,7 +3187,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "10207",
@@ -19111,7 +20503,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 700
+      "precio": 4900
     },
     {
       "id": "6922901038279",
@@ -27999,7 +29391,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7,79E+12",
@@ -47165,7 +48557,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 750
     },
     {
       "id": "7798040803783",
@@ -51101,7 +52493,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 2650
+      "precio": 3000
     },
     {
       "id": "7798311150974",
@@ -51125,7 +52517,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 2600
+      "precio": 2800
     },
     {
       "id": "7798311151278",
@@ -51141,7 +52533,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 4980
+      "precio": 1950
     },
     {
       "id": "7798311151407",
@@ -51149,7 +52541,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 500
     },
     {
       "id": "7798311151438",
@@ -51181,7 +52573,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 5000
+      "precio": 4850
     },
     {
       "id": "7798311151506",
@@ -51189,7 +52581,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 2900
+      "precio": 3350
     },
     {
       "id": "7798311151551",
@@ -51229,7 +52621,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1450
     },
     {
       "id": "7798311151667",
@@ -51269,7 +52661,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 3850
+      "precio": 3650
     },
     {
       "id": "7798311151773",
@@ -51293,7 +52685,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 2300
+      "precio": 2490
     },
     {
       "id": "7798311151810",
@@ -51301,7 +52693,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 1200
     },
     {
       "id": "7798311151834",
@@ -54781,7 +56173,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375120326",
@@ -54789,7 +56181,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375121521",
@@ -54813,7 +56205,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375121859",
@@ -54821,7 +56213,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375121897",
@@ -54829,7 +56221,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375121965",
@@ -54837,7 +56229,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375121972",
@@ -54845,7 +56237,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375124393",
@@ -54861,7 +56253,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375124959",
@@ -54973,7 +56365,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1650
+      "precio": 2250
     },
     {
       "id": "7798375125697",
@@ -54989,7 +56381,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375126328",
@@ -54997,7 +56389,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375126342",
@@ -55045,7 +56437,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375126427",
@@ -55053,7 +56445,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375127295",
@@ -55085,7 +56477,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375127455",
@@ -55093,7 +56485,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375127462",
@@ -55101,7 +56493,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127479",
@@ -55109,7 +56501,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127493",
@@ -55117,7 +56509,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127516",
@@ -55125,7 +56517,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127530",
@@ -55133,7 +56525,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127561",
@@ -55141,7 +56533,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127578",
@@ -55149,7 +56541,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127585",
@@ -55157,7 +56549,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127592",
@@ -55165,7 +56557,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 600
+      "precio": 700
     },
     {
       "id": "7798375127622",
@@ -55173,7 +56565,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375127639",
@@ -55181,7 +56573,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375127660",
@@ -55189,7 +56581,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375127714",
@@ -55197,7 +56589,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 790
+      "precio": 2390
     },
     {
       "id": "7798375127769",
@@ -55205,7 +56597,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1350
+      "precio": 2390
     },
     {
       "id": "7798375127905",
@@ -55213,7 +56605,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 1790
     },
     {
       "id": "7798375127936",
@@ -55221,7 +56613,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 550
+      "precio": 1790
     },
     {
       "id": "7798375128124",
@@ -55229,7 +56621,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1150
+      "precio": 1590
     },
     {
       "id": "7798375128216",
@@ -55237,7 +56629,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1100
+      "precio": 1300
     },
     {
       "id": "7798375128322",
@@ -55245,7 +56637,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 2250
     },
     {
       "id": "7798375128339",
@@ -55253,7 +56645,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 2250
     },
     {
       "id": "7798375128346",
@@ -55261,7 +56653,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 2250
     },
     {
       "id": "7798375128353",
@@ -55269,7 +56661,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 2250
     },
     {
       "id": "7798375128360",
@@ -55277,7 +56669,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 2250
     },
     {
       "id": "7798375128520",
@@ -55285,7 +56677,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128537",
@@ -55293,7 +56685,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128551",
@@ -55301,7 +56693,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 700
+      "precio": 1350
     },
     {
       "id": "7798375128568",
@@ -55309,7 +56701,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128575",
@@ -55317,7 +56709,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 700
+      "precio": 1350
     },
     {
       "id": "7798375128582",
@@ -55325,7 +56717,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128599",
@@ -55341,7 +56733,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128629",
@@ -55349,7 +56741,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 490
+      "precio": 1350
     },
     {
       "id": "7798375128636",
@@ -55357,7 +56749,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 700
+      "precio": 1350
     },
     {
       "id": "7798375128643+AA27:A",
@@ -55373,7 +56765,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 700
+      "precio": 1350
     },
     {
       "id": "7798375128681",
@@ -55381,7 +56773,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128698",
@@ -55389,7 +56781,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128711",
@@ -55397,7 +56789,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128728",
@@ -55405,7 +56797,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 650
+      "precio": 1350
     },
     {
       "id": "7798375128735",
@@ -55413,7 +56805,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128742",
@@ -55421,7 +56813,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 700
+      "precio": 1350
     },
     {
       "id": "7798375128759",
@@ -55429,7 +56821,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 750
+      "precio": 1350
     },
     {
       "id": "7798375128766",
@@ -55437,7 +56829,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128773",
@@ -55445,7 +56837,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128803",
@@ -55453,7 +56845,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128810",
@@ -55461,7 +56853,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128827",
@@ -55469,7 +56861,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128834",
@@ -55477,7 +56869,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128858",
@@ -55485,7 +56877,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128865",
@@ -55493,7 +56885,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128872",
@@ -55501,7 +56893,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375128919",
@@ -55509,7 +56901,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1650
+      "precio": 2390
     },
     {
       "id": "7798375128926",
@@ -55525,7 +56917,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7798375129077",
@@ -55533,7 +56925,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1250
+      "precio": 2390
     },
     {
       "id": "7798375129084",
@@ -55549,7 +56941,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 1790
     },
     {
       "id": "7798375129121",
@@ -55557,7 +56949,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1000
+      "precio": 1790
     },
     {
       "id": "7798375129138",
@@ -55565,7 +56957,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1000
+      "precio": 1790
     },
     {
       "id": "7798375129176",
@@ -55589,7 +56981,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 1790
     },
     {
       "id": "7798375129299",
@@ -55597,7 +56989,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1000
+      "precio": 1790
     },
     {
       "id": "7798375129305",
@@ -55605,7 +56997,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1000
+      "precio": 1790
     },
     {
       "id": "7798375129312",
@@ -55621,7 +57013,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1300
+      "precio": 1790
     },
     {
       "id": "7798375129947",
@@ -55773,7 +57165,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1350
+      "precio": 2390
     },
     {
       "id": "7799032017478",
@@ -55781,7 +57173,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1350
+      "precio": 2390
     },
     {
       "id": "7799035003386",
@@ -56317,7 +57709,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7799175000795",
@@ -56325,7 +57717,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1050
+      "precio": 1590
     },
     {
       "id": "7800116091649",
@@ -62149,7 +63541,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 200
     },
     {
       "id": "7975030101009",
@@ -62157,7 +63549,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 200
     },
     {
       "id": "7975120101001",
@@ -62165,7 +63557,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 120
+      "precio": 350
     },
     {
       "id": "7975130101008",
@@ -62173,7 +63565,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 350
     },
     {
       "id": "7975150101002",
@@ -62181,7 +63573,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 120
+      "precio": 350
     },
     {
       "id": "7975180101003",
@@ -62189,7 +63581,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 70
+      "precio": 150
     },
     {
       "id": "7975200101006",
@@ -62197,7 +63589,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 150
     },
     {
       "id": "7975210101003",
@@ -62205,7 +63597,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 350
     },
     {
       "id": "7975220101000",
@@ -62213,7 +63605,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 230
+      "precio": 500
     },
     {
       "id": "7975240101004",
@@ -62221,7 +63613,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 150
     },
     {
       "id": "7975260101008",
@@ -62229,7 +63621,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 230
+      "precio": 500
     },
     {
       "id": "7975280101002",
@@ -62237,7 +63629,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 350
     },
     {
       "id": "7975330101006",
@@ -62245,7 +63637,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 120
+      "precio": 350
     },
     {
       "id": "7975350101000",
@@ -62253,7 +63645,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 230
+      "precio": 500
     },
     {
       "id": "7975530101004",
@@ -62261,7 +63653,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 350
     },
     {
       "id": "7975540101001",
@@ -62269,7 +63661,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 350
     },
     {
       "id": "7975550101008",
@@ -62285,7 +63677,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 540
+      "precio": 1200
     },
     {
       "id": "7975660101004",
@@ -62309,7 +63701,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 480
+      "precio": 1200
     },
     {
       "id": "7975860100500",
@@ -62325,7 +63717,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 350
     },
     {
       "id": "7975910101006",
@@ -62333,7 +63725,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 450
     },
     {
       "id": "7975920101003",
@@ -62341,7 +63733,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 350
     },
     {
       "id": "7975950100250",
@@ -62357,7 +63749,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 140
+      "precio": 350
     },
     {
       "id": "7980120100251",
@@ -62725,7 +64117,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133883175",
@@ -62741,7 +64133,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883236",
@@ -62789,7 +64181,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7993496972414",
@@ -65533,7 +66925,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45286,
-      "precio": 4600
+      "precio": 800
     },
     {
       "id": "9020230247328",
@@ -92519,14 +93911,6 @@
       "precio": 2400
     },
     {
-      "id": "7798311151599",
-      "descripcion": "ILUMINADOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2900
-    },
-    {
       "id": "7798311151667",
       "descripcion": "ACEITE LABIAL HIDRATANTE",
       "lista": "LISTA1",
@@ -93943,14 +95327,6 @@
       "precio": 1600
     },
     {
-      "id": "HB100113",
-      "descripcion": "GLITTER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 750
-    },
-    {
       "id": "HB101587",
       "descripcion": "ILUMINADOR CONTORNO",
       "lista": "LISTA1",
@@ -93983,14 +95359,6 @@
       "precio": 3200
     },
     {
-      "id": "HB101600",
-      "descripcion": "DELINEADOR LIQUIDO GLITTER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2600
-    },
-    {
       "id": "HB101625",
       "descripcion": "POLVO TRASLUCIDO",
       "lista": "LISTA1",
@@ -94015,30 +95383,6 @@
       "precio": 2400
     },
     {
-      "id": "HB102072",
-      "descripcion": "LABIAL LARGA DURACION ROJOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2650
-    },
-    {
-      "id": "HB102074",
-      "descripcion": "CORRECTOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2900
-    },
-    {
-      "id": "HB102075",
-      "descripcion": "BASE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 5000
-    },
-    {
       "id": "HB102078",
       "descripcion": "PALETA DE SOMBRAS",
       "lista": "LISTA1",
@@ -94055,14 +95399,6 @@
       "precio": 2950
     },
     {
-      "id": "HB102161",
-      "descripcion": "BASE MAQUILLAJE CREMOSA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 3850
-    },
-    {
       "id": "HB102182",
       "descripcion": "SOMBRA CEJAS GEL",
       "lista": "LISTA1",
@@ -94077,30 +95413,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 1700
-    },
-    {
-      "id": "HB102202",
-      "descripcion": "DELNEADOR FIBRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 4980
-    },
-    {
-      "id": "HB102227",
-      "descripcion": "DELINEADOR P/LABIOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1300
-    },
-    {
-      "id": "HB102228",
-      "descripcion": "GLITTER EN GEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2300
     },
     {
       "id": "HB102259",
@@ -95743,64 +97055,8 @@
       "precio": 2500
     },
     {
-      "id": "10",
-      "descripcion": "PUZZLE GRANJA 4 PIEZAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 2500
-    },
-    {
-      "id": "100U",
-      "descripcion": "SAHUMERIOS ORGANICOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1050
-    },
-    {
-      "id": "100V",
-      "descripcion": "SAHUMERIOS 7 CHACRAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1650
-    },
-    {
-      "id": "101K",
-      "descripcion": "PASTILLAS 7 CHACRAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1100
-    },
-    {
       "id": "101N",
       "descripcion": "ESFERAS MAGICAS ORGANICAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1050
-    },
-    {
-      "id": "101Q",
-      "descripcion": "SAHUMERIOS MAGISTRALES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1150
-    },
-    {
-      "id": "101S",
-      "descripcion": "ESFERAS MAGICAS X4",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 600
-    },
-    {
-      "id": "101W",
-      "descripcion": "SAHUMERIOS PALO SANTO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45273,
@@ -96303,14 +97559,6 @@
       "precio": 1650
     },
     {
-      "id": "7798375121392",
-      "descripcion": "SAHU TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1650
-    },
-    {
       "id": "7798375121958",
       "descripcion": "SAHUMO MAYA LAVANDA VIOLETA",
       "lista": "LISTA1",
@@ -96333,38 +97581,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45273,
       "precio": 1300
-    },
-    {
-      "id": "7798375124485",
-      "descripcion": "SAHUMERIO EN RAMA NARANJA PIMIENTA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1700
-    },
-    {
-      "id": "7798375124492",
-      "descripcion": "SAHUMERIO EN RAMA DE LA INDIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1700
-    },
-    {
-      "id": "7798375124508",
-      "descripcion": "SAHUMERIO EN RAMA SUPER PALO SANTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1700
-    },
-    {
-      "id": "7798375124539",
-      "descripcion": "SAHUMERIO EN RAMA REAL CHAMPA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1700
     },
     {
       "id": "7798375124836",
@@ -96415,23 +97631,7 @@
       "precio": 2100
     },
     {
-      "id": "7798375124935",
-      "descripcion": "SAHUMERIO EN RAMA SANDALO CONSAGRADO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1700
-    },
-    {
       "id": "7798375125567",
-      "descripcion": "SAHUMERIO TIBETANO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1650
-    },
-    {
-      "id": "7798375125604",
       "descripcion": "SAHUMERIO TIBETANO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
@@ -96455,23 +97655,7 @@
       "precio": 600
     },
     {
-      "id": "7798375127684",
-      "descripcion": "SAHU TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1650
-    },
-    {
       "id": "7798375127738",
-      "descripcion": "SAHUMERIO TIBETANO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1650
-    },
-    {
-      "id": "7798375127745",
       "descripcion": "SAHUMERIO TIBETANO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
@@ -96487,52 +97671,12 @@
       "precio": 1300
     },
     {
-      "id": "7798375127905",
-      "descripcion": "MINI TIBETANOS AQUÍ",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1300
-    },
-    {
-      "id": "7798375128841",
-      "descripcion": "SAHUMERIO PALO SANTO COMBINADO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1050
-    },
-    {
       "id": "7798375128896",
       "descripcion": "SAHUMERIOS TIBETANOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45273,
       "precio": 1650
-    },
-    {
-      "id": "7798375128919",
-      "descripcion": "SAHUMERIOS TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1650
-    },
-    {
-      "id": "7798375128940",
-      "descripcion": "SAHUMERIO PALO SANTO COMBINADO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1050
-    },
-    {
-      "id": "7798375128957",
-      "descripcion": "SAHUMERIO EN RAMA FRAG ORIENTAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1700
     },
     {
       "id": "7798375129060",
@@ -96551,32 +97695,8 @@
       "precio": 1650
     },
     {
-      "id": "7798375129107",
-      "descripcion": "MINI TIBETANOS ABUNADANCIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1300
-    },
-    {
       "id": "7798375129114",
       "descripcion": "MINI TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1300
-    },
-    {
-      "id": "7798375129282",
-      "descripcion": "MINI TIBETANOS BUENA ONDA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1300
-    },
-    {
-      "id": "7798375129329",
-      "descripcion": "MINI TIBETANOS HUMILDAD",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45273,
@@ -96613,14 +97733,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45273,
       "precio": 2150
-    },
-    {
-      "id": "7799032017416",
-      "descripcion": "SAHUMERIO TIBETANO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1650
     },
     {
       "id": "7805250300008",
@@ -98037,14 +99149,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45271,
       "precio": 5700
-    },
-    {
-      "id": "507",
-      "descripcion": "SET DE FRUTAS Y VERDURAS DURAVIT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 2600
     },
     {
       "id": "511",
@@ -101980,14 +103084,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45259,
       "precio": 10200
-    },
-    {
-      "id": "7798375121231",
-      "descripcion": "SAHUMERIO TIBETANO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 1350
     },
     {
       "id": "7798397844705",
@@ -107611,14 +108707,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45238,
       "precio": 1700
-    },
-    {
-      "id": "7798040803776",
-      "descripcion": "BRILLO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45238,
-      "precio": 600
     },
     {
       "id": "7798040803813",
@@ -119349,14 +120437,6 @@
       "precio": 3900
     },
     {
-      "id": "101T",
-      "descripcion": "SAHUMERIOS MAGICOS HECHIZO ORIENTAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1300
-    },
-    {
       "id": "2001B",
       "descripcion": "MATE URBANO CLASICO",
       "lista": "LISTA1",
@@ -119925,14 +121005,6 @@
       "precio": 900
     },
     {
-      "id": "7798375125581",
-      "descripcion": "SAHUMERIO TIBETANO BENJUI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
       "id": "7798375125642",
       "descripcion": "SAHUMERIOS TIBETANOS ENERGIA LIMPIA",
       "lista": "LISTA1",
@@ -119989,14 +121061,6 @@
       "precio": 450
     },
     {
-      "id": "7798375127493",
-      "descripcion": "ESFERAS MAGICAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 450
-    },
-    {
       "id": "7798375127523",
       "descripcion": "ESFERAS MAGICAS",
       "lista": "LISTA1",
@@ -120021,14 +121085,6 @@
       "precio": 450
     },
     {
-      "id": "7798375127608",
-      "descripcion": "ESFERAS MAGICAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 450
-    },
-    {
       "id": "7798375127622",
       "descripcion": "SAHUMERIOS MAGISTRALES",
       "lista": "LISTA1",
@@ -120043,38 +121099,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45210,
       "precio": 800
-    },
-    {
-      "id": "7798375127707",
-      "descripcion": "SAHUMERIO TIBETANO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
-      "id": "7798375127721",
-      "descripcion": "SAHUMERIO TIBETANO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
-      "id": "7798375127752",
-      "descripcion": "SAHUMERIO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
-      "id": "7798375127769",
-      "descripcion": "SAHUMERIOS TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
     },
     {
       "id": "7798375128124",
@@ -120101,111 +121125,7 @@
       "precio": 1300
     },
     {
-      "id": "7798375128520",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128537",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128568",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128582",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
       "id": "7798375128599",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128605",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128612",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128674",
-      "descripcion": "TBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128681",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128698",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128704",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128711",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128735",
-      "descripcion": "TIBETANOS SLIM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 750
-    },
-    {
-      "id": "7798375128759",
       "descripcion": "TIBETANOS SLIM",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
@@ -120261,48 +121181,8 @@
       "precio": 800
     },
     {
-      "id": "7798375128902",
-      "descripcion": "SAHUMERIOS TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
-      "id": "7798375129121",
-      "descripcion": "MINI TIBETANOS CALIDEZ",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1000
-    },
-    {
-      "id": "7798375129138",
-      "descripcion": "MINI  TIBETANOS ATRACCION",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1000
-    },
-    {
       "id": "7798375129275",
       "descripcion": "MINI TIBETANOS DULZURA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1000
-    },
-    {
-      "id": "7798375129299",
-      "descripcion": "MINI TEBETANOS BIENESTAR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1000
-    },
-    {
-      "id": "7798375129305",
-      "descripcion": "MINI TEBETANOS LIMPIEZA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45210,
@@ -120331,38 +121211,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45210,
       "precio": 450
-    },
-    {
-      "id": "7799032017447",
-      "descripcion": "SAHUMERIOS TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
-      "id": "7799032017454",
-      "descripcion": "SAHUMERIO TIBETANO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
-      "id": "7799032017461",
-      "descripcion": "TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
-    },
-    {
-      "id": "7799032017478",
-      "descripcion": "SAHUMERIOS TIBETANOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 1350
     },
     {
       "id": "7891361255061",
@@ -121333,14 +122181,6 @@
       "precio": 2650
     },
     {
-      "id": "HB101799",
-      "descripcion": "EXFOLIADOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45209,
-      "precio": 1050
-    },
-    {
       "id": "HB6117",
       "descripcion": "RUBOR FEELS MOOD RUBY ROSE",
       "lista": "LISTA1",
@@ -121571,14 +122411,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45208,
       "precio": 1450
-    },
-    {
-      "id": "CL7585",
-      "descripcion": "APOYA CELULAR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45208,
-      "precio": 480
     },
     {
       "id": "DS105013",
