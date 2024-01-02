@@ -1,5 +1,229 @@
 [
     {
+      "id": "614",
+      "descripcion": "ANAFE DURAVIT",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 6700
+    },
+    {
+      "id": "618",
+      "descripcion": "SET DE MATE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 3800
+    },
+    {
+      "id": "619",
+      "descripcion": "MATE EN BANDEJA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 5100
+    },
+    {
+      "id": "677",
+      "descripcion": "SET DE AGUA 3 EN 1",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 14200
+    },
+    {
+      "id": "713",
+      "descripcion": "MASAS C/EXTRUSOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 6450
+    },
+    {
+      "id": "716",
+      "descripcion": "MASAS MI COCINA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 9850
+    },
+    {
+      "id": "717",
+      "descripcion": "MASAS MOUNSTROS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 8700
+    },
+    {
+      "id": "720",
+      "descripcion": "VALIJA MASAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 10100
+    },
+    {
+      "id": "725",
+      "descripcion": "MASAS PIZZA PARTY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 9750
+    },
+    {
+      "id": "729",
+      "descripcion": "MASAS KITCHEN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 5650
+    },
+    {
+      "id": "732",
+      "descripcion": "MASAS DINOSAURIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 5250
+    },
+    {
+      "id": "ADL8499",
+      "descripcion": "LAMPARA PROYECTOR ESTRELLAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 9900
+    },
+    {
+      "id": "ADL8902",
+      "descripcion": "LAMPARA LUNA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 6500
+    },
+    {
+      "id": "ES8787",
+      "descripcion": "ESPEJO 6*",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 3300
+    },
+    {
+      "id": "ES8788",
+      "descripcion": "ESPEJO 7*",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 4900
+    },
+    {
+      "id": "LM6001",
+      "descripcion": "LAMPARA OSITO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 8500
+    },
+    {
+      "id": "LM6003",
+      "descripcion": "LAMPARA ESCRITORIO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 8900
+    },
+    {
+      "id": "LM8339",
+      "descripcion": "LINTERNA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 2500
+    },
+    {
+      "id": "LNP8139",
+      "descripcion": "LINTERNA MINI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 2500
+    },
+    {
+      "id": "QQ197",
+      "descripcion": "LAMPARA DE MESA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 6500
+    },
+    {
+      "id": "QQ204",
+      "descripcion": "CEPILLO QUITA PELUZAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 1590
+    },
+    {
+      "id": "QQ206",
+      "descripcion": "ESPEJO MAQUILLAJE C/LUZ",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 10900
+    },
+    {
+      "id": "QQ209",
+      "descripcion": "LAMPARA USB",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 6500
+    },
+    {
+      "id": "QQ277",
+      "descripcion": "LINTERNA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 9500
+    },
+    {
+      "id": "QQ279",
+      "descripcion": "PROYECTOR ESTRELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 8900
+    },
+    {
+      "id": "QQ289",
+      "descripcion": "ENVASES DE VIAJE 7 PIESAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 3300
+    },
+    {
+      "id": "QQ290",
+      "descripcion": "ENVASES DE VIAJE 4PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 1990
+    },
+    {
+      "id": "QQ66",
+      "descripcion": "VELA LUMINOSA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45293,
+      "precio": 650
+    },
+    {
       "id": " DEC1532",
       "descripcion": "PILOTO ADULTO",
       "lista": "LISTA1",
@@ -4209,7 +4433,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 700
+      "precio": 850
     },
     {
       "id": "3252695256959",
@@ -4225,7 +4449,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 950
+      "precio": 850
     },
     {
       "id": "3252695258014",
@@ -4233,7 +4457,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 1390
+      "precio": 850
     },
     {
       "id": "3252695259219",
@@ -4241,7 +4465,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 1600
+      "precio": 850
     },
     {
       "id": "3252695259332",
@@ -17855,7 +18079,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 2300
+      "precio": 3000
     },
     {
       "id": "6920100230159",
@@ -17895,7 +18119,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 3000
+      "precio": 600
     },
     {
       "id": "6920100230364",
@@ -17903,7 +18127,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "6920100230623",
@@ -63037,7 +63261,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133882765",
@@ -63069,7 +63293,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133883175",
@@ -63085,7 +63309,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883236",
@@ -63117,7 +63341,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883489",
@@ -63125,7 +63349,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45293,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883502",
@@ -76056,22 +76280,6 @@
       "precio": 4050
     },
     {
-      "id": "LM6001",
-      "descripcion": "LAMPARA OSITO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45293,
-      "precio": 3290
-    },
-    {
-      "id": "LM6003",
-      "descripcion": "LAMPARA ESCRITORIO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45293,
-      "precio": 2700
-    },
-    {
       "id": "LMP8615",
       "descripcion": "LUZ PARA BICI",
       "lista": "LISTA1",
@@ -81573,14 +81781,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45289,
       "precio": 8200
-    },
-    {
-      "id": "QQ289",
-      "descripcion": "ENVASES DE VIAJE 7 PIESAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45289,
-      "precio": 3300
     },
     {
       "id": "078257686124",
@@ -88591,36 +88791,12 @@
       "precio": 1500
     },
     {
-      "id": "618",
-      "descripcion": "SET DE MATE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 3800
-    },
-    {
-      "id": "619",
-      "descripcion": "MATE EN BANDEJA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 5100
-    },
-    {
       "id": "65867",
       "descripcion": "TIC TAC OCA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 5390
-    },
-    {
-      "id": "677",
-      "descripcion": "SET DE AGUA 3 EN 1",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 14200
     },
     {
       "id": "6820002302568",
@@ -88847,36 +89023,12 @@
       "precio": 8400
     },
     {
-      "id": "713",
-      "descripcion": "MASAS C/EXTRUSOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 6450
-    },
-    {
       "id": "715",
       "descripcion": "MASAS BURGUER KIT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 6200
-    },
-    {
-      "id": "716",
-      "descripcion": "MASAS MI COCINA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 9850
-    },
-    {
-      "id": "717",
-      "descripcion": "MASAS MOUNSTROS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 8700
     },
     {
       "id": "718",
@@ -88893,14 +89045,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 3190
-    },
-    {
-      "id": "720",
-      "descripcion": "VALIJA MASAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 10100
     },
     {
       "id": "721",
@@ -88925,14 +89069,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 3000
-    },
-    {
-      "id": "725",
-      "descripcion": "MASAS PIZZA PARTY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 9750
     },
     {
       "id": "726",
@@ -88975,28 +89111,12 @@
       "precio": 3100
     },
     {
-      "id": "729",
-      "descripcion": "MASAS KITCHEN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 5650
-    },
-    {
       "id": "730",
       "descripcion": "MASAS JUNIOR CHEF",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 15490
-    },
-    {
-      "id": "732",
-      "descripcion": "MASAS DINOSAURIOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 5250
     },
     {
       "id": "76504",
@@ -95063,14 +95183,6 @@
       "precio": 2450
     },
     {
-      "id": "QQ66",
-      "descripcion": "VELA LUMINOSA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1500
-    },
-    {
       "id": "RC11",
       "descripcion": "REMOVEDOR DE CUTICULAS",
       "lista": "LISTA1",
@@ -95621,14 +95733,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45271,
       "precio": 7950
-    },
-    {
-      "id": "614",
-      "descripcion": "ANAFE DURAVIT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45271,
-      "precio": 6700
     },
     {
       "id": "616",
