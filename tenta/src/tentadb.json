@@ -1,11 +1,483 @@
 [
     {
+      "id": "6900200022618",
+      "descripcion": "POLIGEL CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 5500
+    },
+    {
+      "id": "6900200022632",
+      "descripcion": "KAPPING CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4000
+    },
+    {
+      "id": "6920170108129",
+      "descripcion": "PINCELES 15PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 3200
+    },
+    {
+      "id": "6928609066583",
+      "descripcion": "AGUA MICELAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4000
+    },
+    {
+      "id": "6935810010922",
+      "descripcion": "BASE COAT CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "6935810010939",
+      "descripcion": "TOP COAT CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "6935810010946",
+      "descripcion": "TPO MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "742832309240",
+      "descripcion": "QUITAESMALTE  CHERIMOYA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1300
+    },
+    {
+      "id": "7798135960018",
+      "descripcion": "AMPOLLA REESTRUC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1950
+    },
+    {
+      "id": "7798135960421",
+      "descripcion": "MASCARILLA CAVIAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 6000
+    },
+    {
+      "id": "7798135960452",
+      "descripcion": "ANMPOLLA NUTRI CAVIAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1950
+    },
+    {
+      "id": "7798135961176",
+      "descripcion": "MASC RENOVADORA VAINILLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4800
+    },
+    {
+      "id": "7798135961190",
+      "descripcion": "MASC REPARADORA KERATINA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "7798135961213",
+      "descripcion": "MASC HIDRA ALMENDRAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4800
+    },
+    {
+      "id": "7798135961312",
+      "descripcion": "AMPOLLA COMPLEJ KERATINICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1950
+    },
+    {
+      "id": "7798135961435",
+      "descripcion": "MASCARILLA ARGAN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 7800
+    },
+    {
+      "id": "7798135961640",
+      "descripcion": "AMPOLLA ARGAN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 2250
+    },
+    {
+      "id": "7798135962425",
+      "descripcion": "OIL ARGAN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 3600
+    },
+    {
+      "id": "7798135962487",
+      "descripcion": "ACONDICIONADOR KERATINA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 3600
+    },
+    {
+      "id": "7798135965952",
+      "descripcion": "AMPOLLA NUTRI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1950
+    },
+    {
+      "id": "7798151505798",
+      "descripcion": "TRAT CAPILAT BTX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 750
+    },
+    {
+      "id": "7798151505811",
+      "descripcion": "TRAT CAPILAR QUERATION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 750
+    },
+    {
+      "id": "7798151505828",
+      "descripcion": "TRATAMIENTO MARROC OIL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 750
+    },
+    {
+      "id": "7798397844705",
+      "descripcion": "REMOVEDOR LIQUIDO 250ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 6400
+    },
+    {
+      "id": "7892130874414",
+      "descripcion": "STTICKERS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 600
+    },
+    {
+      "id": "7892130874438",
+      "descripcion": "STTICKERS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 600
+    },
+    {
+      "id": "7892130874476",
+      "descripcion": "STTICKERS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 600
+    },
+    {
+      "id": "7980092790047",
+      "descripcion": "STTICKERS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 600
+    },
+    {
+      "id": "7980092790092",
+      "descripcion": "STTICKERS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 600
+    },
+    {
+      "id": "7980092790108",
+      "descripcion": "STTICKERS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 600
+    },
+    {
+      "id": "A770",
+      "descripcion": "TIPS CITYGIRL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4200
+    },
+    {
       "id": "CG109",
       "descripcion": "ESMALTE  SEMI COLOR CITY",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
       "precio": 4000
+    },
+    {
+      "id": "CG1091",
+      "descripcion": "ESMALTE COLOR SEMI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4000
+    },
+    {
+      "id": "CG1095",
+      "descripcion": "TOP COAT CRISTAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4800
+    },
+    {
+      "id": "CG3010",
+      "descripcion": "BASE COAT CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 2250
+    },
+    {
+      "id": "CG3011",
+      "descripcion": "TOP COAT CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 2250
+    },
+    {
+      "id": "CG3309",
+      "descripcion": "ESMALTE COLOR CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1950
+    },
+    {
+      "id": "CJ3009",
+      "descripcion": "ESMALTE SEMI CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1950
+    },
+    {
+      "id": "CT400",
+      "descripcion": "LIMA ZEBRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 750
+    },
+    {
+      "id": "FS358",
+      "descripcion": "PRIMER P/OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 2100
+    },
+    {
+      "id": "H2251",
+      "descripcion": "GEL SOLIDO CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "JPTA722",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4200
+    },
+    {
+      "id": "JPTA767",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4200
+    },
+    {
+      "id": "JPTD501",
+      "descripcion": "TIP P/SOFT GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 8800
+    },
+    {
+      "id": "JPTD502",
+      "descripcion": "TIP P/SOFT GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 8800
+    },
+    {
+      "id": "JPTD504",
+      "descripcion": "TIP P/SOFT GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 8800
+    },
+    {
+      "id": "JPTD505",
+      "descripcion": "TIP SEMI ESMERILADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 8800
+    },
+    {
+      "id": "JPTD506",
+      "descripcion": "TIP P/SOFT GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 8800
+    },
+    {
+      "id": "JPTD507",
+      "descripcion": "TIP P/SOFT GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 8800
+    },
+    {
+      "id": "JPTE23",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "JPTE3",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "JPTE30",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "JPTE37",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "JPTE46",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "JPTE49",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "JPTE9",
+      "descripcion": "TIPS PRESS ON",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "K001",
+      "descripcion": "ARQUEADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 7700
+    },
+    {
+      "id": "TT04156",
+      "descripcion": "APLICADOR P/SOMBRAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1150
+    },
+    {
+      "id": "XCL404",
+      "descripcion": "UÑAS POSTIZAS BALLET",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4200
+    },
+    {
+      "id": "YZ22404",
+      "descripcion": "ANTIFAZ C/GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 3700
     },
     {
       "id": " DEC1532",
@@ -4305,7 +4777,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 850
+      "precio": 950
     },
     {
       "id": "3252695258014",
@@ -4313,7 +4785,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 850
+      "precio": 1390
     },
     {
       "id": "3252695259219",
@@ -4321,7 +4793,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 850
+      "precio": 1600
     },
     {
       "id": "3252695259332",
@@ -17155,28 +17627,12 @@
       "precio": 4500
     },
     {
-      "id": "6900200022618",
-      "descripcion": "POLYGEL CITY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 5500
-    },
-    {
-      "id": "6900200022632",
-      "descripcion": "KAPPING CITY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 4000
-    },
-    {
       "id": "6900200040117",
       "descripcion": "LIMA ZEBRA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 550
+      "precio": 750
     },
     {
       "id": "6900200040124",
@@ -17185,6 +17641,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45314,
       "precio": 250
+    },
+    {
+      "id": "6900200040131",
+      "descripcion": "LIMA ZEBRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 750
     },
     {
       "id": "6900200040193",
@@ -18199,7 +18663,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 600
+      "precio": 3000
     },
     {
       "id": "6920100230128",
@@ -18207,7 +18671,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 2300
+      "precio": 3000
     },
     {
       "id": "6920100230159",
@@ -18255,7 +18719,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "6920100230623",
@@ -18279,7 +18743,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1200
+      "precio": 2300
     },
     {
       "id": "6920100230869",
@@ -18328,14 +18792,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45314,
       "precio": 990
-    },
-    {
-      "id": "6920170108129",
-      "descripcion": "PINCELES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 3050
     },
     {
       "id": "6920170318030",
@@ -19827,11 +20283,11 @@
     },
     {
       "id": "6924372656167",
-      "descripcion": "BASE SOMBRA P/OJOS",
+      "descripcion": "PRIMER P/OJOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1600
+      "precio": 2100
     },
     {
       "id": "6924372656389",
@@ -20867,11 +21323,11 @@
     },
     {
       "id": "6928609595069",
-      "descripcion": "ARQUEADOR PESTAÑAS",
+      "descripcion": "ARQUEADOR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 2500
+      "precio": 7700
     },
     {
       "id": "6928769420058",
@@ -22314,24 +22770,16 @@
       "precio": 2350
     },
     {
+      "id": "693581001050953",
+      "descripcion": "TOP COAT CRISTAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4800
+    },
+    {
       "id": "6935810010915",
-      "descripcion": "ESMALTE SEMI CITY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 3800
-    },
-    {
-      "id": "6935810010922",
-      "descripcion": "BASE COAT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 4000
-    },
-    {
-      "id": "6935810010939",
-      "descripcion": "TOP COAT",
+      "descripcion": "ESMALTE COLOR SEMI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
@@ -28354,12 +28802,20 @@
       "precio": 500
     },
     {
+      "id": "6980092930093",
+      "descripcion": "ESMALTE COLOR CITY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1950
+    },
+    {
       "id": "6980092930109",
       "descripcion": "BASE COAT CITY",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 2100
+      "precio": 2250
     },
     {
       "id": "6980092930116",
@@ -28367,7 +28823,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 2100
+      "precio": 2250
     },
     {
       "id": "6980170780107",
@@ -29920,14 +30376,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45314,
       "precio": 2700
-    },
-    {
-      "id": "742832309240",
-      "descripcion": "QUITA ESMALTE 50ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 1300
     },
     {
       "id": "7430000015323",
@@ -50136,80 +50584,16 @@
       "precio": 900
     },
     {
-      "id": "7798135960018",
-      "descripcion": "AMPOLLA SEMILLA DE LINO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 1800
-    },
-    {
-      "id": "7798135960452",
-      "descripcion": "AMPOLLA HIDRO NUTRI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 1800
-    },
-    {
-      "id": "7798135961176",
-      "descripcion": "MASCARILLA RENOVADORA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 4200
-    },
-    {
-      "id": "7798135961190",
-      "descripcion": "MASCARILLA REPARADORA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 4200
-    },
-    {
-      "id": "7798135961213",
-      "descripcion": "MASCARILLA HIDRATANTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 4200
-    },
-    {
-      "id": "7798135961312",
-      "descripcion": "AMPOLLA COMPLEX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 1800
-    },
-    {
       "id": "77981359616",
       "descripcion": "AMPOLLA ARGAN",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 2100
-    },
-    {
-      "id": "7798135961640",
-      "descripcion": "AMPOLLA ARGAN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 2100
+      "precio": 2250
     },
     {
       "id": "7798135962470",
       "descripcion": "SHAMPOO KERATINA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 3400
-    },
-    {
-      "id": "7798135962487",
-      "descripcion": "ACONDICIONADOR KERATINA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
@@ -50304,24 +50688,8 @@
       "precio": 1800
     },
     {
-      "id": "7798151505798",
-      "descripcion": "TRATAMIENTO BTX",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 750
-    },
-    {
       "id": "7798151505804",
       "descripcion": "TRATAMIENTO SILVER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 750
-    },
-    {
-      "id": "7798151505811",
-      "descripcion": "TRATAMIENTO QUERATION",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
@@ -62080,14 +62448,6 @@
       "precio": 2550
     },
     {
-      "id": "7892130874476",
-      "descripcion": "STICKER P/UÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 200
-    },
-    {
       "id": "7892130874704",
       "descripcion": "PAPEL ALUMINIO P/DECO",
       "lista": "LISTA1",
@@ -64640,6 +65000,14 @@
       "precio": 1890
     },
     {
+      "id": "7919123224046",
+      "descripcion": "ANTIFAZ C/GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 3700
+    },
+    {
       "id": "7919126225125",
       "descripcion": "PORTA COSMETICOS OSITO",
       "lista": "LISTA1",
@@ -65088,6 +65456,14 @@
       "precio": 3800
     },
     {
+      "id": "7985171041560",
+      "descripcion": "APLICADOR P/SOMBRAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 1150
+    },
+    {
       "id": "7985450350390",
       "descripcion": "ARCO DE FUTBOL",
       "lista": "LISTA1",
@@ -65405,7 +65781,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133882765",
@@ -65437,7 +65813,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133883175",
@@ -65453,7 +65829,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883236",
@@ -65461,7 +65837,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133883298",
@@ -65469,7 +65845,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883328",
@@ -65477,7 +65853,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883359",
@@ -65485,7 +65861,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883489",
@@ -65648,6 +66024,14 @@
       "precio": 650
     },
     {
+      "id": "8022020137223",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4200
+    },
+    {
       "id": "8022020137247",
       "descripcion": "UÑAS SOFT GEL",
       "lista": "LISTA1",
@@ -65689,11 +66073,11 @@
     },
     {
       "id": "8022020137674",
-      "descripcion": "TIPS CITYGIRL",
+      "descripcion": "TIPS P/UÑAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 2000
+      "precio": 4200
     },
     {
       "id": "8022020137704",
@@ -65701,7 +66085,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 2000
+      "precio": 4200
     },
     {
       "id": "8022020137711",
@@ -66038,6 +66422,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45314,
       "precio": 1350
+    },
+    {
+      "id": "8083021004044",
+      "descripcion": "UÑAS POSTIZAS BALLET",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4200
     },
     {
       "id": "8083021004075",
@@ -68313,43 +68705,51 @@
     },
     {
       "id": "9020230247212",
-      "descripcion": "TIPS SEMI SOFT GEL",
+      "descripcion": "TIP P/SOFT GEL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 8500
+      "precio": 8800
     },
     {
       "id": "9020230247229",
-      "descripcion": "TIPS P/SOFT GEL",
+      "descripcion": "TIP P/SOFT GEL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 6900
+      "precio": 8800
     },
     {
       "id": "9020230247243",
-      "descripcion": "TIPS SOFT GEL",
+      "descripcion": "TIP P/SOFT GEL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 8300
+      "precio": 8800
+    },
+    {
+      "id": "9020230247250",
+      "descripcion": "TIP SEMI ESMERILADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 8800
     },
     {
       "id": "9020230247267",
-      "descripcion": "TIPS SOFT GEL",
+      "descripcion": "TIP P/SOFT GEL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 8300
+      "precio": 8800
     },
     {
       "id": "9020230247274",
-      "descripcion": "TIPS SOFT GEL",
+      "descripcion": "TIP P/SOFT GEL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 8300
+      "precio": 8800
     },
     {
       "id": "9020230247281",
@@ -68384,20 +68784,60 @@
       "precio": 11800
     },
     {
-      "id": "9020230247441",
-      "descripcion": "TIPS CITY GIRL",
+      "id": "9020230247427",
+      "descripcion": "TIPS P/UÑAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 3000
+      "precio": 4500
     },
     {
-      "id": "9020230247496",
+      "id": "9020230247434",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "9020230247441",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "9020230247458",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "9020230247465",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
+    },
+    {
+      "id": "9020230247489",
       "descripcion": "TIPS PRESS ON",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45314,
-      "precio": 3000
+      "precio": 4500
+    },
+    {
+      "id": "9020230247496",
+      "descripcion": "TIPS P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45314,
+      "precio": 4500
     },
     {
       "id": "9080528602680",
@@ -72902,14 +73342,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45314,
       "precio": 2500
-    },
-    {
-      "id": "CJ3009",
-      "descripcion": "ESMALTE SEMI CITY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45314,
-      "precio": 1800
     },
     {
       "id": "CK044",
@@ -87375,14 +87807,6 @@
       "precio": 1150
     },
     {
-      "id": "CG1091",
-      "descripcion": "ESMALTE SEMI CITY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45294,
-      "precio": 3800
-    },
-    {
       "id": "EB8850",
       "descripcion": "LANZA AGUA",
       "lista": "LISTA1",
@@ -87733,38 +88157,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45293,
       "precio": 3000
-    },
-    {
-      "id": "JPTD501",
-      "descripcion": "TIPS SEMI SOFT GEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45293,
-      "precio": 8500
-    },
-    {
-      "id": "JPTD504",
-      "descripcion": "TIPS SOFT GEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45293,
-      "precio": 8300
-    },
-    {
-      "id": "JPTD506",
-      "descripcion": "TIPS SOFT GEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45293,
-      "precio": 8300
-    },
-    {
-      "id": "JPTD507",
-      "descripcion": "TIPS SOFT GEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45293,
-      "precio": 8300
     },
     {
       "id": "JPTD508",
@@ -90384,14 +90776,6 @@
     },
     {
       "id": "A767",
-      "descripcion": "TIPS CITYGIRL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45283,
-      "precio": 2000
-    },
-    {
-      "id": "A770",
       "descripcion": "TIPS CITYGIRL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
@@ -93133,14 +93517,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45276,
       "precio": 1450
-    },
-    {
-      "id": "7985171041560",
-      "descripcion": "APLICADOR DE SOMBRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 900
     },
     {
       "id": "7999969580025",
@@ -96503,14 +96879,6 @@
       "precio": 1050
     },
     {
-      "id": "6900200040131",
-      "descripcion": "LIMA LUNAR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 700
-    },
-    {
       "id": "6907240022882",
       "descripcion": "MASCARA RIMOCOO",
       "lista": "LISTA1",
@@ -97077,30 +97445,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 2300
-    },
-    {
-      "id": "7798135962425",
-      "descripcion": "ARGAN OIL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 3400
-    },
-    {
-      "id": "7798135965952",
-      "descripcion": "AMPOLLA NUTRICION",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1800
-    },
-    {
-      "id": "7798151505828",
-      "descripcion": "TRATAMIENTO CAPILAR MAROC OIL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 750
     },
     {
       "id": "7798187887523",
@@ -99959,14 +100303,6 @@
       "precio": 2000
     },
     {
-      "id": "6935810010946",
-      "descripcion": "TPO MATTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 2400
-    },
-    {
       "id": "7798317827092",
       "descripcion": "PRIMER OIL WATERPROOF TEJAR",
       "lista": "LISTA1",
@@ -100247,14 +100583,6 @@
       "precio": 2500
     },
     {
-      "id": "8083021004044",
-      "descripcion": "NAIL TIPS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 3600
-    },
-    {
       "id": "900329",
       "descripcion": "ACEITE SECADOR DE ESMALTE",
       "lista": "LISTA1",
@@ -100351,28 +100679,12 @@
       "precio": 4000
     },
     {
-      "id": "FS358",
-      "descripcion": "BASE SOMBRA P/OJOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1600
-    },
-    {
       "id": "FS371",
       "descripcion": "BASE SOMBRA P/OJOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45273,
       "precio": 1600
-    },
-    {
-      "id": "H2251",
-      "descripcion": "GEL SOLIDO CITY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 4500
     },
     {
       "id": "H2261",
@@ -104366,46 +104678,6 @@
       "precio": 4350
     },
     {
-      "id": "7798397844705",
-      "descripcion": "REMOPVEDOR ESMALTE SEMI 250CC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 2850
-    },
-    {
-      "id": "9020230247427",
-      "descripcion": "TIPS P/UÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 3000
-    },
-    {
-      "id": "9020230247434",
-      "descripcion": "TIPS P/UÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 3000
-    },
-    {
-      "id": "9020230247458",
-      "descripcion": "TIPS P`/UÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 3000
-    },
-    {
-      "id": "9020230247465",
-      "descripcion": "TIPS P/UÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 3000
-    },
-    {
       "id": "DS101011",
       "descripcion": "JARRO MUG DECORADO",
       "lista": "LISTA1",
@@ -104780,22 +105052,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45259,
       "precio": 17000
-    },
-    {
-      "id": "JPTE3",
-      "descripcion": "TIPS PRESS ON",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 3000
-    },
-    {
-      "id": "JPTE37",
-      "descripcion": "TIPS CITY GIRL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45259,
-      "precio": 3000
     },
     {
       "id": "SE787",
@@ -108787,14 +109043,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45239,
       "precio": 5790
-    },
-    {
-      "id": "JPTD502",
-      "descripcion": "TIPS P/SOFT GEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45239,
-      "precio": 6900
     },
     {
       "id": "K0032",
@@ -113237,14 +113485,6 @@
       "precio": 13450
     },
     {
-      "id": "CT400",
-      "descripcion": "LIMA ZEBRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45224,
-      "precio": 550
-    },
-    {
       "id": "CTJ507",
       "descripcion": "CORTACUTICULAS CITY",
       "lista": "LISTA1",
@@ -113667,14 +113907,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45222,
       "precio": 27000
-    },
-    {
-      "id": "CG1095",
-      "descripcion": "TOP CRISTAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45222,
-      "precio": 3300
     },
     {
       "id": "D81021",
