@@ -1,11 +1,27 @@
 [
     {
+      "id": "1542314510244",
+      "descripcion": "PEZONERAS SILICONA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2000
+    },
+    {
       "id": "4958689588561",
       "descripcion": "EPONJA MAQUILLAJE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 650
+      "precio": 900
+    },
+    {
+      "id": "6800003003640",
+      "descripcion": "CEPILLOS P/PESTAÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2250
     },
     {
       "id": "6800012000593",
@@ -32,12 +48,68 @@
       "precio": 2400
     },
     {
+      "id": "6900962036113",
+      "descripcion": "LIMA OBLELISCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 500
+    },
+    {
+      "id": "6900962036274",
+      "descripcion": "SET PINCELES X15",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2650
+    },
+    {
+      "id": "6900962036298",
+      "descripcion": "PINCEL DOTTING X5PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2900
+    },
+    {
+      "id": "6901225006430",
+      "descripcion": "ANTIFAZ COLAGENO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 500
+    },
+    {
+      "id": "6923263710414",
+      "descripcion": "COLAGENO P/LABIOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 400
+    },
+    {
       "id": "6926008200027",
       "descripcion": "PEINE CHENGYE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 1000
+    },
+    {
+      "id": "6941692908554",
+      "descripcion": "LAPICERA DINO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 1400
+    },
+    {
+      "id": "6956219100755",
+      "descripcion": "CREMA DEPILATORIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 300
     },
     {
       "id": "6956219108218",
@@ -48,6 +120,14 @@
       "precio": 400
     },
     {
+      "id": "6956219108317",
+      "descripcion": "MASCARILLA PUNTOS NEGROS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 300
+    },
+    {
       "id": "6970098652631",
       "descripcion": "MINI ESPONJAS X2",
       "lista": "LISTA1",
@@ -56,12 +136,76 @@
       "precio": 650
     },
     {
+      "id": "6971525870093",
+      "descripcion": "UÑAS POSTIZAS ALMENDRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2900
+    },
+    {
+      "id": "6971525870109",
+      "descripcion": "UÑAS POSTIZAS CUADRADAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2900
+    },
+    {
+      "id": "6971548835116",
+      "descripcion": "LAPICERA KUROMI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 1500
+    },
+    {
+      "id": "6973511061829",
+      "descripcion": "CUTTER PATO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2200
+    },
+    {
+      "id": "6973511061850",
+      "descripcion": "CUTTER CACTUS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2200
+    },
+    {
+      "id": "6973924039743",
+      "descripcion": "BOLIGRAFO BORRABLE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 750
+    },
+    {
+      "id": "6974428010078",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2100
+    },
+    {
       "id": "6974428230001",
       "descripcion": "CORRECTOR BARRA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 2200
+    },
+    {
+      "id": "6974428250092",
+      "descripcion": "DELINEADOR LIQ BLANCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 1850
     },
     {
       "id": "6974428520102",
@@ -85,7 +229,31 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1000
+      "precio": 1500
+    },
+    {
+      "id": "6985632546109",
+      "descripcion": "DEPILADOR CRISTAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2900
+    },
+    {
+      "id": "6997524675118",
+      "descripcion": "PEGAMENTO P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 900
+    },
+    {
+      "id": "7058908681305",
+      "descripcion": "COLITA MEDIANA P/PELO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 650
     },
     {
       "id": "7079440502484",
@@ -94,6 +262,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 1100
+    },
+    {
+      "id": "7094489014972",
+      "descripcion": "VINCHA MOÑO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2400
+    },
+    {
+      "id": "7094555748954",
+      "descripcion": "VINCHA ANIMAL PRINT",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2400
     },
     {
       "id": "7308905292715",
@@ -105,7 +289,7 @@
     },
     {
       "id": "7321073121731",
-      "descripcion": "VINGRA CRUZADA FLORES",
+      "descripcion": "VINCHA CRUZADA FLORES",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
@@ -169,7 +353,7 @@
     },
     {
       "id": "7352249012720",
-      "descripcion": "GOMITA POTRE NEGRA",
+      "descripcion": "GOMITA POSTRE NEGRA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
@@ -256,6 +440,582 @@
       "precio": 1100
     },
     {
+      "id": "7791442037497",
+      "descripcion": "PROTECTOR TERMICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 4350
+    },
+    {
+      "id": "7798218135616",
+      "descripcion": "MOCHILA ESPALDA 18",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 75000
+    },
+    {
+      "id": "7798273816567",
+      "descripcion": "FIJADOR DE MAQUILLAJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 4650
+    },
+    {
+      "id": "7985171041560",
+      "descripcion": "APLICADOR DE SOMBRAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 750
+    },
+    {
+      "id": "809020002161",
+      "descripcion": "LAPIZ REMOVEDOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 1300
+    },
+    {
+      "id": "8867684454404",
+      "descripcion": "ESPONJA COMPRIMIDA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 1300
+    },
+    {
+      "id": "900962021065",
+      "descripcion": "ACEITE P/CUTICULAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 1250
+    },
+    {
+      "id": "901225006423",
+      "descripcion": "COLAGENO P/OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 400
+    },
+    {
+      "id": "926269020532",
+      "descripcion": "REPUJADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 800
+    },
+    {
+      "id": "9970379941499",
+      "descripcion": "STENCIL DELINEADO GATO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 600
+    },
+    {
+      "id": "AC25053",
+      "descripcion": "BILLETERA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 5800
+    },
+    {
+      "id": "AC25054",
+      "descripcion": "BILLETERA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 5800
+    },
+    {
+      "id": "AF166",
+      "descripcion": "STRASS PERLAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 800
+    },
+    {
+      "id": "GI11010",
+      "descripcion": "\"MOCH ESPALDA 16\"\" CUADROS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 33950
+    },
+    {
+      "id": "GI11541",
+      "descripcion": "\"MOCH ESPALDA 16\"\" CAMARA\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45400
+    },
+    {
+      "id": "GI11542",
+      "descripcion": "\"MOCH CARRO 16\"\" CAMARA\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 73250
+    },
+    {
+      "id": "GI11543",
+      "descripcion": "CARUCHERA JURASSIC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 15200
+    },
+    {
+      "id": "GI11547",
+      "descripcion": "\"MOCH CARRO 12\"\" DINO\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "GI11548",
+      "descripcion": "\"MOCH ESPALDA 18\"\" DINO\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45400
+    },
+    {
+      "id": "GI11572",
+      "descripcion": "\"MOCH ESPALDA 12\"\" RAINBOW\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 36750
+    },
+    {
+      "id": "GI11573",
+      "descripcion": "\"MOCH CARRO 12\"\" RAINBOW\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 58050
+    },
+    {
+      "id": "GI11578",
+      "descripcion": "LUNCHERA RAINBOW",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 36750
+    },
+    {
+      "id": "GI11587",
+      "descripcion": "\"MOCHILA ESOLADA 12\"\" PEPPA PIG\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI11609",
+      "descripcion": "\"MOCHILA ESOLADA 12\"\" HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29950
+    },
+    {
+      "id": "GI11610",
+      "descripcion": "\"MOCH CARRO 12\"\" HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 51950
+    },
+    {
+      "id": "GI11611",
+      "descripcion": "\"MOCH ESPADA 16\"\" HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45400
+    },
+    {
+      "id": "GI11612",
+      "descripcion": "\"MOCH CARRO 16\"\" HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 77350
+    },
+    {
+      "id": "GI11613",
+      "descripcion": "CATUCHERA  HOT WHEELS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 9750
+    },
+    {
+      "id": "GI11621",
+      "descripcion": "\"MOCH ESPALDA 12\"\" CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI11623",
+      "descripcion": "\"MOCH ESPALDA 18\"\"CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 58050
+    },
+    {
+      "id": "GI11624",
+      "descripcion": "\"MOCH CARRO 18\"\"HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 90000
+    },
+    {
+      "id": "GI11643",
+      "descripcion": "\"MOCH CARRO 12\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 66700
+    },
+    {
+      "id": "GI11645",
+      "descripcion": "\"MOCH CARRIO 16\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 101150
+    },
+    {
+      "id": "GI11653",
+      "descripcion": "\"MOCH ESPALDA 14\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "GI11654",
+      "descripcion": "\"MOCH ESPALDA 18\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 90000
+    },
+    {
+      "id": "GI11655",
+      "descripcion": "\"MOCH CARRO 18\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 112800
+    },
+    {
+      "id": "GI11671",
+      "descripcion": "\"MOCH CARRO 12\"\" CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "GI11672",
+      "descripcion": "\"MOCH ESPALDA 12\"\" CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI11678",
+      "descripcion": "\"MOCH ESPALDA 16\"\" PRINCESAS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI11679",
+      "descripcion": "\"MOCH CARRO 12\"\" PRINCESAS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "GI11702",
+      "descripcion": "\"MOCH CARRO 12\"\" SPIDERMAN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 51700
+    },
+    {
+      "id": "GI11705",
+      "descripcion": "\"MOCH CARRO 16\"\" SPIDERMAN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 84950
+    },
+    {
+      "id": "GI11706",
+      "descripcion": "CARTUCHERA SPIDERMAN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 15200
+    },
+    {
+      "id": "GI11708",
+      "descripcion": "LUNCHERA SPIDERMAN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 28150
+    },
+    {
+      "id": "GI11726",
+      "descripcion": "\"MOCH ESPALDA 12\"\" SPIDERMAN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45380
+    },
+    {
+      "id": "GI27120",
+      "descripcion": "\"MOCH ESPALDA 12\"\" CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI35607",
+      "descripcion": "\"MOCH ESPALDA 12\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45200
+    },
+    {
+      "id": "GI41211",
+      "descripcion": "\"MOCH ESPALDA 12\"\" BUS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29150
+    },
+    {
+      "id": "GI41213",
+      "descripcion": "\"MOCH ESPALDA 12\"\" RABBIT\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29150
+    },
+    {
+      "id": "GI42300",
+      "descripcion": "\"MOCH ESPALDA 12\"\"CORE PLAY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI42301",
+      "descripcion": "\"MOCH ESPALDA 12\"\" MARIPOSA\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI42302",
+      "descripcion": "\"MOCHILA ESPALDA 12\"\"\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI42304",
+      "descripcion": "\"MOC ESPALDA 12\"\" PANDA\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45380
+    },
+    {
+      "id": "GI55404",
+      "descripcion": "CARTUCHERA DOBLE PEPPA PIG",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 22800
+    },
+    {
+      "id": "GI57800",
+      "descripcion": "\"MOCH ESPALDA 12\"\" FROZEN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "GI57801",
+      "descripcion": "\"MOCH CARRO 12\"\" FROZEN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "GI57802",
+      "descripcion": "\"MOCH ESPALDA 16\"\" PFROZEN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45380
+    },
+    {
+      "id": "GI57804",
+      "descripcion": "CARTUCHERA SIMPLE FROZEN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 12650
+    },
+    {
+      "id": "GI57901",
+      "descripcion": "\"MOCH CARRO 12\"\" BLUEY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "GI65127",
+      "descripcion": "MOCH ESPALDA 122 PAW PATROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 39300
+    },
+    {
+      "id": "GI74300",
+      "descripcion": "\"MOCH ESPALDA 12\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 35500
+    },
+    {
+      "id": "GI74301",
+      "descripcion": "\"MOCH CARRO 12\"\"HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 74250
+    },
+    {
+      "id": "GI74302",
+      "descripcion": "\"MOCH ESPALDA 16\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 37750
+    },
+    {
+      "id": "GI74303",
+      "descripcion": "\"MOCH CARRO 16\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 77300
+    },
+    {
+      "id": "GI74305",
+      "descripcion": "CARTUCHERA HELLO KITTY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 15200
+    },
+    {
+      "id": "GI74307",
+      "descripcion": "\"MOCH ESPALDA 12\"\" MYSTICAL\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 24850
+    },
+    {
+      "id": "GI74308",
+      "descripcion": "\"MOCH CARRO 12\"\" MYSTICAL\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 80750
+    },
+    {
+      "id": "GI74312",
+      "descripcion": "CARTUCHERA DOBLE HELLO KITTY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 17450
+    },
+    {
+      "id": "GI74314",
+      "descripcion": "\"MOCH CARRO 14\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 97600
+    },
+    {
+      "id": "GI74316",
+      "descripcion": "\"MOCH CARRO 17\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 121000
+    },
+    {
+      "id": "GI74318",
+      "descripcion": "CARTUCHERA HELLO KITTY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 11650
+    },
+    {
+      "id": "GI91327",
+      "descripcion": "\"MOCHILA ESPALDA 17\"\" BUHO\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 48300
+    },
+    {
       "id": "LH64133",
       "descripcion": "BORLAS MAQUILLAJE/LIMPIEZA",
       "lista": "LISTA1",
@@ -270,6 +1030,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 2200
+    },
+    {
+      "id": "MARICELMCC",
+      "descripcion": "MANTECA DE CACAO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 900
+    },
+    {
+      "id": "R120",
+      "descripcion": "REMOVEDOR LAS VARANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 3300
     },
     {
       "id": "S07",
@@ -293,7 +1069,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1950
+      "precio": 2400
     },
     {
       "id": " DEC1532",
@@ -2389,14 +3165,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 390
-    },
-    {
-      "id": "1542314510244",
-      "descripcion": "PESONERA SILICONA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 1450
     },
     {
       "id": "1605351286258",
@@ -4561,7 +5329,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1100
+      "precio": 550
     },
     {
       "id": "32154.",
@@ -4577,7 +5345,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 850
+      "precio": 700
     },
     {
       "id": "3252695256959",
@@ -10436,7 +11204,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 4990
+      "precio": 3300
     },
     {
       "id": "4894130971264",
@@ -13260,7 +14028,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 850
+      "precio": 2750
     },
     {
       "id": "5012895215211",
@@ -13268,7 +14036,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 850
+      "precio": 1450
     },
     {
       "id": "5012895315218",
@@ -15320,7 +16088,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 550
+      "precio": 900
     },
     {
       "id": "6052-15",
@@ -15328,7 +16096,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 450
+      "precio": 700
     },
     {
       "id": "6052-4.",
@@ -15456,7 +16224,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 700
+      "precio": 450
     },
     {
       "id": "6064-15",
@@ -15480,7 +16248,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 2750
+      "precio": 400
     },
     {
       "id": "6072-15",
@@ -15488,7 +16256,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 400
+      "precio": 900
     },
     {
       "id": "6072-4",
@@ -16312,7 +17080,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1650
+      "precio": 1100
     },
     {
       "id": "6357-4.",
@@ -16320,7 +17088,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 600
+      "precio": 3300
     },
     {
       "id": "6390000033936",
@@ -17072,7 +17840,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 750
+      "precio": 800
     },
     {
       "id": "6821646145139",
@@ -17593,6 +18361,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 650
+    },
+    {
+      "id": "6900962036112",
+      "descripcion": "LIMA OBLELISCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 500
+    },
+    {
+      "id": "69009622036274",
+      "descripcion": "SET PINCELES X15",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 2650
     },
     {
       "id": "6901000112967",
@@ -18495,7 +19279,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 2300
+      "precio": 3000
     },
     {
       "id": "6920100230159",
@@ -18535,7 +19319,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 600
+      "precio": 3000
     },
     {
       "id": "6920100230364",
@@ -19882,14 +20666,6 @@
       "precio": 250
     },
     {
-      "id": "6923263710414",
-      "descripcion": "COLAGENO P/LABIOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 400
-    },
-    {
       "id": "6923263710544",
       "descripcion": "MASC P/NARIZ 3 EN 1",
       "lista": "LISTA1",
@@ -21015,7 +21791,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1950
+      "precio": 2400
     },
     {
       "id": "6928512000964",
@@ -22504,6 +23280,22 @@
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 3790
+    },
+    {
+      "id": "6934525053064",
+      "descripcion": "BILLETERA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 5800
+    },
+    {
+      "id": "6934525054061",
+      "descripcion": "BILLETERA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 5800
     },
     {
       "id": "6934766400054",
@@ -24994,14 +25786,6 @@
       "precio": 1690
     },
     {
-      "id": "6956219108317",
-      "descripcion": "MASCARILLA PUNTO NEGROS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 200
-    },
-    {
       "id": "6956563635620",
       "descripcion": "LIP GLOSS",
       "lista": "LISTA1",
@@ -25580,22 +26364,6 @@
     {
       "id": "6971525870079",
       "descripcion": "TIPS CUADRADOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 1500
-    },
-    {
-      "id": "6971525870093",
-      "descripcion": "UÑAS POSTIZAS AMLMENDRAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 1050
-    },
-    {
-      "id": "6971525870109",
-      "descripcion": "UÑAS POSTIZAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
@@ -29810,22 +30578,6 @@
       "precio": 200
     },
     {
-      "id": "7094489014972",
-      "descripcion": "VINCHA MOÑO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 2250
-    },
-    {
-      "id": "7094555748954",
-      "descripcion": "VINCHA ANIMAL PRINT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 2250
-    },
-    {
       "id": "7098353521610",
       "descripcion": "COLITAS MEDIANAS",
       "lista": "LISTA1",
@@ -31602,6 +32354,22 @@
       "precio": 4000
     },
     {
+      "id": "7453002797400",
+      "descripcion": "MOCH ESPALDA 122 PAW PATROL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 39300
+    },
+    {
+      "id": "7453002800483",
+      "descripcion": "\"MOCHILA ESPALDA 17\"\" BUHO\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 48300
+    },
+    {
       "id": "7453002802364",
       "descripcion": "CANOPLA LOL",
       "lista": "LISTA1",
@@ -31624,6 +32392,454 @@
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 4400
+    },
+    {
+      "id": "7453002803019",
+      "descripcion": "\"MOCH ESPALDA 12\"\" BUS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29150
+    },
+    {
+      "id": "7453002803033",
+      "descripcion": "\"MOCH ESPALDA 12\"\" RABBIT\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29150
+    },
+    {
+      "id": "7453002805006",
+      "descripcion": "\"MOCH ESPALDA 12\"\" CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002806348",
+      "descripcion": "CARTUCHERA DOBLE PEPPA PIG",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 22800
+    },
+    {
+      "id": "7453002806409",
+      "descripcion": "\"MOCH ESPALDA 12\"\" FROZEN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002806416",
+      "descripcion": "\"MOCH CARRO 12\"\" FROZEN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "7453002806423",
+      "descripcion": "\"MOCH ESPALDA 16\"\" PFROZEN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45380
+    },
+    {
+      "id": "7453002806447",
+      "descripcion": "CARTUCHERA SIMPLE FROZEN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 12650
+    },
+    {
+      "id": "7453002806676",
+      "descripcion": "\"MOCH CARRO 12\"\" BLUEY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "7453002806959",
+      "descripcion": "\"MOCH ESPALDA 12\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45200
+    },
+    {
+      "id": "7453002807093",
+      "descripcion": "\"MOCH ESPALDA 12\"\"CORE PLAY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002807109",
+      "descripcion": "\"MOCH ESPALDA 12\"\" MARIPOSA\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002807116",
+      "descripcion": "\"MOCHILA ESPALDA 12\"\"\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002807130",
+      "descripcion": "\"MOC ESPALDA 12\"\" PANDA\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45380
+    },
+    {
+      "id": "7453002807222",
+      "descripcion": "\"MOCH ESPALDA 12\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 35500
+    },
+    {
+      "id": "7453002807239",
+      "descripcion": "\"MOCH CARRO 12\"\"HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 74250
+    },
+    {
+      "id": "7453002807246",
+      "descripcion": "\"MOCH ESPALDA 16\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 37750
+    },
+    {
+      "id": "7453002807253",
+      "descripcion": "\"MOCH CARRO 16\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 77300
+    },
+    {
+      "id": "7453002807277",
+      "descripcion": "CARTUCHERA HELLO KITTY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 15200
+    },
+    {
+      "id": "7453002807291",
+      "descripcion": "\"MOCH ESPALDA 12\"\" MYSTICAL\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 24850
+    },
+    {
+      "id": "7453002807307",
+      "descripcion": "\"MOCH CARRO 12\"\" MYSTICAL\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 80750
+    },
+    {
+      "id": "7453002807345",
+      "descripcion": "CARTUCHERA DOBLE HELLO KITTY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 17450
+    },
+    {
+      "id": "7453002807369",
+      "descripcion": "\"MOCH CARRO 14\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 97600
+    },
+    {
+      "id": "7453002807383",
+      "descripcion": "\"MOCH CARRO 17\"\" HELLO KITTY\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 121000
+    },
+    {
+      "id": "7453002807406",
+      "descripcion": "CARTUCHERA HELLO KITTY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 11650
+    },
+    {
+      "id": "7453002807529",
+      "descripcion": "\"MOCH CARRO 12\"\" CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "7453002807536",
+      "descripcion": "\"MOCH ESPALDA 12\"\" CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002807581",
+      "descripcion": "\"MOCH CARRO 12\"\" SPIDERMAN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 51700
+    },
+    {
+      "id": "7453002807604",
+      "descripcion": "\"MOCH CARRO 16\"\" SPIDERMAN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 84950
+    },
+    {
+      "id": "7453002807611",
+      "descripcion": "CARTUCHERA SPIDERMAN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 15200
+    },
+    {
+      "id": "7453002807635",
+      "descripcion": "LUNCHERA SPIDERMAN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 28150
+    },
+    {
+      "id": "7453002807802",
+      "descripcion": "\"MOCH ESPALDA 12\"\" SPIDERMAN\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45380
+    },
+    {
+      "id": "7453002808137",
+      "descripcion": "\"MOCH ESPALDA 16\"\" CAMARA\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45400
+    },
+    {
+      "id": "7453002808144",
+      "descripcion": "\"MOCH CARRO 16\"\" CAMARA\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 73250
+    },
+    {
+      "id": "7453002808151",
+      "descripcion": "CARUCHERA JURASSIC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 15200
+    },
+    {
+      "id": "7453002808199",
+      "descripcion": "\"MOCH CARRO 12\"\" DINO\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "7453002808205",
+      "descripcion": "\"MOCH ESPALDA 18\"\" DINO\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45400
+    },
+    {
+      "id": "7453002808441",
+      "descripcion": "\"MOCH ESPALDA 12\"\" RAINBOW\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 36750
+    },
+    {
+      "id": "7453002808458",
+      "descripcion": "\"MOCH CARRO 12\"\" RAINBOW\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 58050
+    },
+    {
+      "id": "7453002808502",
+      "descripcion": "LUNCHERA RAINBOW",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 36750
+    },
+    {
+      "id": "7453002808519",
+      "descripcion": "\"MOCHILA ESOLADA 12\"\" HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29950
+    },
+    {
+      "id": "7453002808526",
+      "descripcion": "\"MOCH CARRO 12\"\" HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 51950
+    },
+    {
+      "id": "7453002808533",
+      "descripcion": "\"MOCH ESPADA 16\"\" HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 45400
+    },
+    {
+      "id": "7453002808540",
+      "descripcion": "\"MOCH CARRO 16\"\" HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 77350
+    },
+    {
+      "id": "7453002808557",
+      "descripcion": "CATUCHERA  HOT WHEELS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 9750
+    },
+    {
+      "id": "7453002808632",
+      "descripcion": "\"MOCH ESPALDA 12\"\" CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002808656",
+      "descripcion": "\"MOCH ESPALDA 18\"\"CARS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 58050
+    },
+    {
+      "id": "7453002808663",
+      "descripcion": "\"MOCH CARRO 18\"\"HOT WHEELS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 90000
+    },
+    {
+      "id": "7453002808793",
+      "descripcion": "\"MOCH ESPALDA 16\"\" PRINCESAS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002808809",
+      "descripcion": "\"MOCH CARRO 12\"\" PRINCESAS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "7453002808816",
+      "descripcion": "\"MOCHILA ESOLADA 12\"\" PEPPA PIG\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 29900
+    },
+    {
+      "id": "7453002809424",
+      "descripcion": "\"MOCH CARRO 12\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 66700
+    },
+    {
+      "id": "7453002809448",
+      "descripcion": "\"MOCH CARRIO 16\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 101150
+    },
+    {
+      "id": "7453002809523",
+      "descripcion": "\"MOCH ESPALDA 14\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 52000
+    },
+    {
+      "id": "7453002809530",
+      "descripcion": "\"MOCH ESPALDA 18\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 90000
+    },
+    {
+      "id": "7453002809547",
+      "descripcion": "\"MOCH CARRO 18\"\" BARBIE\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 112800
     },
     {
       "id": "7453069127912",
@@ -35216,6 +36432,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45315,
       "precio": 2490
+    },
+    {
+      "id": "7790752110104",
+      "descripcion": "\"MOCH ESPALDA 16\"\" CUADROS\"",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45315,
+      "precio": 33950
     },
     {
       "id": "7790774133495",
@@ -65512,14 +66736,6 @@
       "precio": 3800
     },
     {
-      "id": "7985171041560",
-      "descripcion": "APLICADOR P/SOMBRAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 1150
-    },
-    {
       "id": "7985450350390",
       "descripcion": "ARCO DE FUTBOL",
       "lista": "LISTA1",
@@ -65885,7 +67101,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883236",
@@ -65893,7 +67109,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133883298",
@@ -65901,7 +67117,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883328",
@@ -65909,7 +67125,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883359",
@@ -65917,7 +67133,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883489",
@@ -65925,7 +67141,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883502",
@@ -65933,7 +67149,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7993496972414",
@@ -67928,14 +69144,6 @@
       "precio": 4900
     },
     {
-      "id": "8867684454404",
-      "descripcion": "ESPONJA CONNERT X6",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 800
-    },
-    {
       "id": "887687873871",
       "descripcion": "MINI ARBOL DEC",
       "lista": "LISTA1",
@@ -68689,11 +69897,11 @@
     },
     {
       "id": "900282",
-      "descripcion": "REMOVEDOR LAS VARANO 120ML",
+      "descripcion": "REMOVEDOR LAS VARANO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 1650
+      "precio": 3300
     },
     {
       "id": "900335",
@@ -68821,7 +70029,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45315,
-      "precio": 4600
+      "precio": 400
     },
     {
       "id": "9020230247304",
@@ -79616,14 +80824,6 @@
       "precio": 2750
     },
     {
-      "id": "MARICELMCC",
-      "descripcion": "MANTECA DE CACAO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 600
-    },
-    {
       "id": "MASAS",
       "descripcion": "MASA",
       "lista": "LISTA1",
@@ -84247,14 +85447,6 @@
       "precio": 2900
     },
     {
-      "id": "r120",
-      "descripcion": "REMOVEDOR 120ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45315,
-      "precio": 2250
-    },
-    {
       "id": "r4001",
       "descripcion": "COLITAS",
       "lista": "LISTA1",
@@ -85341,14 +86533,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45309,
       "precio": 900
-    },
-    {
-      "id": "AF166",
-      "descripcion": "STRASS PERLAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45309,
-      "precio": 750
     },
     {
       "id": "AF1815",
@@ -117395,14 +118579,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45210,
       "precio": 2150
-    },
-    {
-      "id": "6900962036298",
-      "descripcion": "PINCEL DOTTING",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45210,
-      "precio": 700
     },
     {
       "id": "6923263710209",
