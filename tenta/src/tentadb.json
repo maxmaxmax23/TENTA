@@ -32,12 +32,68 @@
       "precio": 4100
     },
     {
+      "id": "070330423480",
+      "descripcion": "LAPIZ NEGRO BIC EVOLUTION CON GOMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 550
+    },
+    {
+      "id": "096372",
+      "descripcion": "CARPETA FORRADA GADRI ROJA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 3150
+    },
+    {
+      "id": "096433",
+      "descripcion": "CARPETA FORRADA GADRI VERDE MANZ",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 3150
+    },
+    {
+      "id": "096440",
+      "descripcion": "CARPETA FORRADA GADRI LILA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 3150
+    },
+    {
       "id": "10027502",
       "descripcion": "CESTO 40*50",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
       "precio": 11500
+    },
+    {
+      "id": "100782",
+      "descripcion": "CUADERNO ESPIRAL AVON A4",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 2750
+    },
+    {
+      "id": "100907",
+      "descripcion": "REP EXITO ECO 480HS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 18750
+    },
+    {
+      "id": "102887",
+      "descripcion": "BLOCK A4 EXITO 80hs",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 5050
     },
     {
       "id": "11079016",
@@ -136,6 +192,78 @@
       "precio": 28000
     },
     {
+      "id": "6973855460371",
+      "descripcion": "MASCARILLA HONEY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 2100
+    },
+    {
+      "id": "70330125285",
+      "descripcion": "BOLIGRAFO BIC OPACO AZUL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 700
+    },
+    {
+      "id": "70330125308",
+      "descripcion": "BOLIGRAFO BIC OPACO NEGRO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 700
+    },
+    {
+      "id": "7791762400070",
+      "descripcion": "REP EXITO A4 48HS 100G",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 4500
+    },
+    {
+      "id": "779176240070",
+      "descripcion": "REP EXITO 48HS 100G",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 4500
+    },
+    {
+      "id": "7793198440002",
+      "descripcion": "GOMA PIZZINI CHICA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 500
+    },
+    {
+      "id": "7795513077481",
+      "descripcion": "RESALTADOR FILGO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 650
+    },
+    {
+      "id": "7797847000623",
+      "descripcion": "CARPETA NEGRA Nº3 NEGRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 2900
+    },
+    {
+      "id": "7798280096396",
+      "descripcion": "CARPETA FORRADA GADRI NEGRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 3150
+    },
+    {
       "id": "7798359380074",
       "descripcion": "MATE PAMPA AFA",
       "lista": "LISTA1",
@@ -144,12 +272,76 @@
       "precio": 26000
     },
     {
+      "id": "7891360631101",
+      "descripcion": "LAPIZ FABER X12 LARGO + GRAFITOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 4750
+    },
+    {
+      "id": "8200000031260",
+      "descripcion": "SET COCINA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 4400
+    },
+    {
+      "id": "96365",
+      "descripcion": "CARPETA FORRADA GADRI AZUL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 3150
+    },
+    {
+      "id": "96389",
+      "descripcion": "CARPETA FORRADA GADRI VERDE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 3150
+    },
+    {
+      "id": "96464",
+      "descripcion": "CARPETA FORRADA GADRI NARANJA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 3150
+    },
+    {
+      "id": "CO514100",
+      "descripcion": "GOMA BLANCA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 250
+    },
+    {
+      "id": "CO51501",
+      "descripcion": "oleo pastel x12 KATANA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 1950
+    },
+    {
       "id": "ES4007",
       "descripcion": "JARRA TERMICA 1L",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
       "precio": 11900
+    },
+    {
+      "id": "INT1001",
+      "descripcion": "MATE FORRADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 2000
     },
     {
       "id": " DEC1532",
@@ -718,14 +910,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45317,
       "precio": 90
-    },
-    {
-      "id": "070330423480",
-      "descripcion": "LAPIZ NEGRO BIC EVOLUTION CON GOMA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 120
     },
     {
       "id": "070330423534",
@@ -2124,7 +2308,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 550
+      "precio": 10
     },
     {
       "id": "1224-4.",
@@ -2148,7 +2332,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 550
+      "precio": 410
     },
     {
       "id": "1234",
@@ -2220,7 +2404,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 290
+      "precio": 550
     },
     {
       "id": "148092",
@@ -3819,7 +4003,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1100
+      "precio": 2400
     },
     {
       "id": "3154140176778",
@@ -3827,7 +4011,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1100
+      "precio": 270
     },
     {
       "id": "3154140177119",
@@ -3835,7 +4019,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1100
+      "precio": 540
     },
     {
       "id": "3154140181130",
@@ -3843,7 +4027,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1100
+      "precio": 1690
     },
     {
       "id": "3154140301118",
@@ -3851,7 +4035,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1100
+      "precio": 1500
     },
     {
       "id": "3154140322113",
@@ -3859,7 +4043,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1100
+      "precio": 990
     },
     {
       "id": "3154140327118",
@@ -3867,7 +4051,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1100
+      "precio": 1550
     },
     {
       "id": "3154140417123",
@@ -13132,7 +13316,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 850
+      "precio": 2750
     },
     {
       "id": "5012895215211",
@@ -14056,7 +14240,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1500
+      "precio": 1950
     },
     {
       "id": "5896321785895",
@@ -15184,7 +15368,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 800
+      "precio": 1450
     },
     {
       "id": "6048-15",
@@ -15192,7 +15376,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 550
+      "precio": 900
     },
     {
       "id": "6052-15",
@@ -15368,7 +15552,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 490
+      "precio": 600
     },
     {
       "id": "6075-15",
@@ -16184,7 +16368,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1100
+      "precio": 1650
     },
     {
       "id": "6357-4.",
@@ -16192,7 +16376,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 3300
+      "precio": 600
     },
     {
       "id": "6390000033936",
@@ -18487,7 +18671,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "6920100230623",
@@ -29794,22 +29978,6 @@
       "precio": 9400
     },
     {
-      "id": "70330125285",
-      "descripcion": "BOLIGRAFO BIC OPACO AZUL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 140
-    },
-    {
-      "id": "70330125308",
-      "descripcion": "BOLIGRAFO BIC OPACO NEGRO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 140
-    },
-    {
       "id": "70330129627",
       "descripcion": "BOLIGRAFO BIC CRISTAL AZUL",
       "lista": "LISTA1",
@@ -40713,6 +40881,14 @@
       "precio": 4400
     },
     {
+      "id": "7791762255106",
+      "descripcion": "CUADERNO ESPIRAL AVON A4",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 2750
+    },
+    {
       "id": "7791762255205",
       "descripcion": "CUADERNO ESP A4 AVON",
       "lista": "LISTA1",
@@ -40783,6 +40959,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45317,
       "precio": 5300
+    },
+    {
+      "id": "7791762312489",
+      "descripcion": "BLOCK A4 EXITO 80hs",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 5050
     },
     {
       "id": "7791762420078",
@@ -40922,11 +41106,11 @@
     },
     {
       "id": "7791762486180",
-      "descripcion": "REPUESTO EXITO 480 HOJAS",
+      "descripcion": "REP EXITO ECO 480HS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 14500
+      "precio": 18750
     },
     {
       "id": "7791762555091",
@@ -44375,14 +44559,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45317,
       "precio": 7000
-    },
-    {
-      "id": "7793198440002",
-      "descripcion": "GOMA PIZZINI CHICA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 850
     },
     {
       "id": "7793198531502",
@@ -54032,6 +54208,14 @@
       "precio": 850
     },
     {
+      "id": "7798280090714",
+      "descripcion": "CARPETA FORRADA GADRI VERDE MANZ",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45317,
+      "precio": 3150
+    },
+    {
       "id": "7798280730252",
       "descripcion": "CARP 3 SOLAPAS RAINBOW",
       "lista": "LISTA1",
@@ -61584,14 +61768,6 @@
       "precio": 670
     },
     {
-      "id": "7891360631101",
-      "descripcion": "FABER LARGOS X 12 + 3 LAPICES NEGROS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 950
-    },
-    {
       "id": "7891360638735",
       "descripcion": "LAPICES COLORES X 12 BICOLOR FABER",
       "lista": "LISTA1",
@@ -66805,7 +66981,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883236",
@@ -66853,7 +67029,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7993496972414",
@@ -67574,14 +67750,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45317,
       "precio": 2450
-    },
-    {
-      "id": "8200000031260",
-      "descripcion": "SET COCINA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 1550
     },
     {
       "id": "8200000311126",
@@ -71605,7 +71773,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45317,
-      "precio": 25
+      "precio": 250
     },
     {
       "id": "9658480891178",
@@ -76486,14 +76654,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45317,
       "precio": 13900
-    },
-    {
-      "id": "INT1001",
-      "descripcion": "MATE FORRADO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 1200
     },
     {
       "id": "INT1002",
@@ -87333,14 +87493,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45308,
       "precio": 6500
-    },
-    {
-      "id": "CO51501",
-      "descripcion": "oleo pastel x12 KATANA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45308,
-      "precio": 1500
     },
     {
       "id": "4553",
@@ -116771,14 +116923,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45218,
       "precio": 1990
-    },
-    {
-      "id": "6973855460371",
-      "descripcion": "MASCARILLA HONEY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45218,
-      "precio": 1500
     },
     {
       "id": "7102154",
