@@ -1,11 +1,683 @@
 [
     {
+      "id": "7798008090477",
+      "descripcion": "DECANTER + 2 COPAS BARONE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 16300
+    },
+    {
+      "id": "7798040802175",
+      "descripcion": "CORRECTOR TEJAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1150
+    },
+    {
+      "id": "7798187885673",
+      "descripcion": "PEGAMENTO PARA PESTAÑA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1400
+    },
+    {
+      "id": "7798187887806",
+      "descripcion": "MAQUILLAJE LIQUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 5050
+    },
+    {
+      "id": "7798317825630",
+      "descripcion": "PINCEL RECTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1600
+    },
+    {
+      "id": "7798317827108",
+      "descripcion": "FIJADOR DE MAQUILLAJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 4450
+    },
+    {
+      "id": "7798317827184",
+      "descripcion": "LAPIZ PARA CEJAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3700
+    },
+    {
+      "id": "7798373790118",
+      "descripcion": "CEPILLO BRUSHING",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 6550
+    },
+    {
+      "id": "7798373792334",
+      "descripcion": "BRILLO LABIAL CON APLICADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2350
+    },
+    {
+      "id": "7891155008224",
+      "descripcion": "COPA WINDSOR CERVEZA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3900
+    },
+    {
+      "id": "7891155040866",
+      "descripcion": "COPA BARONE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 4200
+    },
+    {
+      "id": "7891155040958",
+      "descripcion": "BARONE COPA VINO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 4200
+    },
+    {
+      "id": "7891155047131",
+      "descripcion": "COPA BRUNELLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 4200
+    },
+    {
+      "id": "7891155047148",
+      "descripcion": "BRUNELLO COPA VINO 390ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 4200
+    },
+    {
+      "id": "7891155047162",
+      "descripcion": "COPA BRUNELLO CERVEZA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3700
+    },
+    {
+      "id": "7891155056539",
+      "descripcion": "BELGA COPA CERVEZA 490ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 4150
+    },
+    {
+      "id": "7891155083481",
+      "descripcion": "FIORE CPA AGUA 400ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 4500
+    },
+    {
+      "id": "7891155083511",
+      "descripcion": "FIORE COPA DEGUSTACION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 5100
+    },
+    {
+      "id": "ACO107",
+      "descripcion": "MOCHILA CLASICA C BOLS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 11000
+    },
+    {
+      "id": "ACO108",
+      "descripcion": "MOCHILA REFORZADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 21600
+    },
+    {
+      "id": "ACO1107",
+      "descripcion": "MOCHILA CLASICA RIP STOP C/BOLSILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 18900
+    },
+    {
+      "id": "ACO1152",
+      "descripcion": "MOCHILA CLASICA ESTAMPADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 18900
+    },
+    {
+      "id": "ACO1156",
+      "descripcion": "MOCHILA CLASICA GRANDE BOL FRONTAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 29900
+    },
+    {
+      "id": "ACO120",
+      "descripcion": "PORTATERMO GAUCHESCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 14000
+    },
+    {
+      "id": "ACO121",
+      "descripcion": "PORTATERMO SIMIL CUERO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 9800
+    },
+    {
+      "id": "ACO125",
+      "descripcion": "PORTATERMO ESTAMPADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 9000
+    },
+    {
+      "id": "ACO152",
+      "descripcion": "MOCHILA ESTAMPADA CLASICA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 13900
+    },
+    {
+      "id": "ACO240",
+      "descripcion": "MOCHILA MATERA ESTAMPADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 23900
+    },
+    {
+      "id": "ACO401",
+      "descripcion": "MOCHILA ESTAMPADA 3 DIV Y BOLS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 20300
+    },
+    {
+      "id": "ACO403",
+      "descripcion": "LUNCHERA ESTAMPADA CON BOLSILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 17200
+    },
+    {
+      "id": "ACO705",
+      "descripcion": "MOCHILA PORTA NOTBOOK Y SALIDA USB",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 37500
+    },
+    {
+      "id": "ACO834",
+      "descripcion": "MOCHILA MONTAÑA UNISEX",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 42800
+    },
+    {
+      "id": "ACO836",
+      "descripcion": "MOCHILA ESTAMPADA C 2 DIV",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 31500
+    },
+    {
+      "id": "ACO838",
+      "descripcion": "MOCHILA ESTAMPADA C 2 DIV",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 31500
+    },
+    {
+      "id": "ACO843",
+      "descripcion": "MOCHILA 2 DIV Y BOLSILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 34200
+    },
+    {
+      "id": "ACO88",
+      "descripcion": "CARTUCHERA TUBO ESTAMPADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3900
+    },
+    {
+      "id": "ACO915",
+      "descripcion": "MOCHILA CORDURA ESTAMPADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 26200
+    },
+    {
+      "id": "ACO917",
+      "descripcion": "MOCHILA LISA 3 DIV 2  BOLS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 28500
+    },
+    {
+      "id": "ACO920",
+      "descripcion": "MOCHILA COMBINADA 2 DIV",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 26200
+    },
+    {
+      "id": "FER1018",
+      "descripcion": "LIMA P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 450
+    },
+    {
+      "id": "FER1827",
+      "descripcion": "LIMA MEDIA LUNA GRIS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 800
+    },
+    {
+      "id": "FER1858",
+      "descripcion": "SET DE PINCELES 7PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 5900
+    },
+    {
+      "id": "FER1874",
+      "descripcion": "KIT PINCELES Y BROCHAS X12",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 6271
+    },
+    {
+      "id": "FER1922",
+      "descripcion": "LIMA DECORADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 450
+    },
+    {
+      "id": "FER2667",
+      "descripcion": "DELINEADOR LIQUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2900
+    },
+    {
+      "id": "FER4174",
+      "descripcion": "SOMBRAS 14 COLORES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 5300
+    },
+    {
+      "id": "FER5020",
+      "descripcion": "POLVO COMPACTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2250
+    },
+    {
+      "id": "FER822",
+      "descripcion": "LIMA RECTA NEGRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 450
+    },
+    {
+      "id": "INT4009",
+      "descripcion": "BOMBILLA C/ESTRIBO DIJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3400
+    },
+    {
+      "id": "INT4012",
+      "descripcion": "BOMILLA C/DIJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2900
+    },
+    {
+      "id": "INT4018",
+      "descripcion": "BOMBILLA C/ESTRIBO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2550
+    },
+    {
       "id": "INT4022",
       "descripcion": "BOMBILLA ACERO C/RESORTE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
       "precio": 1200
+    },
+    {
+      "id": "INT4028",
+      "descripcion": "BOMBILLA ACERO CHATA GDE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2750
+    },
+    {
+      "id": "INT4050",
+      "descripcion": "BOMBILLA ACERO CHATA GRABADA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3200
+    },
+    {
+      "id": "NA163103",
+      "descripcion": "JUEGO DECANTER + 2COPAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 16300
+    },
+    {
+      "id": "NA7028",
+      "descripcion": "COPA WINDSOR AGUA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2900
+    },
+    {
+      "id": "NA7128",
+      "descripcion": "COPA WINDSOR VINO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2900
+    },
+    {
+      "id": "NA7651",
+      "descripcion": "COPA DUBLIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3800
+    },
+    {
+      "id": "NA794806",
+      "descripcion": "COPA GIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 5800
+    },
+    {
+      "id": "NA795606",
+      "descripcion": "COPA BARONE DESGUSTACION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 5700
+    },
+    {
+      "id": "TEJ1262",
+      "descripcion": "ESMALTE P/UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1700
+    },
+    {
+      "id": "TEJ1269",
+      "descripcion": "ESMALTE UV",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1700
+    },
+    {
+      "id": "TEJ1438",
+      "descripcion": "LAPIZ LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1100
+    },
+    {
+      "id": "TEJ1719",
+      "descripcion": "PEGAMENTO PARA PESTAÑAS POSTIZAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1400
+    },
+    {
+      "id": "TEJ1781",
+      "descripcion": "LIMA METALICA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 700
+    },
+    {
+      "id": "TEJ1785",
+      "descripcion": "LIMA UÑAS X12 7CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1000
+    },
+    {
+      "id": "TEJ1786",
+      "descripcion": "LIMA X12",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 470
+    },
+    {
+      "id": "TEJ1828",
+      "descripcion": "MA RECTA GRIS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 800
+    },
+    {
+      "id": "TEJ1880",
+      "descripcion": "PALITO NARANJO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 900
+    },
+    {
+      "id": "TEJ1888",
+      "descripcion": "LIMA P/UÑAS SOFT",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 1100
+    },
+    {
+      "id": "TEJ219",
+      "descripcion": "DELINEADOR LIQUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3150
+    },
+    {
+      "id": "TEJ224",
+      "descripcion": "MAQUILLAJE FLUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3100
+    },
+    {
+      "id": "TEJ231",
+      "descripcion": "LAPIZ LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 406
+    },
+    {
+      "id": "TEJ339",
+      "descripcion": "MAQUILLAJE EN BARRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3600
+    },
+    {
+      "id": "TEJ4112",
+      "descripcion": "SOMBRACOMPACTA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 8550
+    },
+    {
+      "id": "TEJ4156",
+      "descripcion": "SOMBRA P/OJOS 3 COLORES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3000
+    },
+    {
+      "id": "TEJ5013",
+      "descripcion": "MASACRA P/PESTAÑAS CRAZY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2450
+    },
+    {
+      "id": "TEJ5021",
+      "descripcion": "MAQUILLAJE CERMOSO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2200
+    },
+    {
+      "id": "TEJ5023",
+      "descripcion": "MASACRA P/PESTAÑAS CRAZY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2850
+    },
+    {
+      "id": "TEJ5024",
+      "descripcion": "MASCARA P/PESTAÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2750
+    },
+    {
+      "id": "TEJ5028",
+      "descripcion": "DELINEADOR GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2700
+    },
+    {
+      "id": "TEJ5062",
+      "descripcion": "MASC P/PESTAÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 3750
+    },
+    {
+      "id": "TEJ5065",
+      "descripcion": "BRILLO LABIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2250
+    },
+    {
+      "id": "TEJ5068",
+      "descripcion": "DELINEADOR GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 2800
+    },
+    {
+      "id": "TEJ5086",
+      "descripcion": "LIQUID CONCEALER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45328,
+      "precio": 4000
     },
     {
       "id": "Z2202",
@@ -50165,7 +50837,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2650
+      "precio": 3150
     },
     {
       "id": "7798040801895",
@@ -50189,7 +50861,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1000
+      "precio": 406
     },
     {
       "id": "7798040802120",
@@ -53277,7 +53949,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1550
+      "precio": 3600
     },
     {
       "id": "7798187884201",
@@ -53293,7 +53965,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 950
+      "precio": 3100
     },
     {
       "id": "7798187884232",
@@ -53333,7 +54005,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1100
+      "precio": 1400
     },
     {
       "id": "7798187885802",
@@ -53573,7 +54245,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2300
+      "precio": 2450
     },
     {
       "id": "7798187888544",
@@ -53621,7 +54293,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 900
+      "precio": 1100
     },
     {
       "id": "7798190000000",
@@ -55781,7 +56453,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2100
+      "precio": 2250
     },
     {
       "id": "7798317822028",
@@ -55789,7 +56461,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1800
+      "precio": 2200
     },
     {
       "id": "7798317822035",
@@ -55805,7 +56477,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2350
+      "precio": 2850
     },
     {
       "id": "7798317822059",
@@ -55813,7 +56485,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2500
+      "precio": 2750
     },
     {
       "id": "7798317822097",
@@ -55821,7 +56493,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2550
+      "precio": 2700
     },
     {
       "id": "7798317822370",
@@ -55845,7 +56517,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 290
+      "precio": 700
     },
     {
       "id": "7798317822400",
@@ -55869,7 +56541,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 350
+      "precio": 1000
     },
     {
       "id": "7798317822448",
@@ -55877,7 +56549,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1100
+      "precio": 470
     },
     {
       "id": "7798317822493",
@@ -55949,7 +56621,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 3700
+      "precio": 8550
     },
     {
       "id": "7798317822813",
@@ -56173,7 +56845,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 750
+      "precio": 800
     },
     {
       "id": "7798317825173",
@@ -56181,7 +56853,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 200
+      "precio": 800
     },
     {
       "id": "7798317825319",
@@ -56229,7 +56901,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 14300
+      "precio": 6271
     },
     {
       "id": "7798317825593",
@@ -56237,7 +56909,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 5500
+      "precio": 5900
     },
     {
       "id": "7798317825609",
@@ -56317,7 +56989,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2300
+      "precio": 3000
     },
     {
       "id": "7798317826774",
@@ -56381,7 +57053,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 4500
+      "precio": 5300
     },
     {
       "id": "7798317826941",
@@ -56677,7 +57349,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 3700
+      "precio": 4000
     },
     {
       "id": "7798317829768",
@@ -56709,7 +57381,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1000
+      "precio": 2250
     },
     {
       "id": "7798317829904",
@@ -58477,7 +59149,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 850
+      "precio": 900
     },
     {
       "id": "7798373790354",
@@ -58493,7 +59165,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1050
+      "precio": 1100
     },
     {
       "id": "7798373790453",
@@ -58581,7 +59253,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2400
+      "precio": 2800
     },
     {
       "id": "7798373791382",
@@ -58629,7 +59301,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2500
+      "precio": 2900
     },
     {
       "id": "7798373792037",
@@ -58797,7 +59469,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 3700
+      "precio": 4000
     },
     {
       "id": "7798375120296",
@@ -61341,7 +62013,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 2500
+      "precio": 2900
     },
     {
       "id": "7891155008200",
@@ -61349,7 +62021,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1990
+      "precio": 2900
     },
     {
       "id": "7891155009719",
@@ -61560,14 +62232,6 @@
       "precio": 3800
     },
     {
-      "id": "7891155040958",
-      "descripcion": "BARONE COPA VINO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 850
-    },
-    {
       "id": "7891155042594",
       "descripcion": "COPA BARONE DESGUSTACION",
       "lista": "LISTA1",
@@ -61581,7 +62245,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 3150
+      "precio": 3800
     },
     {
       "id": "7891155042648",
@@ -61661,7 +62325,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 4050
+      "precio": 5800
     },
     {
       "id": "7891155056881",
@@ -61669,7 +62333,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 11450
+      "precio": 16300
     },
     {
       "id": "7891155064879",
@@ -67213,7 +67877,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883359",
@@ -77224,30 +77888,6 @@
       "precio": 600
     },
     {
-      "id": "INT4009",
-      "descripcion": "BOMBILLA C/ESTRIBO DIJE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 2000
-    },
-    {
-      "id": "INT4012",
-      "descripcion": "BOMILLA C/DIJE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 1850
-    },
-    {
-      "id": "INT4018",
-      "descripcion": "BOMBILLA C/ESTRIBO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 1500
-    },
-    {
       "id": "INT402",
       "descripcion": "FL JERINGA 30CM",
       "lista": "LISTA1",
@@ -77270,14 +77910,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45328,
       "precio": 2200
-    },
-    {
-      "id": "INT4028",
-      "descripcion": "BOMBILLA ACERO CHATA GDE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 1600
     },
     {
       "id": "INT4029",
@@ -77326,14 +77958,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45328,
       "precio": 3200
-    },
-    {
-      "id": "INT4050",
-      "descripcion": "BOMBILLA ACERO CHATA GRABADA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 1890
     },
     {
       "id": "INT407",
@@ -82696,14 +83320,6 @@
       "precio": 800
     },
     {
-      "id": "TEJ1262",
-      "descripcion": "ESMALTE P/UÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 1450
-    },
-    {
       "id": "TEJ1422",
       "descripcion": "MAQUILLAJE HUMECTANTE",
       "lista": "LISTA1",
@@ -82726,14 +83342,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45328,
       "precio": 1350
-    },
-    {
-      "id": "TEJ1438",
-      "descripcion": "LAPIZ LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 900
     },
     {
       "id": "TEJ1446",
@@ -82933,7 +83541,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
-      "precio": 1350
+      "precio": 1600
     },
     {
       "id": "TEJ1863",
@@ -82952,22 +83560,6 @@
       "precio": 3600
     },
     {
-      "id": "TEJ219",
-      "descripcion": "DELINEADOR LIQUIDO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 2650
-    },
-    {
-      "id": "TEJ224",
-      "descripcion": "MAQUILLAJE FLUIDO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 950
-    },
-    {
       "id": "TEJ229",
       "descripcion": "CRAYON P/OJOS Y LABIOS",
       "lista": "LISTA1",
@@ -82978,14 +83570,6 @@
     {
       "id": "TEJ230",
       "descripcion": "DELINEDOR AUTOMAT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 1000
-    },
-    {
-      "id": "TEJ231",
-      "descripcion": "LAPIZ LABIAL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45328,
@@ -83158,14 +83742,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45328,
       "precio": 1200
-    },
-    {
-      "id": "TEJ4112",
-      "descripcion": "SOMBRACOMPACTA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 3700
     },
     {
       "id": "TEJ4122",
@@ -83342,14 +83918,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45328,
       "precio": 790
-    },
-    {
-      "id": "TEJ5062",
-      "descripcion": "MASC P/PESTAÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 1050
     },
     {
       "id": "TEJ5063",
@@ -86461,14 +87029,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45322,
       "precio": 3150
-    },
-    {
-      "id": "FER822",
-      "descripcion": "LIMA RECTA NEGRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45322,
-      "precio": 450
     },
     {
       "id": "FERC066",
@@ -95959,14 +96519,6 @@
       "precio": 450
     },
     {
-      "id": "TEJ1786",
-      "descripcion": "LIMA X12",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45279,
-      "precio": 1100
-    },
-    {
       "id": "W1125550",
       "descripcion": "PLATO PLAYO UNNI WHITE",
       "lista": "LISTA1",
@@ -96663,28 +97215,12 @@
       "precio": 1450
     },
     {
-      "id": "FER1018",
-      "descripcion": "LIMA P/UÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45278,
-      "precio": 450
-    },
-    {
       "id": "FER1737",
       "descripcion": "BROCHA MAQUILLAJE13,5CM",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45278,
       "precio": 1750
-    },
-    {
-      "id": "FER1922",
-      "descripcion": "LIMA DECORADA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45278,
-      "precio": 450
     },
     {
       "id": "FER821",
@@ -97317,14 +97853,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45276,
       "precio": 2350
-    },
-    {
-      "id": "7891155008224",
-      "descripcion": "COPA WINDSOR CERVEZA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 3450
     },
     {
       "id": "7891155008330",
@@ -97983,14 +98511,6 @@
       "precio": 1700
     },
     {
-      "id": "FER1827",
-      "descripcion": "LIMA MEDIA LUNA GRIS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 750
-    },
-    {
       "id": "FER1836",
       "descripcion": "KIT P/DECORAR UÑAS",
       "lista": "LISTA1",
@@ -98095,22 +98615,6 @@
       "precio": 500
     },
     {
-      "id": "NA7028",
-      "descripcion": "COPA WINDSOR AGUA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 2500
-    },
-    {
-      "id": "NA7651",
-      "descripcion": "COPA DUBLIN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 3150
-    },
-    {
       "id": "NA7923",
       "descripcion": "VASO ILHABELA WISKY",
       "lista": "LISTA1",
@@ -98125,14 +98629,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45276,
       "precio": 4950
-    },
-    {
-      "id": "NA795606",
-      "descripcion": "COPA BARONE DESGUSTACION",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 5700
     },
     {
       "id": "NS249454",
@@ -98431,28 +98927,12 @@
       "precio": 1100
     },
     {
-      "id": "TEJ1880",
-      "descripcion": "PALITO NARANJO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 850
-    },
-    {
       "id": "TEJ1884",
       "descripcion": "BLOQUE PULIDOR SOFT",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45276,
       "precio": 900
-    },
-    {
-      "id": "TEJ1888",
-      "descripcion": "LIMA P/UÑAS SOFT",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 1050
     },
     {
       "id": "TEJ1924",
@@ -99615,14 +100095,6 @@
       "precio": 3600
     },
     {
-      "id": "7798040802175",
-      "descripcion": "CORRECTOR TEJAR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 950
-    },
-    {
       "id": "7798118410073",
       "descripcion": "PLATO PLAYO COSMOS",
       "lista": "LISTA1",
@@ -100159,14 +100631,6 @@
       "precio": 2500
     },
     {
-      "id": "FER5020",
-      "descripcion": "POLVO COMPACTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 2100
-    },
-    {
       "id": "FG9261",
       "descripcion": "BLISTER HEBILLAS X12",
       "lista": "LISTA1",
@@ -100333,14 +100797,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 2650
-    },
-    {
-      "id": "TEJ339",
-      "descripcion": "MAQUILLAJE EN BARRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1550
     },
     {
       "id": "TEJ389",
@@ -101343,14 +101799,6 @@
       "precio": 2900
     },
     {
-      "id": "7798187887806",
-      "descripcion": "MAQUILLAJE LIQUIDO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2300
-    },
-    {
       "id": "7798311150950",
       "descripcion": "PALETA ILUMINADORES",
       "lista": "LISTA1",
@@ -101397,14 +101845,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 12600
-    },
-    {
-      "id": "7798317825630",
-      "descripcion": "PINCEL RECTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1350
     },
     {
       "id": "7798317826705",
@@ -102271,28 +102711,12 @@
       "precio": 1100
     },
     {
-      "id": "FER1858",
-      "descripcion": "SET DE PINCELES 7PCS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 5500
-    },
-    {
       "id": "FER1870",
       "descripcion": "KIT PINCELES Y BROCHAS X10",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 12600
-    },
-    {
-      "id": "FER1874",
-      "descripcion": "KIT PINCELES Y BROCHAS X12",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 14300
     },
     {
       "id": "FER1921",
@@ -102367,14 +102791,6 @@
       "precio": 1950
     },
     {
-      "id": "FER2667",
-      "descripcion": "DELINEADOR LIQUIDO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2500
-    },
-    {
       "id": "FER2669",
       "descripcion": "CONCEALER",
       "lista": "LISTA1",
@@ -102421,14 +102837,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 3150
-    },
-    {
-      "id": "FER4174",
-      "descripcion": "SOMBRAS 14 COLORES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 4500
     },
     {
       "id": "FER5001",
@@ -103335,14 +103743,6 @@
       "precio": 4450
     },
     {
-      "id": "TEJ4156",
-      "descripcion": "SOMBRA P/OJOS 3 COLORES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2300
-    },
-    {
       "id": "TEJ4166",
       "descripcion": "SOMBRA GLITTER",
       "lista": "LISTA1",
@@ -103383,52 +103783,12 @@
       "precio": 4800
     },
     {
-      "id": "TEJ5013",
-      "descripcion": "MASACRA P/PESTAÑAS CRAZY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2300
-    },
-    {
       "id": "TEJ5016",
       "descripcion": "SOMBRA COMPACTA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 1700
-    },
-    {
-      "id": "TEJ5021",
-      "descripcion": "MAQUILLAJE CERMOSO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 1800
-    },
-    {
-      "id": "TEJ5023",
-      "descripcion": "MASACRA P/PESTAÑAS CRAZY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2350
-    },
-    {
-      "id": "TEJ5024",
-      "descripcion": "MASCARA P/PESTAÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2500
-    },
-    {
-      "id": "TEJ5028",
-      "descripcion": "DELINEADOR GEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2550
     },
     {
       "id": "TEJ5051",
@@ -103445,14 +103805,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 1700
-    },
-    {
-      "id": "TEJ5068",
-      "descripcion": "DELINEADOR GEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2400
     },
     {
       "id": "TEJ5071",
@@ -103493,14 +103845,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 4600
-    },
-    {
-      "id": "TEJ5086",
-      "descripcion": "LIQUID CONCEALER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 3700
     },
     {
       "id": "TEJ8849",
@@ -104837,14 +105181,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45273,
       "precio": 3600
-    },
-    {
-      "id": "TEJ1269",
-      "descripcion": "ESMALTE UV",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1600
     },
     {
       "id": "TEJ5079",
@@ -106573,14 +106909,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45266,
       "precio": 3500
-    },
-    {
-      "id": "TEJ1719",
-      "descripcion": "PEGAMENTO PARA PESTAÑAS POSTIZAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45266,
-      "precio": 1100
     },
     {
       "id": "080169",
