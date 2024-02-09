@@ -1,11 +1,539 @@
 [
     {
+      "id": "1460310",
+      "descripcion": "MOLDE PASTEL  20*8",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 23300
+    },
+    {
+      "id": "1461308",
+      "descripcion": "MOLDE PIZZA 33CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 22800
+    },
+    {
+      "id": "1461309",
+      "descripcion": "MOLDE PIZZA 33CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 27100
+    },
+    {
+      "id": "4894653101728",
+      "descripcion": "CASTILLO PLEGABLE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 3500
+    },
+    {
+      "id": "50550",
+      "descripcion": "SET MUEBLES PARA MUÑECAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1900
+    },
+    {
+      "id": "53081",
+      "descripcion": "CONJUNTO DE  BELLEZA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 3500
+    },
+    {
+      "id": "7102154",
+      "descripcion": "POCHOCLERA 5,5L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 102600
+    },
+    {
+      "id": "7120/350",
+      "descripcion": "SARYEN MASALA 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 15000
+    },
+    {
+      "id": "7120/360",
+      "descripcion": "CACEROLA MASALA 24CM 4.7L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 97600
+    },
+    {
+      "id": "7121/359",
+      "descripcion": " CACEROLA CON TAPA VIDRIO BRINOX MASALA  22CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 67200
+    },
+    {
+      "id": "7190/461",
+      "descripcion": "CACEROLA EBONY 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 57000
+    },
+    {
+      "id": "7190453",
+      "descripcion": "SARTEN EBONY 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 16000
+    },
+    {
+      "id": "7190454",
+      "descripcion": "SARTEN EBONY22CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 19400
+    },
+    {
+      "id": "7190455",
+      "descripcion": "SARTEN EBONY 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 24500
+    },
+    {
+      "id": "7190458",
+      "descripcion": "OLLA EBONY 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 38900
+    },
+    {
+      "id": "7190471",
+      "descripcion": "OMELLETERA EBONY 18CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 43300
+    },
+    {
+      "id": "7190473",
+      "descripcion": "GRILL EBONY 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 39400
+    },
+    {
+      "id": "7210454",
+      "descripcion": "SARTEN MAPLE 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 28600
+    },
+    {
+      "id": "7210462",
+      "descripcion": "OLLA MAPLE 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 41000
+    },
+    {
+      "id": "7211175",
+      "descripcion": "WOK C/TPA 4,1L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 78900
+    },
+    {
+      "id": "7211455",
+      "descripcion": "SARTEN MAPLE 26CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 35700
+    },
+    {
+      "id": "7211458",
+      "descripcion": "GRILL MAPLE 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 41600
+    },
+    {
+      "id": "7211466",
+      "descripcion": "HERBIDOR MAPLE 12CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 28800
+    },
+    {
+      "id": "7211478",
+      "descripcion": "CACEROLA ALTA MAPLE 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 84500
+    },
+    {
+      "id": "7790000177668",
+      "descripcion": "ORGANIZADOR ACRILICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 4800
+    },
+    {
+      "id": "7790000177880",
+      "descripcion": "ESPEJO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2000
+    },
+    {
+      "id": "7790000179167",
+      "descripcion": "MASAJEADOR PIEDRA DOBLE RODILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 3200
+    },
+    {
+      "id": "7790000179174",
+      "descripcion": "LIMPIADOR FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 3300
+    },
+    {
+      "id": "7790000179921",
+      "descripcion": "SET COLITAS INFANTILES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1900
+    },
+    {
+      "id": "7790000179969",
+      "descripcion": "SET X 5 BROCHE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1590
+    },
+    {
+      "id": "7790000179976",
+      "descripcion": "SET BROCHEINFANTILES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2400
+    },
+    {
+      "id": "7790000180019",
+      "descripcion": "SET COLITAS INFANTILES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1800
+    },
+    {
+      "id": "7790000180026",
+      "descripcion": "SET 6 GOMITAS Y 2 HEBILLAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1500
+    },
+    {
+      "id": "7790000180125",
+      "descripcion": "BROCHE CAREY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2100
+    },
+    {
+      "id": "7790000180132",
+      "descripcion": "BROCHE CAREY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2500
+    },
+    {
+      "id": "7790000180187",
+      "descripcion": "HEBILLA TIC TAC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1400
+    },
+    {
+      "id": "7790000180194",
+      "descripcion": "SET INVISIBLE Y TICTAC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 500
+    },
+    {
+      "id": "7790000180538",
+      "descripcion": "CENICERO CUADRADO VIDRIO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2600
+    },
+    {
+      "id": "7790000180620",
+      "descripcion": "SALERO OBELISCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1400
+    },
+    {
+      "id": "7790000181436",
+      "descripcion": "FILTRO TE EN HEBRAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 3990
+    },
+    {
+      "id": "7790000182167",
+      "descripcion": "CUCHARA GOLD",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 450
+    },
+    {
+      "id": "7790000182174",
+      "descripcion": "CUCHARA LARGA GOLD",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 550
+    },
+    {
+      "id": "7790000182198",
+      "descripcion": "ABRELATA UÑA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1300
+    },
+    {
+      "id": "7790000182310",
+      "descripcion": "CUCHARA TE GOLD",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1250
+    },
+    {
+      "id": "7790000182334",
+      "descripcion": "CUCHARA LARGA GOLD DISEÑO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1800
+    },
+    {
+      "id": "7790000182709",
+      "descripcion": "MOLDE HELADO SILICONA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 4100
+    },
+    {
+      "id": "7790000182785",
+      "descripcion": "AFILADOR DE CUCHILLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 3900
+    },
+    {
+      "id": "7790000182976",
+      "descripcion": "MOLDE SILICONA HELADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 5100
+    },
+    {
+      "id": "7790000183003",
+      "descripcion": "MOLDE HELADO SILICONA SANDIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2700
+    },
+    {
+      "id": "7790000183010",
+      "descripcion": "MOLDE HELADO SILICONA ANANA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2700
+    },
+    {
+      "id": "7790000183027",
+      "descripcion": "MOLDE HELADO SILICONA CACTUS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2700
+    },
+    {
+      "id": "7790000183126",
+      "descripcion": "MOLDE HELADO X4",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2200
+    },
+    {
+      "id": "7790000183133",
+      "descripcion": "CUBETERA SILICONA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2100
+    },
+    {
+      "id": "7790000183362",
+      "descripcion": "PINCEL SILICONA 22CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1400
+    },
+    {
+      "id": "7790000183379",
+      "descripcion": "ESPATULA SILICONA 24.5CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1400
+    },
+    {
+      "id": "7790000183416",
+      "descripcion": "PINZA ACERO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2900
+    },
+    {
+      "id": "7790000183423",
+      "descripcion": "PINZA ACERO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 3200
+    },
+    {
+      "id": "7790000183867",
+      "descripcion": "CUBITOS DE HIELO FRUTAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1900
+    },
+    {
+      "id": "7790000183881",
+      "descripcion": "BARRA HIELO BOTELLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 4500
+    },
+    {
+      "id": "7790000183898",
+      "descripcion": "CUBO HIELO SILICONA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 3600
+    },
+    {
+      "id": "7790000184390",
+      "descripcion": "CAFETERA ITALIANA P/3TZ",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 20200
+    },
+    {
+      "id": "7792435000429",
+      "descripcion": "PUZZLE PRINCESA 25 PIEZAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 2600
+    },
+    {
+      "id": "7798373090027",
+      "descripcion": "PUZZLE 9 PCS CALU TOYS EL JARDIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1750
+    },
+    {
       "id": "7798373090133",
       "descripcion": "PUZZLE 16 PCS CALU TOYS EL MAR",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
       "precio": 1750
+    },
+    {
+      "id": "7896502813254",
+      "descripcion": "WOK C7TAPA 24CM EBONY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 52500
+    },
+    {
+      "id": "7896502813438",
+      "descripcion": "PANQUEQUERA 22CM EBONI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 19500
+    },
+    {
+      "id": "DL10980",
+      "descripcion": "CENICERI REDONDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45331,
+      "precio": 1600
     },
     {
       "id": "GI7793",
@@ -2104,7 +2632,7 @@
     },
     {
       "id": "1516100000004",
-      "descripcion": "COPA DEGUSTACION",
+      "descripcion": "COPA DEGUSTACION 600ML",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
@@ -4313,7 +4841,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 850
+      "precio": 950
     },
     {
       "id": "3252695258014",
@@ -4321,7 +4849,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 850
+      "precio": 1390
     },
     {
       "id": "3252695259219",
@@ -18327,7 +18855,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 2300
+      "precio": 3000
     },
     {
       "id": "6920100230159",
@@ -31111,7 +31639,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 950
+      "precio": 3500
     },
     {
       "id": "7450077064765",
@@ -32655,7 +33183,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 450
+      "precio": 1900
     },
     {
       "id": "7453077200461",
@@ -58152,14 +58680,6 @@
       "precio": 500
     },
     {
-      "id": "7798373090027",
-      "descripcion": "PUZZLE 9 PCS CALU TOYS EL JARDIN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45331,
-      "precio": 500
-    },
-    {
       "id": "7798373090034",
       "descripcion": "PUZZLE 9 PCS CALU TOYS EL ESTABLO",
       "lista": "LISTA1",
@@ -64613,7 +65133,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 25000
+      "precio": 43300
     },
     {
       "id": "7896502807789",
@@ -64621,7 +65141,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 8990
+      "precio": 19400
     },
     {
       "id": "7896502812103",
@@ -64629,7 +65149,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 7990
+      "precio": 16000
     },
     {
       "id": "7896502812134",
@@ -64637,7 +65157,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 12990
+      "precio": 24500
     },
     {
       "id": "7896502812394",
@@ -64645,7 +65165,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 19990
+      "precio": 38900
     },
     {
       "id": "7896502812622",
@@ -64661,7 +65181,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 39900
+      "precio": 57000
     },
     {
       "id": "7896502813469",
@@ -64677,7 +65197,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 17990
+      "precio": 39400
     },
     {
       "id": "7896502820078",
@@ -64773,7 +65293,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 39990
+      "precio": 78900
     },
     {
       "id": "7896502830954",
@@ -64901,7 +65421,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 13990
+      "precio": 22800
     },
     {
       "id": "7896502842766",
@@ -64965,7 +65485,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 44000
+      "precio": 97600
     },
     {
       "id": "7896502842858",
@@ -65037,7 +65557,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 32990
+      "precio": 67200
     },
     {
       "id": "7896502842995",
@@ -65181,7 +65701,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 14990
+      "precio": 28600
     },
     {
       "id": "7896502853748",
@@ -65205,7 +65725,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 18990
+      "precio": 35700
     },
     {
       "id": "7896502853809",
@@ -65213,7 +65733,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 19990
+      "precio": 41600
     },
     {
       "id": "7896502853816",
@@ -65221,7 +65741,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 11000
+      "precio": 41000
     },
     {
       "id": "7896502853823",
@@ -65261,7 +65781,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 13990
+      "precio": 28800
     },
     {
       "id": "7896502854165",
@@ -65285,7 +65805,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 39990
+      "precio": 84500
     },
     {
       "id": "7896502856046",
@@ -65317,7 +65837,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 13990
+      "precio": 27100
     },
     {
       "id": "7896502862337",
@@ -65325,7 +65845,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 10990
+      "precio": 23300
     },
     {
       "id": "7896502862344",
@@ -65437,7 +65957,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 49990
+      "precio": 102600
     },
     {
       "id": "7896502896547",
@@ -67125,7 +67645,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133882765",
@@ -67157,7 +67677,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133883175",
@@ -67181,7 +67701,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133883298",
@@ -67189,7 +67709,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883328",
@@ -67197,7 +67717,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883359",
@@ -67205,7 +67725,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883489",
@@ -67221,7 +67741,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45331,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7993496972414",
@@ -86023,14 +86543,6 @@
       "precio": 2200
     },
     {
-      "id": "7190471",
-      "descripcion": "OMELLETERA EBONY 18CM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45329,
-      "precio": 25000
-    },
-    {
       "id": "7798040802168",
       "descripcion": "CORRECTOR",
       "lista": "LISTA1",
@@ -90821,14 +91333,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45303,
       "precio": 1590
-    },
-    {
-      "id": "7190/461",
-      "descripcion": "CACEROLA EBONY 24CM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45302,
-      "precio": 39900
     },
     {
       "id": "7791612109368",
@@ -100167,14 +100671,6 @@
       "precio": 4500
     },
     {
-      "id": "7790000177880",
-      "descripcion": "ESPEJO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 2000
-    },
-    {
       "id": "7790000177927",
       "descripcion": "CEPILLO PELO",
       "lista": "LISTA1",
@@ -100231,14 +100727,6 @@
       "precio": 950
     },
     {
-      "id": "7790000179174",
-      "descripcion": "LIMPIADOR FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 3300
-    },
-    {
       "id": "7790000179204",
       "descripcion": "SET BROCHAS",
       "lista": "LISTA1",
@@ -100293,30 +100781,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45275,
       "precio": 1100
-    },
-    {
-      "id": "7790000179921",
-      "descripcion": "SET COLITAS INFANTILES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1900
-    },
-    {
-      "id": "7790000179976",
-      "descripcion": "SET BROCHEINFANTILES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 2400
-    },
-    {
-      "id": "7790000180019",
-      "descripcion": "SET COLITAS INFANTILES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45275,
-      "precio": 1750
     },
     {
       "id": "7790000180262",
