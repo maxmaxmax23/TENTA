@@ -168,6 +168,14 @@
       "precio": 5850
     },
     {
+      "id": "04CLBO105",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
       "id": "04WERO001",
       "descripcion": "WE BOLIG.FANTASIA",
       "lista": "LISTA1",
@@ -261,7 +269,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 2400
+      "precio": 500
     },
     {
       "id": "04WERO094",
@@ -270,6 +278,310 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 4550
+    },
+    {
+      "id": "100782",
+      "descripcion": "CUADERNO ESPIRAL AVON A4",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 3500
+    },
+    {
+      "id": "100907",
+      "descripcion": "REP EXITO ECO 480HS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 19500
+    },
+    {
+      "id": "1124151",
+      "descripcion": "PLATO PLAYO 24CM GRECIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "4022402034007",
+      "descripcion": "CARPETA EZCO ESCOLAR 3X40",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 3400
+    },
+    {
+      "id": "5601259018454",
+      "descripcion": "COPA COUNTRY GRAN AGUA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5300
+    },
+    {
+      "id": "5601875026482",
+      "descripcion": "COPA COUNTRY CHAMP",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5100
+    },
+    {
+      "id": "5601875026505",
+      "descripcion": "COPA COUNTRY VINO/AGUA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5100
+    },
+    {
+      "id": "5601875183543",
+      "descripcion": "COPA SPIRIT LIBBEY CABERNET 580CC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 6200
+    },
+    {
+      "id": "5601875193740",
+      "descripcion": "COPA SPIRIT AGUA 420CC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 6200
+    },
+    {
+      "id": "6925329923165",
+      "descripcion": "PINZA MULTIUSO B112",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 2500
+    },
+    {
+      "id": "70330125285",
+      "descripcion": "BOLIGRAFO BIC OPACO AZUL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 700
+    },
+    {
+      "id": "7794536000001",
+      "descripcion": "PORTA RETRATO PLASTICO 10X15",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 1000
+    },
+    {
+      "id": "7794536000582",
+      "descripcion": "RECARGA DE GAS MAGICLICK",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 2400
+    },
+    {
+      "id": "7794536090842",
+      "descripcion": "MAGICLIKC BRASAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5200
+    },
+    {
+      "id": "7794536090859",
+      "descripcion": "MAGICLICK FUEGO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4600
+    },
+    {
+      "id": "7794536417816",
+      "descripcion": "MAGICLICK POCKET",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 2900
+    },
+    {
+      "id": "77960863",
+      "descripcion": "VOLIGOMA 30 G",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 1300
+    },
+    {
+      "id": "77960870",
+      "descripcion": "VOLIGOMA 500ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 2100
+    },
+    {
+      "id": "7797847000623",
+      "descripcion": "CARPETA NEGRA Nº3 NEGRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 3400
+    },
+    {
+      "id": "7798062171044",
+      "descripcion": "FOLIO ESCOLAR REFORZADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 650
+    },
+    {
+      "id": "7798062171051",
+      "descripcion": "FOLIO A4 REFORZADO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 1000
+    },
+    {
+      "id": "7798100963167",
+      "descripcion": "MARCADOR FILGO PERMANENTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 850
+    },
+    {
+      "id": "7798153291415",
+      "descripcion": "ETIQUETA ESCOLAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 250
+    },
+    {
+      "id": "7798302936211",
+      "descripcion": "CANOPLA TUBO QUITAPESARES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 14000
+    },
+    {
+      "id": "7798346407104",
+      "descripcion": "LAPICERA FANTASIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 2650
+    },
+    {
+      "id": "7891361187423",
+      "descripcion": "PLATO HONDO 20,5 CM OXFORD",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5850
+    },
+    {
+      "id": "7891361187461",
+      "descripcion": "PLATO POSTRE 19 CM OXFORD",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5400
+    },
+    {
+      "id": "7891361189496",
+      "descripcion": "PLATO HONDO UNNI GREY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5700
+    },
+    {
+      "id": "7891361189519",
+      "descripcion": "PLATO POSTRE UNNI GREY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5400
+    },
+    {
+      "id": "7891361222681",
+      "descripcion": "PLATO PLAYO UNNI PUZZLING",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 7900
+    },
+    {
+      "id": "7891361222797",
+      "descripcion": "PLATO HONDO UNNI PUZZLING",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 6850
+    },
+    {
+      "id": "7891361269815",
+      "descripcion": "PLATO HONDO OLIVA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 7200
+    },
+    {
+      "id": "7891361269822",
+      "descripcion": "PLATO PLAYO OLIVA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 7800
+    },
+    {
+      "id": "7891361272129",
+      "descripcion": "PLATO PLAYO UNNI LILAC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 6200
+    },
+    {
+      "id": "7891361934782",
+      "descripcion": "PLATO PLAYO EUFORIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "8789397621969",
+      "descripcion": "LAPICERA GEL CUTE DONUTS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 600
+    },
+    {
+      "id": "8789397661880",
+      "descripcion": "LAPICERA GEL CARTOON PALTA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 600
+    },
+    {
+      "id": "JL2196",
+      "descripcion": "LAPICERA DONA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 600
     },
     {
       "id": "MA011",
@@ -590,6 +902,30 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 2350
+    },
+    {
+      "id": "W1125550",
+      "descripcion": "PLATO PLAYO UNNI WHITE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 6550
+    },
+    {
+      "id": "W11255660",
+      "descripcion": "PLATO PLAYO UNNI GREY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 6550
+    },
+    {
+      "id": "W1241769",
+      "descripcion": "MAGICLICK LLAMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 5300
     },
     {
       "id": " DEC1532",
@@ -2564,7 +2900,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 10
+      "precio": 550
     },
     {
       "id": "1224-4.",
@@ -2588,7 +2924,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 550
+      "precio": 410
     },
     {
       "id": "1234",
@@ -2660,7 +2996,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 550
+      "precio": 290
     },
     {
       "id": "148092",
@@ -4889,7 +5225,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 950
+      "precio": 850
     },
     {
       "id": "3252695258014",
@@ -4897,7 +5233,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 1390
+      "precio": 850
     },
     {
       "id": "3252695259219",
@@ -4905,7 +5241,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 1600
+      "precio": 850
     },
     {
       "id": "3252695259332",
@@ -14315,36 +14651,12 @@
       "precio": 650
     },
     {
-      "id": "5601259018454",
-      "descripcion": "COPA COUNTRY GRAN AGUA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 3550
-    },
-    {
-      "id": "5601875026505",
-      "descripcion": "COPA COUNTRY VINO/AGUA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 3400
-    },
-    {
       "id": "5601875167864",
       "descripcion": "TAZA ACAPULCO SUBMARINO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 990
-    },
-    {
-      "id": "5601875183543",
-      "descripcion": "COPA SPIRIT LIBBEY CABERNET 580CC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 4190
     },
     {
       "id": "5620151372310",
@@ -15824,7 +16136,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 490
+      "precio": 600
     },
     {
       "id": "6075-15",
@@ -18736,6 +19048,46 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 490
+    },
+    {
+      "id": "6913199712149",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "6913199713214",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "6913199713238",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "6913199713245",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "6913199713252",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
     },
     {
       "id": "6913216722557",
@@ -22967,7 +23319,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 450
+      "precio": 600
     },
     {
       "id": "6932980710058",
@@ -25695,7 +26047,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 900
+      "precio": 600
     },
     {
       "id": "6955123110003",
@@ -30688,14 +31040,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 9400
-    },
-    {
-      "id": "70330125285",
-      "descripcion": "BOLIGRAFO BIC OPACO AZUL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 700
     },
     {
       "id": "70330125308",
@@ -41614,7 +41958,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 2750
+      "precio": 3500
     },
     {
       "id": "7791762255205",
@@ -41838,7 +42182,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 18750
+      "precio": 19500
     },
     {
       "id": "7791762555091",
@@ -45873,22 +46217,6 @@
       "precio": 690
     },
     {
-      "id": "7794536000001",
-      "descripcion": "PORTA RETRATO PLASTICO 10X15",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 1000
-    },
-    {
-      "id": "7794536000582",
-      "descripcion": "RECARGA DE GAS MAGICLICK",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 1150
-    },
-    {
       "id": "7794536000599",
       "descripcion": "MAGICLICK PARTY",
       "lista": "LISTA1",
@@ -45921,36 +46249,20 @@
       "precio": 1390
     },
     {
+      "id": "7794536088429",
+      "descripcion": "MAGICLICK VOLCANO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 6550
+    },
+    {
       "id": "7794536089907",
       "descripcion": "MAGICLICK SIGLO XXI",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 3050
-    },
-    {
-      "id": "7794536090842",
-      "descripcion": "MAGICLIKC BRASAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 800
-    },
-    {
-      "id": "7794536090859",
-      "descripcion": "MAGICLICK FUEGO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 3450
-    },
-    {
-      "id": "7794536417816",
-      "descripcion": "MAGICLICK POCKET",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 2200
     },
     {
       "id": "7794536840539",
@@ -48526,14 +48838,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 6190
-    },
-    {
-      "id": "77960863",
-      "descripcion": "VOLIGOMA 30 G",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 390
     },
     {
       "id": "7796120202662",
@@ -55432,14 +55736,6 @@
       "precio": 9900
     },
     {
-      "id": "7798302936211",
-      "descripcion": "CANOPLA TUBO QUITAPESARES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 2900
-    },
-    {
       "id": "7798302936617",
       "descripcion": "CANOPLA RECT MICKEY",
       "lista": "LISTA1",
@@ -57606,6 +57902,102 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 2490
+    },
+    {
+      "id": "7798346403779",
+      "descripcion": "WE BOLIG.FANTASIA SQUISHY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 3250
+    },
+    {
+      "id": "7798346406978",
+      "descripcion": "WE BOLIG.FANTASIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 2650
+    },
+    {
+      "id": "7798346407241",
+      "descripcion": "WE ROLLER BORRABLE FANTASIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 2300
+    },
+    {
+      "id": "7798346407401",
+      "descripcion": "WE RESAL. BORRABLE FLUO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 1450
+    },
+    {
+      "id": "7798346407739",
+      "descripcion": "WE LAPIZ NEGRO C/GOMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 450
+    },
+    {
+      "id": "7798346407753",
+      "descripcion": "WE LAPIZ NEGRO C/GOMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 450
+    },
+    {
+      "id": "7798346407784",
+      "descripcion": "WE SET LAPIZ NEGRO C/GOMA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 500
+    },
+    {
+      "id": "7798346407814",
+      "descripcion": "WE SET FLEXIBLE 3 PIEZAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 3000
+    },
+    {
+      "id": "7798346407838",
+      "descripcion": "WE REGLA FLEXIBLE 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 1000
+    },
+    {
+      "id": "7798346407845",
+      "descripcion": "WE REGLA FLEXIBLE 15CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 900
+    },
+    {
+      "id": "7798346407999",
+      "descripcion": "WE GOMA FANTASIA OOPS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 1000
+    },
+    {
+      "id": "7798346408132",
+      "descripcion": "WE CORTANTE FANTASIA PALS ANIMALITOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4550
     },
     {
       "id": "7798346715308",
@@ -62656,6 +63048,14 @@
       "precio": 175
     },
     {
+      "id": "7891240050626",
+      "descripcion": "JARRO EMOTIONS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 240
+    },
+    {
       "id": "7891259082045",
       "descripcion": "PLATO HONDO ALA ANGOSTA PORCELANA 21CM CAROL",
       "lista": "LISTA1",
@@ -63080,36 +63480,12 @@
       "precio": 6550
     },
     {
-      "id": "7891361187423",
-      "descripcion": "PLATO HONDO 20,5 CM OXFORD",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 5850
-    },
-    {
-      "id": "7891361187461",
-      "descripcion": "PLATO POSTRE 19 CM OXFORD",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 5400
-    },
-    {
       "id": "7891361189472",
       "descripcion": "PLATO PLAYO UNNI GREY",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 6550
-    },
-    {
-      "id": "7891361189519",
-      "descripcion": "PLATO POSTRE UNNI GREY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 5400
     },
     {
       "id": "7891361221967",
@@ -63126,14 +63502,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 4150
-    },
-    {
-      "id": "7891361222681",
-      "descripcion": "PLATO PLAYO UNNI PUZZLING",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 7900
     },
     {
       "id": "7891361222728",
@@ -63158,14 +63526,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 3500
-    },
-    {
-      "id": "7891361222797",
-      "descripcion": "PLATO HONDO UNNI PUZZLING",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 6850
     },
     {
       "id": "7891361222834",
@@ -67901,7 +68261,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883236",
@@ -67949,7 +68309,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7993496972414",
@@ -69600,28 +69960,12 @@
       "precio": 650
     },
     {
-      "id": "8789397621969",
-      "descripcion": "LAPICERA DONA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 390
-    },
-    {
       "id": "8789397660029",
       "descripcion": "LPICERA C/BRILLOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 400
-    },
-    {
-      "id": "8789397661880",
-      "descripcion": "LAPICERA PALTA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45337,
-      "precio": 290
     },
     {
       "id": "8793498216559",
@@ -69966,6 +70310,38 @@
       "listadesc": "PUBLICO",
       "vigencia": 45337,
       "precio": 1250
+    },
+    {
+      "id": "8851907610111",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "8851907610135",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "8851907610142",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
+    },
+    {
+      "id": "8851907610159",
+      "descripcion": "CARPETA 340 FORRADA THE PEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45337,
+      "precio": 4300
     },
     {
       "id": "8859130625841",
@@ -87287,14 +87663,6 @@
       "precio": 2500
     },
     {
-      "id": "77960870",
-      "descripcion": "VOLIGOMA 500ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45336,
-      "precio": 1900
-    },
-    {
       "id": "7796569455124",
       "descripcion": "CUAD TRIUNFANTE 50H LUNARES AZUL",
       "lista": "LISTA1",
@@ -90983,22 +91351,6 @@
       "precio": 11500
     },
     {
-      "id": "100782",
-      "descripcion": "CUADERNO ESPIRAL AVON A4",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 2750
-    },
-    {
-      "id": "100907",
-      "descripcion": "REP EXITO ECO 480HS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 18750
-    },
-    {
       "id": "102887",
       "descripcion": "BLOCK A4 EXITO 80hs",
       "lista": "LISTA1",
@@ -91117,14 +91469,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45317,
       "precio": 650
-    },
-    {
-      "id": "7797847000623",
-      "descripcion": "CARPETA NEGRA Nº3 NEGRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45317,
-      "precio": 2900
     },
     {
       "id": "7798280096396",
@@ -98943,14 +99287,6 @@
       "precio": 1550
     },
     {
-      "id": "1124151",
-      "descripcion": "PLATO PLAYO 24CM GRECIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45279,
-      "precio": 4300
-    },
-    {
       "id": "12020",
       "descripcion": "TIPS INFANTIL",
       "lista": "LISTA1",
@@ -99119,14 +99455,6 @@
       "precio": 8450
     },
     {
-      "id": "7891361934782",
-      "descripcion": "PLATO PLAYO EUFORIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45279,
-      "precio": 4300
-    },
-    {
       "id": "7891361981397",
       "descripcion": "PLATO HONDO GRECIA",
       "lista": "LISTA1",
@@ -99229,14 +99557,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45279,
       "precio": 450
-    },
-    {
-      "id": "W1125550",
-      "descripcion": "PLATO PLAYO UNNI WHITE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45279,
-      "precio": 6550
     },
     {
       "id": "YH446",
@@ -99469,14 +99789,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45278,
       "precio": 7300
-    },
-    {
-      "id": "7891361269822",
-      "descripcion": "PLATO PLAYO OLIVA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45278,
-      "precio": 7800
     },
     {
       "id": "7891361269846",
@@ -99973,14 +100285,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45278,
       "precio": 3950
-    },
-    {
-      "id": "W11255660",
-      "descripcion": "PLATO PLAYO UNNI GREY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45278,
-      "precio": 6550
     },
     {
       "id": "2022331022023",
@@ -111620,22 +111924,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45258,
       "precio": 3900
-    },
-    {
-      "id": "7891361189496",
-      "descripcion": "PLATO HONDO UNNI GREY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45258,
-      "precio": 4700
-    },
-    {
-      "id": "7891361272129",
-      "descripcion": "PLATO PLAYO UNNI LILAC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45258,
-      "precio": 5200
     },
     {
       "id": "BA32338",
