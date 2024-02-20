@@ -1,5 +1,421 @@
 [
     {
+      "id": "2008",
+      "descripcion": "COLITA CON OSITO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 600
+    },
+    {
+      "id": "4897066834290",
+      "descripcion": "MASCARILLA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1000
+    },
+    {
+      "id": "4897066834382",
+      "descripcion": "MASCARILLA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1000
+    },
+    {
+      "id": "4897066835778",
+      "descripcion": "MASCARILLA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1000
+    },
+    {
+      "id": "4897066835792",
+      "descripcion": "MASCARILLA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1000
+    },
+    {
+      "id": "4897066835808",
+      "descripcion": "MASCARILLA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1000
+    },
+    {
+      "id": "4897066835822",
+      "descripcion": "MASCARILLA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1000
+    },
+    {
+      "id": "6618184302106",
+      "descripcion": "CORTA UÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1300
+    },
+    {
+      "id": "6802022010609",
+      "descripcion": "VASO SILICONA 350ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 7100
+    },
+    {
+      "id": "6890061017321",
+      "descripcion": "LUZ LED MULTIFUNCION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 14100
+    },
+    {
+      "id": "6925372500054",
+      "descripcion": "ILIMINADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2990
+    },
+    {
+      "id": "6926641002231",
+      "descripcion": "BROCHAS X5 PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3600
+    },
+    {
+      "id": "6926641004945",
+      "descripcion": "BROCHAS EN CAJA X5PCS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3400
+    },
+    {
+      "id": "6935726370165",
+      "descripcion": "ABANICO MADERA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1990
+    },
+    {
+      "id": "6950000905819",
+      "descripcion": "PASTILLERO SEMANAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 990
+    },
+    {
+      "id": "6956096700789",
+      "descripcion": "GOMA BORRAR ERASER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 250
+    },
+    {
+      "id": "6963603410314",
+      "descripcion": "PLANCHITA P/PELO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 5990
+    },
+    {
+      "id": "6970436450981",
+      "descripcion": "LUZ LED ASTRONAUTA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 10500
+    },
+    {
+      "id": "6973382950529",
+      "descripcion": "LUZ LED ASTRONAUTA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 10550
+    },
+    {
+      "id": "6974428010047",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2300
+    },
+    {
+      "id": "6974428010054",
+      "descripcion": "LABIAL MAGICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2690
+    },
+    {
+      "id": "6974428010078",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2490
+    },
+    {
+      "id": "6974428060011",
+      "descripcion": "ILUMINADOR AEROSOL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 4500
+    },
+    {
+      "id": "6974428100014",
+      "descripcion": "CONTORNO 3 COLORES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3690
+    },
+    {
+      "id": "6974428120043",
+      "descripcion": "MASCARA P/PESTAÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2990
+    },
+    {
+      "id": "6974428230001",
+      "descripcion": "CORRECTOR EN BARRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2500
+    },
+    {
+      "id": "6974428250115",
+      "descripcion": "DELINEADOR LIQUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2490
+    },
+    {
+      "id": "6974428260152",
+      "descripcion": "PALETA SOMBRAS 8 COL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 4500
+    },
+    {
+      "id": "6974428520102",
+      "descripcion": "LIP GLOSS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1990
+    },
+    {
+      "id": "6974482502250",
+      "descripcion": "FIJADOR MAQUILLAJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 7690
+    },
+    {
+      "id": "6974482511818",
+      "descripcion": "LABIAL MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2490
+    },
+    {
+      "id": "6974482511894",
+      "descripcion": "PALETA SOMBRAS 16COL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 5990
+    },
+    {
+      "id": "6974482512051",
+      "descripcion": "RUBOR LIQUIDO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3400
+    },
+    {
+      "id": "6974482582665",
+      "descripcion": "RUBOR COMPACTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3990
+    },
+    {
+      "id": "6974482582733",
+      "descripcion": "PALTA DE SOMBRAS NUDE 6 COL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 4690
+    },
+    {
+      "id": "6974482583433",
+      "descripcion": "ILUMINADOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3690
+    },
+    {
+      "id": "6974482588629",
+      "descripcion": "BRILLO LABIA HIDRATANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1990
+    },
+    {
+      "id": "6974482588766",
+      "descripcion": "PALETA DE SOMBRAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3390
+    },
+    {
+      "id": "6974488140036",
+      "descripcion": "LABAL MATTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2690
+    },
+    {
+      "id": "6975200318009",
+      "descripcion": "VINCHA MQUILLAJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3290
+    },
+    {
+      "id": "6975200319006",
+      "descripcion": "VINCHA MQUILLAJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2990
+    },
+    {
+      "id": "6975975010474",
+      "descripcion": "POLVO DE HADAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 1900
+    },
+    {
+      "id": "7702147235354",
+      "descripcion": "COPA AGUA ARAGON",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2900
+    },
+    {
+      "id": "7702147235361",
+      "descripcion": "COPA VINO ARAGON",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2900
+    },
+    {
+      "id": "7702147235712",
+      "descripcion": "COPA CHAMPAGNE ARAGON",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2900
+    },
+    {
+      "id": "7797847000661",
+      "descripcion": "CARPETA CARTON NEGRA OFICIO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2700
+    },
+    {
+      "id": "7820190630039",
+      "descripcion": "ALMOHADA DE VIAJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 6950
+    },
+    {
+      "id": "7896541651251",
+      "descripcion": "MINI LICUADORA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 15200
+    },
+    {
+      "id": "8809132965384",
+      "descripcion": "MASCARILLA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 3390
+    },
+    {
+      "id": "CS3720",
+      "descripcion": "POLVO DE HADAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 2990
+    },
+    {
+      "id": "G2010",
+      "descripcion": "TERMO 600ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 14300
+    },
+    {
+      "id": "G72010A20",
+      "descripcion": "BALANZA ELECTRONICA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45342,
+      "precio": 11550
+    },
+    {
       "id": " DEC1532",
       "descripcion": "PILOTO ADULTO",
       "lista": "LISTA1",
@@ -3851,7 +4267,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 1100
+      "precio": 2400
     },
     {
       "id": "3154140176778",
@@ -4449,7 +4865,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 550
+      "precio": 1100
     },
     {
       "id": "32154.",
@@ -4465,7 +4881,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 850
+      "precio": 700
     },
     {
       "id": "3252695256959",
@@ -4481,7 +4897,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 850
+      "precio": 950
     },
     {
       "id": "3252695258014",
@@ -4489,7 +4905,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 850
+      "precio": 1390
     },
     {
       "id": "3252695259219",
@@ -4497,7 +4913,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 850
+      "precio": 1600
     },
     {
       "id": "3252695259332",
@@ -10340,7 +10756,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3300
+      "precio": 4990
     },
     {
       "id": "4894130971264",
@@ -12671,36 +13087,12 @@
       "precio": 300
     },
     {
-      "id": "4897066834382",
-      "descripcion": "MASCARA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 800
-    },
-    {
-      "id": "4897066835778",
-      "descripcion": "MASCARA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 800
-    },
-    {
       "id": "4897066835785",
       "descripcion": "MASCARA FACIAL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
       "precio": 600
-    },
-    {
-      "id": "4897066835822",
-      "descripcion": "MASCARA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 800
     },
     {
       "id": "4901602923581",
@@ -15264,7 +15656,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 1450
+      "precio": 800
     },
     {
       "id": "6048-15",
@@ -15408,7 +15800,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 450
+      "precio": 700
     },
     {
       "id": "6064-15",
@@ -15432,7 +15824,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 2750
+      "precio": 400
     },
     {
       "id": "6072-15",
@@ -15440,7 +15832,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 900
+      "precio": 400
     },
     {
       "id": "6072-4",
@@ -15448,7 +15840,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 600
+      "precio": 490
     },
     {
       "id": "6075-15",
@@ -16280,7 +16672,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 1650
+      "precio": 1100
     },
     {
       "id": "6357-4.",
@@ -18735,7 +19127,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 2300
+      "precio": 3000
     },
     {
       "id": "6920100230159",
@@ -18775,7 +19167,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3000
+      "precio": 600
     },
     {
       "id": "6920100230364",
@@ -20560,14 +20952,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45342,
       "precio": 250
-    },
-    {
-      "id": "6925372500054",
-      "descripcion": "ILUMINADOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 2900
     },
     {
       "id": "6925451874311",
@@ -23994,14 +24378,6 @@
       "precio": 890
     },
     {
-      "id": "6950000905819",
-      "descripcion": "PASTILLERO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 500
-    },
-    {
       "id": "6950126122367",
       "descripcion": "CORRECTOR DIVO",
       "lista": "LISTA1",
@@ -25039,7 +25415,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3250
+      "precio": 2990
     },
     {
       "id": "6952938457071",
@@ -25776,14 +26152,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45342,
       "precio": 1600
-    },
-    {
-      "id": "6963603410314",
-      "descripcion": "PLANCHITA P/PELO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 4500
     },
     {
       "id": "6963625070015",
@@ -28890,30 +29258,6 @@
       "precio": 6900
     },
     {
-      "id": "6974428010047",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 1650
-    },
-    {
-      "id": "6974428010054",
-      "descripcion": "LABIAL MAGICO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 2050
-    },
-    {
-      "id": "6974428010078",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 2100
-    },
-    {
       "id": "6974428010085",
       "descripcion": "LIP GLOSS AURORA",
       "lista": "LISTA1",
@@ -28946,14 +29290,6 @@
       "precio": 2350
     },
     {
-      "id": "6974428120043",
-      "descripcion": "MASCARA PESTAÑASLASH",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 2190
-    },
-    {
       "id": "6974428200028",
       "descripcion": "POLVO VOLATIL",
       "lista": "LISTA1",
@@ -28962,36 +29298,12 @@
       "precio": 3450
     },
     {
-      "id": "6974428230001",
-      "descripcion": "CORRECTOR BARRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 2200
-    },
-    {
       "id": "6974428250092",
       "descripcion": "DELINEADOR LIQ BLANCO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
       "precio": 1850
-    },
-    {
-      "id": "6974428260152",
-      "descripcion": "PALETA SOMBRAS X8",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 3600
-    },
-    {
-      "id": "6974428520102",
-      "descripcion": "LIP GLOSS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 1800
     },
     {
       "id": "6974450888164",
@@ -29098,28 +29410,12 @@
       "precio": 1200
     },
     {
-      "id": "6974482583433",
-      "descripcion": "ILUMINADOR MELY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 2650
-    },
-    {
       "id": "6974482583976",
       "descripcion": "POLVO TRANSLUCIDO BANANA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
       "precio": 2450
-    },
-    {
-      "id": "6974482588629",
-      "descripcion": "BRILLO LABIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 1550
     },
     {
       "id": "6974482588636",
@@ -29368,14 +29664,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45342,
       "precio": 1700
-    },
-    {
-      "id": "6975975010474",
-      "descripcion": "POLVO DE HADAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 2750
     },
     {
       "id": "6975975010542",
@@ -50368,14 +50656,6 @@
       "precio": 40
     },
     {
-      "id": "7797847000661",
-      "descripcion": "CARPETA CARTON NEGRA OFICIO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 950
-    },
-    {
       "id": "7797898003345",
       "descripcion": "SET DE MATE INFANTIL",
       "lista": "LISTA1",
@@ -68245,7 +68525,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133882765",
@@ -68277,7 +68557,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133883175",
@@ -68293,7 +68573,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883236",
@@ -68301,7 +68581,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3000
+      "precio": 1490
     },
     {
       "id": "7992133883298",
@@ -68309,7 +68589,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883328",
@@ -68325,7 +68605,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883489",
@@ -68333,7 +68613,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883502",
@@ -68341,7 +68621,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7993496972414",
@@ -71373,7 +71653,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 4600
+      "precio": 400
     },
     {
       "id": "9020230247304",
@@ -71381,7 +71661,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45342,
-      "precio": 4600
+      "precio": 400
     },
     {
       "id": "9020230247328",
@@ -78254,14 +78534,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45342,
       "precio": 10800
-    },
-    {
-      "id": "G2010",
-      "descripcion": "TERMO 600ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45342,
-      "precio": 14300
     },
     {
       "id": "G2070",
@@ -97103,22 +97375,6 @@
       "precio": 2600
     },
     {
-      "id": "7702147235361",
-      "descripcion": "COPA VINO ARAGON",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45294,
-      "precio": 2000
-    },
-    {
-      "id": "7702147235712",
-      "descripcion": "COPA CHAMPAGNE ARAGON",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45294,
-      "precio": 2000
-    },
-    {
       "id": "7790650014740",
       "descripcion": "SALERO",
       "lista": "LISTA1",
@@ -99839,30 +100095,6 @@
       "precio": 850
     },
     {
-      "id": "4897066834290",
-      "descripcion": "MASCARILLA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45283,
-      "precio": 800
-    },
-    {
-      "id": "4897066835792",
-      "descripcion": "MASCARILLA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45283,
-      "precio": 800
-    },
-    {
-      "id": "4897066835808",
-      "descripcion": "MASCARILLA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45283,
-      "precio": 800
-    },
-    {
       "id": "5552194782156",
       "descripcion": "LIMA P/PIES",
       "lista": "LISTA1",
@@ -99925,14 +100157,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45283,
       "precio": 200
-    },
-    {
-      "id": "6935726370165",
-      "descripcion": "ABANICO MADERA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45283,
-      "precio": 1700
     },
     {
       "id": "6935875801596",
@@ -100077,14 +100301,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45283,
       "precio": 2500
-    },
-    {
-      "id": "7896541651251",
-      "descripcion": "MINI LICUADORA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45283,
-      "precio": 15000
     },
     {
       "id": "7972992689132",
@@ -107173,14 +107389,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45274,
       "precio": 1900
-    },
-    {
-      "id": "CS3720",
-      "descripcion": "POLVO DE HADAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 3250
     },
     {
       "id": "DI4418",
