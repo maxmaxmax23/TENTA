@@ -1,12 +1,4 @@
 {
-  "compilerOptions": {
-    "baseUrl": "src"
-  },
-  "include": ["src"]
-},
-
-
-{
   "name": "tenta",
   "private": true,
   "version": "0.0.0",
