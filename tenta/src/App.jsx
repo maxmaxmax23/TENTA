@@ -3,7 +3,7 @@ import './App.css'
 import { Html5QrcodeScanner } from 'html5-qrcode'
 import { Popover } from '@headlessui/react'
 import './index.jsx'
-import Lista from "../tentadb.json"
+import Lista from "./src/tentadb.json"
 
 
 function App() {
