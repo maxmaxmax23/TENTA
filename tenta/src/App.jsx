@@ -50,7 +50,7 @@ function App() {
 
       <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
         {Lista.filter((precio) => precio.id === scanResult).length > 0 ? (
-          <div className="grid-flow-col grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1">
             <div className="justify-self-center mt-1 text-xl font-semibold uppercase leading-tight truncate">
               {Lista.filter((precio) => precio.id === scanResult).map((precio) => (
                 <div key={precio.precio}>${precio.precio}</div>
