@@ -88,12 +88,244 @@
       "precio": 4800
     },
     {
+      "id": "7798184527477",
+      "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1150
+    },
+    {
+      "id": "7798354465516",
+      "descripcion": "QYUITA ESMALTE S/ACETONA 50ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1600
+    },
+    {
+      "id": "7798354465523",
+      "descripcion": "QUITA ESMALTE FORTALECEDOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1600
+    },
+    {
+      "id": "7798354465844",
+      "descripcion": "CREMA PARA MANOS COCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1450
+    },
+    {
+      "id": "7798354465851",
+      "descripcion": "CREMA PARA MANOS PALTA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1450
+    },
+    {
+      "id": "7798354465868",
+      "descripcion": "CREMA PARA MANOS FRUTILLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1450
+    },
+    {
+      "id": "7798354465875",
+      "descripcion": "CREMAS PARA MANOS CON ALOE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1450
+    },
+    {
+      "id": "7798354466162",
+      "descripcion": "MINI ESMALTES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 9750
+    },
+    {
+      "id": "7798354467022",
+      "descripcion": "ESPUMA DE BAÑO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1400
+    },
+    {
       "id": "9555078914946",
       "descripcion": "AROS MEALICOS EZCO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
       "precio": 200
+    },
+    {
+      "id": "TYL0009",
+      "descripcion": "LAPIZ LABIAL TRATAMIENTO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1800
+    },
+    {
+      "id": "TYL0151",
+      "descripcion": "MASCARA P/PESTAÑAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 2300
+    },
+    {
+      "id": "TYL0290",
+      "descripcion": "TOALLITAS HUMEDAS UNICORNIO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1150
+    },
+    {
+      "id": "TYL0407",
+      "descripcion": "TOALLITA DESMAQUILLANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1150
+    },
+    {
+      "id": "TYL1709",
+      "descripcion": "TOALLITAS HUMEDAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1150
+    },
+    {
+      "id": "TYL1803",
+      "descripcion": "MASCARA COLAGENO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 950
+    },
+    {
+      "id": "TYL1804",
+      "descripcion": "MASCARA COLAGENO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 950
+    },
+    {
+      "id": "TYL1808",
+      "descripcion": "AGUA MICELAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 3300
+    },
+    {
+      "id": "TYL1815",
+      "descripcion": "AGUA MICELAR BIFASICA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 5300
+    },
+    {
+      "id": "TYL1825",
+      "descripcion": "LOCION HIDRATANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 4400
+    },
+    {
+      "id": "TYL1835",
+      "descripcion": "SERUM ANTIOXIDANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 4950
+    },
+    {
+      "id": "TYL1836",
+      "descripcion": "SERUM FACIAL HIDRATANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 4950
+    },
+    {
+      "id": "TYL1915",
+      "descripcion": "SANITIANTE PARA MANOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 1000
+    },
+    {
+      "id": "TYL1919",
+      "descripcion": "ALCOHOL EN GEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 550
+    },
+    {
+      "id": "TYL1988A",
+      "descripcion": "MANTECA CORPORAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 2950
+    },
+    {
+      "id": "TYL1988C",
+      "descripcion": "MANTECA CORPORAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 2950
+    },
+    {
+      "id": "TYL1988M",
+      "descripcion": "MANTECA CORPORAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 2950
+    },
+    {
+      "id": "TYL1988R",
+      "descripcion": "MANTECA CORPORAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 2950
+    },
+    {
+      "id": "TYL2045",
+      "descripcion": "GEL LIMPIEZA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 3900
+    },
+    {
+      "id": "TYL2060",
+      "descripcion": "GEL LIMPIEZA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45356,
+      "precio": 4150
     },
     {
       "id": " DEC1532",
@@ -19143,7 +19375,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 3000
+      "precio": 2300
     },
     {
       "id": "6920100230159",
@@ -19183,7 +19415,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 600
+      "precio": 3000
     },
     {
       "id": "6920100230364",
@@ -31423,7 +31655,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 900
+      "precio": 950
     },
     {
       "id": "7,79829E+12",
@@ -54933,7 +55165,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 1600
+      "precio": 1800
     },
     {
       "id": "7798184522793",
@@ -54973,7 +55205,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 2100
+      "precio": 2300
     },
     {
       "id": "7798184525961",
@@ -55109,7 +55341,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 900
+      "precio": 950
     },
     {
       "id": "7798184528122",
@@ -55117,7 +55349,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 900
+      "precio": 950
     },
     {
       "id": "7798184528139",
@@ -55125,7 +55357,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 900
+      "precio": 950
     },
     {
       "id": "7798184528146",
@@ -55133,7 +55365,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 900
+      "precio": 950
     },
     {
       "id": "7798184528153",
@@ -55141,7 +55373,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 900
+      "precio": 950
     },
     {
       "id": "7798184528245",
@@ -55149,7 +55381,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 900
+      "precio": 950
     },
     {
       "id": "7798184528252",
@@ -59741,7 +59973,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 4550
+      "precio": 5300
     },
     {
       "id": "7798354461556",
@@ -59885,7 +60117,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 3700
+      "precio": 4400
     },
     {
       "id": "7798354462805",
@@ -59941,7 +60173,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 2750
+      "precio": 2950
     },
     {
       "id": "7798354463031",
@@ -59949,7 +60181,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 2750
+      "precio": 2950
     },
     {
       "id": "7798354463048",
@@ -59957,7 +60189,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 2750
+      "precio": 2950
     },
     {
       "id": "7798354463055",
@@ -59965,7 +60197,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 2750
+      "precio": 2950
     },
     {
       "id": "7798354463161",
@@ -60157,7 +60389,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 4250
+      "precio": 4950
     },
     {
       "id": "7798354464571",
@@ -69581,7 +69813,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133882765",
@@ -69613,7 +69845,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133883175",
@@ -69629,7 +69861,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883236",
@@ -69637,7 +69869,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133883298",
@@ -69645,7 +69877,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883328",
@@ -69661,7 +69893,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 3000
+      "precio": 1200
     },
     {
       "id": "7992133883489",
@@ -69669,7 +69901,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883502",
@@ -69677,7 +69909,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7993496972414",
@@ -72821,7 +73053,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 400
+      "precio": 4600
     },
     {
       "id": "9020230247304",
@@ -72829,7 +73061,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
-      "precio": 400
+      "precio": 4600
     },
     {
       "id": "9020230247328",
@@ -88304,14 +88536,6 @@
       "precio": 200
     },
     {
-      "id": "TYL0009",
-      "descripcion": "LAPIZ LABIAL TRATAMIENTO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 1600
-    },
-    {
       "id": "TYL0011",
       "descripcion": "LABIAL LIQ LARGA DURACION",
       "lista": "LISTA1",
@@ -88576,14 +88800,6 @@
       "precio": 700
     },
     {
-      "id": "TYL1803",
-      "descripcion": "MASCARA COLAGENO LABIOS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 900
-    },
-    {
       "id": "TYL1806",
       "descripcion": "SPRAY FIJADOR MAQUILLAJE",
       "lista": "LISTA1",
@@ -88592,28 +88808,12 @@
       "precio": 3490
     },
     {
-      "id": "TYL1808",
-      "descripcion": "AGUA MICELAR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 2950
-    },
-    {
       "id": "TYL1809",
       "descripcion": "CORRECTOR OJERAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
       "precio": 790
-    },
-    {
-      "id": "TYL1815",
-      "descripcion": "AGUA MICELAR BIFASICA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 4550
     },
     {
       "id": "TYL1903",
@@ -101663,52 +101863,12 @@
       "precio": 2100
     },
     {
-      "id": "7798184527477",
-      "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1150
-    },
-    {
       "id": "7798184528115",
       "descripcion": "MASCARA COLAGENO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45295,
       "precio": 900
-    },
-    {
-      "id": "7798354465844",
-      "descripcion": "CREMA PARA MANOS COCO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1450
-    },
-    {
-      "id": "7798354465851",
-      "descripcion": "CREMA PARA MANOS PALTA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1450
-    },
-    {
-      "id": "7798354465868",
-      "descripcion": "CREMA PARA MANOS FRUTILLA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1450
-    },
-    {
-      "id": "7798354465875",
-      "descripcion": "CREMAS PARA MANOS CON ALOE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1450
     },
     {
       "id": "7798354465912",
@@ -101789,14 +101949,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45295,
       "precio": 6450
-    },
-    {
-      "id": "7798354466162",
-      "descripcion": "MINI ESMALTES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 9750
     },
     {
       "id": "7798354466193",
@@ -101959,24 +102111,8 @@
       "precio": 13800
     },
     {
-      "id": "TYL0290",
-      "descripcion": "TOALLITAS HUMEDAS UNICORNIO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1150
-    },
-    {
       "id": "TYL0405",
       "descripcion": "TOALLITAS HUMEDAS ANTIBACTERIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1150
-    },
-    {
-      "id": "TYL0407",
-      "descripcion": "TOALLITA DESMAQUILLANTE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45295,
@@ -101992,14 +102128,6 @@
     },
     {
       "id": "TYL1708",
-      "descripcion": "TOALLITAS HUMEDAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1150
-    },
-    {
-      "id": "TYL1709",
       "descripcion": "TOALLITAS HUMEDAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
@@ -102031,14 +102159,6 @@
       "precio": 2900
     },
     {
-      "id": "TYL1804",
-      "descripcion": "MASCARA COLAGENO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 900
-    },
-    {
       "id": "TYL1814",
       "descripcion": "BASE MAQUILLAJE FUIDA",
       "lista": "LISTA1",
@@ -102047,52 +102167,12 @@
       "precio": 3100
     },
     {
-      "id": "TYL1825",
-      "descripcion": "LOCION HIDRATANTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 3700
-    },
-    {
       "id": "TYL1833",
       "descripcion": "SERUM FACIAL CONTORNO DE OJOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45295,
       "precio": 4250
-    },
-    {
-      "id": "TYL1988A",
-      "descripcion": "MANTECA CORPORAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 2750
-    },
-    {
-      "id": "TYL1988C",
-      "descripcion": "MANTECA CORPORAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 2750
-    },
-    {
-      "id": "TYL1988M",
-      "descripcion": "MANTECA CORPORAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 2750
-    },
-    {
-      "id": "TYL1988R",
-      "descripcion": "MANTECA CORPORAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 2750
     },
     {
       "id": "TYL19901",
@@ -113367,14 +113447,6 @@
       "precio": 2150
     },
     {
-      "id": "TYL0151",
-      "descripcion": "MASCARA P/PESTAÑAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45274,
-      "precio": 2100
-    },
-    {
       "id": "TYL0180",
       "descripcion": "BODY PAINTING FLUO",
       "lista": "LISTA1",
@@ -113965,22 +114037,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45273,
       "precio": 2100
-    },
-    {
-      "id": "7798354465516",
-      "descripcion": "QYUITA ESMALTE S/ACETONA 50ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1450
-    },
-    {
-      "id": "7798354465523",
-      "descripcion": "QUITA ESMALTE FORTALECEDOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 1450
     },
     {
       "id": "7798373791245",
@@ -114621,22 +114677,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45273,
       "precio": 1950
-    },
-    {
-      "id": "TYL1835",
-      "descripcion": "SERUM ANTIOXIDANTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 4250
-    },
-    {
-      "id": "TYL1836",
-      "descripcion": "SERUM FACIAL HIDRATANTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45273,
-      "precio": 4250
     },
     {
       "id": "YH202343",
