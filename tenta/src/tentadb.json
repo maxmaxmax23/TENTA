@@ -1,5 +1,365 @@
 [
     {
+      "id": "15261",
+      "descripcion": "BOTELLA EVERLAST",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 13000
+    },
+    {
+      "id": "3154147425350",
+      "descripcion": "RESALTADOR MAPED NARANJA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1650
+    },
+    {
+      "id": "3154147425961",
+      "descripcion": "RESALTADOR MAPED ROSA PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1650
+    },
+    {
+      "id": "3154147425978",
+      "descripcion": "RESALTADOR MAPED VIOLETA PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1650
+    },
+    {
+      "id": "3154147425992",
+      "descripcion": "RESALTADOR MAPED CELESTE PASTEL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1650
+    },
+    {
+      "id": "35111",
+      "descripcion": "INVISIBLES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 800
+    },
+    {
+      "id": "35112",
+      "descripcion": "INVISIBLES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 800
+    },
+    {
+      "id": "4790010109324",
+      "descripcion": "BOETLLA EVERLAST 850ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 15000
+    },
+    {
+      "id": "4790010113970",
+      "descripcion": "BOTELLA EVERLAST 750ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 15000
+    },
+    {
+      "id": "4790010139666",
+      "descripcion": "BOTELLA EVERLAST 900ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 15000
+    },
+    {
+      "id": "4790010139673",
+      "descripcion": "BOTELLA EVERLAST 1L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 16500
+    },
+    {
+      "id": "4790010157752",
+      "descripcion": "BILLETERA BOSSI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 9700
+    },
+    {
+      "id": "4790010157769",
+      "descripcion": "BILLETERA BOSSI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 9700
+    },
+    {
+      "id": "4790010157776",
+      "descripcion": "BILLETERA BOSSI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 9700
+    },
+    {
+      "id": "4790010164385",
+      "descripcion": "VASO TERMICO 380ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 20600
+    },
+    {
+      "id": "4790010214721",
+      "descripcion": "BILLETERA LAS OREIRO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 20000
+    },
+    {
+      "id": "4790010214738",
+      "descripcion": "BILLETERA LAS OREIRO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 22000
+    },
+    {
+      "id": "4790010214745",
+      "descripcion": "BILLETERA LAS OREIRO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 19500
+    },
+    {
+      "id": "4790010516528",
+      "descripcion": "PORTACOSMETICOS MUAA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 9800
+    },
+    {
+      "id": "4790010516542",
+      "descripcion": "PORTACOSMETICOS MUAA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 16900
+    },
+    {
+      "id": "4790020109321",
+      "descripcion": "BOTELLA EVERLAST 850ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 15000
+    },
+    {
+      "id": "4790020113977",
+      "descripcion": "BOTELLA EVERLAST 750ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 15000
+    },
+    {
+      "id": "4790020139663",
+      "descripcion": "BOTELLA EVERLAST 900ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 15000
+    },
+    {
+      "id": "4790020139670",
+      "descripcion": "BOTELLA EVERLAST 1L",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 16500
+    },
+    {
+      "id": "4790020152617",
+      "descripcion": "BOTELLA  EVERLAST 650ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 13000
+    },
+    {
+      "id": "4790020157759",
+      "descripcion": "BILLETERA BOSSI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 9700
+    },
+    {
+      "id": "4790020157766",
+      "descripcion": "BILLETERA BOSSI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 9700
+    },
+    {
+      "id": "4790020164382",
+      "descripcion": "VASO TERMICO 380ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 20600
+    },
+    {
+      "id": "4790020516525",
+      "descripcion": "PORTACOSMETICOS  MUAA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 9800
+    },
+    {
+      "id": "4790020516532",
+      "descripcion": "PORTACOSMETICOS MUAA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 11800
+    },
+    {
+      "id": "4790020516549",
+      "descripcion": "PORTACOSMETICOS MUAA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 16800
+    },
+    {
+      "id": "50066",
+      "descripcion": "AUTO FRICCION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 4000
+    },
+    {
+      "id": "6910290250099",
+      "descripcion": "PESTAÑAS CITY GIRL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1200
+    },
+    {
+      "id": "6963699845892",
+      "descripcion": "ESPONJA P/MAQUILLAJE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1000
+    },
+    {
+      "id": "7798184527477",
+      "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1150
+    },
+    {
+      "id": "7798354465868",
+      "descripcion": "CREMA PARA MANOS FRUTILLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1450
+    },
+    {
+      "id": "AC19544",
+      "descripcion": "INVISIBLES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 800
+    },
+    {
+      "id": "AGE136",
+      "descripcion": "ESPONJA BLENDER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1200
+    },
+    {
+      "id": "AGE252C",
+      "descripcion": "ARQUEADOR GLITTER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 3000
+    },
+    {
+      "id": "TYL0290",
+      "descripcion": "TOALLITAS HUMEDAS UNICORNIO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1150
+    },
+    {
+      "id": "TYL0405",
+      "descripcion": "TOALLITAS HUMEDAS ANTIBACTERIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1150
+    },
+    {
+      "id": "TYL0407",
+      "descripcion": "TOALLITA DESMAQUILLANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1150
+    },
+    {
+      "id": "TYL1708",
+      "descripcion": "TOALLITAS HUMEDAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1150
+    },
+    {
+      "id": "TYL1709",
+      "descripcion": "TOALLITAS HUMEDAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1150
+    },
+    {
+      "id": "TYL1728",
+      "descripcion": "TOALLITAS MICELARES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45358,
+      "precio": 1150
+    },
+    {
       "id": " DEC1532",
       "descripcion": "PILOTO ADULTO",
       "lista": "LISTA1",
@@ -4238,22 +4598,6 @@
       "precio": 1650
     },
     {
-      "id": "3154147425961",
-      "descripcion": "RESALTADOR MAPED ROSA PASTEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45358,
-      "precio": 1550
-    },
-    {
-      "id": "3154147425992",
-      "descripcion": "RESALTADOR MAPED CELESTE PASTEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45358,
-      "precio": 1550
-    },
-    {
       "id": "3154147427347",
       "descripcion": "RESALTADOR POCKET AMARILLO",
       "lista": "LISTA1",
@@ -4473,7 +4817,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 850
+      "precio": 700
     },
     {
       "id": "3252695256959",
@@ -4489,7 +4833,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 850
+      "precio": 950
     },
     {
       "id": "3252695258014",
@@ -4497,7 +4841,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 850
+      "precio": 1390
     },
     {
       "id": "3252695259219",
@@ -4505,7 +4849,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 850
+      "precio": 1600
     },
     {
       "id": "3252695259332",
@@ -8988,7 +9332,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 4200
+      "precio": 13000
     },
     {
       "id": "4790010152627",
@@ -13356,7 +13700,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 850
+      "precio": 2750
     },
     {
       "id": "5012895215211",
@@ -13364,7 +13708,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 850
+      "precio": 1450
     },
     {
       "id": "5012895315218",
@@ -15616,7 +15960,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 2750
+      "precio": 400
     },
     {
       "id": "6072-15",
@@ -15624,7 +15968,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 400
+      "precio": 900
     },
     {
       "id": "6072-4",
@@ -19039,7 +19383,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 600
+      "precio": 3000
     },
     {
       "id": "6920100230128",
@@ -19047,7 +19391,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 2300
+      "precio": 3000
     },
     {
       "id": "6920100230159",
@@ -19087,7 +19431,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 600
+      "precio": 3000
     },
     {
       "id": "6920100230364",
@@ -19119,7 +19463,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1200
+      "precio": 2300
     },
     {
       "id": "6920100230869",
@@ -30191,7 +30535,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1100
+      "precio": 1200
     },
     {
       "id": "6976231851282",
@@ -30215,7 +30559,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 2600
+      "precio": 3000
     },
     {
       "id": "6976232520781",
@@ -33503,7 +33847,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 2500
+      "precio": 4000
     },
     {
       "id": "7450077144627",
@@ -54873,7 +55217,7 @@
     },
     {
       "id": "7798184522083",
-      "descripcion": "LAPIZ LABIAL TRATAMIENTO",
+      "descripcion": "MANTECA DE CACAO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
@@ -69557,7 +69901,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133883175",
@@ -69581,7 +69925,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1490
+      "precio": 3000
     },
     {
       "id": "7992133883298",
@@ -69589,7 +69933,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883328",
@@ -69597,7 +69941,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883359",
@@ -69605,7 +69949,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883489",
@@ -69613,7 +69957,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7992133883502",
@@ -69621,7 +69965,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 1200
+      "precio": 3000
     },
     {
       "id": "7993496972414",
@@ -72653,7 +72997,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 750
+      "precio": 800
     },
     {
       "id": "900380",
@@ -72693,7 +73037,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 750
+      "precio": 800
     },
     {
       "id": "901991",
@@ -72765,7 +73109,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 4600
+      "precio": 400
     },
     {
       "id": "9020230247304",
@@ -72773,7 +73117,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
-      "precio": 4600
+      "precio": 400
     },
     {
       "id": "9020230247328",
@@ -88249,7 +88593,7 @@
     },
     {
       "id": "TYL0009",
-      "descripcion": "LAPIZ LABIAL TRATAMIENTO",
+      "descripcion": "MANTECA DE CACAO",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45358,
@@ -89559,14 +89903,6 @@
       "precio": 4900
     },
     {
-      "id": "7798184527477",
-      "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 1150
-    },
-    {
       "id": "7798354465516",
       "descripcion": "QYUITA ESMALTE S/ACETONA 50ML",
       "lista": "LISTA1",
@@ -89593,14 +89929,6 @@
     {
       "id": "7798354465851",
       "descripcion": "CREMA PARA MANOS PALTA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 1450
-    },
-    {
-      "id": "7798354465868",
-      "descripcion": "CREMA PARA MANOS FRUTILLA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
@@ -89653,30 +89981,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45356,
       "precio": 2300
-    },
-    {
-      "id": "TYL0290",
-      "descripcion": "TOALLITAS HUMEDAS UNICORNIO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 1150
-    },
-    {
-      "id": "TYL0407",
-      "descripcion": "TOALLITA DESMAQUILLANTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 1150
-    },
-    {
-      "id": "TYL1709",
-      "descripcion": "TOALLITAS HUMEDAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 1150
     },
     {
       "id": "TYL1804",
@@ -91855,22 +92159,6 @@
       "precio": 11600
     },
     {
-      "id": "35111",
-      "descripcion": "INVISIBLES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45349,
-      "precio": 800
-    },
-    {
-      "id": "35112",
-      "descripcion": "INVISIBLES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45349,
-      "precio": 800
-    },
-    {
       "id": "7790774348592",
       "descripcion": "SET 4 VALIJAS SKORA CHAMPAGNE",
       "lista": "LISTA1",
@@ -92343,14 +92631,6 @@
       "precio": 1650
     },
     {
-      "id": "3154147425350",
-      "descripcion": "RESALTADOR MAPED NARANJA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45346,
-      "precio": 1650
-    },
-    {
       "id": "3154148454205",
       "descripcion": "FIBRONES X 12 MAPED",
       "lista": "LISTA1",
@@ -92733,14 +93013,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45345,
       "precio": 9900
-    },
-    {
-      "id": "3154147425978",
-      "descripcion": "RESALTADOR MAPED VIOLETA PASTEL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45345,
-      "precio": 1550
     },
     {
       "id": "3757716320553",
@@ -98047,28 +98319,12 @@
       "precio": 2900
     },
     {
-      "id": "AGE136",
-      "descripcion": "ESPONJA BLENDER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45321,
-      "precio": 1100
-    },
-    {
       "id": "AGE251A",
       "descripcion": "ARQUEADOR 5 SECONDS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45321,
       "precio": 2550
-    },
-    {
-      "id": "AGE252C",
-      "descripcion": "ARQUEADOR GLITTER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45321,
-      "precio": 2600
     },
     {
       "id": "B5167",
@@ -102167,14 +102423,6 @@
       "precio": 13800
     },
     {
-      "id": "TYL0405",
-      "descripcion": "TOALLITAS HUMEDAS ANTIBACTERIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1150
-    },
-    {
       "id": "TYL1520",
       "descripcion": "BRILLO LABIAL HELADITO",
       "lista": "LISTA1",
@@ -102183,24 +102431,8 @@
       "precio": 8000
     },
     {
-      "id": "TYL1708",
-      "descripcion": "TOALLITAS HUMEDAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1150
-    },
-    {
       "id": "TYL1715BU",
       "descripcion": "TOALLITAS ANTIBAC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 1150
-    },
-    {
-      "id": "TYL1728",
-      "descripcion": "TOALLITAS MICELARES",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45295,
@@ -105421,14 +105653,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45283,
       "precio": 2000
-    },
-    {
-      "id": "AC19544",
-      "descripcion": "INVISIBLES",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45283,
-      "precio": 750
     },
     {
       "id": "AC520330",
