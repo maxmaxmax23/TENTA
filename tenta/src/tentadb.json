@@ -128,6 +128,22 @@
       "precio": 6900
     },
     {
+      "id": "7798008090477",
+      "descripcion": "DECANTER + 2 COPAS BARONE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 15500
+    },
+    {
+      "id": "7798151505811",
+      "descripcion": "TRAT CAPILAR QUERATION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 550
+    },
+    {
       "id": "7891112015661",
       "descripcion": "MOLDE PARA FLAN 22CM TRAMONTINA",
       "lista": "LISTA1",
@@ -222,6 +238,262 @@
       "listadesc": "PUBLICO",
       "vigencia": 45369,
       "precio": 31400
+    },
+    {
+      "id": "7891155002468",
+      "descripcion": "VASO SODA  150ML.",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 1800
+    },
+    {
+      "id": "7891155002529",
+      "descripcion": "VASO AMERICANO300ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 1750
+    },
+    {
+      "id": "7891155002536",
+      "descripcion": "SHOT NADIR 100ML.",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 1800
+    },
+    {
+      "id": "7891155003878",
+      "descripcion": "VASO CYLINDER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 2000
+    },
+    {
+      "id": "7891155004691",
+      "descripcion": "VASO TUBO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 1900
+    },
+    {
+      "id": "7891155008040",
+      "descripcion": "BRISTOL VASO REFRESCO 340",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 2100
+    },
+    {
+      "id": "7891155008224",
+      "descripcion": "COPA WINDSOR CERVEZA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3700
+    },
+    {
+      "id": "7891155008330",
+      "descripcion": "COPA CHAMPAGNE WINDSOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 2400
+    },
+    {
+      "id": "7891155012771",
+      "descripcion": "VASO ILHABELA TRAGO LARGO NADIR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3050
+    },
+    {
+      "id": "7891155014409",
+      "descripcion": "VASO OCA ALTO 400 ML.",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "7891155017424",
+      "descripcion": "COPA FLORIPA 300ML NADIR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 5000
+    },
+    {
+      "id": "7891155025221",
+      "descripcion": "VASO OPERA LARGO 360ML NADIR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 2800
+    },
+    {
+      "id": "7891155031055",
+      "descripcion": "VASO AMERICANO 450ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 2850
+    },
+    {
+      "id": "7891155034179",
+      "descripcion": "VASO VEGAS 330 ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3250
+    },
+    {
+      "id": "7891155034483",
+      "descripcion": "VASO DESGUSTACION JOINVILLE NADIR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 2700
+    },
+    {
+      "id": "7891155034490",
+      "descripcion": "VASO CERVEZA 300ML JOINVILLE NADIR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 4200
+    },
+    {
+      "id": "7891155038979",
+      "descripcion": "COPA MARGARITA WINDSOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 4850
+    },
+    {
+      "id": "7891155040866",
+      "descripcion": "COPA BARONE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "7891155040903",
+      "descripcion": "COPA BARONE CHAMPAGNE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "7891155040958",
+      "descripcion": "BARONE COPA VINO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "7891155045298",
+      "descripcion": "COPA MINI MARTINI",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3800
+    },
+    {
+      "id": "7891155047131",
+      "descripcion": "COPA BRUNELLO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "7891155047148",
+      "descripcion": "BRUNELLO COPA VINO 390ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "7891155047155",
+      "descripcion": "COPA BRUNELLO CHAMPAGNE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "7891155047162",
+      "descripcion": "COPA BRUNELLO CERVEZA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "7891155056539",
+      "descripcion": "BELGA COPA CERVEZA 490ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3950
+    },
+    {
+      "id": "7891155071952",
+      "descripcion": "COPA SIDRA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 4750
+    },
+    {
+      "id": "7891155078944",
+      "descripcion": "PRESTIGE COPA DEGUSTACION 600ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 5550
+    },
+    {
+      "id": "7891155079521",
+      "descripcion": "PRESTIGE COPA DEGUSTACION 500 ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3700
+    },
+    {
+      "id": "7891155079538",
+      "descripcion": "PRESTIGE COPA AGUA 350ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3700
+    },
+    {
+      "id": "7891155083481",
+      "descripcion": "FIORE CPA AGUA 400ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 4300
+    },
+    {
+      "id": "7891155083511",
+      "descripcion": "FIORE COPA DEGUSTACION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 4850
     },
     {
       "id": "8527",
@@ -520,12 +792,76 @@
       "precio": 17850
     },
     {
+      "id": "NA163103",
+      "descripcion": "JUEGO DECANTER + 2COPAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 15500
+    },
+    {
+      "id": "NA7028",
+      "descripcion": "COPA WINDSOR AGUA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 2400
+    },
+    {
+      "id": "NA7128",
+      "descripcion": "COPA WINDSOR VINO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 2400
+    },
+    {
+      "id": "NA7651",
+      "descripcion": "COPA DUBLIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3200
+    },
+    {
+      "id": "NA7923",
+      "descripcion": "VASO ILHABELA WISKY",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
+      "id": "NA7941",
+      "descripcion": "VASO JOINVILLE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 5100
+    },
+    {
+      "id": "NA794806",
+      "descripcion": "COPA GIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 5150
+    },
+    {
+      "id": "NA795606",
+      "descripcion": "COPA BARONE DESGUSTACION",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 4950
+    },
+    {
       "id": "VI70891CH",
       "descripcion": "VINILOS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 3500
+      "precio": 1500
     },
     {
       "id": "VI70891GR",
@@ -533,7 +869,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 1500
+      "precio": 3500
     },
     {
       "id": "VI70891M",
@@ -54888,14 +55224,6 @@
       "precio": 550
     },
     {
-      "id": "7798151505811",
-      "descripcion": "TRAT CAPILAR QUERATION",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 550
-    },
-    {
       "id": "7798151505828",
       "descripcion": "TRATAMIENTO MARROC OIL",
       "lista": "LISTA1",
@@ -64736,20 +65064,12 @@
       "precio": 4990
     },
     {
-      "id": "7891155002529",
-      "descripcion": "VASO AMERICANO300ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 2000
-    },
-    {
       "id": "7891155008194",
       "descripcion": "COPA WINDSOR AGUA",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 2900
+      "precio": 2400
     },
     {
       "id": "7891155008200",
@@ -64757,7 +65077,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 2900
+      "precio": 2400
     },
     {
       "id": "7891155009719",
@@ -64773,15 +65093,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 3450
-    },
-    {
-      "id": "7891155012771",
-      "descripcion": "VASO ILHABELA TRAGO LARGO NADIR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 2950
+      "precio": 3500
     },
     {
       "id": "7891155012788",
@@ -64816,52 +65128,12 @@
       "precio": 430
     },
     {
-      "id": "7891155017424",
-      "descripcion": "COPA FLORIPA 300ML NADIR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 4600
-    },
-    {
-      "id": "7891155025221",
-      "descripcion": "VASO OPERA LARGO 360ML NADIR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 2600
-    },
-    {
-      "id": "7891155031055",
-      "descripcion": "VASO AMERICANO 450ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 3300
-    },
-    {
       "id": "7891155032458",
       "descripcion": "VASO JOINVILLE",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 4950
-    },
-    {
-      "id": "7891155034483",
-      "descripcion": "VASO DESGUSTACION JOINVILLE NADIR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 2500
-    },
-    {
-      "id": "7891155034490",
-      "descripcion": "VASO CERVEZA 300ML JOINVILLE NADIR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 3900
+      "precio": 5100
     },
     {
       "id": "7891155034803",
@@ -64960,28 +65232,12 @@
       "precio": 26700
     },
     {
-      "id": "7891155040903",
-      "descripcion": "COPA BARONE CHAMPAGNE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 3800
-    },
-    {
-      "id": "7891155040958",
-      "descripcion": "BARONE COPA VINO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 4200
-    },
-    {
       "id": "7891155042594",
       "descripcion": "COPA BARONE DESGUSTACION",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 5700
+      "precio": 4950
     },
     {
       "id": "7891155042600",
@@ -64989,7 +65245,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 3800
+      "precio": 3200
     },
     {
       "id": "7891155042648",
@@ -65032,14 +65288,6 @@
       "precio": 550
     },
     {
-      "id": "7891155045298",
-      "descripcion": "COPA MINI MARTINI",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 3950
-    },
-    {
       "id": "7891155050056",
       "descripcion": "PLATO PLAYO SATURNO",
       "lista": "LISTA1",
@@ -65069,7 +65317,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 5800
+      "precio": 5150
     },
     {
       "id": "7891155056881",
@@ -65077,7 +65325,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45369,
-      "precio": 16300
+      "precio": 15500
     },
     {
       "id": "7891155064879",
@@ -65278,30 +65526,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45369,
       "precio": 12900
-    },
-    {
-      "id": "7891155078944",
-      "descripcion": "PRESTIGE COPA DEGUSTACION 600ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 5150
-    },
-    {
-      "id": "7891155079521",
-      "descripcion": "PRESTIGE COPA DEGUSTACION 500 ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 3450
-    },
-    {
-      "id": "7891155079538",
-      "descripcion": "PRESTIGE COPA AGUA 350ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45369,
-      "precio": 3450
     },
     {
       "id": "7891240001567",
@@ -89968,6 +90192,14 @@
       "precio": 11990
     },
     {
+      "id": "VI70891G",
+      "descripcion": "VINILOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45369,
+      "precio": 3500
+    },
+    {
       "id": "VNL8232",
       "descripcion": "VINCHA COTILLON",
       "lista": "LISTA1",
@@ -101119,14 +101351,6 @@
       "precio": 4100
     },
     {
-      "id": "NA794806",
-      "descripcion": "COPA GIN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45331,
-      "precio": 5800
-    },
-    {
       "id": "5670051611019",
       "descripcion": "INVISIBLE NEGRO LARGO",
       "lista": "LISTA1",
@@ -101261,14 +101485,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45329,
       "precio": 3200
-    },
-    {
-      "id": "7891155008330",
-      "descripcion": "COPA CHAMPAGNE WINDSOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45329,
-      "precio": 2900
     },
     {
       "id": "8901626757922",
@@ -101495,22 +101711,6 @@
       "precio": 3500
     },
     {
-      "id": "NA7028",
-      "descripcion": "COPA WINDSOR AGUA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45329,
-      "precio": 2900
-    },
-    {
-      "id": "NA7128",
-      "descripcion": "COPA WINDSOR VINO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45329,
-      "precio": 2900
-    },
-    {
       "id": "TEJ1781",
       "descripcion": "LIMA METALICA",
       "lista": "LISTA1",
@@ -101533,14 +101733,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45329,
       "precio": 800
-    },
-    {
-      "id": "7798008090477",
-      "descripcion": "DECANTER + 2 COPAS BARONE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 16300
     },
     {
       "id": "7798040802175",
@@ -101589,70 +101781,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45328,
       "precio": 6550
-    },
-    {
-      "id": "7891155008224",
-      "descripcion": "COPA WINDSOR CERVEZA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 3900
-    },
-    {
-      "id": "7891155040866",
-      "descripcion": "COPA BARONE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 4200
-    },
-    {
-      "id": "7891155047131",
-      "descripcion": "COPA BRUNELLO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 4200
-    },
-    {
-      "id": "7891155047148",
-      "descripcion": "BRUNELLO COPA VINO 390ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 4200
-    },
-    {
-      "id": "7891155047162",
-      "descripcion": "COPA BRUNELLO CERVEZA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 3700
-    },
-    {
-      "id": "7891155056539",
-      "descripcion": "BELGA COPA CERVEZA 490ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 4150
-    },
-    {
-      "id": "7891155083481",
-      "descripcion": "FIORE CPA AGUA 400ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 4500
-    },
-    {
-      "id": "7891155083511",
-      "descripcion": "FIORE COPA DEGUSTACION",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 5100
     },
     {
       "id": "ACO107",
@@ -101869,30 +101997,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45328,
       "precio": 450
-    },
-    {
-      "id": "NA163103",
-      "descripcion": "JUEGO DECANTER + 2COPAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 16300
-    },
-    {
-      "id": "NA7651",
-      "descripcion": "COPA DUBLIN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 3800
-    },
-    {
-      "id": "NA795606",
-      "descripcion": "COPA BARONE DESGUSTACION",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45328,
-      "precio": 5700
     },
     {
       "id": "TEJ1785",
@@ -111431,38 +111535,6 @@
       "precio": 5400
     },
     {
-      "id": "7891155002468",
-      "descripcion": "VASO SODA  150ML.",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 1750
-    },
-    {
-      "id": "7891155002536",
-      "descripcion": "SHOT NADIR 100ML.",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 1750
-    },
-    {
-      "id": "7891155003878",
-      "descripcion": "VASO CYLINDER",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 2000
-    },
-    {
-      "id": "7891155004691",
-      "descripcion": "VASO TUBO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 1900
-    },
-    {
       "id": "7891155006121",
       "descripcion": "VASO CAPRI 410 ML.",
       "lista": "LISTA1",
@@ -111477,54 +111549,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45276,
       "precio": 2050
-    },
-    {
-      "id": "7891155008040",
-      "descripcion": "BRISTOL VASO REFRESCO 340",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 2350
-    },
-    {
-      "id": "7891155014409",
-      "descripcion": "VASO OCA ALTO 400 ML.",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 3450
-    },
-    {
-      "id": "7891155034179",
-      "descripcion": "VASO VEGAS 330 ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 3150
-    },
-    {
-      "id": "7891155038979",
-      "descripcion": "COPA MARGARITA WINDSOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 3590
-    },
-    {
-      "id": "7891155047155",
-      "descripcion": "COPA BRUNELLO CHAMPAGNE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 3650
-    },
-    {
-      "id": "7891155071952",
-      "descripcion": "COPA SIDRA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 4400
     },
     {
       "id": "7891820191015",
@@ -112157,22 +112181,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45276,
       "precio": 500
-    },
-    {
-      "id": "NA7923",
-      "descripcion": "VASO ILHABELA WISKY",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 3450
-    },
-    {
-      "id": "NA7941",
-      "descripcion": "VASO JOINVILLE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45276,
-      "precio": 4950
     },
     {
       "id": "NS249454",
