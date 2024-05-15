@@ -104,12 +104,420 @@
       "precio": 11100
     },
     {
+      "id": "4893108020010",
+      "descripcion": "HERVIDOR VERDE ENLOZADO 8CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 2500
+    },
+    {
+      "id": "4894130970946",
+      "descripcion": "OLLA ENLOZADA CON TAPA DE VIDRIO 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 29900
+    },
+    {
+      "id": "7798184527477",
+      "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1400
+    },
+    {
+      "id": "7798184528382",
+      "descripcion": "DELINEADOR P/OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1600
+    },
+    {
+      "id": "7798184528399",
+      "descripcion": "LAPIZ P/OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1600
+    },
+    {
+      "id": "7798184528405",
+      "descripcion": "DELINEADORP/OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1600
+    },
+    {
+      "id": "7798184528412",
+      "descripcion": "DELINEADOR P/OJOS WATER",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1600
+    },
+    {
+      "id": "7798354465516",
+      "descripcion": "QYUITA ESMALTE S/ACETONA 50ML",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1900
+    },
+    {
+      "id": "7798354465523",
+      "descripcion": "QUITA ESMALTE FORTALECEDOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1900
+    },
+    {
+      "id": "7798354465844",
+      "descripcion": "CREMA PARA MANOS COCO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1700
+    },
+    {
+      "id": "7798354465851",
+      "descripcion": "CREMA PARA MANOS PALTA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1700
+    },
+    {
+      "id": "7798354465868",
+      "descripcion": "CREMA PARA MANOS FRUTILLA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1700
+    },
+    {
+      "id": "7798354466513",
+      "descripcion": "DELINEADOR P/OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1600
+    },
+    {
+      "id": "7798354466520",
+      "descripcion": "DELINEADOR P/OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1600
+    },
+    {
+      "id": "7798354466537",
+      "descripcion": "DELINEADOR P/OJOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1600
+    },
+    {
+      "id": "7798354466575",
+      "descripcion": "ESPUMA DE BAÑO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1650
+    },
+    {
+      "id": "7798354467213",
+      "descripcion": "POLVO COMPACTO TONO1",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3400
+    },
+    {
+      "id": "7798354467220",
+      "descripcion": "POLVO COMPACTO TONO2",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3400
+    },
+    {
       "id": "7891361776238",
       "descripcion": "JARRO MUG 230ML AZUL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
       "precio": 2990
+    },
+    {
+      "id": "BA05758",
+      "descripcion": "CAJA PORTA COSMETICOS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 190000
+    },
+    {
+      "id": "BA27455C",
+      "descripcion": "OLLA ENLOSADA 16CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 11500
+    },
+    {
+      "id": "BA27455G",
+      "descripcion": "OLLA ENLOSADA 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 14500
+    },
+    {
+      "id": "BA27455M",
+      "descripcion": "OLLA ENLOSADA 18",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 12500
+    },
+    {
+      "id": "KEY3554",
+      "descripcion": "BOLSA AGUA CALIENTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3490
+    },
+    {
+      "id": "SO134178",
+      "descripcion": "PAVA ENLOZ M/PLASTICO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 17500
+    },
+    {
+      "id": "SOP134003",
+      "descripcion": "JARRO ENLOZADO 10CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3500
+    },
+    {
+      "id": "TYL0009",
+      "descripcion": "MANTECA DE CACAO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 2100
+    },
+    {
+      "id": "TYL0290",
+      "descripcion": "TOALLITAS HUMEDAS UNICORNIO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1300
+    },
+    {
+      "id": "TYL0405",
+      "descripcion": "TOALLITAS HUMEDAS ANTIBACTERIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1400
+    },
+    {
+      "id": "TYL0407",
+      "descripcion": "TOALLITA DESMAQUILLANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1400
+    },
+    {
+      "id": "TYL1120",
+      "descripcion": "MASACRA P/PESTAÑAS TRANSP",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3100
+    },
+    {
+      "id": "TYL1708",
+      "descripcion": "TOALLITAS HUMEDAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1300
+    },
+    {
+      "id": "TYL1710",
+      "descripcion": "TOALLITAS HUMEDAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1400
+    },
+    {
+      "id": "TYL1711",
+      "descripcion": "TOALLITAS HUMEDAS C/ALOE VERA",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1400
+    },
+    {
+      "id": "TYL1715BU",
+      "descripcion": "TOALLITAS ANTIBAC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1400
+    },
+    {
+      "id": "TYL1728",
+      "descripcion": "TOALLITAS MICELARES",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 1400
+    },
+    {
+      "id": "TYL1808",
+      "descripcion": "AGUA MICELAR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3900
+    },
+    {
+      "id": "TYL1825",
+      "descripcion": "LOCION HIDRATANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 5000
+    },
+    {
+      "id": "TYL1836",
+      "descripcion": "SERUM FACIAL HIDRATANTE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 5700
+    },
+    {
+      "id": "TYL1988A",
+      "descripcion": "MANTECA CORPORAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3500
+    },
+    {
+      "id": "TYL1988C",
+      "descripcion": "MANTECA CORPORAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3500
+    },
+    {
+      "id": "TYL1988M",
+      "descripcion": "MANTECA CORPORAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3500
+    },
+    {
+      "id": "TYL1988R",
+      "descripcion": "MANTECA CORPORAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3500
+    },
+    {
+      "id": "TYL19901",
+      "descripcion": "SAL DE BAÑO DISCO UNIC",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3200
+    },
+    {
+      "id": "TYL19902",
+      "descripcion": "SAL DE BAÑO DISCO VIOL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3200
+    },
+    {
+      "id": "TYL19903",
+      "descripcion": "SAL DE BAÑO  DISCO GATITO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3200
+    },
+    {
+      "id": "TYL19904",
+      "descripcion": "SAL DE BAÑO DISCO VERDE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3200
+    },
+    {
+      "id": "TYL1999",
+      "descripcion": "SALES DE BAÑO BICOLOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3600
+    },
+    {
+      "id": "TYL19992",
+      "descripcion": "SAL DE BAÑO BICOLOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3600
+    },
+    {
+      "id": "TYL19993",
+      "descripcion": "SAL DE BAÑO BICOLOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3600
+    },
+    {
+      "id": "TYL19994",
+      "descripcion": "SAL BAÑO BICOLOR",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 3600
+    },
+    {
+      "id": "TYL2060",
+      "descripcion": "GEL LIMPIEZA FACIAL",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45427,
+      "precio": 4800
     },
     {
       "id": " DEC1532",
@@ -11105,14 +11513,6 @@
       "precio": 490
     },
     {
-      "id": "4893108020010",
-      "descripcion": "HERVIDOR VERDE ENLOZADO 8CM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45427,
-      "precio": 2500
-    },
-    {
       "id": "4893108020027",
       "descripcion": "HERVIDOR VERDE ENLOZADO 9CM",
       "lista": "LISTA1",
@@ -12108,7 +12508,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 15900
+      "precio": 17500
     },
     {
       "id": "4894130969629",
@@ -12293,14 +12693,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45427,
       "precio": 4000
-    },
-    {
-      "id": "4894130970946",
-      "descripcion": "OLLA ENLOZADA CON TAPA DE VIDRIO 24CM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45427,
-      "precio": 7190
     },
     {
       "id": "4894130970953",
@@ -14916,7 +15308,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 14500
+      "precio": 190000
     },
     {
       "id": "4895218917075",
@@ -62442,7 +62834,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 1800
+      "precio": 2100
     },
     {
       "id": "7798184522793",
@@ -62466,7 +62858,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 1150
+      "precio": 1400
     },
     {
       "id": "7798184524728",
@@ -62530,7 +62922,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 1150
+      "precio": 1300
     },
     {
       "id": "7798184526883",
@@ -62794,7 +63186,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 1150
+      "precio": 1300
     },
     {
       "id": "7798184529358",
@@ -67674,7 +68066,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 4400
+      "precio": 5000
     },
     {
       "id": "7798354462805",
@@ -67730,7 +68122,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2950
+      "precio": 3500
     },
     {
       "id": "7798354463031",
@@ -67738,7 +68130,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2950
+      "precio": 3500
     },
     {
       "id": "7798354463048",
@@ -67746,7 +68138,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2950
+      "precio": 3500
     },
     {
       "id": "7798354463055",
@@ -67754,7 +68146,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2950
+      "precio": 3500
     },
     {
       "id": "7798354463161",
@@ -67762,7 +68154,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2450
+      "precio": 3200
     },
     {
       "id": "7798354463178",
@@ -67770,7 +68162,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2450
+      "precio": 3200
     },
     {
       "id": "7798354463185",
@@ -67778,7 +68170,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2450
+      "precio": 3200
     },
     {
       "id": "7798354463208",
@@ -67786,7 +68178,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2450
+      "precio": 3200
     },
     {
       "id": "7798354463437",
@@ -67898,7 +68290,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2700
+      "precio": 3100
     },
     {
       "id": "7798354464076",
@@ -67906,7 +68298,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 2700
+      "precio": 3100
     },
     {
       "id": "7798354464090",
@@ -67946,7 +68338,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45427,
-      "precio": 4950
+      "precio": 5700
     },
     {
       "id": "7798354464571",
@@ -86772,30 +87164,6 @@
       "precio": 15250
     },
     {
-      "id": "BA27455C",
-      "descripcion": "OLLA ENLOSADA 16CM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45427,
-      "precio": 1990
-    },
-    {
-      "id": "BA27455G",
-      "descripcion": "OLLA ENLOSADA 20CM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45427,
-      "precio": 3450
-    },
-    {
-      "id": "BA27455M",
-      "descripcion": "OLLA ENLOSADA 18",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45427,
-      "precio": 2990
-    },
-    {
       "id": "BA52523",
       "descripcion": "FELPUDO",
       "lista": "LISTA1",
@@ -99477,14 +99845,6 @@
       "precio": 200
     },
     {
-      "id": "TYL0009",
-      "descripcion": "MANTECA DE CACAO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45427,
-      "precio": 1800
-    },
-    {
       "id": "TYL0011",
       "descripcion": "LABIAL LIQ LARGA DURACION",
       "lista": "LISTA1",
@@ -99762,14 +100122,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45427,
       "precio": 3490
-    },
-    {
-      "id": "TYL1808",
-      "descripcion": "AGUA MICELAR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45427,
-      "precio": 3850
     },
     {
       "id": "TYL1809",
@@ -106346,14 +106698,6 @@
       "precio": 3900
     },
     {
-      "id": "KEY3554",
-      "descripcion": "BOLSA AGUA CALIENTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45402,
-      "precio": 3490
-    },
-    {
       "id": "1063",
       "descripcion": "RAMO FLORES",
       "lista": "LISTA1",
@@ -108962,14 +109306,6 @@
       "precio": 16900
     },
     {
-      "id": "SOP134003",
-      "descripcion": "JARRO ENLOZADO 10CM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45395,
-      "precio": 3500
-    },
-    {
       "id": "SOP14682",
       "descripcion": "JARRITO CAFÉ  VIENA",
       "lista": "LISTA1",
@@ -110890,38 +111226,6 @@
       "precio": 2600
     },
     {
-      "id": "7798184527477",
-      "descripcion": "TOALLITAS HUMEDAS C/FRAGANCIA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1400
-    },
-    {
-      "id": "7798354465844",
-      "descripcion": "CREMA PARA MANOS COCO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1700
-    },
-    {
-      "id": "7798354465851",
-      "descripcion": "CREMA PARA MANOS PALTA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1700
-    },
-    {
-      "id": "7798354465868",
-      "descripcion": "CREMA PARA MANOS FRUTILLA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1700
-    },
-    {
       "id": "7896429611759",
       "descripcion": "TERMO ACERO 1L",
       "lista": "LISTA1",
@@ -111138,14 +111442,6 @@
       "precio": 2700
     },
     {
-      "id": "TYL0407",
-      "descripcion": "TOALLITA DESMAQUILLANTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1400
-    },
-    {
       "id": "TYL1157",
       "descripcion": "SHOCK DETOX",
       "lista": "LISTA1",
@@ -111156,38 +111452,6 @@
     {
       "id": "TYL1709",
       "descripcion": "TOALLITAS HUMEDAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1400
-    },
-    {
-      "id": "TYL1710",
-      "descripcion": "TOALLITAS HUMEDAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1400
-    },
-    {
-      "id": "TYL1711",
-      "descripcion": "TOALLITAS HUMEDAS C/ALOE VERA",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1400
-    },
-    {
-      "id": "TYL1715BU",
-      "descripcion": "TOALLITAS ANTIBAC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 1400
-    },
-    {
-      "id": "TYL1728",
-      "descripcion": "TOALLITAS MICELARES",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45391,
@@ -111224,38 +111488,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45391,
       "precio": 650
-    },
-    {
-      "id": "TYL1999",
-      "descripcion": "SALES DE BAÑO BICOLOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 3600
-    },
-    {
-      "id": "TYL19992",
-      "descripcion": "SAL DE BAÑO BICOLOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 3600
-    },
-    {
-      "id": "TYL19993",
-      "descripcion": "SAL DE BAÑO BICOLOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 3600
-    },
-    {
-      "id": "TYL19994",
-      "descripcion": "SAL BAÑO BICOLOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45391,
-      "precio": 3600
     },
     {
       "id": "HB101598",
@@ -115161,14 +115393,6 @@
       "precio": 6450
     },
     {
-      "id": "SO134178",
-      "descripcion": "PAVA ENLOZ M/PLASTICO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45371,
-      "precio": 15900
-    },
-    {
       "id": "TLY2060",
       "descripcion": "LIMPIEZA FACIAL ARROZ",
       "lista": "LISTA1",
@@ -119057,14 +119281,6 @@
       "precio": 28900
     },
     {
-      "id": "TYL1120",
-      "descripcion": "MASACRA P/PESTAÑAS TRANSP",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45362,
-      "precio": 2700
-    },
-    {
       "id": "8904234400600",
       "descripcion": "SAHUMERIO AGARBATTI",
       "lista": "LISTA1",
@@ -119481,30 +119697,6 @@
       "precio": 1200
     },
     {
-      "id": "TYL0290",
-      "descripcion": "TOALLITAS HUMEDAS UNICORNIO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45358,
-      "precio": 1150
-    },
-    {
-      "id": "TYL0405",
-      "descripcion": "TOALLITAS HUMEDAS ANTIBACTERIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45358,
-      "precio": 1150
-    },
-    {
-      "id": "TYL1708",
-      "descripcion": "TOALLITAS HUMEDAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45358,
-      "precio": 1150
-    },
-    {
       "id": "883314543568",
       "descripcion": "COPA BALON VINA 700CC",
       "lista": "LISTA1",
@@ -119543,22 +119735,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45356,
       "precio": 800
-    },
-    {
-      "id": "7798354465516",
-      "descripcion": "QYUITA ESMALTE S/ACETONA 50ML",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 1600
-    },
-    {
-      "id": "7798354465523",
-      "descripcion": "QUITA ESMALTE FORTALECEDOR",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 1600
     },
     {
       "id": "7798354465875",
@@ -119609,22 +119785,6 @@
       "precio": 950
     },
     {
-      "id": "TYL1825",
-      "descripcion": "LOCION HIDRATANTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 4400
-    },
-    {
-      "id": "TYL1836",
-      "descripcion": "SERUM FACIAL HIDRATANTE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 4950
-    },
-    {
       "id": "TYL1915",
       "descripcion": "SANITIANTE PARA MANOS",
       "lista": "LISTA1",
@@ -119633,52 +119793,12 @@
       "precio": 1000
     },
     {
-      "id": "TYL1988A",
-      "descripcion": "MANTECA CORPORAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 2950
-    },
-    {
-      "id": "TYL1988C",
-      "descripcion": "MANTECA CORPORAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 2950
-    },
-    {
-      "id": "TYL1988M",
-      "descripcion": "MANTECA CORPORAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 2950
-    },
-    {
-      "id": "TYL1988R",
-      "descripcion": "MANTECA CORPORAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 2950
-    },
-    {
       "id": "TYL2045",
       "descripcion": "GEL LIMPIEZA FACIAL",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45356,
       "precio": 3900
-    },
-    {
-      "id": "TYL2060",
-      "descripcion": "GEL LIMPIEZA FACIAL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45356,
-      "precio": 4150
     },
     {
       "id": "6946992710241",
@@ -130135,38 +130255,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45295,
       "precio": 3100
-    },
-    {
-      "id": "TYL19901",
-      "descripcion": "SAL DE BAÑO DISCO UNIC",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 2450
-    },
-    {
-      "id": "TYL19902",
-      "descripcion": "SAL DE BAÑO DISCO VIOL",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 2450
-    },
-    {
-      "id": "TYL19903",
-      "descripcion": "SAL DE BAÑO  DISCO GATITO",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 2450
-    },
-    {
-      "id": "TYL19904",
-      "descripcion": "SAL DE BAÑO DISCO VERDE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45295,
-      "precio": 2450
     },
     {
       "id": "147186804P",
