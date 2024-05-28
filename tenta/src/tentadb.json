@@ -1,5 +1,157 @@
 [
     {
+      "id": "PO608",
+      "descripcion": "TENDER PIE 8 VARILLAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 19900
+    },
+    {
+      "id": "PO609",
+      "descripcion": "TENDER  REFORZADO C/ALAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 25900
+    },
+    {
+      "id": "PO614",
+      "descripcion": "TENDER REORZADO 8 VARILLAS",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 32900
+    },
+    {
+      "id": "PO625",
+      "descripcion": "TENDER REFORZADO C/ALAS NE",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 44900
+    },
+    {
+      "id": "SO198642",
+      "descripcion": "SECAPLATOS MILAN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 37900
+    },
+    {
+      "id": "SO300180",
+      "descripcion": "ALFOMBRA P/BAÑO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 7200
+    },
+    {
+      "id": "SO93230",
+      "descripcion": "MOLDE ANTIADH  32*22CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 4700
+    },
+    {
+      "id": "SO93233",
+      "descripcion": "MOLDE P/TARTA DESMONT 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 4550
+    },
+    {
+      "id": "SO93237",
+      "descripcion": "FLANERA ANTIADH",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 6050
+    },
+    {
+      "id": "SO93239",
+      "descripcion": "MOLDE BASE DESMONTABLE 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 9050
+    },
+    {
+      "id": "SO93240",
+      "descripcion": "MOLDE TARTA 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 4100
+    },
+    {
+      "id": "SO93243",
+      "descripcion": "FLANERA INDIVIDUAL X6",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 6050
+    },
+    {
+      "id": "SO93245",
+      "descripcion": "MOLDE SAVARIN 23CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 8400
+    },
+    {
+      "id": "SO93249",
+      "descripcion": "MOLDE RECT 22*32",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 5750
+    },
+    {
+      "id": "SO93250",
+      "descripcion": "MOLDE ANTIADH 37*25CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 6900
+    },
+    {
+      "id": "SO93251",
+      "descripcion": "MOLDE ANTIADH 42*28",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 8650
+    },
+    {
+      "id": "SO93253",
+      "descripcion": "FLANERA ANTIADH",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 7600
+    },
+    {
+      "id": "SO93254",
+      "descripcion": "MOLDE BASE DESMONTBLE 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 11100
+    },
+    {
+      "id": "SO93255",
+      "descripcion": "MOLDE SAVARIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 10200
+    },
+    {
       "id": " DEC1532",
       "descripcion": "PILOTO ADULTO",
       "lista": "LISTA1",
@@ -12040,11 +12192,11 @@
     },
     {
       "id": "4894130969407",
-      "descripcion": "MOLDE RECT ANTIADHE",
+      "descripcion": "MOLDE ANTIADH  32*22CM",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45440,
-      "precio": 4500
+      "precio": 4700
     },
     {
       "id": "4894130969414",
@@ -12064,11 +12216,11 @@
     },
     {
       "id": "4894130969438",
-      "descripcion": "TARTERA DESMONTABLE 20CM",
+      "descripcion": "MOLDE P/TARTA DESMONT 20CM",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45440,
-      "precio": 4200
+      "precio": 4550
     },
     {
       "id": "4894130969445",
@@ -12095,6 +12247,14 @@
       "precio": 2100
     },
     {
+      "id": "4894130969476",
+      "descripcion": "FLANERA ANTIADH",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 6050
+    },
+    {
       "id": "4894130969483",
       "descripcion": "MLDE P/MUFFINS X6",
       "lista": "LISTA1",
@@ -12104,11 +12264,19 @@
     },
     {
       "id": "4894130969490",
-      "descripcion": "MOLDE P/TORTA DESMONTABLE",
+      "descripcion": "MOLDE BASE DESMONTABLE 24CM",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45440,
-      "precio": 8400
+      "precio": 9050
+    },
+    {
+      "id": "4894130969506",
+      "descripcion": "MOLDE TARTA 20CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 4100
     },
     {
       "id": "4894130969513",
@@ -12117,6 +12285,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45440,
       "precio": 4200
+    },
+    {
+      "id": "4894130969537",
+      "descripcion": "FLANERA INDIVIDUAL X6",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 6050
     },
     {
       "id": "4894130969544",
@@ -12247,11 +12423,11 @@
     },
     {
       "id": "4894130970304",
-      "descripcion": "SAVARIN TEFLON YO COCINO 23*11",
+      "descripcion": "MOLDE SAVARIN 23CM",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45440,
-      "precio": 2150
+      "precio": 8400
     },
     {
       "id": "4894130970311",
@@ -12268,6 +12444,54 @@
       "listadesc": "PUBLICO",
       "vigencia": 45440,
       "precio": 1850
+    },
+    {
+      "id": "4894130970342",
+      "descripcion": "MOLDE RECT 22*32",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 5750
+    },
+    {
+      "id": "4894130970359",
+      "descripcion": "MOLDE ANTIADH 37*25CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 6900
+    },
+    {
+      "id": "4894130970366",
+      "descripcion": "MOLDE ANTIADH 42*28",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 8650
+    },
+    {
+      "id": "4894130970380",
+      "descripcion": "FLANERA ANTIADH",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 7600
+    },
+    {
+      "id": "4894130970397",
+      "descripcion": "MOLDE BASE DESMONTBLE 24CM",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 11100
+    },
+    {
+      "id": "4894130970403",
+      "descripcion": "MOLDE SAVARIN",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 10200
     },
     {
       "id": "4894130970687",
@@ -12644,6 +12868,14 @@
       "listadesc": "PUBLICO",
       "vigencia": 45440,
       "precio": 2400
+    },
+    {
+      "id": "4894130978195",
+      "descripcion": "ALFOMBRA P/BAÑO",
+      "lista": "LISTA1",
+      "listadesc": "PUBLICO",
+      "vigencia": 45440,
+      "precio": 7200
     },
     {
       "id": "4894457",
@@ -50921,7 +51153,7 @@
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45440,
-      "precio": 33000
+      "precio": 37900
     },
     {
       "id": "7792104158604",
@@ -59141,27 +59373,27 @@
     },
     {
       "id": "7798019846087",
-      "descripcion": "TENDER PLEGABLE",
+      "descripcion": "TENDER PIE 8 VARILLAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45440,
-      "precio": 11300
+      "precio": 19900
     },
     {
       "id": "7798019846094",
-      "descripcion": "TENDER PLEGABLE C/ALAS",
+      "descripcion": "TENDER  REFORZADO C/ALAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45440,
-      "precio": 30900
+      "precio": 25900
     },
     {
       "id": "7798019846148",
-      "descripcion": "TENDER REFORZADO",
+      "descripcion": "TENDER REORZADO 8 VARILLAS",
       "lista": "LISTA1",
       "listadesc": "PUBLICO",
       "vigencia": 45440,
-      "precio": 20550
+      "precio": 32900
     },
     {
       "id": "7798019846247",
@@ -104641,14 +104873,6 @@
       "precio": 4500
     },
     {
-      "id": "PO609",
-      "descripcion": "TENDER PLEGABLE C/ALAS",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45422,
-      "precio": 30900
-    },
-    {
       "id": "RH31",
       "descripcion": "ESPEJO M/4 40X50",
       "lista": "LISTA1",
@@ -131608,14 +131832,6 @@
       "precio": 19900
     },
     {
-      "id": "SO198642",
-      "descripcion": "SECAPLATOS MILAN",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45297,
-      "precio": 33000
-    },
-    {
       "id": "SO63118A",
       "descripcion": "COLADOR ACERO M/PLASTICO",
       "lista": "LISTA1",
@@ -131672,22 +131888,6 @@
       "precio": 5300
     },
     {
-      "id": "SO93230",
-      "descripcion": "MOLDE RECT ANTIADHE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45297,
-      "precio": 4500
-    },
-    {
-      "id": "SO93233",
-      "descripcion": "TARTERA DESMONTABLE 20CM",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45297,
-      "precio": 4200
-    },
-    {
       "id": "SO93234",
       "descripcion": "TARTERA DESMONTABLE 26CM",
       "lista": "LISTA1",
@@ -131702,14 +131902,6 @@
       "listadesc": "PUBLICO",
       "vigencia": 45297,
       "precio": 4200
-    },
-    {
-      "id": "SO93239",
-      "descripcion": "MOLDE P/TORTA DESMONTABLE",
-      "lista": "LISTA1",
-      "listadesc": "PUBLICO",
-      "vigencia": 45297,
-      "precio": 8400
     },
     {
       "id": "SO93241",
