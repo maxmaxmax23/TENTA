@@ -11,11 +11,12 @@ function App() {
   const [codigoAr, setCodigoAr] = useState(0);
   let [isOpen, setIsOpen] = useState(false)
 
- // Helper function to convert Excel serial number to Date
-  const convertExcelDate = (serial) => {
-    const excelBaseDate = new Date(1899, 11, 30); // December 30, 1899
-    return new Date(excelBaseDate.getTime() + serial * 86400000).toLocaleDateString();
-  };
+// Helper function to convert Excel serial number to Date in dd/mm/yy format
+const convertExcelDate = (serial) => {
+  const excelBaseDate = new Date(1899, 11, 30); // December 30, 1899
+  const date = new Date(excelBaseDate.getTime() + serial * 86400000);
+  return new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }).format(date);
+};
 
   useEffect(() => {
     const scanner = new Html5QrcodeScanner('reader', {
