@@ -69,9 +69,9 @@ function App() {
                       ))}
                     </div>
                     <div className="justify-self-center mt-1 text-xl font-semibold uppercase leading-tight truncate">
-                      {Lista.filter((precio) => precio.id === scanResult && precio.fecha).map((precio) => (
-                        <div key={precio.fecha}>
-                          {convertExcelDate(precio.fecha)}
+                      {Lista.filter((precio) => precio.id === scanResult && precio.vigencia).map((precio) => (
+                        <div key={precio.vigencia}>
+                          {convertExcelDate(precio.vigencia)}
                         </div>
                       ))}
                     </div>
