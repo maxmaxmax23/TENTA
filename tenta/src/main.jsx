@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './App.css';
 import tentaLogo from './assets/tenta.svg';
-import tentalogov2Light from './assets/glowupLogoLight.png';
-import tentalogov2Dark from './assets/glowupLogoDark.png'
+import glowupLogoLight from './assets/glowupLogoLight.png';
+import glowupLogoDark from './assets/glowupLogoDark.png'
 
 function Main() {
   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
