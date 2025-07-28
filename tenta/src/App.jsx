@@ -52,7 +52,7 @@ const convertExcelDate = (serial) => {
   <div>
     CODIGO:
     <Popover className="relative">
-      <Popover.Button className="px-1.5em py-2em text-lg text-logo-shaddow font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-pink-shaddow hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">
+      <Popover.Button className="px-1.5em py-2em text-lg bg-white text-black font-semibold rounded-full border border-black active:text-white active:bg-black active:border-blue-600">
         {scanResult}
       </Popover.Button>
 
