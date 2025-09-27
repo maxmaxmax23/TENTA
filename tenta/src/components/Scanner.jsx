@@ -1,4 +1,3 @@
-// src/components/Scanner.js
 import { useEffect } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 
@@ -14,7 +13,7 @@ function Scanner({ onScan }) {
     scanner.render(
       (result) => {
         scanner.clear();
-        onScan(String(result)); // send scanned code to parent
+        onScan(String(result));
       },
       (err) => {
         console.warn(err);
