@@ -1,4 +1,3 @@
-// src/components/ProductUploader.js
 import { useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
@@ -15,19 +14,15 @@ function ProductUploader({ scannedCode }) {
   const handleUpload = async () => {
     if (!image || !scannedCode) return;
     setUploading(true);
-
     try {
       const storageRef = ref(storage, `products/${scannedCode}.jpg`);
       await uploadBytes(storageRef, image);
-
       const url = await getDownloadURL(storageRef);
-
       await setDoc(doc(db, "products", scannedCode), {
         sku: scannedCode,
         imageUrl: url,
         uploadedAt: new Date()
       });
-
       alert("Image uploaded successfully!");
       setImage(null);
     } catch (err) {
