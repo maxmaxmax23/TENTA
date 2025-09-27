@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Popover } from "@headlessui/react";
 import Login from "./components/Login.jsx";
-import ProductUploader from "./components/ProductUploader.jsx";
 import Scanner from "./components/Scanner.jsx";
+import ProductUploader from "./components/ProductUploader.jsx";
 import Lista from "./tentadb.json"; // Vite supports JSON imports
 
 function App() {
