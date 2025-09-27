@@ -1,21 +1,19 @@
-// src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
-import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBRTvATe5LG7LNb05AqTTYpAV53Y6B6td0",
-  authDomain: "glowupbb-7b7bc.firebaseapp.com",
-  projectId: "glowupbb-7b7bc",
-  storageBucket: "glowupbb-7b7bc.firebasestorage.app",
-  messagingSenderId: "744754651075",
-  appId: "1:744754651075:web:4b7052c6effcbbe384e776",
-  measurementId: "G-84S8472RN2"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
 
-export const storage = getStorage(app);
-export const db = getFirestore(app);
 export const auth = getAuth(app);
+export const db = getFirestore(app);
+export const storage = getStorage(app);
