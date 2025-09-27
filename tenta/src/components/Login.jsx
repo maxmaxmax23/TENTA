@@ -1,4 +1,3 @@
-// src/components/Login.js
 import { useState } from "react";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase";
@@ -12,7 +11,7 @@ function Login({ onLogin }) {
     e.preventDefault();
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, password);
-      onLogin(userCred.user); // send user back to App
+      onLogin(userCred.user);
     } catch (err) {
       setError("Login failed: " + err.message);
     }
