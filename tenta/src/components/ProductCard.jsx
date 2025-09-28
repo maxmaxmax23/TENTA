@@ -1,47 +1,10 @@
-import { useState, useEffect } from "react";
-import ProductUploader from "./ProductUploader.jsx";
-import { ref, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebase.js";
-
-export default function ProductCard({ scannedCode }) {
-  const [product, setProduct] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
-
-  useEffect(() => {
-    fetch("/tentadb.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const p = data.find((item) => item.id === scannedCode);
-        setProduct(p || null);
-      });
-
-    const imageRef = ref(storage, `product-images/${scannedCode}`);
-    getDownloadURL(imageRef)
-      .then((url) => setImageUrl(url))
-      .catch(() => setImageUrl(null));
-  }, [scannedCode]);
-
-  if (!product) {
-    return (
-      <div className="mt-4 p-4 bg-white rounded shadow w-full max-w-md text-center">
-        No data found for <strong>{scannedCode}</strong>.
-      </div>
-    );
-  }
-
+export default function ProductCard({ product, imageUrl }) {
   return (
-    <div className="mt-4 p-4 bg-white rounded shadow w-full max-w-md">
-      <h2 className="text-xl font-bold">{product.descripcion}</h2>
-      <p className="text-lg font-semibold">${product.precio}</p>
-
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt="SKU"
-          className="mt-2 w-32 h-32 object-cover rounded shadow"
-        />
-      ) : (
-        <ProductUploader scannedCode={scannedCode} />
+    <div className="flex flex-col items-center p-4 bg-black/70 rounded-lg shadow-lg">
+      <h3 className="text-gold font-semibold">{product.descripcion}</h3>
+      <p className="text-white">Precio: ${product.precio}</p>
+      {imageUrl && (
+        <img src={imageUrl} alt={product.descripcion} className="w-32 h-32 object-cover mt-2 rounded-md" />
       )}
     </div>
   );

@@ -2,21 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --gold: #FFD700;
+}
+
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: black;
-  color: gold;
+  @apply bg-black text-white font-sans min-h-screen;
 }
 
 .text-gold {
-  color: #d4af37;
+  color: var(--gold);
 }
 
-.bg-gold {
-  background-color: #d4af37;
+/* Animations */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-input, button {
-  font-family: 'Poppins', sans-serif;
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.4s ease-out forwards;
 }

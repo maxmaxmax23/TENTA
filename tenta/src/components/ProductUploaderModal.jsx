@@ -1,11 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import tentadb from '../tentadb.json';
+import { storage } from '../firebase.js';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from './firebase.js';
 
-export default function ProductUploaderModal({ product, onClose }) {
+export default function ProductUploaderModal({ scannedCode, resetScanner }) {
+  const [product, setProduct] = useState(null);
   const [file, setFile] = useState(null);
-  const [imageURL, setImageURL] = useState(product?.image || '');
+  const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const found = tentadb.find((item) => item.id === scannedCode);
+    setProduct(found || { id: scannedCode, descripcion: 'No data found', precio: 0 });
+  }, [scannedCode]);
 
   const handleUpload = async () => {
     if (!file) return;
@@ -13,35 +20,34 @@ export default function ProductUploaderModal({ product, onClose }) {
     const storageRef = ref(storage, `products/${product.id}`);
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
-    setImageURL(url);
+    setImageUrl(url);
     setLoading(false);
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex flex-col items-center justify-center p-4">
-      <div className="bg-black/90 p-6 rounded-xl w-11/12 max-w-md flex flex-col items-center gap-4">
-        <h2 className="text-gold text-xl font-bold">{product?.descripcion}</h2>
-        {imageURL ? (
-          <img src={imageURL} alt="Thumbnail" className="w-40 h-40 object-cover rounded-md" />
-        ) : (
-          <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files[0])} />
-        )}
-        {loading && <p className="text-white">Cargando...</p>}
-        <div className="flex gap-4 mt-4">
-          <button
-            onClick={handleUpload}
-            className="bg-gold text-black px-4 py-2 rounded-md font-semibold hover:bg-yellow-500 transition"
-          >
-            Upload
-          </button>
-          <button
-            onClick={onClose}
-            className="bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition"
-          >
-            Escanear Otro
-          </button>
-        </div>
-      </div>
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-start p-4 bg-black/90 overflow-auto animate-fade-in-down">
+      <h2 className="text-2xl font-bold text-gold mt-6">{product?.descripcion}</h2>
+      <p className="text-white mt-2">Precio: ${product?.precio}</p>
+      {imageUrl && <img src={imageUrl} alt="Product" className="w-40 h-40 object-cover mt-4 rounded-md shadow-lg" />}
+      <input
+        type="file"
+        accept="image/*"
+        capture="environment"
+        className="mt-4"
+        onChange={(e) => setFile(e.target.files[0])}
+      />
+      <button
+        onClick={handleUpload}
+        className="mt-4 py-2 px-6 bg-gold text-black font-semibold rounded hover:brightness-110 transition"
+      >
+        {loading ? 'Cargando...' : 'Subir Foto'}
+      </button>
+      <button
+        onClick={resetScanner}
+        className="mt-4 py-2 px-6 bg-gray-700 text-white font-semibold rounded hover:brightness-110 transition"
+      >
+        Escanear otro
+      </button>
     </div>
   );
 }
