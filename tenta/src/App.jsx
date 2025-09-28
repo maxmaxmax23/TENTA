@@ -4,54 +4,37 @@ import Scanner from "./components/Scanner.jsx";
 import ProductUploaderModal from "./components/ProductUploaderModal.jsx";
 import Lista from "./tentadb.json";
 
-function App() {
+export default function App() {
   const [user, setUser] = useState(null);
   const [scanResult, setScanResult] = useState(null);
   const [showUploader, setShowUploader] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (user) => setUser(user);
-  const handleScan = (code) => {
-    setScanResult(code);
+  const handleScan = (result) => {
+    setScanResult(result);
     setShowUploader(true);
   };
+
   const handleUploadComplete = () => {
     setShowUploader(false);
+    setScanResult(null);
     setLoading(false);
-    setScanResult(null); // Reset for next scan
   };
 
-  const productInfo = scanResult
-    ? Lista.find((item) => item.id === scanResult)
-    : null;
+  if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <div className="w-full flex flex-col items-center p-4 space-y-6">
-      {!user && (
-        <div className="animate-fade-in">
-          <Login onLogin={handleLogin} />
-        </div>
+    <div className="w-full h-screen flex flex-col items-center justify-center relative">
+      {!scanResult && <Scanner onScan={handleScan} />}
+      {showUploader && (
+        <ProductUploaderModal
+          scanResult={scanResult}
+          productInfo={Lista.find((p) => p.id === scanResult)}
+          onUploadComplete={handleUploadComplete}
+          setLoading={setLoading}
+        />
       )}
-      {user && !scanResult && (
-        <div className="animate-fade-in">
-          <Scanner onScan={handleScan} />
-        </div>
-      )}
-      {loading && (
-        <div className="text-lg text-center mt-4 animate-pulse">Cargando...</div>
-      )}
-      {showUploader && scanResult && (
-        <div className="animate-slide-up">
-          <ProductUploaderModal
-            scanResult={scanResult}
-            productInfo={productInfo}
-            onUploadComplete={handleUploadComplete}
-            setLoading={setLoading}
-          />
-        </div>
-      )}
+      {loading && <p className="loading">Cargando...</p>}
     </div>
   );
 }
-
-export default App;

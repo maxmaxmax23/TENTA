@@ -2,20 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Animations */
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-up { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
+.animate-slide-up { animation: slide-up 0.5s ease-out forwards; }
+
+/* Luxury Colors */
+:root {
+  --gold: #d4af37;
+  --black-lux: #0b0b0b;
 }
 
-@keyframes slide-up {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+body {
+  @apply bg-black-lux text-gold font-poppins flex flex-col items-center justify-start min-h-screen p-0 m-0;
 }
 
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
+button {
+  @apply rounded-full font-semibold text-black bg-gold px-6 py-2 transition transform hover:scale-105 hover:bg-yellow-500 active:scale-95;
 }
 
-.animate-slide-up {
-  animation: slide-up 0.5s ease-out forwards;
+input[type="file"] {
+  @apply text-gold border border-gold rounded-lg p-2 cursor-pointer;
+}
+
+.modal-card {
+  @apply bg-black-lux border border-gold rounded-2xl p-4 w-full flex flex-col items-center space-y-4 shadow-xl animate-slide-up;
+}
+
+.scanner-box {
+  @apply w-full h-full flex flex-col items-center justify-center p-2 animate-fade-in;
+}
+
+.text-gold { color: var(--gold); }
+.text-center { text-align: center; }
+
+.loading {
+  @apply animate-pulse text-lg mt-4 text-gold;
+}
+
+input, button {
+  @apply w-11/12 max-w-sm;
 }

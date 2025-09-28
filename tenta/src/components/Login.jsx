@@ -18,9 +18,9 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen animate-fade-in">
-      <h1 className="text-3xl font-bold text-gold mb-6">Iniciar Sesión</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-sm space-y-4">
+    <div className="flex flex-col items-center justify-center w-full h-screen animate-fade-in p-4">
+      <h1 className="text-4xl font-bold text-gold mb-6">Iniciar Sesión</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col items-center w-full max-w-sm space-y-4">
         <input
           type="email"
           placeholder="Correo"
@@ -35,7 +35,7 @@ export default function Login({ onLogin }) {
           onChange={(e) => setPassword(e.target.value)}
           className="p-3 rounded-lg border border-gold bg-black-lux text-gold placeholder-gold focus:outline-none focus:ring-2 focus:ring-gold"
         />
-        {error && <p className="text-red-500 text-center">{error}</p>}
+        {error && <p className="text-red-500">{error}</p>}
         <button type="submit">Entrar</button>
       </form>
     </div>

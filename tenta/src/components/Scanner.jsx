@@ -3,7 +3,7 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 
 export default function Scanner({ onScan }) {
   useEffect(() => {
-    const scanner = new Html5QrcodeScanner("reader", { 
+    const scanner = new Html5QrcodeScanner("reader", {
       fps: 10,
       qrbox: { width: 250, height: 250 },
       aspectRatio: 1
@@ -21,9 +21,9 @@ export default function Scanner({ onScan }) {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center scanner-box">
-      <div id="reader" className="w-full h-64"></div>
-      <p className="text-gold mt-2 text-center text-lg">Escanea un código o QR</p>
+    <div className="w-full h-screen flex flex-col items-center justify-center scanner-box">
+      <div id="reader" className="w-full h-3/4 max-h-[500px]"></div>
+      <p className="text-gold mt-4 text-lg text-center">Escanea un código o QR</p>
     </div>
   );
 }
