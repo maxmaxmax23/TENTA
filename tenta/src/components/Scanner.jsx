@@ -1,27 +1,23 @@
-import { useEffect } from "react";
-import { Html5QrcodeScanner } from "html5-qrcode";
+import React from "react";
+import { BrowserMultiFormatReader } from "@zxing/library";
+import { useState, useEffect } from "react";
+import { useZxing } from "react-zxing";
 
-function Scanner({ onScan }) {
-  useEffect(() => {
-    const scanner = new Html5QrcodeScanner("reader", {
-      qrbox: { width: 250, height: 250 },
-      fps: 10,
-      aspectRatio: 2,
-      focusMode: "continuous",
-    });
+export default function Scanner({ onScan }) {
+  const { ref } = useZxing({
+    onResult(result) {
+      if (result) onScan(result.getText());
+    },
+    constraints: { facingMode: "environment" },
+  });
 
-    scanner.render(
-      (result) => {
-        scanner.clear();
-        onScan(String(result));
-      },
-      (err) => {
-        console.warn(err);
-      }
-    );
-  }, [onScan]);
-
-  return <div id="reader"></div>;
+  return (
+    <div style={{ margin: "1rem 0" }}>
+      <h2>Scan Product SKU</h2>
+      <video ref={ref} style={{ width: "100%" }} />
+      <p style={{ fontSize: "0.9rem", color: "#666" }}>
+        Point your camera at a barcode or QR code.
+      </p>
+    </div>
+  );
 }
-
-export default Scanner;
