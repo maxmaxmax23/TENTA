@@ -1,32 +1,79 @@
-import { useState } from 'react';
-import Login from './components/Login.jsx';
-import Scanner from './components/Scanner.jsx';
-import './App.css';
+import { useState } from "react";
+import Scanner from "./components/Scanner.jsx";
+import ProductUploaderModal from "./components/ProductUploaderModal.jsx";
+import Lista from "./tentadb.json"; // Your product database
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase";
 
-function App() {
-  const [user, setUser] = useState(null); // Logged-in user
-  const [scannerVisible, setScannerVisible] = useState(false);
+export default function App() {
+  const [user, setUser] = useState(null);
+  const [scanResult, setScanResult] = useState(null);
 
-  const handleLogin = (loggedInUser) => {
-    setUser(loggedInUser);
-    setScannerVisible(true);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+
+  // Login handler
+  const handleLogin = async () => {
+    try {
+      const res = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+      setUser(res.user);
+    } catch (err) {
+      setLoginError("Email o contraseña incorrectos");
+    }
   };
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-black text-gold px-4">
-      {!user && (
-        <div className="flex flex-col items-center justify-center min-h-screen w-full">
-          <Login onLogin={handleLogin} />
-        </div>
-      )}  
+  // Reset scanner for "Escanear otro"
+  const resetScanner = () => {
+    setScanResult(null);
+  };
 
-      {scannerVisible && (
-      <div className="flex flex-col items-center justify-start min-h-screen w-full pt-6 animate-fade-in">
-      <Scanner key={user.uid} />
+  const currentItem = scanResult
+    ? Lista.find((item) => item.id === scanResult)
+    : null;
+
+  // --- Render ---
+  if (!user) {
+    return (
+      <div className="fixed inset-0 flex flex-col items-center justify-center bg-black p-6 text-gold">
+        <h1 className="text-3xl font-bold mb-6">Login</h1>
+        <input
+          type="email"
+          placeholder="Email"
+          value={loginEmail}
+          onChange={(e) => setLoginEmail(e.target.value)}
+          className="w-full max-w-xs p-3 mb-4 rounded-md text-black"
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={loginPassword}
+          onChange={(e) => setLoginPassword(e.target.value)}
+          className="w-full max-w-xs p-3 mb-4 rounded-md text-black"
+        />
+        <button
+          onClick={handleLogin}
+          className="bg-gold text-black px-6 py-3 rounded-md font-semibold hover:animate-pulse-gold transition"
+        >
+          Entrar
+        </button>
+        {loginError && <p className="text-red-500 mt-3">{loginError}</p>}
       </div>
+    );
+  }
+
+  // --- Main scanner flow ---
+  return (
+    <>
+      {!scanResult && <Scanner onScan={setScanResult} />}
+
+      {scanResult && (
+        <ProductUploaderModal
+          code={scanResult}
+          item={currentItem}
+          onClose={resetScanner}
+        />
       )}
-    </div>
+    </>
   );
 }
-
-export default App;

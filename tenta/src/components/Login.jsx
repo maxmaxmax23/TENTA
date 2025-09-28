@@ -1,51 +1,60 @@
-import { useState, useEffect } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase.js';
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 export default function Login({ onLogin }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [animate, setAnimate] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  useEffect(() => {
-    setAnimate(true);
-  }, []);
-
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      onLogin(userCredential.user);
+      await signInWithEmailAndPassword(auth, email, password);
+      onLogin();
     } catch (err) {
-      setError('Login failed');
-      console.error(err);
+      setError("Correo o contraseña incorrectos");
     }
   };
 
   return (
-    <div className={`flex flex-col items-center justify-center w-full max-w-sm mx-auto p-6 gap-4 animate-fade-slide-up`}>
-      <h1 className="text-3xl font-bold mb-6 text-center">Iniciar Sesión</h1>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        className="w-full p-3 rounded-md text-black"
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        className="w-full p-3 rounded-md text-black"
-      />
-      {error && <p className="text-red-500">{error}</p>}
-      <button
-        onClick={handleLogin}
-        className="w-full bg-gold text-black py-3 rounded-md font-semibold hover:bg-yellow-500 transition-colors"
-      >
-        Entrar
-      </button>
+    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center px-6">
+      <div className="w-full max-w-md text-center animate-fade-slide-up">
+        <h1 className="text-4xl font-bold text-gold mb-6">Bienvenido</h1>
+
+        {error && (
+          <p className="text-red-500 mb-4 font-semibold animate-fade-in">{error}</p>
+        )}
+
+        <form
+          onSubmit={handleLogin}
+          className="flex flex-col space-y-4 bg-black/90 p-6 rounded-2xl border-2 border-gold"
+        >
+          <input
+            type="email"
+            placeholder="Correo"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="p-3 rounded-md border border-gold bg-black text-gold placeholder-gold focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="p-3 rounded-md border border-gold bg-black text-gold placeholder-gold focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+            required
+          />
+          <button
+            type="submit"
+            className="py-3 bg-gold text-black font-semibold rounded-md hover:bg-yellow-500 hover:animate-pulse-gold transition"
+          >
+            Ingresar
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

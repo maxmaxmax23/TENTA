@@ -1,36 +1,37 @@
-import { useEffect, useState } from 'react';
-import { Html5QrcodeScanner } from 'html5-qrcode';
-import Lista from '../tentadb.json';
-import ProductUploaderModal from './ProductUploaderModal.jsx';
+import { useEffect, useRef } from "react";
+import { Html5QrcodeScanner } from "html5-qrcode";
 
-export default function Scanner() {
-  const [scanResult, setScanResult] = useState(null);
+export default function Scanner({ onScan }) {
+  const scannerRef = useRef(null);
 
   useEffect(() => {
-    const scanner = new Html5QrcodeScanner('reader', {
+    const scanner = new Html5QrcodeScanner("reader", {
       qrbox: { width: 250, height: 250 },
       fps: 10,
       aspectRatio: 1,
+      rememberLastUsedCamera: true,
     });
 
-    scanner.render(
-      (result) => {
-        scanner.clear();
-        setScanResult(result);
-      },
-      (err) => console.warn(err)
-    );
+    const success = (decodedText) => {
+      scanner.clear();
+      onScan(decodedText);
+    };
 
-    return () => scanner.clear(); // cleanup
-  }, []);
+    const error = (err) => {
+      console.warn(err);
+    };
+
+    scanner.render(success, error);
+
+    return () => scanner.clear();
+  }, [onScan]);
 
   return (
-    <div className="flex flex-col items-center">
-      {!scanResult && <div id="reader" className="w-full max-w-md h-64 bg-black rounded-lg"></div>}
-
-      {scanResult && (
-        <ProductUploaderModal code={scanResult} onReset={() => setScanResult(null)} />
-      )}
+    <div className="w-full h-screen flex flex-col items-center justify-center animate-fade-in bg-blackBg">
+      <h2 className="text-gold text-xl mb-4 font-semibold">
+        Escanea el SKU o QR
+      </h2>
+      <div id="reader" className="w-full max-w-md rounded-md overflow-hidden shadow-lg" />
     </div>
   );
 }

@@ -2,62 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-darkbg text-gold font-poppins min-h-screen flex justify-center items-center;
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #FFD700;
 }
 
-button, input {
-  @apply rounded-xl border-gold focus:ring-2 focus:ring-gold transition-all duration-300;
-}
-
-input {
-  @apply p-3 bg-darkbg text-gold placeholder-gold border;
+input, button {
+  font-family: 'Poppins', sans-serif;
 }
 
 button {
-  @apply p-3 font-semibold bg-gold text-black hover:bg-yellow-500 active:scale-95 shadow-gold-glow;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-img {
-  @apply rounded-xl shadow-gold-glow;
+.bg-gold {
+  background-color: #FFD700;
 }
 
-#reader {
-  @apply w-full max-w-md h-80 rounded-xl border-2 border-gold shadow-gold-glow;
+.text-gold {
+  color: #FFD700;
 }
 
-.modal-panel {
-  @apply bg-darkbg border-2 border-gold rounded-2xl p-5 shadow-gold-glow;
+.text-black {
+  color: #000;
 }
 
-/* Animation for fade-in */
-@keyframes fade-slide-up {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.bg-blackBg {
+  background-color: #000;
 }
 
-.animate-fade-slide-up {
-  animation: fade-slide-up 0.6s ease-out forwards;
+.modal-backdrop {
+  @apply fixed inset-0 bg-black/70 flex items-center justify-center;
 }
 
-/* Scanner fade-in animation */
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
+.modal-card {
+  @apply bg-black rounded-lg p-6 max-w-xs w-full text-gold shadow-xl animate-slide-up;
 }
