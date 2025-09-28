@@ -1,59 +1,29 @@
-import { useState } from "react";
-import { storage } from "../firebase";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { useEffect } from "react";
+import { Html5QrcodeScanner } from "html5-qrcode";
 
-export default function ProductUploaderModal({ code, item, onClose }) {
-  const [imageFile, setImageFile] = useState(null);
-  const [uploadedUrl, setUploadedUrl] = useState(item?.photoUrl || null);
-  const [uploading, setUploading] = useState(false);
+export default function Scanner({ onScan }) {
+  useEffect(() => {
+    const scanner = new Html5QrcodeScanner("reader", { 
+      fps: 10,
+      qrbox: { width: 250, height: 250 },
+      aspectRatio: 1
+    });
 
-  const handleFileChange = (e) => {
-    if (e.target.files[0]) setImageFile(e.target.files[0]);
-  };
+    scanner.render(
+      (result) => {
+        scanner.clear();
+        onScan(result);
+      },
+      (err) => console.warn(err)
+    );
 
-  const handleUpload = async () => {
-    if (!imageFile) return;
-    setUploading(true);
-    const storageRef = ref(storage, `products/${code}.jpg`);
-    await uploadBytes(storageRef, imageFile);
-    const url = await getDownloadURL(storageRef);
-    setUploadedUrl(url);
-    setUploading(false);
-  };
+    return () => scanner.clear();
+  }, []);
 
   return (
-    <div className="modal-backdrop">
-      <div className="modal-card">
-        <h3 className="text-xl font-bold mb-3">{item?.descripcion || "Producto desconocido"}</h3>
-        <p className="mb-3">SKU: {code}</p>
-
-        {uploadedUrl ? (
-          <img src={uploadedUrl} alt="Producto" className="w-full rounded-md mb-3" />
-        ) : (
-          <>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              className="w-full mb-3 text-black"
-            />
-            <button
-              onClick={handleUpload}
-              disabled={uploading}
-              className="bg-gold text-black px-4 py-2 rounded-md font-semibold w-full"
-            >
-              {uploading ? "Subiendo..." : "Subir imagen"}
-            </button>
-          </>
-        )}
-
-        <button
-          onClick={onClose}
-          className="mt-4 bg-black text-gold border border-gold px-4 py-2 rounded-md w-full hover:bg-gold hover:text-black transition"
-        >
-          Escanear otro
-        </button>
-      </div>
+    <div className="w-full flex flex-col items-center scanner-box">
+      <div id="reader" className="w-full h-64"></div>
+      <p className="text-gold mt-2 text-center text-lg">Escanea un código o QR</p>
     </div>
   );
 }

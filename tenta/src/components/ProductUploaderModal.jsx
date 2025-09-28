@@ -2,57 +2,43 @@ import { useState } from "react";
 import { storage } from "../firebase.js";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-export default function ProductUploaderModal({ sku }) {
+export default function ProductUploaderModal({ scanResult, productInfo, onUploadComplete, setLoading }) {
   const [file, setFile] = useState(null);
-  const [uploading, setUploading] = useState(false);
   const [thumbnail, setThumbnail] = useState(null);
 
-  const handleFileChange = async (e) => {
-    const selected = e.target.files[0];
-    if (!selected) return;
-    setFile(selected);
-    await uploadFile(selected);
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    setThumbnail(URL.createObjectURL(selectedFile));
   };
 
-  const handleTakePhoto = async () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*";
-    input.capture = "environment";
-    input.onchange = handleFileChange;
-    input.click();
-  };
-
-  const uploadFile = async (file) => {
-    setUploading(true);
-    const storageRef = ref(storage, `products/${sku}/${file.name}`);
+  const handleUpload = async () => {
+    if (!file) return;
+    setLoading(true);
+    const storageRef = ref(storage, `images/${scanResult}`);
     await uploadBytes(storageRef, file);
-    const url = await getDownloadURL(storageRef);
-    setThumbnail(url);
-    setUploading(false);
+    await getDownloadURL(storageRef);
+    onUploadComplete();
   };
 
   return (
-    <div className="flex flex-col items-center">
-      {thumbnail ? (
-        <img src={thumbnail} alt="Uploaded" className="w-32 h-32 object-cover rounded-lg mb-2" />
-      ) : (
-        <div className="flex flex-col gap-2">
-          <button
-            onClick={handleTakePhoto}
-            className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold"
-          >
-            Tomar foto
-          </button>
+    <div className="fixed inset-0 bg-black/70 flex items-end justify-center p-4 z-50 animate-fade-in">
+      <div className="modal-card">
+        <h2 className="text-gold font-bold text-xl text-center">SKU: {scanResult}</h2>
+        {productInfo && <p className="text-gold text-center">{productInfo.descripcion}</p>}
+        {thumbnail ? (
+          <img src={thumbnail} className="w-32 h-32 object-cover rounded-lg border border-gold" alt="thumbnail" />
+        ) : (
           <input
             type="file"
             accept="image/*"
+            capture="environment"
             onChange={handleFileChange}
-            className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold"
           />
-        </div>
-      )}
-      {uploading && <p className="mt-2 text-sm">Subiendo...</p>}
+        )}
+        <button onClick={handleUpload}>Subir</button>
+        <button onClick={onUploadComplete} className="mt-2 underline text-gold">Cancelar</button>
+      </div>
     </div>
   );
 }

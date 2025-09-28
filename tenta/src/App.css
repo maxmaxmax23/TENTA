@@ -2,43 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #000;
-  color: #FFD700;
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-input, button {
-  font-family: 'Poppins', sans-serif;
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-button {
-  cursor: pointer;
-  transition: all 0.3s ease;
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
 }
 
-.bg-gold {
-  background-color: #FFD700;
-}
-
-.text-gold {
-  color: #FFD700;
-}
-
-.text-black {
-  color: #000;
-}
-
-.bg-blackBg {
-  background-color: #000;
-}
-
-.modal-backdrop {
-  @apply fixed inset-0 bg-black/70 flex items-center justify-center;
-}
-
-.modal-card {
-  @apply bg-black rounded-lg p-6 max-w-xs w-full text-gold shadow-xl animate-slide-up;
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
 }
