@@ -1,8 +1,7 @@
 import { useState } from "react";
-import LoginForm from "./LoginForm.jsx";
-import ScannerModal from "./ScannerModal.jsx";
-import ProductModal from "./ProductModal.jsx";
-import JsonSyncModal from "./JsonSyncModal.jsx";
+import LoginForm from "./components/LoginForm.jsx";
+import LoginForm from "./components/LoginForm.jsx";
+import JsonSyncModal from "./components/JsonSyncModal.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
