@@ -5,14 +5,15 @@ import Scanner from "./components/Scanner.jsx";
 
 export default function App() {
   const [user, setUser] = useState(null);
+  const [loadingAuth, setLoadingAuth] = useState(true); // NEW: wait for auth check
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Listen for auth state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoadingAuth(false); // auth check finished
     });
     return () => unsubscribe();
   }, []);
@@ -33,7 +34,15 @@ export default function App() {
     setUser(null);
   };
 
-  // ----- Render -----
+  if (loadingAuth) {
+    // Show a spinner while checking auth
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin h-12 w-12 border-4 border-blue-500 border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
+
   if (!user) {
     // LOGIN FORM
     return (
