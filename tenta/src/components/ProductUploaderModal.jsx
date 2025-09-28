@@ -1,63 +1,55 @@
-import { useState } from "react";
-import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
-import { storage } from "../firebase.js";
+import React, { useState } from 'react';
+import { storage } from '../firebase.js';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-export default function ProductUploaderModal({ item, onClose, onUpdate }) {
+export default function ProductUploaderModal({ sku, itemData, onUpload, onClose }) {
   const [file, setFile] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [thumbnail, setThumbnail] = useState(itemData?.imageUrl || null);
+
+  const handleFileChange = e => setFile(e.target.files[0]);
 
   const handleUpload = async () => {
     if (!file) return;
-    setLoading(true);
-
-    try {
-      // If there is an existing image, delete it first
-      if (item.imageUrl) {
-        const oldRef = ref(storage, item.imageUrl);
-        await deleteObject(oldRef).catch(() => {}); // ignore errors if it doesn't exist
-      }
-
-      const storageRef = ref(storage, `products/${item.id}/${file.name}`);
-      await uploadBytes(storageRef, file);
-      const url = await getDownloadURL(storageRef);
-
-      // Update the item locally and trigger parent update
-      item.imageUrl = url;
-      onUpdate(item);
-
-      onClose();
-    } catch (err) {
-      console.error("Error uploading file:", err);
-    } finally {
-      setLoading(false);
-    }
+    setUploading(true);
+    const storageRef = ref(storage, `products/${sku}/${file.name}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    setThumbnail(url);
+    onUpload(sku, url);
+    setUploading(false);
+    setFile(null);
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-      <div className="bg-black/90 p-6 rounded-xl w-full max-w-sm flex flex-col gap-4 animate-fadeIn">
-        <h2 className="text-xl font-bold">
-          {item.imageUrl ? "Actualizar Imagen" : "Subir Imagen"} para {item.id}
-        </h2>
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 p-4">
+      <div className="bg-black text-gold rounded-xl shadow-lg p-6 w-full max-w-md">
+        <h2 className="text-xl font-bold mb-4 text-center">{itemData?.descripcion || sku}</h2>
+
+        {thumbnail ? (
+          <img src={thumbnail} alt="thumbnail" className="w-40 h-40 object-cover rounded-md mb-2 border border-gold mx-auto" />
+        ) : (
+          <p className="mb-4 text-center">No hay imagen. Selecciona o toma una foto.</p>
+        )}
+
         <input
           type="file"
           accept="image/*"
           capture="environment"
-          onChange={(e) => setFile(e.target.files[0])}
-          className="text-gold"
+          onChange={handleFileChange}
+          className="mb-4 w-full text-sm file:py-2 file:px-4 file:rounded-full file:bg-gold file:text-black hover:file:bg-yellow-400 cursor-pointer"
         />
+
         <button
           onClick={handleUpload}
-          disabled={loading}
-          className="bg-gold text-black py-2 rounded-full font-bold hover:bg-yellow-500 transition-colors"
+          disabled={!file || uploading}
+          className={`w-full py-2 rounded-full font-bold ${uploading ? 'bg-gray-500 cursor-not-allowed' : 'bg-gold hover:bg-yellow-400'}`}
         >
-          {loading ? "Cargando..." : item.imageUrl ? "Actualizar" : "Subir"}
+          {uploading ? 'Subiendo...' : 'Subir imagen'}
         </button>
-        <button
-          onClick={onClose}
-          className="mt-2 border border-gold text-gold py-2 rounded-full hover:bg-gold hover:text-black transition-colors"
-        >
-          Cancelar
+
+        <button onClick={onClose} className="w-full mt-2 py-2 rounded-full border border-gold hover:bg-yellow-400 font-bold">
+          Cerrar
         </button>
       </div>
     </div>
