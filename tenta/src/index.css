@@ -2,181 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global Styles */
-:root {
-  font-family: 'Poppins', sans-serif;
-  background-color: #000; /* black background for luxury look */
-  color: #FFD700; /* gold text */
-  line-height: 1.5;
+/* Global resets for mobile */
+html, body, #root {
+  @apply h-full w-full m-0 p-0 bg-black text-gold;
+  font-family: 'Inter', sans-serif;
 }
 
-body, #root {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-/* Logo Styles */
-.logo {
-  width: 90%;
-  max-width: 300px;
-  height: auto;
-  margin: 1rem auto;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #FFD700);
-}
-
-@keyframes logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .logo {
-    animation: logo-spin 20s linear infinite;
-  }
-}
-
-/* Full-screen cards & modals */
-.full-screen {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300 ease-in-out;
 }
 
 /* Buttons */
-.btn-primary {
-  background-color: #FFD700;
-  color: #000;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  border: 2px solid #FFD700;
-  transition: all 0.3s ease;
+.btn {
+  @apply px-4 py-3 rounded-full font-semibold shadow-md active:scale-95;
 }
 
-.btn-primary:hover {
-  background-color: #000;
-  color: #FFD700;
-  border-color: #FFD700;
+.btn-primary {
+  @apply bg-gold text-black hover:bg-yellow-400;
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: #FFD700;
-  border: 2px solid #FFD700;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  @apply bg-black text-gold border border-gold hover:bg-neutral-900;
 }
 
-.btn-secondary:hover {
-  background-color: #FFD700;
-  color: #000;
+/* Card-like panels */
+.card {
+  @apply bg-black border border-gold rounded-2xl p-4 shadow-lg;
 }
 
-/* Scanner container */
-#reader {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1;
-  margin: 1rem auto;
-  border: 2px solid #FFD700;
-  border-radius: 1rem;
-  overflow: hidden;
+/* Modal backdrop */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-end;
 }
 
-/* Popover / Card */
-.popover-card {
-  background-color: #111;
-  color: #FFD700;
-  padding: 1rem;
-  border-radius: 1rem;
-  width: 90%;
-  max-width: 350px;
-  margin-top: 1rem;
-  box-shadow: 0 0 1em #FFD700;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeIn 0.3s ease forwards;
-}
-
-/* Thumbnail */
-.thumbnail {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  margin-top: 0.5rem;
-  border: 2px solid #FFD700;
-}
-
-/* Fade-in animation for popovers and results */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(1rem); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Loading text */
-.loading-text {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #FFD700;
-  margin-top: 1rem;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-/* Inputs (login / file upload) */
-input[type="text"], input[type="password"], input[type="file"] {
-  background-color: #111;
-  color: #FFD700;
-  border: 2px solid #FFD700;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
-  width: 90%;
-  max-width: 300px;
-}
-
-input::placeholder {
-  color: #FFD700;
-  opacity: 0.7;
-}
-
-/* Forms & containers */
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 350px;
-  margin: auto;
-  padding: 1rem;
-}
-
-/* Ensure mobile-first stacking */
-@media (min-width: 480px) {
-  .popover-card, .form-container {
-    max-width: 400px;
-  }
+/* Modal container */
+.modal-container {
+  @apply w-full max-w-md bg-black rounded-t-2xl p-6 border-t-4 border-gold animate-slideUp;
 }

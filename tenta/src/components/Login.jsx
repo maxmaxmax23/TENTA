@@ -1,47 +1,54 @@
-import React, { useState } from 'react';
-import { auth } from '../firebase.js';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase.js";
 
-export default function Login({ onLogin }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      onLogin();
     } catch (err) {
-      setError('Credenciales incorrectas');
+      setError(err.message);
     }
   };
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-black text-gold p-4">
-      <h1 className="text-3xl font-bold mb-6">Bienvenido</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-xs space-y-4">
+    <div className="flex flex-col justify-center items-center min-h-screen w-full bg-black text-yellow-400 px-4">
+      <h2 className="text-3xl font-bold mb-6">Login</h2>
+      <form
+        onSubmit={handleLogin}
+        className="flex flex-col gap-4 w-full max-w-sm"
+      >
         <input
           type="email"
           placeholder="Email"
+          className="p-3 rounded-lg bg-gray-900 text-white placeholder-yellow-300"
           value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="p-3 rounded-lg text-black"
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
           type="password"
-          placeholder="Contraseña"
+          placeholder="Password"
+          className="p-3 rounded-lg bg-gray-900 text-white placeholder-yellow-300"
           value={password}
-          onChange={e => setPassword(e.target.value)}
-          className="p-3 rounded-lg text-black"
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" className="bg-gold hover:bg-yellow-400 py-3 rounded-lg font-bold">
-          Iniciar sesión
+        <button
+          type="submit"
+          className="p-3 bg-yellow-500 text-black font-bold rounded-lg hover:bg-yellow-400 transition"
+        >
+          Entrar
         </button>
-        {error && <p className="text-red-500 text-center">{error}</p>}
+        {error && <p className="text-red-500">{error}</p>}
       </form>
     </div>
   );
 }
+
+export default Login;

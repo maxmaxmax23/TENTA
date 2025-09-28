@@ -1,30 +1,32 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
+  ],
   theme: {
     extend: {
       colors: {
-        gold: '#FFD700',
-        black: '#000000',
-        grayDark: '#1a1a1a',
-        grayLight: '#333333',
+        gold: "#D4AF37",
+        black: "#0A0A0A",
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.3s ease-in-out forwards',
-        'fade-out': 'fadeOut 0.3s ease-in-out forwards',
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Poppins", "system-ui", "sans-serif"],
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 },
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
         },
-        fadeOut: {
-          '0%': { opacity: 1 },
-          '100%': { opacity: 0 },
+        slideUp: {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
         },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.3s ease-out",
+        slideUp: "slideUp 0.4s ease-out",
       },
     },
   },

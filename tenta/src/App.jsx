@@ -1,38 +1,42 @@
-import React, { useState } from 'react';
-import Login from './components/Login.jsx';
-import Scanner from './components/Scanner.jsx';
-import ProductUploaderModal from './components/ProductUploaderModal.jsx';
-import Lista from './tentadb.json';
+// src/App.jsx
+import { useState, useEffect } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "./firebase";
+import LoginForm from "./components/LoginForm";
+import Scanner from "./components/Scanner";
 
-export default function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [scanResult, setScanResult] = useState(null);
-  const [items, setItems] = useState(Lista);
-  const [showUploader, setShowUploader] = useState(false);
+function App() {
+  const [user, setUser] = useState(null);
 
-  const handleLogin = () => setLoggedIn(true);
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+    });
+    return () => unsub();
+  }, []);
 
-  const handleScan = (result) => {
-    setScanResult(result);
-    setShowUploader(true);
-  };
+  const handleLogout = () => signOut(auth);
 
-  const handleUpload = (sku, url) => {
-    setItems(prev => prev.map(item => item.id === sku ? { ...item, imageUrl: url } : item));
-  };
+  if (!user) {
+    return <LoginForm onLogin={setUser} />;
+  }
 
   return (
-    <div className="min-h-screen bg-black text-gold p-4">
-      {!loggedIn && <Login onLogin={handleLogin} />}
-      {loggedIn && !scanResult && <Scanner onScan={handleScan} />}
-      {scanResult && showUploader && (
-        <ProductUploaderModal
-          sku={scanResult}
-          itemData={items.find(i => i.id === scanResult)}
-          onUpload={handleUpload}
-          onClose={() => setShowUploader(false)}
-        />
-      )}
+    <div className="min-h-screen flex flex-col bg-black text-yellow-400">
+      <header className="flex justify-between items-center p-4 border-b border-yellow-400">
+        <h1 className="text-lg font-bold">Tenta App</h1>
+        <button
+          onClick={handleLogout}
+          className="px-3 py-1 rounded bg-yellow-500 text-black font-semibold hover:bg-yellow-600"
+        >
+          Salir
+        </button>
+      </header>
+      <main className="flex-grow flex justify-center items-center">
+        <Scanner />
+      </main>
     </div>
   );
 }
+
+export default App;
