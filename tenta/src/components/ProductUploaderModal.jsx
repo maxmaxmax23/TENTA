@@ -12,7 +12,6 @@ export default function ProductUploaderModal({ code, onReset }) {
     const found = Lista.find((i) => i.id === code);
     setItem(found || { id: code, descripcion: 'No hay datos', precio: '-' });
 
-    // Try to get image from Firebase Storage
     const imageRef = ref(storage, `products/${code}.jpg`);
     getDownloadURL(imageRef)
       .then((url) => setImageUrl(url))
@@ -31,34 +30,46 @@ export default function ProductUploaderModal({ code, onReset }) {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/70 p-4">
-      <div className="bg-black text-gold rounded-xl shadow-xl w-full max-w-md p-6 animate-fade-in">
-        <h2 className="text-xl font-bold mb-4">{item?.descripcion}</h2>
-        <p className="mb-4">CODIGO: {item?.id}</p>
-        <p className="mb-4">PRECIO: ${item?.precio}</p>
+    
+<div className="fixed inset-0 flex flex-col items-center justify-center bg-black/90 p-4 overflow-y-auto animate-fade-in">
+  <div className="bg-black text-gold rounded-2xl shadow-2xl w-full max-w-md p-6 space-y-4 animate-fade-slide-up">
+    <h2 className="text-2xl font-bold">{item?.descripcion}</h2>
+    <p>CODIGO: {item?.id}</p>
+    <p>PRECIO: ${item?.precio}</p>
 
-        {imageUrl ? (
-          <img src={imageUrl} alt={code} className="w-32 h-32 object-cover rounded-md mb-4" />
-        ) : (
-          <div className="mb-4 text-sm">No hay imagen. Por favor sube una foto:</div>
-        )}
-
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleUpload}
-          className="mb-4 w-full text-sm file:bg-gold file:text-black file:px-3 file:py-2 file:rounded-md cursor-pointer"
-        />
-
-        {uploading && <p className="text-sm mb-2">Subiendo imagen...</p>}
-
-        <button
-          onClick={onReset}
-          className="bg-gold text-black w-full py-2 rounded-md font-semibold hover:bg-yellow-500 transition-colors"
-        >
-          Escanear otro
-        </button>
+    {imageUrl ? (
+      <img
+        src={imageUrl}
+        alt={code}
+        className="w-32 h-32 object-cover rounded-md mx-auto border-2 border-gold animate-fade-in"
+      />
+    ) : (
+      <div className="text-center text-sm animate-fade-in">
+        No hay imagen. Por favor sube una foto:
       </div>
-    </div>
+    )}
+
+    <input
+      type="file"
+      accept="image/*"
+      onChange={handleUpload}
+      className="w-full text-sm file:bg-gold file:text-black file:px-3 file:py-2 file:rounded-md cursor-pointer transition-all hover:scale-105"
+    />
+
+    {uploading && (
+      <p className="text-sm text-center animate-fade-slide-up">
+        Subiendo imagen...
+      </p>
+    )}
+
+    <button
+      onClick={onReset}
+      className="bg-gold text-black w-full py-3 rounded-md font-semibold hover:bg-yellow-500 hover:animate-pulse-gold transition-all"
+    >
+      Escanear otro
+    </button>
+  </div>
+</div>
+
   );
 }

@@ -1,23 +1,27 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
-  theme: {
-    extend: {
-      colors: {
-        gold: '#D4AF37',
-        darkbg: '#0A0A0A',
-        dimGold: 'rgba(212, 175, 55, 0.3)',
+theme: {
+  extend: {
+    colors: {
+      gold: '#FFD700',
+      black: '#000000',
+    },
+    animation: {
+      'fade-in': 'fadeIn 0.4s ease-out forwards',
+      'fade-slide-up': 'fadeSlideUp 0.5s ease-out forwards',
+      'pulse-gold': 'pulseGold 2s infinite',
+    },
+    keyframes: {
+      fadeIn: {
+        '0%': { opacity: 0 },
+        '100%': { opacity: 1 },
       },
-      fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
+      fadeSlideUp: {
+        '0%': { opacity: 0, transform: 'translateY(20px)' },
+        '100%': { opacity: 1, transform: 'translateY(0)' },
       },
-      boxShadow: {
-        'gold-glow': '0 0 15px rgba(212, 175, 55, 0.7)',
-      },
-      transitionProperty: {
-        'height-opacity': 'height, opacity',
+      pulseGold: {
+        '0%,100%': { transform: 'scale(1)', boxShadow: '0 0 10px #FFD700' },
+        '50%': { transform: 'scale(1.02)', boxShadow: '0 0 20px #FFD700' },
       },
     },
   },
-  plugins: [],
-};
+}

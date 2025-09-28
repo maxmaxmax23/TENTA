@@ -13,13 +13,17 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-gold px-4">
-      {!user && <Login onLogin={handleLogin} />}
-      
-      {scannerVisible && (
-        <div className="w-full max-w-md mt-4 animate-fade-in">
-          <Scanner />
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-black text-gold px-4">
+      {!user && (
+        <div className="flex flex-col items-center justify-center min-h-screen w-full">
+          <Login onLogin={handleLogin} />
         </div>
+      )}  
+
+      {scannerVisible && (
+      <div className="flex flex-col items-center justify-start min-h-screen w-full pt-6 animate-fade-in">
+      <Scanner key={user.uid} />
+      </div>
       )}
     </div>
   );

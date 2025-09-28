@@ -9,7 +9,7 @@ export default function Login({ onLogin }) {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    setAnimate(true); // trigger animation on mount
+    setAnimate(true);
   }, []);
 
   const handleLogin = async () => {
@@ -23,24 +23,29 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div
-      className={`w-full max-w-sm flex flex-col gap-4 p-6 modal-panel ${animate ? 'animate-fade-slide-up' : ''}`}
-    >
-      <h1 className="text-2xl font-bold text-center">Iniciar Sesión</h1>
+    <div className={`flex flex-col items-center justify-center w-full max-w-sm mx-auto p-6 gap-4 animate-fade-slide-up`}>
+      <h1 className="text-3xl font-bold mb-6 text-center">Iniciar Sesión</h1>
       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={e => setEmail(e.target.value)}
+        className="w-full p-3 rounded-md text-black"
       />
       <input
         type="password"
         placeholder="Contraseña"
         value={password}
         onChange={e => setPassword(e.target.value)}
+        className="w-full p-3 rounded-md text-black"
       />
-      {error && <p className="text-red-500 text-center">{error}</p>}
-      <button onClick={handleLogin}>Entrar</button>
+      {error && <p className="text-red-500">{error}</p>}
+      <button
+        onClick={handleLogin}
+        className="w-full bg-gold text-black py-3 rounded-md font-semibold hover:bg-yellow-500 transition-colors"
+      >
+        Entrar
+      </button>
     </div>
   );
 }
