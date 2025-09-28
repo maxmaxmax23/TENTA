@@ -1,34 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        gold: "#FFD700",
-        black: "#000000",
-        blackBg: "#111111",
+        gold: '#FFD700',
+        black: '#000000',
+        grayDark: '#1a1a1a',
+        grayLight: '#333333',
       },
-      keyframes: {
-        "fade-in": {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
-        },
-        "slide-up": {
-          "0%": { transform: "translateY(30px)", opacity: 0 },
-          "100%": { transform: "translateY(0)", opacity: 1 },
-        },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
       },
       animation: {
-        "fade-in": "fadeIn 0.5s ease-out forwards",
-        "slide-up": "slide-up 0.4s ease-out",
+        'fade-in': 'fadeIn 0.3s ease-in-out forwards',
+        'fade-out': 'fadeOut 0.3s ease-in-out forwards',
       },
-            keyframes: {
+      keyframes: {
         fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
     },
   },
   plugins: [],

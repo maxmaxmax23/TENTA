@@ -6,38 +6,55 @@ export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
+
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       onLogin(userCredential.user);
     } catch (err) {
-      setError("Credenciales inválidas");
+      console.error(err);
+      setError("Correo o contraseña incorrecta");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen animate-fade-in p-4">
-      <h1 className="text-4xl font-bold text-gold mb-6">Iniciar Sesión</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col items-center w-full max-w-sm space-y-4">
-        <input
-          type="email"
-          placeholder="Correo"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="p-3 rounded-lg border border-gold bg-black-lux text-gold placeholder-gold focus:outline-none focus:ring-2 focus:ring-gold"
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="p-3 rounded-lg border border-gold bg-black-lux text-gold placeholder-gold focus:outline-none focus:ring-2 focus:ring-gold"
-        />
-        {error && <p className="text-red-500">{error}</p>}
-        <button type="submit">Entrar</button>
-      </form>
+    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-black text-gold p-4">
+      <div className="bg-black/90 p-6 rounded-xl w-full max-w-sm flex flex-col items-center">
+        <h1 className="text-2xl font-bold mb-6">Iniciar Sesión</h1>
+        <form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Correo"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 rounded-md bg-black text-gold border border-gold placeholder-gold focus:outline-none focus:ring-2 focus:ring-gold"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 rounded-md bg-black text-gold border border-gold placeholder-gold focus:outline-none focus:ring-2 focus:ring-gold"
+            required
+          />
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          <button
+            type="submit"
+            disabled={loading}
+            className="mt-2 w-full bg-gold text-black font-bold py-3 rounded-full hover:bg-yellow-500 transition-colors duration-200"
+          >
+            {loading ? "Cargando..." : "Entrar"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
