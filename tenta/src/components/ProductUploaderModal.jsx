@@ -23,9 +23,9 @@ export default function ProductUploaderModal({ sku }) {
   return (
     <div className="flex flex-col items-center gap-2">
       {photoURL ? (
-        <img src={photoURL} alt="Producto" className="w-32 h-32 object-cover" />
+        <img src={photoURL} alt="Producto" className="w-32 h-32 object-cover rounded-lg" />
       ) : (
-        <input type="file" onChange={handleFileChange} />
+        <input type="file" onChange={handleFileChange} className="text-gold" />
       )}
       {uploading && <p>Subiendo...</p>}
     </div>

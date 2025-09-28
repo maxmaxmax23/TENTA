@@ -29,3 +29,19 @@ img {
 .modal-panel {
   @apply bg-darkbg border-2 border-gold rounded-2xl p-5 shadow-gold-glow;
 }
+
+/* Animation for fade-in */
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-up {
+  animation: fade-slide-up 0.6s ease-out forwards;
+}

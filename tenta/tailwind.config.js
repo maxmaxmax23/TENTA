@@ -14,6 +14,9 @@ module.exports = {
       boxShadow: {
         'gold-glow': '0 0 15px rgba(212, 175, 55, 0.7)',
       },
+      transitionProperty: {
+        'height-opacity': 'height, opacity',
+      },
     },
   },
   plugins: [],

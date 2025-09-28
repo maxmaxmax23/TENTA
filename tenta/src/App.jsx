@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Login from './components/Login.jsx';
 import ScannerModal from './components/ScannerModal.jsx';
-import { auth } from './firebase.js';
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -11,7 +10,7 @@ export default function App() {
       {!user ? (
         <Login onLogin={setUser} />
       ) : (
-        <ScannerModal user={user} />
+        <ScannerModal />
       )}
     </div>
   );
