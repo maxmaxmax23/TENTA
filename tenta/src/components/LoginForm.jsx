@@ -17,7 +17,9 @@ export default function LoginForm({ setUser }) {
       );
       setUser(userCredential.user);
     } catch (err) {
-      setError("Invalid credentials");
+         console.error(err); // <-- add this
+         setError(err.code); // show error code to user for debugging
+
     }
   };
 
