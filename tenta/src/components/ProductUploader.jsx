@@ -10,7 +10,6 @@ export default function ProductUploader({ sku }) {
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef(null);
 
-  // Reset uploader when SKU changes
   useEffect(() => {
     setFile(null);
     setProgress(0);
@@ -20,10 +19,7 @@ export default function ProductUploader({ sku }) {
 
   if (!sku) return <p>Please scan a product first.</p>;
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-    setProgress(0);
-  };
+  const handleFileChange = (e) => setFile(e.target.files[0]);
 
   const handleUpload = () => {
     if (!file) return alert("Select a file first");
@@ -48,9 +44,9 @@ export default function ProductUploader({ sku }) {
       async () => {
         try {
           const url = await getDownloadURL(uploadTask.snapshot.ref);
-          setUploadedImages((prev) => [...prev, url]);
+          setUploadedImages((prev) => [url, ...prev]); // newest first
         } catch (err) {
-          console.error("Failed to get download URL:", err);
+          console.error(err);
         } finally {
           setFile(null);
           setProgress(0);
@@ -80,12 +76,18 @@ export default function ProductUploader({ sku }) {
       <button
         onClick={handleUpload}
         disabled={!file || uploading}
-        style={{ marginLeft: "1rem" }}
+        style={{
+          display: "block",
+          width: "100%",
+          marginTop: "0.5rem",
+          padding: "0.5rem",
+          fontSize: "1rem",
+        }}
       >
         Upload
       </button>
 
-      {/* Uploading progress */}
+      {/* Progress */}
       {(uploading || progress > 0) && (
         <div style={{ marginTop: "0.5rem" }}>
           <progress value={progress} max="100" style={{ width: "100%" }} />
@@ -93,12 +95,7 @@ export default function ProductUploader({ sku }) {
         </div>
       )}
 
-      {/* Upload complete indicator */}
-      {!uploading && progress === 0 && uploadedImages.length > 0 && (
-        <p style={{ color: "green" }}>Upload complete ✅</p>
-      )}
-
-      {/* Thumbnails of uploaded images */}
+      {/* Uploaded thumbnails */}
       {uploadedImages.length > 0 && (
         <div style={{ marginTop: "1rem" }}>
           <h3>Uploaded Images:</h3>
@@ -109,9 +106,9 @@ export default function ProductUploader({ sku }) {
               gap: "0.5rem",
             }}
           >
-            {uploadedImages.map((url, index) => (
+            {uploadedImages.map((url, i) => (
               <a
-                key={index}
+                key={i}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -126,7 +123,7 @@ export default function ProductUploader({ sku }) {
               >
                 <img
                   src={url}
-                  alt={`Uploaded ${index + 1}`}
+                  alt={`Uploaded ${i + 1}`}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </a>

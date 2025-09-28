@@ -1,6 +1,5 @@
+// src/components/Scanner.jsx
 import React from "react";
-import { BrowserMultiFormatReader } from "@zxing/library";
-import { useState, useEffect } from "react";
 import { useZxing } from "react-zxing";
 
 export default function Scanner({ onScan }) {
@@ -8,15 +7,34 @@ export default function Scanner({ onScan }) {
     onResult(result) {
       if (result) onScan(result.getText());
     },
-    constraints: { facingMode: "environment" },
+    constraints: { facingMode: "environment" }, // back camera
   });
 
   return (
-    <div style={{ margin: "1rem 0" }}>
-      <h2>Scan Product SKU</h2>
-      <video ref={ref} style={{ width: "100%" }} />
-      <p style={{ fontSize: "0.9rem", color: "#666" }}>
-        Point your camera at a barcode or QR code.
+    <div style={{ width: "100%", height: "300px", position: "relative" }}>
+      <video
+        ref={ref}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          borderRadius: "8px",
+          backgroundColor: "#000",
+        }}
+        autoPlay
+        muted
+      />
+      <p
+        style={{
+          position: "absolute",
+          bottom: "8px",
+          width: "100%",
+          textAlign: "center",
+          color: "#fff",
+          fontSize: "0.9rem",
+        }}
+      >
+        Point your camera at a barcode or QR code
       </p>
     </div>
   );

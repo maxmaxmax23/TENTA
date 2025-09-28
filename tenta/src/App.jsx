@@ -16,37 +16,32 @@ function App() {
         margin: "0 auto",
       }}
     >
-      {/* Login section */}
       <Login />
 
-      {/* Scanner */}
       <div
         style={{
           marginBottom: "1rem",
           border: "1px solid #ccc",
           borderRadius: "8px",
           overflow: "hidden",
-          backgroundColor: "#000",
         }}
       >
         <Scanner onScan={setScannedSKU} />
       </div>
 
-      {/* SKU display */}
       {scannedSKU && (
         <p
           style={{
             textAlign: "center",
-            fontSize: "1.1rem",
             fontWeight: "bold",
             marginBottom: "1rem",
+            fontSize: "1.1rem",
           }}
         >
           Current SKU: <span style={{ color: "#007BFF" }}>{scannedSKU}</span>
         </p>
       )}
 
-      {/* Image uploader */}
       <ProductUploader sku={scannedSKU} />
     </div>
   );

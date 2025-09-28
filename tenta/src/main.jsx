@@ -1,21 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import './App.css';
-import tentaLogo from './assets/tenta.svg';
-import glowupLogoLight from './assets/glowupLogoLight.png';
-import glowupLogoDark from './assets/glowupLogoDark.png';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import Login from "./components/Login.jsx";
+import "./App.css";
+
+import glowupLogoLight from "./assets/glowupLogoLight.png";
+import glowupLogoDark from "./assets/glowupLogoDark.png";
 
 function Main() {
-  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const prefersDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
 
   return (
     <React.StrictMode>
-      <>
-        {/* Logo section */}
-        <div
-          className="flex justify-center items-center"
-          style={{ padding: '1rem 0' }}
+      <div
+        style={{
+          maxWidth: "480px",
+          margin: "0 auto",
+          padding: "0 1rem",
+          fontFamily: "Arial, sans-serif",
+        }}
+      >
+        {/* Sticky header/logo */}
+        <header
+          style={{
+            position: "sticky",
+            top: 0,
+            backgroundColor: "#fff",
+            zIndex: 10,
+            padding: "0.5rem 0",
+            display: "flex",
+            justifyContent: "center",
+            borderBottom: "1px solid #ccc",
+          }}
         >
           <a
             href="https://instagram.com/glow.upvm"
@@ -24,35 +42,40 @@ function Main() {
           >
             <img
               src={prefersDarkMode ? glowupLogoDark : glowupLogoLight}
-              className="logo"
               alt="GlowUp Logo"
-              style={{
-                width: '120px',
-                maxWidth: '30vw',
-                height: 'auto',
-              }}
+              style={{ width: "120px", maxWidth: "30vw", height: "auto" }}
             />
           </a>
-        </div>
+        </header>
 
-        {/* New code button */}
-        <div className="flex justify-center" style={{ marginBottom: '1rem' }}>
-          <button
-            className="px-4 py-2 text-base bg-white text-black font-semibold rounded-full border border-black active:text-white active:bg-black active:border-blue-600"
-            onClick={() => window.location.reload()}
-            style={{ minWidth: '150px' }}
-          >
-            NUEVO CÓDIGO
-          </button>
-        </div>
+        {/* Login section */}
+        <Login />
 
         {/* Main App content */}
-        <div style={{ padding: '0 1rem' }}>
-          <App />
-        </div>
-      </>
+        <App />
+
+        {/* Floating "New Code" button */}
+        <button
+          onClick={() => window.location.reload()}
+          style={{
+            position: "fixed",
+            bottom: "1rem",
+            right: "1rem",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            borderRadius: "999px",
+            padding: "0.75rem 1rem",
+            fontSize: "1rem",
+            fontWeight: "bold",
+            zIndex: 20,
+            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+          }}
+        >
+          NUEVO CÓDIGO
+        </button>
+      </div>
     </React.StrictMode>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Main />);
+ReactDOM.createRoot(document.getElementById("root")).render(<Main />);
