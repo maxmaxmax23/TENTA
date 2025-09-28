@@ -1,16 +1,17 @@
-import { useState } from "react";
-import Login from "./components/Login.jsx";
-import Scanner from "./components/Scanner.jsx";
+import { useState } from 'react';
+import Login from './components/Login.jsx';
+import ScannerModal from './components/ScannerModal.jsx';
+import { auth } from './firebase.js';
 
 export default function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-gold px-4">
+    <div className="w-full min-h-screen flex justify-center items-center p-4">
       {!user ? (
         <Login onLogin={setUser} />
       ) : (
-        <Scanner />
+        <ScannerModal user={user} />
       )}
     </div>
   );

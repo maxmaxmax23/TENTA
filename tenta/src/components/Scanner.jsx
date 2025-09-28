@@ -12,9 +12,10 @@ export default function Scanner() {
     if (!scannerVisible) return;
 
     const scanner = new Html5QrcodeScanner("reader", {
-      qrbox: { width: 250, height: 250 },
       fps: 10,
-      aspectRatio: 2,
+      qrbox: { width: 250, height: 250 },
+      aspectRatio: 1,
+      rememberLastUsedCamera: true,
     });
 
     scanner.render(
@@ -29,17 +30,14 @@ export default function Scanner() {
   }, [scannerVisible]);
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full max-w-md">
-      <p className="text-gold font-semibold mb-2 transition-opacity duration-500">
-        Escanea el SKU o QR
-      </p>
+    <div className="w-full flex flex-col items-center gap-4">
+      <p className="text-gold text-lg font-semibold">Escanea el SKU o QR</p>
       <div
         id="reader"
-        className={`w-full h-80 border border-gold rounded-lg transition-all duration-500 ${
+        className={`w-full max-w-md h-80 rounded-xl border border-gold transition-all ${
           scannerVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
         }`}
       />
-
       {showModal && scanResult && (
         <ProductUploaderModal
           code={scanResult}

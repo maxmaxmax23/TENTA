@@ -2,97 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---------------------- Base Body ---------------------- */
 body {
-  @apply bg-black text-gold font-sans min-h-screen flex flex-col items-center justify-center;
+  @apply bg-darkbg text-gold font-poppins min-h-screen flex justify-center items-center;
 }
 
-/* ---------------------- Colors ---------------------- */
-:root {
-  --gold: #FFD700;
-  --gold-light: #FFE066;
-  --gold-dark: #CCAC00;
-  --black: #000000;
-  --black-dark: #0A0A0A;
-  --text-gold: #FFD700;
+button, input {
+  @apply rounded-xl border-gold focus:ring-2 focus:ring-gold transition-all duration-300;
 }
 
-/* ---------------------- Logo ---------------------- */
-.logo {
-  max-width: 700px;
-  width: 100%;
-  height: auto;
-  padding: 1%;
-  transition: filter 300ms ease;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 1.5em var(--gold));
-}
-
-/* ---------------------- Buttons ---------------------- */
-button {
-  @apply px-4 py-2 rounded font-semibold transition-all duration-300;
-  background-color: var(--gold);
-  color: var(--black);
-  border: 1px solid var(--gold);
-}
-
-button:hover {
-  background-color: var(--gold-light);
-  color: var(--black);
-}
-
-button:active {
-  background-color: var(--gold-dark);
-  color: var(--black);
-}
-
-/* ---------------------- Inputs ---------------------- */
 input {
-  @apply px-4 py-2 rounded border text-gold bg-black border-gold placeholder-gold/70 focus:outline-none focus:ring-2 focus:ring-gold w-full max-w-xs;
+  @apply p-3 bg-darkbg text-gold placeholder-gold border;
 }
 
-/* ---------------------- Modal ---------------------- */
-.modal-panel {
-  @apply bg-black border border-gold rounded-xl p-6 max-w-sm w-full shadow-xl flex flex-col items-center gap-4 text-gold;
+button {
+  @apply p-3 font-semibold bg-gold text-black hover:bg-yellow-500 active:scale-95 shadow-gold-glow;
 }
 
-.modal-overlay {
-  @apply fixed inset-0 bg-black bg-opacity-80;
+img {
+  @apply rounded-xl shadow-gold-glow;
 }
 
-/* ---------------------- Scanner Box ---------------------- */
 #reader {
-  @apply w-full max-w-md h-80 bg-black border border-gold rounded-lg overflow-hidden;
+  @apply w-full max-w-md h-80 rounded-xl border-2 border-gold shadow-gold-glow;
 }
 
-/* ---------------------- Text ---------------------- */
-h1, h2, h3, h4, h5, h6, p, span {
-  @apply text-gold;
-}
-
-/* ---------------------- Misc Utilities ---------------------- */
-.text-gold {
-  color: var(--gold);
-}
-
-.border-gold {
-  border-color: var(--gold);
-}
-
-.bg-gold {
-  background-color: var(--gold);
-}
-
-.bg-gold-light {
-  background-color: var(--gold-light);
-}
-
-.bg-black {
-  background-color: var(--black);
-}
-
-.bg-black-dark {
-  background-color: var(--black-dark);
+.modal-panel {
+  @apply bg-darkbg border-2 border-gold rounded-2xl p-5 shadow-gold-glow;
 }
