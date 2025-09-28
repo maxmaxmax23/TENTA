@@ -1,79 +1,74 @@
+// src/App.jsx
 import { useState } from "react";
 import Scanner from "./components/Scanner.jsx";
 import ProductUploaderModal from "./components/ProductUploaderModal.jsx";
-import Lista from "./tentadb.json"; // Your product database
-import { signInWithEmailAndPassword } from "firebase/auth";
+import Lista from "./tentadb.json";
 import { auth } from "./firebase";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [scanResult, setScanResult] = useState(null);
 
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [loginError, setLoginError] = useState("");
-
-  // Login handler
   const handleLogin = async () => {
     try {
-      const res = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-      setUser(res.user);
+      const { user } = await signInWithEmailAndPassword(
+        auth,
+        import.meta.env.VITE_LOGIN_EMAIL,
+        import.meta.env.VITE_LOGIN_PASSWORD
+      );
+      setUser(user);
     } catch (err) {
-      setLoginError("Email o contraseña incorrectos");
+      alert("Error al iniciar sesión");
     }
   };
 
-  // Reset scanner for "Escanear otro"
-  const resetScanner = () => {
+  const handleLogout = () => {
+    signOut(auth);
+    setUser(null);
     setScanResult(null);
   };
 
-  const currentItem = scanResult
-    ? Lista.find((item) => item.id === scanResult)
-    : null;
+  const handleScan = (code) => {
+    setScanResult(code);
+  };
 
-  // --- Render ---
+  const closeModal = () => setScanResult(null);
+
   if (!user) {
     return (
-      <div className="fixed inset-0 flex flex-col items-center justify-center bg-black p-6 text-gold">
-        <h1 className="text-3xl font-bold mb-6">Login</h1>
-        <input
-          type="email"
-          placeholder="Email"
-          value={loginEmail}
-          onChange={(e) => setLoginEmail(e.target.value)}
-          className="w-full max-w-xs p-3 mb-4 rounded-md text-black"
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={loginPassword}
-          onChange={(e) => setLoginPassword(e.target.value)}
-          className="w-full max-w-xs p-3 mb-4 rounded-md text-black"
-        />
+      <div className="w-screen h-screen flex flex-col items-center justify-center bg-black p-6">
+        <h1 className="text-2xl font-bold text-gold mb-6">TENTA Login</h1>
         <button
           onClick={handleLogin}
-          className="bg-gold text-black px-6 py-3 rounded-md font-semibold hover:animate-pulse-gold transition"
+          className="bg-gold text-black px-6 py-3 rounded-lg font-semibold text-lg"
         >
-          Entrar
+          Iniciar sesión
         </button>
-        {loginError && <p className="text-red-500 mt-3">{loginError}</p>}
       </div>
     );
   }
 
-  // --- Main scanner flow ---
   return (
-    <>
-      {!scanResult && <Scanner onScan={setScanResult} />}
+    <div className="w-screen h-screen bg-black text-gold">
+      <div className="p-4 flex justify-between items-center">
+        <h2 className="font-bold text-xl">TENTA Scanner</h2>
+        <button
+          onClick={handleLogout}
+          className="bg-gold text-black px-3 py-1 rounded-md font-semibold"
+        >
+          Salir
+        </button>
+      </div>
 
+      {!scanResult && <Scanner onScan={handleScan} />}
       {scanResult && (
         <ProductUploaderModal
           code={scanResult}
-          item={currentItem}
-          onClose={resetScanner}
+          item={Lista.find((i) => i.id === scanResult)}
+          onClose={closeModal}
         />
       )}
-    </>
+    </div>
   );
 }
