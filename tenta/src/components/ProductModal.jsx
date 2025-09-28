@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../firebase.js"; // ✅ added .js
 import ProductUploaderModal from "./ProductUploaderModal.jsx";
+
 
 export default function ProductModal({ code, onClose }) {
   const [product, setProduct] = useState(null);

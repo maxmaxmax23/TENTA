@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../firebase.js"; // ✅ added .js
 
 export default function ScannerModal({ onScan }) {
   useEffect(() => {
