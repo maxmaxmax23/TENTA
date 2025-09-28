@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LoginForm from "./components/LoginForm.jsx";
-import LoginForm from "./components/LoginForm.jsx";
+import ScannerModal from "./components/ScannerModal.jsx";
+import ProductModal from "./components/ProductModal.jsx";
 import JsonSyncModal from "./components/JsonSyncModal.jsx";
 
 function App() {
