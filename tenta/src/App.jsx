@@ -2,37 +2,19 @@ import { useState } from "react";
 import LoginForm from "./components/LoginForm.jsx";
 import ScannerModal from "./components/ScannerModal.jsx";
 import ProductModal from "./components/ProductModal.jsx";
-import JsonSyncModal from "./components/JsonSyncModal.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [scanResult, setScanResult] = useState(null);
-  const [showJsonModal, setShowJsonModal] = useState(false);
+  const [scannedCode, setScannedCode] = useState(null);
 
   return (
-    <div className="w-full min-h-screen bg-black flex flex-col items-center justify-center text-gold">
+    <div className="min-h-screen bg-black text-gold flex items-center justify-center">
       {!user ? (
-        <LoginForm setUser={setUser} />
+        <LoginForm onLogin={setUser} />
+      ) : !scannedCode ? (
+        <ScannerModal onScan={(code) => setScannedCode(code)} />
       ) : (
-        <>
-          {!scanResult ? (
-            <ScannerModal setScanResult={setScanResult} />
-          ) : (
-            <ProductModal
-              scanResult={scanResult}
-              setScanResult={setScanResult}
-            />
-          )}
-          <button
-            className="mt-4 px-6 py-3 rounded-full bg-gold text-black font-semibold animate-pulse"
-            onClick={() => setShowJsonModal(true)}
-          >
-            JSON Sync
-          </button>
-          {showJsonModal && (
-            <JsonSyncModal closeModal={() => setShowJsonModal(false)} />
-          )}
-        </>
+        <ProductModal code={scannedCode} onClose={() => setScannedCode(null)} />
       )}
     </div>
   );

@@ -1,70 +1,65 @@
 import { useState, useEffect } from "react";
-import { storage, db } from "./firebase.js";
-import {
-  ref as storageRef,
-  uploadBytes,
-  getDownloadURL,
-} from "firebase/storage";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import ProductUploaderModal from "./ProductUploaderModal.jsx";
 
-export default function ProductModal({ scanResult, setScanResult }) {
+export default function ProductModal({ code, onClose }) {
   const [product, setProduct] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
-  const [uploading, setUploading] = useState(false);
+  const [openUploader, setOpenUploader] = useState(false);
+
+  const fetchProduct = async () => {
+    const docRef = doc(db, "products", code);
+    const snapshot = await getDoc(docRef);
+    if (snapshot.exists()) setProduct(snapshot.data());
+    else setProduct(null);
+  };
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      const docRef = doc(db, "products", scanResult);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setProduct(docSnap.data());
-        setImageUrl(docSnap.data().imageUrl || "");
-      }
-    };
     fetchProduct();
-  }, [scanResult]);
+  }, [code]);
 
-  const handleFileChange = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    setUploading(true);
-    const fileRef = storageRef(storage, `products/${scanResult}`);
-    await uploadBytes(fileRef, file);
-    const url = await getDownloadURL(fileRef);
-    setImageUrl(url);
-
-    // update Firestore
-    const docRef = doc(db, "products", scanResult);
-    await setDoc(docRef, { ...product, imageUrl: url }, { merge: true });
-    setUploading(false);
+  const handleUploadClose = () => {
+    setOpenUploader(false);
+    fetchProduct(); // refetch to get updated imageUrl
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full animate-slideUp">
-      <div className="p-4 bg-black border-gold border rounded-xl w-11/12 max-w-md flex flex-col items-center">
-        <h2 className="text-xl font-bold mb-2">{product?.descripcion}</h2>
-        <p className="mb-2">SKU: {scanResult}</p>
-        <p className="mb-2">Precio: ${product?.precio}</p>
-        {imageUrl ? (
-          <img src={imageUrl} alt="product" className="w-40 h-40 object-cover rounded-lg mb-2" />
-        ) : (
-          <p className="mb-2 text-gray-400">No image available</p>
-        )}
-        <input
-          type="file"
-          accept="image/*"
-          capture="environment"
-          onChange={handleFileChange}
-          className="mb-2"
-        />
-        {uploading && <p className="text-yellow-400">Uploading...</p>}
-        <button
-          className="mt-2 px-4 py-2 bg-gold text-black font-semibold rounded-lg hover:scale-105 transition-transform"
-          onClick={() => setScanResult(null)}
-        >
-          Escanear Otro
-        </button>
-      </div>
+    <div className="w-full h-screen bg-black text-gold flex flex-col items-center justify-center p-6">
+      {product ? (
+        <div className="w-full max-w-sm bg-gray-900 p-6 rounded-xl shadow-lg">
+          <h2 className="text-2xl font-bold mb-2">{product.descripcion}</h2>
+          <p className="text-lg mb-4">Precio: ${product.precio}</p>
+          {product.imageUrl ? (
+            <img
+              src={product.imageUrl}
+              alt={product.descripcion}
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+          ) : (
+            <p className="text-sm mb-4">No hay imagen, sube una ahora.</p>
+          )}
+          <div className="flex space-x-2">
+            <button
+              onClick={() => setOpenUploader(true)}
+              className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition"
+            >
+              {product.imageUrl ? "Reemplazar Imagen" : "Subir Imagen"}
+            </button>
+            <button
+              onClick={onClose}
+              className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
+            >
+              Escanear Otro
+            </button>
+          </div>
+        </div>
+      ) : (
+        <p>No se encontró información para {code}.</p>
+      )}
+
+      {openUploader && (
+        <ProductUploaderModal code={code} onClose={handleUploadClose} />
+      )}
     </div>
   );
 }
