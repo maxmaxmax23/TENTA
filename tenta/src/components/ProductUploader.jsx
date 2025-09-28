@@ -3,76 +3,59 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase.js";
 
 export default function ProductUploader({ scannedCode }) {
-  const [file, setFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
+  const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [uploadedUrl, setUploadedUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (!selectedFile) return;
+    const file = e.target.files[0];
+    if (!file) return;
 
-    setFile(selectedFile);
-    setPreviewUrl(URL.createObjectURL(selectedFile));
+    const storageRef = ref(storage, `product-images/${scannedCode}/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
 
-    const storageRef = ref(storage, `products/${scannedCode}/${selectedFile.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, selectedFile);
+    setUploading(true);
 
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const percent = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
+        const percent = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
         setProgress(percent);
       },
       (error) => {
-        console.error("Upload error:", error);
+        console.error("Upload failed:", error);
+        setUploading(false);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          setUploadedUrl(url);
-          setProgress(100);
+          setImageUrl(url);
+          setUploading(false);
         });
       }
     );
   };
 
+  if (imageUrl) {
+    return (
+      <div className="mt-2">
+        <img src={imageUrl} alt="SKU" className="w-32 h-32 object-cover rounded shadow" />
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col items-center p-4 border border-gray-300 rounded-md mt-2">
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        className="mb-2"
-      />
-
-      {previewUrl && (
-        <img
-          src={previewUrl}
-          alt="Preview"
-          className="w-32 h-32 object-cover rounded-md mb-2"
-        />
-      )}
-
-      {file && (
-        <div className="w-full max-w-xs bg-gray-200 rounded-full h-4 overflow-hidden mb-2">
+    <div className="mt-4 flex flex-col items-center">
+      <label className="cursor-pointer px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        {uploading ? `Uploading... ${progress}%` : "Upload Image"}
+        <input type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
+      </label>
+      {uploading && (
+        <div className="w-full max-w-xs mt-2 h-2 bg-gray-200 rounded">
           <div
-            className="bg-blue-500 h-4 transition-all duration-300"
+            className="h-full bg-green-500 rounded"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
-      )}
-
-      {uploadedUrl && (
-        <a
-          href={uploadedUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 underline mt-1"
-        >
-          View uploaded image
-        </a>
       )}
     </div>
   );
