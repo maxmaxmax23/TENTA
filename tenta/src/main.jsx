@@ -6,7 +6,7 @@ import "./App.css";
 function Main() {
   return (
     <React.StrictMode>
-      <div className="min-h-screen w-full bg-black text-gold flex flex-col items-center justify-center px-4">
+      <div className="w-screen h-screen bg-black text-yellow-400 flex flex-col items-center justify-center animate-fade-in">
         <App />
       </div>
     </React.StrictMode>

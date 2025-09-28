@@ -1,39 +1,58 @@
-// src/components/Scanner.jsx
-import { useEffect, useRef } from "react";
-import { Html5QrcodeScanner } from "html5-qrcode";
+import { useState } from "react";
+import { storage } from "../firebase.js";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-export default function Scanner({ onScan }) {
-  const scannerRef = useRef(null);
+export default function ProductUploaderModal({ sku }) {
+  const [file, setFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [thumbnail, setThumbnail] = useState(null);
 
-  useEffect(() => {
-    const scanner = new Html5QrcodeScanner("reader", {
-      qrbox: { width: 250, height: 250 },
-      fps: 10,
-      aspectRatio: 1,
-      rememberLastUsedCamera: true,
-    });
+  const handleFileChange = async (e) => {
+    const selected = e.target.files[0];
+    if (!selected) return;
+    setFile(selected);
+    await uploadFile(selected);
+  };
 
-    const success = (decodedText) => {
-      scanner.clear();
-      onScan(decodedText);
-    };
+  const handleTakePhoto = async () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.capture = "environment";
+    input.onchange = handleFileChange;
+    input.click();
+  };
 
-    const error = (err) => console.warn(err);
-
-    scanner.render(success, error);
-
-    return () => scanner.clear();
-  }, [onScan]);
+  const uploadFile = async (file) => {
+    setUploading(true);
+    const storageRef = ref(storage, `products/${sku}/${file.name}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    setThumbnail(url);
+    setUploading(false);
+  };
 
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center animate-fade-in bg-black">
-      <h2 className="text-gold text-xl mb-4 font-semibold">
-        Escanea el SKU o QR
-      </h2>
-      <div
-        id="reader"
-        className="w-full max-w-md rounded-md overflow-hidden shadow-lg"
-      />
+    <div className="flex flex-col items-center">
+      {thumbnail ? (
+        <img src={thumbnail} alt="Uploaded" className="w-32 h-32 object-cover rounded-lg mb-2" />
+      ) : (
+        <div className="flex flex-col gap-2">
+          <button
+            onClick={handleTakePhoto}
+            className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold"
+          >
+            Tomar foto
+          </button>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold"
+          />
+        </div>
+      )}
+      {uploading && <p className="mt-2 text-sm">Subiendo...</p>}
     </div>
   );
 }

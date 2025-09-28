@@ -22,9 +22,13 @@ module.exports = {
         },
       },
       animation: {
-        "fade-in": "fade-in 0.5s ease-out",
+        "fade-in": "fadeIn 0.5s ease-out forwards",
         "slide-up": "slide-up 0.4s ease-out",
       },
+            keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
     },
   },
   plugins: [],
