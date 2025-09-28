@@ -1,32 +1,28 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
+    './index.html',
+    './src/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
       colors: {
-        gold: "#D4AF37",
-        black: "#0A0A0A",
+        gold: '#FFD700',         // primary luxury gold
+        black: '#000000',        // deep black background
+        darkGray: '#121212',     // for panels or secondary bg
+        grayText: '#E0E0E0',     // for secondary text
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Poppins", "system-ui", "sans-serif"],
+        poppins: ['Poppins', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'], // elegant headings if needed
       },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(100%)" },
-          "100%": { transform: "translateY(0)" },
-        },
+      boxShadow: {
+        'gold-lg': '0 0 15px rgba(255, 215, 0, 0.6)', // luxury gold glow
       },
-      animation: {
-        fadeIn: "fadeIn 0.3s ease-out",
-        slideUp: "slideUp 0.4s ease-out",
+      borderRadius: {
+        xl: '1rem',
+        '2xl': '1.5rem',
       },
     },
   },

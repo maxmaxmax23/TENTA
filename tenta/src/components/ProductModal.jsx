@@ -1,72 +1,75 @@
-import { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebase.js";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { uploadImageAndUpdateProduct } from "../firebase.js";
 
-export default function ProductModal({ scanResult, product, onClose }) {
-  const [imageUrl, setImageUrl] = useState(product?.imageUrl || "");
+export default function ProductModal({ product, onClose }) {
+  const [imageUrl, setImageUrl] = useState(product?.imageUrl || null);
   const [loading, setLoading] = useState(false);
 
-  const handleUpload = async (file) => {
-    if (!file) return;
+  const handleFileChange = async (e) => {
+    if (!e.target.files[0]) return;
     setLoading(true);
-    const storageRef = ref(storage, `products/${scanResult}`);
-    await uploadBytes(storageRef, file);
-    const url = await getDownloadURL(storageRef);
+    const file = e.target.files[0];
+    const url = await uploadImageAndUpdateProduct(product.id, file);
     setImageUrl(url);
     setLoading(false);
   };
 
-  return (
-    <Transition appear show as={Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={onClose}>
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="fixed inset-0 bg-black/50" />
-        </Transition.Child>
+  if (!product) return <div>No data for this SKU</div>;
 
-        <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
-            <Dialog.Panel className="bg-black p-6 rounded-xl w-full max-w-md flex flex-col gap-4">
-              <Dialog.Title className="text-xl font-bold text-gold">{product?.descripcion || scanResult}</Dialog.Title>
-              <p className="text-white">Precio: ${product?.precio || "N/A"}</p>
-              {imageUrl ? (
-                <img src={imageUrl} alt="Producto" className="w-full rounded-md" />
-              ) : (
-                <input
-                  type="file"
-                  accept="image/*"
-                  capture="environment"
-                  onChange={(e) => handleUpload(e.target.files[0])}
-                  className="p-2 rounded-lg bg-black/80 border border-gold text-white"
-                />
-              )}
-              {loading && <p className="text-white">Cargando...</p>}
-              <button
-                onClick={onClose}
-                className="mt-4 bg-gold text-black py-2 rounded-lg font-bold hover:opacity-80 transition"
-              >
-                Escanear Otro
-              </button>
-            </Dialog.Panel>
-          </Transition.Child>
-        </div>
-      </Dialog>
-    </Transition>
+  return (
+    <motion.div
+      className="fixed inset-0 bg-black/70 flex items-end justify-center p-4 z-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose} // close if background clicked
+    >
+      <motion.div
+        className="bg-black text-gold rounded-t-2xl w-full max-w-md p-6 shadow-xl flex flex-col gap-4"
+        initial={{ y: "100%" }}
+        animate={{ y: 0 }}
+        exit={{ y: "100%" }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        drag="y"
+        dragDirectionLock
+        dragConstraints={{ top: 0, bottom: 300 }}
+        dragElastic={0.2}
+        onDragEnd={(event, info) => {
+          if (info.point.y > 200) onClose(); // swipe down to close
+        }}
+        onClick={(e) => e.stopPropagation()} // prevent background click
+      >
+        <h2 className="text-xl font-bold text-center">{product.descripcion}</h2>
+        <p className="text-center">ID: {product.id}</p>
+        <p className="text-center">Precio: ${product.precio || "N/A"}</p>
+
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={product.descripcion}
+            className="w-full h-48 object-cover rounded-md"
+          />
+        ) : (
+          <>
+            <input
+              type="file"
+              accept="image/*"
+              capture="environment"
+              onChange={handleFileChange}
+              className="w-full p-2 border border-gold rounded-md text-black"
+            />
+            {loading && <p className="text-center mt-2">Cargando...</p>}
+          </>
+        )}
+
+        <button
+          onClick={onClose}
+          className="mt-2 w-full p-3 bg-gold text-black rounded-md font-bold hover:bg-yellow-500 transition"
+        >
+          Escanear Otro
+        </button>
+      </motion.div>
+    </motion.div>
   );
 }

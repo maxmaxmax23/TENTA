@@ -9,40 +9,40 @@ export default function LoginForm({ onLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       onLogin(userCredential.user);
     } catch (err) {
-      setError(err.message);
+      setError("Credenciales inválidas");
     }
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-black text-gold p-6">
-      <h1 className="text-2xl mb-6 font-bold">Iniciar Sesión</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-sm">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="p-3 rounded-lg bg-black/80 border border-gold text-white"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="p-3 rounded-lg bg-black/80 border border-gold text-white"
-          required
-        />
-        {error && <p className="text-red-500">{error}</p>}
-        <button type="submit" className="bg-gold text-black py-3 rounded-lg font-bold hover:opacity-80 transition">
-          Login
-        </button>
-      </form>
-    </div>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col w-full max-w-sm p-6 bg-black/80 rounded-xl gap-4"
+    >
+      <h2 className="text-2xl font-bold text-center text-gold">Login</h2>
+      <input
+        type="email"
+        placeholder="Email"
+        className="p-3 rounded-md text-black"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        className="p-3 rounded-md text-black"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+      <button type="submit" className="p-3 bg-gold text-black rounded-md font-bold hover:bg-yellow-500 transition">
+        Iniciar Sesión
+      </button>
+      {error && <p className="text-red-500">{error}</p>}
+    </form>
   );
 }
