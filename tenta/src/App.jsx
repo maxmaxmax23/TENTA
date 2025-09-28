@@ -1,17 +1,25 @@
-import { useState } from "react";
-import LoginForm from "./LoginForm.jsx";
-import Scanner from "./Scanner.jsx";
+import { useState } from 'react';
+import LoginForm from './LoginForm.jsx';
+import ProductUploaderModal from './ProductUploaderModal.jsx';
 
-export default function App() {
+function App() {
   const [user, setUser] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  if (!user) {
+    return <LoginForm onLogin={setUser} />;
+  }
 
   return (
-    <div className="min-h-screen bg-black text-yellow-400 flex flex-col items-center justify-center p-4">
-      {!user ? (
-        <LoginForm onLogin={setUser} />
-      ) : (
-        <Scanner />
-      )}
+    <div className="h-screen w-screen flex flex-col bg-black text-gold">
+      <h1 className="text-center text-2xl font-bold p-4">Tenta Scanner</h1>
+      <ProductUploaderModal
+        user={user}
+        selectedProduct={selectedProduct}
+        setSelectedProduct={setSelectedProduct}
+      />
     </div>
   );
 }
+
+export default App;

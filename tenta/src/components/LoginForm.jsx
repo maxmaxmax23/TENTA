@@ -1,40 +1,44 @@
-import { useState } from "react";
-import { auth } from "./firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from 'react';
 
 export default function LoginForm({ onLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      onLogin(userCredential.user);
-    } catch (err) {
-      setError("Invalid credentials");
-    }
+    // In version 1, we just simulate login
+    onLogin({ email });
   };
 
   return (
-    <form onSubmit={handleLogin} className="w-full max-w-sm flex flex-col gap-4">
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        className="p-3 rounded-lg bg-gray-900 text-yellow-400"
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        className="p-3 rounded-lg bg-gray-900 text-yellow-400"
-      />
-      {error && <div className="text-red-500">{error}</div>}
-      <button type="submit" className="p-3 bg-yellow-400 text-black rounded-lg font-bold">Login</button>
-    </form>
+    <div className="h-screen w-screen flex items-center justify-center bg-black text-gold p-4">
+      <form
+        onSubmit={handleLogin}
+        className="bg-gray-900 p-6 rounded-xl w-full max-w-xs flex flex-col gap-4"
+      >
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="p-2 rounded bg-black text-gold border border-gold"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="p-2 rounded bg-black text-gold border border-gold"
+          required
+        />
+        <button
+          type="submit"
+          className="bg-gold text-black font-bold p-2 rounded hover:bg-yellow-500 transition"
+        >
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
