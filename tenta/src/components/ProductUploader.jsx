@@ -1,135 +1,78 @@
-// src/components/ProductUploader.jsx
-import React, { useState, useEffect, useRef } from "react";
-import { storage } from "../firebase";
+import { useState } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from "../firebase.js";
 
-export default function ProductUploader({ sku }) {
+export default function ProductUploader({ scannedCode }) {
   const [file, setFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
   const [progress, setProgress] = useState(0);
-  const [uploadedImages, setUploadedImages] = useState([]);
-  const [uploading, setUploading] = useState(false);
-  const fileInputRef = useRef(null);
+  const [uploadedUrl, setUploadedUrl] = useState(null);
 
-  useEffect(() => {
-    setFile(null);
-    setProgress(0);
-    setUploading(false);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  }, [sku]);
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (!selectedFile) return;
 
-  if (!sku) return <p>Please scan a product first.</p>;
+    setFile(selectedFile);
+    setPreviewUrl(URL.createObjectURL(selectedFile));
 
-  const handleFileChange = (e) => setFile(e.target.files[0]);
-
-  const handleUpload = () => {
-    if (!file) return alert("Select a file first");
-
-    setUploading(true);
-    const storageRef = ref(storage, `products/${sku}/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+    const storageRef = ref(storage, `products/${scannedCode}/${selectedFile.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, selectedFile);
 
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const prog = Math.round(
+        const percent = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-        setProgress(prog);
+        setProgress(percent);
       },
       (error) => {
-        console.error("Upload failed:", error);
-        alert("Upload failed: " + error.message);
-        setUploading(false);
+        console.error("Upload error:", error);
       },
-      async () => {
-        try {
-          const url = await getDownloadURL(uploadTask.snapshot.ref);
-          setUploadedImages((prev) => [url, ...prev]); // newest first
-        } catch (err) {
-          console.error(err);
-        } finally {
-          setFile(null);
-          setProgress(0);
-          setUploading(false);
-          if (fileInputRef.current) fileInputRef.current.value = "";
-        }
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setUploadedUrl(url);
+          setProgress(100);
+        });
       }
     );
   };
 
   return (
-    <div
-      style={{
-        padding: "1rem",
-        border: "1px solid #ccc",
-        borderRadius: "8px",
-        marginTop: "1rem",
-      }}
-    >
-      <h2>Upload Images for SKU: {sku}</h2>
+    <div className="flex flex-col items-center p-4 border border-gray-300 rounded-md mt-2">
       <input
         type="file"
-        onChange={handleFileChange}
         accept="image/*"
-        ref={fileInputRef}
+        onChange={handleFileChange}
+        className="mb-2"
       />
-      <button
-        onClick={handleUpload}
-        disabled={!file || uploading}
-        style={{
-          display: "block",
-          width: "100%",
-          marginTop: "0.5rem",
-          padding: "0.5rem",
-          fontSize: "1rem",
-        }}
-      >
-        Upload
-      </button>
 
-      {/* Progress */}
-      {(uploading || progress > 0) && (
-        <div style={{ marginTop: "0.5rem" }}>
-          <progress value={progress} max="100" style={{ width: "100%" }} />
-          {uploading && <p>Uploading…</p>}
+      {previewUrl && (
+        <img
+          src={previewUrl}
+          alt="Preview"
+          className="w-32 h-32 object-cover rounded-md mb-2"
+        />
+      )}
+
+      {file && (
+        <div className="w-full max-w-xs bg-gray-200 rounded-full h-4 overflow-hidden mb-2">
+          <div
+            className="bg-blue-500 h-4 transition-all duration-300"
+            style={{ width: `${progress}%` }}
+          ></div>
         </div>
       )}
 
-      {/* Uploaded thumbnails */}
-      {uploadedImages.length > 0 && (
-        <div style={{ marginTop: "1rem" }}>
-          <h3>Uploaded Images:</h3>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "0.5rem",
-            }}
-          >
-            {uploadedImages.map((url, i) => (
-              <a
-                key={i}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "block",
-                  width: "80px",
-                  height: "80px",
-                  border: "1px solid #ccc",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                }}
-              >
-                <img
-                  src={url}
-                  alt={`Uploaded ${i + 1}`}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </a>
-            ))}
-          </div>
-        </div>
+      {uploadedUrl && (
+        <a
+          href={uploadedUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline mt-1"
+        >
+          View uploaded image
+        </a>
       )}
     </div>
   );
