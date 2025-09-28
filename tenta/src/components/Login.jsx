@@ -1,56 +1,42 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase.js";
 
-function Login({ onLogin }) {
+export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userCred = await signInWithEmailAndPassword(auth, email, password);
-      onLogin(userCred.user);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      onLogin(userCredential.user); // <-- must call this
     } catch (err) {
-      setError("Login failed: " + err.message);
+      setError(err.message);
     }
   };
 
-  const handleLogout = async () => {
-    await signOut(auth);
-    onLogin(null);
-  };
-
   return (
-    <div style={{ margin: "20px" }}>
-      {auth.currentUser ? (
-        <div>
-          <p>Welcome {auth.currentUser.email}</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          /><br/>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          /><br/>
-          <button type="submit">Login</button>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-        </form>
-      )}
-    </div>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-white p-6 rounded shadow">
+      {error && <p className="text-red-500">{error}</p>}
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="border p-2 rounded"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className="border p-2 rounded"
+      />
+      <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+        Login
+      </button>
+    </form>
   );
 }
-
-export default Login;
