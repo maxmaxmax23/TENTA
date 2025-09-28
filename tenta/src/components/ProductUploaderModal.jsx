@@ -1,121 +1,56 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { db, storage } from "../firebase";
-import {
-  doc,
-  updateDoc,
-  getDoc,
-} from "firebase/firestore";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  deleteObject,
-} from "firebase/storage";
+import React, { useState, useRef } from "react";
+import { Dialog } from "@headlessui/react";
+import { storage } from "./firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function ProductUploaderModal({ product, onClose }) {
+  const [imageUrl, setImageUrl] = useState(product.imageUrl || "");
   const [uploading, setUploading] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleFileChange = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+  const modalRef = useRef(null);
+  const startY = useRef(0);
+  const translateY = useRef(0);
 
-    try {
-      setUploading(true);
-      setError("");
+  const handleTouchStart = (e) => { startY.current = e.touches[0].clientY; };
+  const handleTouchMove = (e) => {
+    const currentY = e.touches[0].clientY;
+    translateY.current = currentY - startY.current;
+    if (translateY.current > 0) modalRef.current.style.transform = `translateY(${translateY.current}px)`;
+  };
+  const handleTouchEnd = () => { if (translateY.current > 100) onClose(); else modalRef.current.style.transform = "translateY(0)"; };
 
-      const productRef = doc(db, "products", product.id);
-      const productSnap = await getDoc(productRef);
-
-      // 1. If product already has an image, delete it from storage
-      if (productSnap.exists() && productSnap.data().imageUrl) {
-        try {
-          const oldImageRef = ref(storage, productSnap.data().imageUrl);
-          await deleteObject(oldImageRef);
-        } catch (err) {
-          console.warn("Old image not found, skipping delete.");
-        }
-      }
-
-      // 2. Upload new image
-      const storageRef = ref(storage, `productImages/${product.id}/${file.name}`);
-      await uploadBytes(storageRef, file);
-      const url = await getDownloadURL(storageRef);
-
-      // 3. Update Firestore with new URL
-      await updateDoc(productRef, {
-        imageUrl: url,
-      });
-
-      alert("✅ Imagen actualizada correctamente");
-      onClose();
-    } catch (err) {
-      console.error(err);
-      setError("Error subiendo la imagen. Intenta de nuevo.");
-    } finally {
-      setUploading(false);
-    }
+  const handleUpload = async (e) => {
+    const file = e.target.files[0]; if (!file) return;
+    setUploading(true);
+    const storageRef = ref(storage, `products/${product.id}/${file.name}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    setImageUrl(url);
+    setUploading(false);
   };
 
   return (
-    <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <motion.div
-        className="bg-white rounded-2xl shadow-xl w-[90%] max-w-sm p-6 text-center space-y-4"
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        exit={{ y: 100 }}
-        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+    <Dialog open={true} onClose={onClose} className="fixed inset-0 z-50 flex items-center justify-center">
+      <Dialog.Overlay className="fixed inset-0 bg-black/70" />
+      <div
+        ref={modalRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        className="bg-black text-yellow-400 p-6 rounded-2xl w-full max-w-sm flex flex-col items-center transform transition-all duration-300"
       >
-        <h2 className="text-xl font-bold text-gray-900">
-          {product.descripcion}
-        </h2>
-        {product.imageUrl ? (
-          <div className="space-y-2">
-            <img
-              src={product.imageUrl}
-              alt={product.descripcion}
-              className="w-full h-40 object-cover rounded-lg"
-            />
-            <p className="text-sm text-gray-500">Se reemplazará la foto</p>
-          </div>
+        <Dialog.Title className="text-xl font-bold mb-4">{product.descripcion}</Dialog.Title>
+        {imageUrl ? (
+          <img src={imageUrl} className="w-48 h-48 object-cover rounded-md mb-4" />
         ) : (
-          <p className="text-sm text-gray-500">No hay foto guardada aún</p>
+          <div className="text-center mb-4">No image yet. Upload one.</div>
         )}
-
-        <label className="block">
-          <span className="sr-only">Subir imagen</span>
-          <input
-            type="file"
-            accept="image/*"
-            capture="environment"
-            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 
-                     file:rounded-full file:border-0 file:text-sm file:font-semibold
-                     file:bg-yellow-500 file:text-black hover:file:bg-yellow-600"
-            onChange={handleFileChange}
-            disabled={uploading}
-          />
-        </label>
-
-        {uploading && (
-          <p className="text-yellow-600 font-medium animate-pulse">
-            Cargando...
-          </p>
-        )}
-        {error && <p className="text-red-600">{error}</p>}
-
-        <button
-          onClick={onClose}
-          className="w-full bg-black text-white rounded-full py-2 font-semibold hover:bg-gray-800"
-        >
-          Cancelar
+        <input type="file" accept="image/*" capture="environment" onChange={handleUpload} />
+        {uploading && <div className="mt-2 text-sm">Uploading...</div>}
+        <button className="mt-4 p-3 bg-yellow-400 text-black rounded-lg font-bold" onClick={onClose}>
+          Scan Another
         </button>
-      </motion.div>
-    </motion.div>
+      </div>
+    </Dialog>
   );
 }

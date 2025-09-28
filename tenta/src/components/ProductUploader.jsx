@@ -1,59 +1,37 @@
-import { useState } from 'react';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
-import { storage, db } from '../firebase.js';
+import React, { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { storage } from "./firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-export default function ProductUploader({ productId, onUpload }) {
-  const [file, setFile] = useState(null);
-  const [loading, setLoading] = useState(false);
+export default function ProductUploaderModal({ product, onClose }) {
+  const [imageUrl, setImageUrl] = useState(product.imageUrl || "");
+  const [uploading, setUploading] = useState(false);
 
-  const handleUpload = async () => {
+  const handleUpload = async (e) => {
+    const file = e.target.files[0];
     if (!file) return;
-    setLoading(true);
-
-    try {
-      const storageRef = ref(storage, `products/${productId}`);
-      await uploadBytes(storageRef, file);
-      const url = await getDownloadURL(storageRef);
-
-      const productRef = doc(db, 'products', productId);
-      const productSnap = await getDoc(productRef);
-
-      const dataToSave = { image: url, id: productId };
-      if (productSnap.exists()) {
-        await setDoc(productRef, dataToSave, { merge: true });
-      } else {
-        await setDoc(productRef, dataToSave);
-      }
-
-      // Optionally: sync Firestore to JSON
-      // import { pullFirestoreToJson } from '../firebaseSync';
-      // await pullFirestoreToJson();
-
-      setLoading(false);
-      onUpload();
-    } catch (err) {
-      console.error(err);
-      setLoading(false);
-    }
+    setUploading(true);
+    const storageRef = ref(storage, `products/${product.id}/${file.name}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    setImageUrl(url);
+    setUploading(false);
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <input
-        type="file"
-        accept="image/*"
-        capture="environment"
-        onChange={(e) => setFile(e.target.files[0])}
-        className="mb-2 text-gold"
-      />
-      <button
-        onClick={handleUpload}
-        disabled={!file || loading}
-        className="bg-gold text-black py-2 px-4 rounded-xl shadow-gold-lg hover:opacity-90 transition disabled:opacity-50"
-      >
-        {loading ? 'Cargando...' : 'Subir Imagen'}
-      </button>
-    </div>
+    <Dialog open={true} onClose={onClose} className="fixed inset-0 z-50 flex items-center justify-center">
+      <Dialog.Overlay className="fixed inset-0 bg-black/70" />
+      <div className="bg-black text-yellow-400 p-6 rounded-2xl w-full max-w-sm flex flex-col items-center animate-fadeIn">
+        <Dialog.Title className="text-xl font-bold mb-4">{product.descripcion}</Dialog.Title>
+        {imageUrl ? (
+          <img src={imageUrl} className="w-48 h-48 object-cover rounded-md mb-4" />
+        ) : (
+          <div className="text-center mb-4">No image yet. Upload one.</div>
+        )}
+        <input type="file" accept="image/*" capture="environment" onChange={handleUpload} />
+        {uploading && <div className="mt-2 text-sm">Uploading...</div>}
+        <button className="btn mt-4" onClick={onClose}>Scan Another</button>
+      </div>
+    </Dialog>
   );
 }

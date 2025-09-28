@@ -1,134 +1,47 @@
-/* ----------------- Tailwind Directives ----------------- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ----------------- Global Styles ----------------- */
-:root {
-  font-family: 'Poppins', sans-serif;
-  color-scheme: dark;
-  color: #fff;
-  background-color: #000; /* black background for luxury look */
-}
-
-/* Full-screen layout for mobile */
-html, body, #root {
-  height: 100%;
+/* Global body and container */
+body {
   margin: 0;
-  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000; /* Black luxury background */
+  color: #FFD700; /* Gold text */
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
 }
 
-/* ----------------- Logo ----------------- */
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .logo {
-  width: 80%;
-  max-width: 300px;
+  width: 200px;
   height: auto;
-  padding: 1rem;
-  transition: filter 0.3s ease-in-out;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 1.5em #ffd700); /* gold glow on hover */
+  margin-bottom: 2rem;
 }
 
-/* ----------------- Buttons ----------------- */
-.btn-primary {
-  @layer components;
-}
-.btn-primary {
-  @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300 ease-in-out;
-  background-color: #ffd700; /* gold background */
-  color: #000; /* black text */
-  border: 2px solid #ffd700;
-}
-.btn-primary:hover {
-  background-color: #000;
-  color: #ffd700;
-  border: 2px solid #ffd700;
-  transform: scale(1.05);
+/* Buttons */
+.btn {
+  @apply px-6 py-3 rounded-full font-semibold text-black bg-yellow-400 hover:bg-yellow-300 transition-all;
 }
 
-/* ----------------- Cards / Popovers ----------------- */
-.card {
-  @apply bg-black/80 text-gold p-4 rounded-2xl shadow-xl w-11/12 max-w-md mx-auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  animation: fadeIn 0.3s ease-in-out;
+/* Modal animations */
+.modal-enter {
+  @apply opacity-0 scale-95;
 }
-
-/* ----------------- Text Colors ----------------- */
-.text-gold {
-  color: #ffd700;
+.modal-enter-active {
+  @apply opacity-100 scale-100 transition duration-300 ease-out;
 }
-.text-black {
-  color: #000;
+.modal-exit {
+  @apply opacity-100 scale-100;
 }
-.text-white {
-  color: #fff;
-}
-
-/* ----------------- Animations ----------------- */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-/* ----------------- Utility Overrides ----------------- */
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* ----------------- Scanner Container ----------------- */
-#reader {
-  width: 100%;
-  max-width: 360px;
-  aspect-ratio: 1 / 1;
-  margin: 1rem 0;
-  border: 2px solid #ffd700;
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-/* ----------------- Input Fields ----------------- */
-input, textarea {
-  @apply w-full rounded-lg p-3 mb-4 text-black;
-}
-
-/* ----------------- Fullscreen Modals ----------------- */
-.modal-bg {
-  @apply fixed inset-0 bg-black/90 flex justify-center items-center z-50;
-}
-.modal-card {
-  @apply bg-black/90 p-4 rounded-2xl shadow-xl max-w-sm w-11/12 flex flex-col items-center;
-  animation: slideUp 0.3s ease-out;
-}
-
-/* ----------------- Image Thumbnails ----------------- */
-.thumbnail {
-  @apply w-24 h-24 rounded-lg object-cover border-2 border-gold mb-2;
-}
-
-/* ----------------- Utility Spacing ----------------- */
-.mt-4 { margin-top: 1rem; }
-.mb-4 { margin-bottom: 1rem; }
-.p-4  { padding: 1rem; }
-.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-
-/* ----------------- Responsive tweaks for mobile ----------------- */
-@media (min-width: 360px) {
-  .logo { max-width: 280px; }
-  .card, .modal-card { max-width: 95%; }
+.modal-exit-active {
+  @apply opacity-0 scale-95 transition duration-200 ease-in;
 }

@@ -1,17 +1,17 @@
 import { useState } from "react";
-import LoginForm from "./components/LoginForm";
-import Scanner from "./components/Scanner";
+import LoginForm from "./LoginForm.jsx";
+import Scanner from "./Scanner.jsx";
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
   return (
-    <>
-      {!loggedIn ? (
-        <LoginForm onLogin={() => setLoggedIn(true)} />
+    <div className="min-h-screen bg-black text-yellow-400 flex flex-col items-center justify-center p-4">
+      {!user ? (
+        <LoginForm onLogin={setUser} />
       ) : (
         <Scanner />
       )}
-    </>
+    </div>
   );
 }
