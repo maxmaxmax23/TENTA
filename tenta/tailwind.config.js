@@ -1,30 +1,59 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './index.html',
-    './src/**/*.{js,jsx,ts,tsx}',
-    './components/**/*.{js,jsx,ts,tsx}',
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        gold: '#FFD700',         // primary luxury gold
-        black: '#000000',        // deep black background
-        darkGray: '#121212',     // for panels or secondary bg
-        grayText: '#E0E0E0',     // for secondary text
+        gold: "#d4af37",
+        black: "#000000",
+        graydark: "#1c1c1c",
+        graylight: "#2c2c2c",
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        playfair: ['Playfair Display', 'serif'], // elegant headings if needed
+        sans: ["Inter", "sans-serif"],
+        display: ["Oswald", "sans-serif"],
       },
-      boxShadow: {
-        'gold-lg': '0 0 15px rgba(255, 215, 0, 0.6)', // luxury gold glow
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+        slideUp: {
+          "0%": { transform: "translateY(30px)", opacity: 0 },
+          "100%": { transform: "translateY(0)", opacity: 1 },
+        },
+        pulseSlow: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0.5 },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.3s ease-in-out",
+        slideUp: "slideUp 0.3s ease-in-out",
+        pulseSlow: "pulseSlow 1.5s ease-in-out infinite",
       },
       borderRadius: {
-        xl: '1rem',
-        '2xl': '1.5rem',
+        xl: "1rem",
+        "2xl": "1.5rem",
+      },
+      spacing: {
+        "80": "20rem",
+        "96": "24rem",
       },
     },
+    screens: {
+      // Mobile-first: everything defaults to small screens
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+    },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+  ],
 };

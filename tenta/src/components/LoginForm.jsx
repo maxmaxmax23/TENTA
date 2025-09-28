@@ -1,46 +1,53 @@
-import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase.js';
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase.js";
 
 export default function LoginForm({ setUser }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       setUser(userCredential.user);
     } catch (err) {
-      setError('Invalid credentials');
+      setError("Invalid credentials");
     }
   };
 
   return (
     <form
-      className="flex flex-col gap-4 w-full max-w-sm p-6 bg-black/80 rounded-lg shadow-xl animate-fade-in"
       onSubmit={handleLogin}
+      className="flex flex-col w-full max-w-md p-6 bg-black border-gold border rounded-xl shadow-lg"
     >
-      <h1 className="text-2xl font-bold text-gold text-center">Login</h1>
+      <h2 className="text-2xl mb-4 text-gold font-bold text-center">
+        Login
+      </h2>
       <input
         type="email"
         placeholder="Email"
-        className="p-3 rounded bg-black/60 text-white placeholder-gold focus:outline-none"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        required
+        className="mb-4 px-4 py-2 rounded-lg bg-gray-800 text-white focus:outline-none"
       />
       <input
         type="password"
         placeholder="Password"
-        className="p-3 rounded bg-black/60 text-white placeholder-gold focus:outline-none"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        required
+        className="mb-4 px-4 py-2 rounded-lg bg-gray-800 text-white focus:outline-none"
       />
-      {error && <p className="text-red-500 text-center">{error}</p>}
-      <button type="submit" className="py-3 bg-gold text-black font-semibold rounded hover:brightness-110 transition">
+      {error && <p className="text-red-500 mb-2">{error}</p>}
+      <button
+        type="submit"
+        className="px-4 py-2 bg-gold text-black font-semibold rounded-lg hover:scale-105 transition-transform"
+      >
         Login
       </button>
     </form>
