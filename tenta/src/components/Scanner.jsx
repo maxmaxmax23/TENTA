@@ -1,53 +1,54 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import ProductUploaderModal from "./ProductUploaderModal.jsx";
 import Lista from "../tentadb.json";
 
 export default function Scanner() {
-  const readerRef = useRef(null);
   const [scanResult, setScanResult] = useState(null);
-  const [scannerKey, setScannerKey] = useState(0);
-
-  const handleScan = (result) => setScanResult(result);
+  const [showModal, setShowModal] = useState(false);
+  const [scannerVisible, setScannerVisible] = useState(true);
 
   useEffect(() => {
-    if (!readerRef.current || scanResult) return;
+    if (!scannerVisible) return;
 
-    const scanner = new Html5QrcodeScanner(readerRef.current.id, {
+    const scanner = new Html5QrcodeScanner("reader", {
       qrbox: { width: 250, height: 250 },
       fps: 10,
-      aspectRatio: 1,
-      focusMode: "continuous",
+      aspectRatio: 2,
     });
 
-    scanner.render(handleScan, (err) => console.warn(err));
-
-    return () => scanner.clear();
-  }, [readerRef, scanResult, scannerKey]);
-
-  const resetScanner = () => {
-    setScanResult(null);
-    setScannerKey((k) => k + 1);
-  };
-
-  const matchedItem = scanResult ? Lista.find((item) => item.id === scanResult) : null;
+    scanner.render(
+      (result) => {
+        scanner.clear();
+        setScannerVisible(false);
+        setScanResult(result);
+        setShowModal(true);
+      },
+      (err) => console.warn(err)
+    );
+  }, [scannerVisible]);
 
   return (
-    <div className="w-full flex flex-col items-center mt-4">
-      {!scanResult && (
-        <div
-          key={scannerKey}
-          ref={readerRef}
-          id="reader"
-          className="w-full max-w-md h-80 bg-black border border-gold rounded-lg overflow-hidden"
-        ></div>
-      )}
+    <div className="flex flex-col items-center gap-6 w-full max-w-md">
+      <p className="text-gold font-semibold mb-2 transition-opacity duration-500">
+        Escanea el SKU o QR
+      </p>
+      <div
+        id="reader"
+        className={`w-full h-80 border border-gold rounded-lg transition-all duration-500 ${
+          scannerVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      />
 
-      {scanResult && (
+      {showModal && scanResult && (
         <ProductUploaderModal
-          sku={scanResult}
-          matchedItem={matchedItem}
-          onClose={resetScanner}
+          code={scanResult}
+          data={Lista.find((item) => item.id === scanResult)}
+          onClose={() => {
+            setScanResult(null);
+            setShowModal(false);
+            setScannerVisible(true);
+          }}
         />
       )}
     </div>
