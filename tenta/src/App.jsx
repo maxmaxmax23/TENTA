@@ -1,64 +1,53 @@
 import { useState, useEffect } from "react";
-import { Html5QrcodeScanner } from "html5-qrcode";
 import { Popover } from "@headlessui/react";
-import ProductUploader from "./components/ProductUploader.jsx"; // your existing uploader
-import Lista from "./oliolidb.json";
+import { Html5QrcodeScanner } from "html5-qrcode";
+import ProductUploader from "./components/ProductUploader.jsx";
 
+// Scanner component
 function Scanner({ onScan }) {
   useEffect(() => {
     const scanner = new Html5QrcodeScanner(
       "reader",
-      {
-        fps: 10,
-        qrbox: { width: 250, height: 250 },
-        aspectRatio: 1.5,
-        focusMode: "continuous",
-      },
-      /* verbose= */ false
+      { fps: 10, qrbox: { width: 250, height: 250 }, aspectRatio: 1.5, focusMode: "continuous" },
+      false
     );
 
     scanner.render(
-      (result) => {
-        onScan(result);
-        // Optional: stop scanner after first scan
-        // scanner.clear().catch((err) => console.warn(err));
-      },
+      (result) => onScan(result),
       (err) => console.warn(err)
     );
 
-    return () => {
-      scanner.clear().catch(() => {});
-    };
+    return () => scanner.clear().catch(() => {});
   }, [onScan]);
 
   return (
     <div className="flex justify-center mt-4">
-      <div
-        id="reader"
-        className="w-full max-w-md rounded-lg overflow-hidden"
-      ></div>
+      <div id="reader" className="w-full max-w-md rounded-lg overflow-hidden"></div>
     </div>
   );
 }
 
+// Main App
 function App() {
   const [scanResult, setScanResult] = useState(null);
+  const [Lista, setLista] = useState([]);
 
-  const handleScan = (code) => {
-    setScanResult(code);
-  };
+  // Load tentadb.json dynamically
+  useEffect(() => {
+    fetch("/tentadb.json")
+      .then((res) => res.json())
+      .then((data) => setLista(data))
+      .catch((err) => console.error("Failed to load tentadb.json", err));
+  }, []);
 
+  const handleScan = (code) => setScanResult(code);
   const productData = Lista.find((item) => item.id === scanResult);
 
   return (
     <div className="flex flex-col items-center p-4">
-      {/* Top Logo */}
+      {/* Logo */}
       <div className="mb-4 w-full flex justify-center">
-        <img
-          src="/assets/tenta.svg"
-          alt="Tenta Logo"
-          className="max-w-xs w-full"
-        />
+        <img src="/assets/tenta.svg" alt="Tenta Logo" className="max-w-xs w-full" />
       </div>
 
       {/* Scanner */}
@@ -74,15 +63,11 @@ function App() {
             <Popover.Panel className="absolute left-1/2 z-10 mt-2 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
               {productData ? (
                 <div className="grid grid-cols-1 gap-2">
-                  <div className="text-xl font-semibold uppercase">
-                    ${productData.precio}
-                  </div>
+                  <div className="text-xl font-semibold uppercase">${productData.precio}</div>
                   <div className="text-lg truncate">{productData.descripcion}</div>
                 </div>
               ) : (
-                <div className="text-red-500">
-                  No hay datos para {scanResult}. Consultar en CAJA
-                </div>
+                <div className="text-red-500">No hay datos para {scanResult}. Consultar en CAJA</div>
               )}
             </Popover.Panel>
           </Popover>
@@ -108,4 +93,3 @@ function App() {
 }
 
 export default App;
-  
