@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { uploadImageAndUpdateProduct } from "../firebase.js";
+import { uploadImageAndUpdateProduct } from "../firebase";
 
 export default function ProductModal({ product, onClose }) {
   const [imageUrl, setImageUrl] = useState(product?.imageUrl || null);
@@ -23,7 +23,7 @@ export default function ProductModal({ product, onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onClick={onClose} // close if background clicked
+      onClick={onClose}
     >
       <motion.div
         className="bg-black text-gold rounded-t-2xl w-full max-w-md p-6 shadow-xl flex flex-col gap-4"
@@ -35,21 +35,15 @@ export default function ProductModal({ product, onClose }) {
         dragDirectionLock
         dragConstraints={{ top: 0, bottom: 300 }}
         dragElastic={0.2}
-        onDragEnd={(event, info) => {
-          if (info.point.y > 200) onClose(); // swipe down to close
-        }}
-        onClick={(e) => e.stopPropagation()} // prevent background click
+        onDragEnd={(event, info) => { if (info.point.y > 200) onClose(); }}
+        onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-xl font-bold text-center">{product.descripcion}</h2>
+        <h2 className="text-xl font-bold text-center">{product.descripcion || "Producto"}</h2>
         <p className="text-center">ID: {product.id}</p>
         <p className="text-center">Precio: ${product.precio || "N/A"}</p>
 
         {imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={product.descripcion}
-            className="w-full h-48 object-cover rounded-md"
-          />
+          <img src={imageUrl} alt={product.descripcion} className="w-full h-48 object-cover rounded-md" />
         ) : (
           <>
             <input

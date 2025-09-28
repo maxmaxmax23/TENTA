@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase.js";
+import { login } from "../firebase";
 
 export default function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -10,39 +9,38 @@ export default function LoginForm({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      onLogin(userCredential.user);
-    } catch (err) {
+      await login(email, password);
+      onLogin();
+    } catch {
       setError("Credenciales inválidas");
     }
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col w-full max-w-sm p-6 bg-black/80 rounded-xl gap-4"
-    >
-      <h2 className="text-2xl font-bold text-center text-gold">Login</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        className="p-3 rounded-md text-black"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        className="p-3 rounded-md text-black"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit" className="p-3 bg-gold text-black rounded-md font-bold hover:bg-yellow-500 transition">
-        Iniciar Sesión
-      </button>
-      {error && <p className="text-red-500">{error}</p>}
-    </form>
+    <div className="min-h-screen flex items-center justify-center bg-black">
+      <form onSubmit={handleSubmit} className="bg-gold p-8 rounded-2xl w-11/12 max-w-sm flex flex-col gap-4 shadow-lg">
+        <h1 className="text-2xl font-bold text-center text-black">Iniciar Sesión</h1>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="p-3 rounded-md border border-black"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="p-3 rounded-md border border-black"
+          required
+        />
+        <button type="submit" className="bg-black text-gold p-3 rounded-md font-bold hover:bg-gray-800 transition">
+          Entrar
+        </button>
+        {error && <p className="text-red-600 text-center">{error}</p>}
+      </form>
+    </div>
   );
 }

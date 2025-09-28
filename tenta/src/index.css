@@ -6,6 +6,8 @@
 html, body, #root {
   @apply h-full w-full m-0 p-0 bg-black text-gold;
   font-family: 'Inter', sans-serif;
+  .bg-gold { background-color: #FFD700; }
+  .text-gold { color: #FFD700; }
 }
 
 /* Smooth transitions */

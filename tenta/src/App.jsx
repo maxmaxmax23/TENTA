@@ -1,18 +1,17 @@
 import { useState } from "react";
-import LoginForm from "./components/LoginForm.jsx";
-import Scanner from "./components/Scanner.jsx";
-import { auth } from "./firebase.js";
+import LoginForm from "./components/LoginForm";
+import Scanner from "./components/Scanner";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
-    <div className="w-full h-screen bg-black text-gold flex items-center justify-center">
-      {!user ? (
-        <LoginForm onLogin={setUser} />
+    <>
+      {!loggedIn ? (
+        <LoginForm onLogin={() => setLoggedIn(true)} />
       ) : (
         <Scanner />
       )}
-    </div>
+    </>
   );
 }

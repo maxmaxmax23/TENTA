@@ -1,41 +1,31 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getDatabase, ref as dbRef, set, get, child } from "firebase/database";
+import { getFirestore, doc, updateDoc } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  apiKey: process.env.VITE_FIREBASE_API_KEY,
+  authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const storage = getStorage(app);
+const db = getFirestore(app);
 
-export const auth = getAuth(app);
-export const storage = getStorage(app);
-export const database = getDatabase(app);
+export const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-export async function getProduct(productId) {
-  const db = database;
-  const snapshot = await get(child(dbRef(db), `products/${productId}`));
-  return snapshot.exists() ? snapshot.val() : { id: productId };
-}
-
-export async function uploadImageAndUpdateProduct(productId, file) {
-  const storageRef = ref(storage, `products/${productId}`);
+export const uploadImageAndUpdateProduct = async (sku, file) => {
+  const storageRef = ref(storage, `products/${sku}`);
   await uploadBytes(storageRef, file);
   const url = await getDownloadURL(storageRef);
-
-  // Update Realtime Database
-  const db = database;
-  const productRef = dbRef(db, `products/${productId}/imageUrl`);
-  await set(productRef, url);
-
+  const docRef = doc(db, "products", sku);
+  await updateDoc(docRef, { imageUrl: url });
   return url;
-}
+};
 
-export default app;
+export { db };
