@@ -1,40 +1,46 @@
-// src/App.jsx
 import { useState, useEffect } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "./firebase";
-import LoginForm from "./components/LoginForm";
-import Scanner from "./components/Scanner";
+import { Html5QrcodeScanner } from "html5-qrcode";
+import LoginForm from "./components/LoginForm.jsx";
+import ProductModal from "./components/ProductModal.jsx";
+import Lista from "./tentadb.json";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [scanResult, setScanResult] = useState(null);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (u) => {
-      setUser(u);
+    if (!user) return;
+
+    const scanner = new Html5QrcodeScanner("reader", {
+      qrbox: { width: 250, height: 250 },
+      fps: 10,
     });
-    return () => unsub();
-  }, []);
 
-  const handleLogout = () => signOut(auth);
+    scanner.render(
+      (result) => {
+        scanner.clear();
+        setScanResult(result);
+      },
+      (err) => console.warn(err)
+    );
 
-  if (!user) {
-    return <LoginForm onLogin={setUser} />;
-  }
+    return () => scanner.clear();
+  }, [user]);
+
+  if (!user) return <LoginForm onLogin={setUser} />;
 
   return (
-    <div className="min-h-screen flex flex-col bg-black text-yellow-400">
-      <header className="flex justify-between items-center p-4 border-b border-yellow-400">
-        <h1 className="text-lg font-bold">Tenta App</h1>
-        <button
-          onClick={handleLogout}
-          className="px-3 py-1 rounded bg-yellow-500 text-black font-semibold hover:bg-yellow-600"
-        >
-          Salir
-        </button>
-      </header>
-      <main className="flex-grow flex justify-center items-center">
-        <Scanner />
-      </main>
+    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-black text-gold p-4">
+      {!scanResult && <div id="reader" className="w-full max-w-md"></div>}
+
+      {scanResult && (
+        <ProductModal
+          key={scanResult}
+          scanResult={scanResult}
+          product={Lista.find((p) => p.id === scanResult)}
+          onClose={() => setScanResult(null)}
+        />
+      )}
     </div>
   );
 }

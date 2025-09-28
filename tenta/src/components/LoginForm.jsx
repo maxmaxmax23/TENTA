@@ -1,60 +1,48 @@
-// src/components/LoginForm.jsx
 import { useState } from "react";
-import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { motion } from "framer-motion";
+import { auth } from "../firebase.js";
 
 export default function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     try {
-      const userCred = await signInWithEmailAndPassword(auth, email, password);
-      onLogin(userCred.user);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      onLogin(userCredential.user);
     } catch (err) {
-      setError("Credenciales inválidas. Inténtalo de nuevo.");
+      setError(err.message);
     }
   };
 
   return (
-    <motion.div
-      className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-black to-gray-900 text-gold-500"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-    >
-      <div className="w-full max-w-sm p-6 bg-black rounded-2xl shadow-lg">
-        <h1 className="text-2xl font-bold text-center text-yellow-400 mb-6">
-          Inicia Sesión
-        </h1>
-        <form onSubmit={handleLogin} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Correo"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-          />
-          <input
-            type="password"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-          />
-          {error && <p className="text-red-500 text-sm">{error}</p>}
-          <button
-            type="submit"
-            className="w-full py-2 rounded-lg bg-yellow-500 text-black font-bold hover:bg-yellow-600 transition"
-          >
-            Entrar
-          </button>
-        </form>
-      </div>
-    </motion.div>
+    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-black text-gold p-6">
+      <h1 className="text-2xl mb-6 font-bold">Iniciar Sesión</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-sm">
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="p-3 rounded-lg bg-black/80 border border-gold text-white"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="p-3 rounded-lg bg-black/80 border border-gold text-white"
+          required
+        />
+        {error && <p className="text-red-500">{error}</p>}
+        <button type="submit" className="bg-gold text-black py-3 rounded-lg font-bold hover:opacity-80 transition">
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
