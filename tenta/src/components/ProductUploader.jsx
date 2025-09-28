@@ -1,56 +1,58 @@
-import { useState, useEffect } from "react";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { useEffect, useState } from "react";
 import { storage } from "../firebase.js";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-export default function ProductUploader({ codigo, info }) {
+export default function ProductUploader({ sku }) {
   const [file, setFile] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [url, setUrl] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
-    if (codigo) {
-      const storageRef = ref(storage, `images/${codigo}`);
-      getDownloadURL(storageRef)
-        .then((url) => setImageUrl(url))
-        .catch(() => setImageUrl(null));
-    }
-  }, [codigo]);
+    const fetchImage = async () => {
+      try {
+        const storageRef = ref(storage, `products/${sku}.jpg`);
+        const downloadUrl = await getDownloadURL(storageRef);
+        setUrl(downloadUrl);
+      } catch {
+        setUrl(null);
+      }
+    };
+    fetchImage();
+  }, [sku]);
 
-  const handleUpload = async () => {
-    if (!file) return;
-    setLoading(true);
-    const storageRef = ref(storage, `images/${codigo}`);
-    await uploadBytes(storageRef, file);
-    const url = await getDownloadURL(storageRef);
-    setImageUrl(url);
-    setLoading(false);
+  const handleUpload = async (e) => {
+    const selected = e.target.files[0];
+    if (!selected) return;
+    setFile(selected);
+    setUploading(true);
+
+    const storageRef = ref(storage, `products/${sku}.jpg`);
+    const uploadTask = uploadBytesResumable(storageRef, selected);
+
+    uploadTask.on(
+      "state_changed",
+      null,
+      (error) => {
+        console.error(error);
+        setUploading(false);
+      },
+      async () => {
+        const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref);
+        setUrl(downloadUrl);
+        setUploading(false);
+      }
+    );
   };
 
   return (
-    <div className="bg-white p-4 rounded shadow-md w-full max-w-md mt-4 flex flex-col items-center gap-4">
-      <h2 className="text-xl font-semibold">CODIGO: {codigo}</h2>
-      {info ? (
-        <div className="text-center">
-          <p className="font-medium">Descripción: {info.descripcion}</p>
-          <p className="font-medium">Precio: ${info.precio}</p>
-        </div>
+    <div className="flex flex-col items-center gap-2">
+      {url ? (
+        <img src={url} alt={sku} className="w-32 h-32 object-cover rounded border border-gold" />
       ) : (
-        <p>No hay datos para este código</p>
-      )}
-
-      {imageUrl ? (
-        <img src={imageUrl} alt="SKU" className="w-32 h-32 object-cover rounded" />
-      ) : (
-        <>
-          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-          <button
-            onClick={handleUpload}
-            disabled={loading}
-            className="bg-green-500 text-white p-2 rounded hover:bg-green-600 transition"
-          >
-            {loading ? "Uploading..." : "Upload Image"}
-          </button>
-        </>
+        <label className="px-4 py-2 bg-gold text-black rounded cursor-pointer hover:bg-yellow-400 transition">
+          {uploading ? "Subiendo..." : "Subir foto"}
+          <input type="file" className="hidden" onChange={handleUpload} />
+        </label>
       )}
     </div>
   );

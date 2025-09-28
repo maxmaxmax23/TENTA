@@ -1,81 +1,54 @@
 import { useEffect, useRef, useState } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
-import Lista from "../tentadb.json"; // your data
-import ProductUploader from "./ProductUploader.jsx";
+import ProductUploaderModal from "./ProductUploaderModal.jsx";
+import Lista from "../tentadb.json";
 
 export default function Scanner() {
   const readerRef = useRef(null);
   const [scanResult, setScanResult] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [scannerKey, setScannerKey] = useState(0);
 
-  // Handle scan
-  const handleScan = (result) => {
-    setScanResult(result);
-    setShowModal(true);
-  };
+  const handleScan = (result) => setScanResult(result);
 
   useEffect(() => {
-    if (!readerRef.current) return;
+    if (!readerRef.current || scanResult) return;
 
     const scanner = new Html5QrcodeScanner(readerRef.current.id, {
       qrbox: { width: 250, height: 250 },
       fps: 10,
-      aspectRatio: 2,
+      aspectRatio: 1,
       focusMode: "continuous",
     });
 
-    scanner.render(handleScan, (err) => {
-      // silently ignore minor errors
-      console.warn(err);
-    });
+    scanner.render(handleScan, (err) => console.warn(err));
 
     return () => scanner.clear();
-  }, [readerRef]);
+  }, [readerRef, scanResult, scannerKey]);
 
-  const matchedItem = scanResult
-    ? Lista.find((item) => item.id === scanResult)
-    : null;
+  const resetScanner = () => {
+    setScanResult(null);
+    setScannerKey((k) => k + 1);
+  };
+
+  const matchedItem = scanResult ? Lista.find((item) => item.id === scanResult) : null;
 
   return (
     <div className="w-full flex flex-col items-center mt-4">
-      {/* Scanner */}
       {!scanResult && (
         <div
+          key={scannerKey}
           ref={readerRef}
           id="reader"
-          className="w-full max-w-md h-80 bg-black rounded-lg overflow-hidden"
+          className="w-full max-w-md h-80 bg-black border border-gold rounded-lg overflow-hidden"
         ></div>
       )}
 
-      {/* Modal / Popover */}
-      {showModal && scanResult && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50">
-          <div className="bg-white rounded-xl p-6 max-w-sm w-full shadow-xl">
-            <h2 className="text-lg font-bold mb-4">Código: {scanResult}</h2>
-
-            {matchedItem ? (
-              <div className="flex flex-col items-center gap-4">
-                <p className="font-semibold">{matchedItem.descripcion}</p>
-                <p className="text-blue-600 font-bold">${matchedItem.precio}</p>
-
-                {/* Photo thumbnail or upload */}
-                <ProductUploader sku={scanResult} />
-              </div>
-            ) : (
-              <p>No hay datos para este SKU. Por favor consulta en caja.</p>
-            )}
-
-            <button
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-              onClick={() => {
-                setShowModal(false);
-                setScanResult(null); // reset scanner
-              }}
-            >
-              Escanear otro
-            </button>
-          </div>
-        </div>
+      {scanResult && (
+        <ProductUploaderModal
+          sku={scanResult}
+          matchedItem={matchedItem}
+          onClose={resetScanner}
+        />
       )}
     </div>
   );

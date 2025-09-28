@@ -1,88 +1,66 @@
-import { useState, useEffect } from "react";
-import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { auth } from "./firebase.js";
+import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import Scanner from "./components/Scanner.jsx";
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const [loadingAuth, setLoadingAuth] = useState(true); // NEW: wait for auth check
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoadingAuth(false); // auth check finished
-    });
+    const unsubscribe = onAuthStateChanged(auth, setUser);
     return () => unsubscribe();
   }, []);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setError("");
+  const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
-      setError("Login failed. Check email/password.");
-      console.error(err);
+      alert(err.message);
     }
   };
 
   const handleLogout = async () => {
     await signOut(auth);
-    setUser(null);
   };
 
-  if (loadingAuth) {
-    // Show a spinner while checking auth
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin h-12 w-12 border-4 border-blue-500 border-t-transparent rounded-full"></div>
-      </div>
-    );
-  }
-
   if (!user) {
-    // LOGIN FORM
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-50">
-        <h1 className="text-2xl font-bold mb-4">Login</h1>
-        <form className="flex flex-col w-full max-w-sm" onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mb-2 p-2 border rounded"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="mb-2 p-2 border rounded"
-          />
-          {error && <p className="text-red-500 mb-2">{error}</p>}
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">
-            Login
-          </button>
-        </form>
-      </div>
-    );
-  }
-
-  // AFTER LOGIN – SHOW SCANNER
-  return (
-    <div className="flex flex-col items-center justify-start min-h-screen p-4 bg-gray-50">
-      <div className="flex w-full justify-end mb-4">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-black text-gold gap-4 p-4">
+        <h1 className="text-3xl font-bold tracking-widest">TENTA CATALOG</h1>
+        <input
+          type="email"
+          placeholder="Email"
+          className="px-4 py-2 rounded bg-black border border-gold text-gold placeholder-gold/70 focus:outline-none focus:ring-2 focus:ring-gold w-full max-w-xs"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="px-4 py-2 rounded bg-black border border-gold text-gold placeholder-gold/70 focus:outline-none focus:ring-2 focus:ring-gold w-full max-w-xs"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button
-          onClick={handleLogout}
-          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+          onClick={handleLogin}
+          className="px-6 py-2 bg-gold text-black font-semibold rounded hover:bg-yellow-400 transition"
         >
-          Logout
+          LOGIN
         </button>
       </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col items-center min-h-screen bg-black text-gold p-4">
+      <button
+        onClick={handleLogout}
+        className="self-end mb-4 px-4 py-2 border border-gold rounded hover:bg-gold hover:text-black transition"
+      >
+        LOGOUT
+      </button>
       <Scanner />
     </div>
   );
