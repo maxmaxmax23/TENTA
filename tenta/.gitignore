@@ -24,5 +24,4 @@ Thumbs.db
 
 # Firebase sensitive service account (if any)
 serviceAccountKey.json
-
-serviceAccountKey.json
+.env
