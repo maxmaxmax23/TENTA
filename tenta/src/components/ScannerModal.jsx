@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase.js"; // ✅ added .js
+import { db } from "../firebase.js";
 
 export default function ScannerModal({ onScan }) {
   useEffect(() => {
@@ -10,19 +10,24 @@ export default function ScannerModal({ onScan }) {
       qrbox: { width: 250, height: 250 },
     });
 
-    const handleScan = async (code) => {
+    const handleScan = async (scannedValue) => {
       try {
+        // Extract product code from QR (handle full URLs or just code)
+        const parts = scannedValue.split("/");
+        const code = parts[parts.length - 1]; // last segment
+
         const docRef = doc(db, "products", code);
         const snapshot = await getDoc(docRef);
 
         if (snapshot.exists()) {
           scanner.clear();
-          onScan(code); // pass code only, modal fetches Firestore
+          onScan(code);
         } else {
-          alert("Producto no encontrado.");
+          alert(`Producto no encontrado para: ${code}`);
         }
       } catch (err) {
         console.error("Error fetching product:", err);
+        alert("Error al procesar el código");
       }
     };
 

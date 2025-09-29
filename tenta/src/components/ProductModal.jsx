@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase.js"; // ✅ added .js
+import { db } from "../firebase.js";
 import ProductUploaderModal from "./ProductUploaderModal.jsx";
-
 
 export default function ProductModal({ code, onClose }) {
   const [product, setProduct] = useState(null);
@@ -21,7 +20,7 @@ export default function ProductModal({ code, onClose }) {
 
   const handleUploadClose = () => {
     setOpenUploader(false);
-    fetchProduct(); // refetch to get updated imageUrl
+    fetchProduct(); // refresh product with new image
   };
 
   return (
