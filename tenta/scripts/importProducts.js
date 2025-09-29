@@ -1,49 +1,79 @@
 // scripts/importProducts.js
-import admin from "firebase-admin";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+import { initializeApp, cert } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 
-// Use SERVICE_ACCOUNT_PATH env variable or default to project root
-const serviceAccountPath = process.env.SERVICE_ACCOUNT_PATH || "./serviceAccountKey.json";
+// Resolve __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Resolve absolute path
-const resolvedPath = path.resolve(serviceAccountPath);
+const serviceAccountPath = path.join(__dirname, "../serviceAccountKey.json");
 
-// Check if file exists
-if (!fs.existsSync(resolvedPath)) {
-  console.error(`❌ Service account key not found at ${resolvedPath}`);
+// Check for service account
+if (!fs.existsSync(serviceAccountPath)) {
+  console.error("❌ Service account key not found at", serviceAccountPath);
   process.exit(1);
 }
-
-// Load service account
-const serviceAccount = JSON.parse(fs.readFileSync(resolvedPath, "utf-8"));
 
 // Initialize Firebase Admin
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+initializeApp({
+  credential: cert(serviceAccountPath),
 });
 
-const db = admin.firestore();
+const db = getFirestore();
 
-// Load products.json (assumed in project root)
-const productsPath = path.resolve("./products.json");
-if (!fs.existsSync(productsPath)) {
-  console.error(`❌ products.json not found at ${productsPath}`);
-  process.exit(1);
-}
+// Convert Excel-style serial to JS Date
+const excelDateToJSDate = (serial) => {
+  const base = new Date(1900, 0, 1);
+  return new Date(base.getTime() + (serial - 2) * 86400000);
+};
 
-const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
+// Date range: Sept 1 2024 → Sept 30 2025
+const START_DATE = new Date(2024, 8, 1); // 8 = September
+const END_DATE = new Date(2025, 8, 30);
 
 async function importProducts() {
   try {
-    for (const p of products) {
-      const docRef = db.collection("products").doc(p.id); // ID = SKU
-      await docRef.set(p);
-      console.log(`✅ Imported product: ${p.id}`);
+    const filePath = path.join(__dirname, "../products.json");
+    const raw = fs.readFileSync(filePath, "utf-8");
+    const products = JSON.parse(raw);
+
+    let imported = 0;
+    for (const product of products) {
+      try {
+        const { id, descripcion, precio, lista, listadesc, vigencia } = product;
+
+        if (!id) {
+          console.warn("⚠️ Skipping product without id:", product);
+          continue;
+        }
+
+        const vigenciaDate = excelDateToJSDate(Number(vigencia));
+
+        // Only import products within date range
+        if (vigenciaDate >= START_DATE && vigenciaDate <= END_DATE) {
+          await db.collection("products").doc(id).set({
+            descripcion,
+            precio,
+            lista,
+            listadesc,
+            vigencia: vigenciaDate.toISOString(),
+          });
+          imported++;
+          console.log(`✅ Imported ${id} (${descripcion})`);
+        } else {
+          console.log(`⏭️ Skipped ${id} (${descripcion}) – out of range`);
+        }
+      } catch (err) {
+        console.error("❌ Error importing product:", err);
+      }
     }
-    console.log("🎉 All products imported successfully!");
+
+    console.log(`\n🎉 Done! Imported ${imported} products into Firestore.`);
   } catch (err) {
-    console.error("❌ Error importing products:", err);
+    console.error("❌ Import failed:", err);
   }
 }
 
