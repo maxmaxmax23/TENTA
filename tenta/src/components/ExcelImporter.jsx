@@ -1,4 +1,3 @@
-// File: src/components/ExcelImporter.jsx
 import { useState } from "react";
 import { db } from "../firebase.js";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -12,13 +11,31 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
   const [writeCounter, setWriteCounter] = useState(initialWrites);
   const [log, setLog] = useState([]);
 
-  // Parse Excel to array of arrays
+  const normalize = (str) => str?.toString().trim() || "";
+
   const parseExcel = async (file) => {
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
     const sheetName = workbook.SheetNames[0];
-    const rawRows = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "" });
-    return rawRows;
+    return XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "" });
+  };
+
+  const parseDate = (dateStr, rowInfo) => {
+    const s = normalize(dateStr).replace(/\s/g, "");
+    if (!s) return null;
+    let parts = s.includes("/") ? s.split("/") : s.includes("-") ? s.split("-") : null;
+    if (!parts || parts.length < 3) {
+      log.push(`${rowInfo}: fecha inválida "${dateStr}"`);
+      return null;
+    }
+    let [day, month, year] = parts;
+    if (year.length === 2) year = "20" + year;
+    const d = new Date(`${year}-${month}-${day}`);
+    if (isNaN(d.getTime())) {
+      log.push(`${rowInfo}: fecha no válida "${dateStr}"`);
+      return null;
+    }
+    return d;
   };
 
   const handlePreview = async () => {
@@ -34,58 +51,37 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
       const equivRows = await parseExcel(equivFile);
       const preciosRows = await parseExcel(preciosFile);
 
-      // Map rows to objects
-      const equivData = equivRows.map((row, idx) => {
-        if (row.length < 2) {
-          newLog.push(`Equivalencias fila ${idx + 1} ignorada: menos de 2 columnas`);
-        }
-        return {
-          Articulo: row[0]?.toString().trim() || "",
-          Codigo: row[1]?.toString().trim() || "",
-          Descripcion: row[2]?.toString().trim() || "",
-        };
-      }).filter((r) => r.Articulo && r.Codigo);
+      const equivData = equivRows.map((row, idx) => ({
+        Articulo: normalize(row[0]),
+        Codigo: normalize(row[1]),
+        Descripcion: normalize(row[2]),
+        rowInfo: `Equivalencias fila ${idx + 1}`,
+      })).filter((r) => r.Articulo && r.Codigo);
 
       const preciosData = preciosRows.map((row, idx) => ({
-        Codigo: row[0]?.toString().trim() || "",
-        Descripcion: row[1]?.toString().trim() || "",
-        Lista: row[2]?.toString().trim() || "",
-        NombreListaAnterior: row[3]?.toString().trim() || "",
-        Vigencia: row[4]?.toString().trim() || "",
-        Precio: row[5]?.toString().trim() || "",
+        Codigo: normalize(row[0]),
+        Descripcion: normalize(row[1]),
+        Lista: normalize(row[2]),
+        NombreListaAnterior: normalize(row[3]),
+        VigenciaRaw: normalize(row[4]),
+        Precio: normalize(row[5]),
+        rowInfo: `Precios fila ${idx + 1}`,
       })).filter((r) => r.Codigo);
 
       const now = new Date();
       const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
 
       const merged = preciosData
-        .filter((p) => {
-          if (!p.Vigencia) {
-            newLog.push(`Fila ignorada: Vigencia vacía para Codigo "${p.Codigo}"`);
-            return false;
-          }
-          const parts = p.Vigencia.split("/");
-          if (parts.length !== 3) {
-            newLog.push(`Fila ignorada: Fecha inválida "${p.Vigencia}"`);
-            return false;
-          }
-          const [day, month, year] = parts;
-          const fullYear = year.length === 2 ? "20" + year : year;
-          const vigDate = new Date(`${fullYear}-${month}-${day}`);
-          if (isNaN(vigDate.getTime())) {
-            newLog.push(`Fila ignorada: Fecha no válida "${p.Vigencia}"`);
-            return false;
-          }
-          if (vigDate < oneYearAgo) {
-            newLog.push(`Fila filtrada: Vigencia menor a un año "${p.Vigencia}"`);
-            return false;
-          }
-          return true;
-        })
         .map((p) => {
+          const vigDate = parseDate(p.VigenciaRaw, p.rowInfo);
+          if (!vigDate) return null;
+          if (vigDate < oneYearAgo) {
+            newLog.push(`${p.rowInfo}: Vigencia menor a un año "${p.VigenciaRaw}"`);
+            return null;
+          }
           const match = equivData.find((e) => e.Codigo === p.Codigo);
           if (!match) {
-            newLog.push(`No se encontró correspondencia para Codigo "${p.Codigo}"`);
+            newLog.push(`${p.rowInfo}: No se encontró correspondencia para Codigo "${p.Codigo}"`);
             return null;
           }
           return { id: match.Codigo, Articulo: match.Articulo, ...p };
@@ -96,8 +92,7 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
       let updateCount = 0;
 
       for (const item of merged) {
-        const docRef = doc(db, "products", item.id);
-        const snap = await getDoc(docRef);
+        const snap = await getDoc(doc(db, "products", item.id));
         if (!snap.exists()) newCount++;
         else updateCount++;
       }
@@ -105,7 +100,7 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
       setPreview({ merged, newCount, updateCount, total: merged.length });
       setLog(newLog);
     } catch (err) {
-      console.error("Error parsing Excel files:", err);
+      console.error(err);
       alert("Error al procesar los archivos. Revisa el formato y columnas.");
     } finally {
       setLoading(false);
