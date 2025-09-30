@@ -20,14 +20,23 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
     return XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "" });
   };
 
-  const parseDate = (dateStr) => {
-    const s = normalize(dateStr).replace(/\s/g, "");
-    if (!s) return null;
-    const parts = s.includes("/") ? s.split("/") : s.includes("-") ? s.split("-") : null;
-    if (!parts || parts.length < 3) return null;
-    let [day, month, year] = parts;
-    if (year.length === 2) year = "20" + year;
-    const d = new Date(`${year}-${month}-${day}`);
+  const parseDate = (val) => {
+    if (!val) return null;
+
+    if (val instanceof Date) {
+      return isNaN(val.getTime()) ? null : val;
+    }
+
+    const s = val.toString().trim();
+    const match = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+    if (match) {
+      let [, day, month, year] = match;
+      if (year.length === 2) year = "20" + year;
+      const d = new Date(Number(year), Number(month) - 1, Number(day));
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    const d = new Date(s);
     return isNaN(d.getTime()) ? null : d;
   };
 
@@ -44,11 +53,10 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
       const rows1 = await parseExcel(file1);
       const rows2 = await parseExcel(file2);
 
-      // Skip completely empty rows
       const cleanRows = (rows) => rows.filter((r) => r.some((c) => c !== undefined && c !== null && c.toString().trim() !== ""));
 
+      // Detect files automatically
       const [equivRows, preciosRows] = (() => {
-        // Identify Equivalencias: 3 columns, first column mostly numeric (barcode)
         if (rows1[0].length <= 3) return [cleanRows(rows1), cleanRows(rows2)];
         return [cleanRows(rows2), cleanRows(rows1)];
       })();
@@ -150,7 +158,7 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 overflow-auto">
       <div className="w-11/12 max-w-md bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
         <h2 className="text-xl font-bold mb-4">Importar Excel (Columnas)</h2>
-        <p className="mb-2">Firestore writes acumulados: {writeCounter}</p>
+        <p className="mb-2">Firebase writes acumulados: {writeCounter}</p>
 
         <input type="file" accept=".xls,.xlsx" onChange={(e) => setFile1(e.target.files[0])} className="w-full mb-2" />
         <input type="file" accept=".xls,.xlsx" onChange={(e) => setFile2(e.target.files[0])} className="w-full mb-4" />
