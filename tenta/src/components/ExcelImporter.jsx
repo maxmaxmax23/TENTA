@@ -10,16 +10,17 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [writeCounter, setWriteCounter] = useState(initialWrites);
+  const [log, setLog] = useState([]);
 
-  // Parse XLS/XLSX file into JSON
+  // Parse Excel to array of arrays
   const parseExcel = async (file) => {
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
     const sheetName = workbook.SheetNames[0];
-    return XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+    const rawRows = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "" });
+    return rawRows;
   };
 
-  // Preview merged products + counts
   const handlePreview = async () => {
     if (!equivFile || !preciosFile) {
       alert("Ambos archivos son requeridos");
@@ -27,31 +28,70 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
     }
 
     setLoading(true);
+    const newLog = [];
 
     try {
-      const equivData = await parseExcel(equivFile);
-      const preciosData = await parseExcel(preciosFile);
+      const equivRows = await parseExcel(equivFile);
+      const preciosRows = await parseExcel(preciosFile);
 
-      // Vigencia filter (last 12 months)
+      // Map rows to objects
+      const equivData = equivRows.map((row, idx) => {
+        if (row.length < 2) {
+          newLog.push(`Equivalencias fila ${idx + 1} ignorada: menos de 2 columnas`);
+        }
+        return {
+          Articulo: row[0]?.toString().trim() || "",
+          Codigo: row[1]?.toString().trim() || "",
+          Descripcion: row[2]?.toString().trim() || "",
+        };
+      }).filter((r) => r.Articulo && r.Codigo);
+
+      const preciosData = preciosRows.map((row, idx) => ({
+        Codigo: row[0]?.toString().trim() || "",
+        Descripcion: row[1]?.toString().trim() || "",
+        Lista: row[2]?.toString().trim() || "",
+        NombreListaAnterior: row[3]?.toString().trim() || "",
+        Vigencia: row[4]?.toString().trim() || "",
+        Precio: row[5]?.toString().trim() || "",
+      })).filter((r) => r.Codigo);
+
       const now = new Date();
       const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
 
       const merged = preciosData
         .filter((p) => {
-          if (!p.Vigencia) return false;
-          const [day, month, year] = p.Vigencia.split("-");
-          const vigenciaDate = new Date(`${year}-${month}-${day}`);
-          return vigenciaDate >= oneYearAgo;
+          if (!p.Vigencia) {
+            newLog.push(`Fila ignorada: Vigencia vacía para Codigo "${p.Codigo}"`);
+            return false;
+          }
+          const parts = p.Vigencia.split("/");
+          if (parts.length !== 3) {
+            newLog.push(`Fila ignorada: Fecha inválida "${p.Vigencia}"`);
+            return false;
+          }
+          const [day, month, year] = parts;
+          const fullYear = year.length === 2 ? "20" + year : year;
+          const vigDate = new Date(`${fullYear}-${month}-${day}`);
+          if (isNaN(vigDate.getTime())) {
+            newLog.push(`Fila ignorada: Fecha no válida "${p.Vigencia}"`);
+            return false;
+          }
+          if (vigDate < oneYearAgo) {
+            newLog.push(`Fila filtrada: Vigencia menor a un año "${p.Vigencia}"`);
+            return false;
+          }
+          return true;
         })
         .map((p) => {
-          const match = equivData.find((e) => e.Articulo === p.Articulos);
-          return match
-            ? { id: match.Codigo, ...p, Articulo: match.Articulo }
-            : null;
+          const match = equivData.find((e) => e.Codigo === p.Codigo);
+          if (!match) {
+            newLog.push(`No se encontró correspondencia para Codigo "${p.Codigo}"`);
+            return null;
+          }
+          return { id: match.Codigo, Articulo: match.Articulo, ...p };
         })
         .filter(Boolean);
 
-      // Count new vs update
       let newCount = 0;
       let updateCount = 0;
 
@@ -63,15 +103,15 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
       }
 
       setPreview({ merged, newCount, updateCount, total: merged.length });
+      setLog(newLog);
     } catch (err) {
-      console.error(err);
-      alert("Error al procesar los archivos");
+      console.error("Error parsing Excel files:", err);
+      alert("Error al procesar los archivos. Revisa el formato y columnas.");
     } finally {
       setLoading(false);
     }
   };
 
-  // Import merged products into Firestore
   const handleImport = async () => {
     if (!preview) return;
 
@@ -89,8 +129,6 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
 
       const writesDone = preview.merged.length;
       setWriteCounter((prev) => prev + writesDone);
-
-      // Notify Dashboard
       if (onWritesUpdate) onWritesUpdate(writesDone);
 
       alert(`✅ Importación completa: ${preview.total} productos\nWrites totales: ${writeCounter + writesDone}`);
@@ -106,54 +144,43 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 overflow-auto">
       <div className="w-11/12 max-w-md bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
-        <h2 className="text-xl font-bold mb-4">Importar Excel</h2>
+        <h2 className="text-xl font-bold mb-4">Importar Excel (Columnas)</h2>
 
         <p className="mb-2">Firestore writes acumulados: {writeCounter}</p>
 
-        <input
-          type="file"
-          accept=".xls,.xlsx"
-          onChange={(e) => setEquivFile(e.target.files[0])}
-          className="w-full mb-2"
-        />
-        <input
-          type="file"
-          accept=".xls,.xlsx"
-          onChange={(e) => setPreciosFile(e.target.files[0])}
-          className="w-full mb-4"
-        />
+        <input type="file" accept=".xls,.xlsx" onChange={(e) => setEquivFile(e.target.files[0])} className="w-full mb-2" />
+        <input type="file" accept=".xls,.xlsx" onChange={(e) => setPreciosFile(e.target.files[0])} className="w-full mb-4" />
 
         <div className="flex space-x-2 mb-4">
-          <button
-            onClick={handlePreview}
-            className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
-            disabled={loading}
-          >
+          <button onClick={handlePreview} className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition" disabled={loading}>
             Vista previa
           </button>
-          <button
-            onClick={handleImport}
-            className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition disabled:opacity-50"
-            disabled={loading || !preview}
-          >
+          <button onClick={handleImport} className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition disabled:opacity-50" disabled={loading || !preview}>
             {loading ? "Importando..." : "Importar"}
           </button>
         </div>
 
         {preview && (
-          <div className="bg-gray-800 p-3 rounded-lg mb-4">
+          <div className="bg-gray-800 p-3 rounded-lg mb-4 max-h-40 overflow-auto">
             <p>Total productos: {preview.total}</p>
             <p>Nuevos: {preview.newCount}</p>
             <p>Actualizaciones: {preview.updateCount}</p>
-            <p>Writes estimados para esta importación: {preview.total}</p>
+            <p>Writes estimados: {preview.total}</p>
           </div>
         )}
 
-        <button
-          onClick={onClose}
-          className="w-full py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
-          disabled={loading}
-        >
+        {log.length > 0 && (
+          <div className="bg-gray-700 p-3 rounded-lg mb-4 max-h-40 overflow-auto text-sm text-yellow-300">
+            <h3 className="font-bold mb-1">Log de validación:</h3>
+            <ul className="list-disc list-inside">
+              {log.map((line, idx) => (
+                <li key={idx}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <button onClick={onClose} className="w-full py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition" disabled={loading}>
           Cancelar
         </button>
       </div>
