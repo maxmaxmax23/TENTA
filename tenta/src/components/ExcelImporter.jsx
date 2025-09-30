@@ -1,171 +1,133 @@
 // File: src/components/ExcelImporter.jsx
 import { useState } from "react";
+import { db } from "../firebase.js";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import * as XLSX from "xlsx";
-import { db, auth } from "../firebase.js";
-import { collection, setDoc, doc, getDoc } from "firebase/firestore";
 
-export default function ExcelImporter({ onClose }) {
-  const [equivalenciasFile, setEquivalenciasFile] = useState(null);
+export default function ExcelImporter({ onClose, user }) {
+  const [equivFile, setEquivFile] = useState(null);
   const [preciosFile, setPreciosFile] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
 
-  const parseExcelFile = async (file) => {
+  const parseExcel = async (file) => {
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
     const sheetName = workbook.SheetNames[0];
-    const sheet = workbook.Sheets[sheetName];
-    return XLSX.utils.sheet_to_json(sheet);
+    return XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
   };
 
-  const isWithinLastYear = (vigencia) => {
-    if (!vigencia) return false;
-    const [day, month, year] = vigencia.split("-").map(Number);
-    const date = new Date(year, month - 1, day);
-    const now = new Date();
-    const lastYear = new Date();
-    lastYear.setFullYear(now.getFullYear() - 1);
-    return date >= lastYear && date <= now;
-  };
-
-  const rotateBackups = async () => {
-    const currentRef = doc(db, "backups", "currentImport");
-    const previousRef = doc(db, "backups", "previousImport");
-
-    const currentSnap = await getDoc(currentRef);
-    if (currentSnap.exists()) {
-      await setDoc(previousRef, currentSnap.data());
-    }
-  };
-
-  const importExcelToFirestore = async () => {
-    if (!equivalenciasFile || !preciosFile) {
-      alert("Selecciona ambos archivos: Equivalencias y Precios.");
+  const handlePreview = async () => {
+    if (!equivFile || !preciosFile) {
+      alert("Ambos archivos son requeridos");
       return;
     }
 
+    const equivData = await parseExcel(equivFile);
+    const preciosData = await parseExcel(preciosFile);
+
+    // Filter Precios by vigencia (last year)
+    const now = new Date();
+    const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+
+    const merged = preciosData
+      .filter((p) => {
+        const vigenciaParts = p.Vigencia.split("-");
+        const vigenciaDate = new Date(`${vigenciaParts[2]}-${vigenciaParts[1]}-${vigenciaParts[0]}`);
+        return vigenciaDate >= oneYearAgo;
+      })
+      .map((p) => {
+        const match = equivData.find((e) => e.Articulo === p.Articulos);
+        return match
+          ? { id: match.Codigo, ...p, Articulo: match.Articulo }
+          : null;
+      })
+      .filter(Boolean);
+
+    // Count new vs update
+    let newCount = 0;
+    let updateCount = 0;
+
+    for (const item of merged) {
+      const docRef = doc(db, "products", item.id);
+      const snap = await getDoc(docRef);
+      if (!snap.exists()) newCount++;
+      else updateCount++;
+    }
+
+    setPreview({ merged, newCount, updateCount, total: merged.length });
+  };
+
+  const handleImport = async () => {
+    if (!preview) return;
+
+    if (!window.confirm(`Se importarán ${preview.total} productos:\n${preview.newCount} nuevos, ${preview.updateCount} actualizaciones. Continuar?`)) return;
+
     setLoading(true);
-    setProgress(0);
-
     try {
-      const equivalencias = await parseExcelFile(equivalenciasFile);
-      const precios = await parseExcelFile(preciosFile);
-
-      // Map precios by productId
-      const preciosMap = new Map();
-      for (const p of precios) {
-        if (p.Articulos) preciosMap.set(p.Articulos.toString(), p);
+      for (const item of preview.merged) {
+        await setDoc(doc(db, "products", item.id), item);
       }
-
-      const merged = [];
-      for (let i = 0; i < equivalencias.length; i++) {
-        const eq = equivalencias[i];
-        const productId = eq.Articulo?.toString();
-        const barcode = eq.Codigo?.toString();
-        if (!productId || !barcode) continue;
-
-        const details = preciosMap.get(productId) || {};
-        if (!isWithinLastYear(details.Vigencia)) continue;
-
-        merged.push({
-          id: productId,
-          barcode,
-          descripcion: details.Descripcion || "",
-          precio: details.Precio || 0,
-          vigencia: details.Vigencia || "",
-          metadata: {
-            importedBy: auth.currentUser?.email || "unknown",
-            importedAt: new Date().toISOString(),
-          },
-        });
-
-        setProgress(Math.floor(((i + 1) / equivalencias.length) * 100));
-      }
-
-      if (merged.length === 0) {
-        alert("No se encontraron productos válidos dentro del rango de vigencia.");
-        setLoading(false);
-        return;
-      }
-
-      // Rotate backups
-      await rotateBackups();
-
-      // Save new import as currentImport
-      const currentRef = doc(db, "backups", "currentImport");
-      await setDoc(currentRef, { timestamp: new Date().toISOString(), user: auth.currentUser?.email, data: merged });
-
-      // Save to Firestore products
-      const productsRef = collection(db, "products");
-      for (let i = 0; i < merged.length; i++) {
-        await setDoc(doc(productsRef, merged[i].id), merged[i]);
-        setProgress(Math.floor(((i + 1) / merged.length) * 100));
-      }
-
-      alert(`✅ Importación completada: ${merged.length} productos cargados.`);
+      alert(`✅ Importación completa: ${preview.total} productos`);
       onClose();
     } catch (err) {
       console.error(err);
-      alert("❌ Error al importar Excel.");
+      alert("❌ Error durante la importación");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-2xl w-96 shadow-xl">
-        <h2 className="text-lg font-bold mb-4">Importar Excel</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 overflow-auto">
+      <div className="w-11/12 max-w-md bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
+        <h2 className="text-xl font-bold mb-4">Importar Excel</h2>
 
-        {loading && (
-          <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
-            <div
-              className="bg-gold h-4 rounded-full transition-all"
-              style={{ width: `${progress}%` }}
-            ></div>
+        <input
+          type="file"
+          accept=".xls,.xlsx"
+          onChange={(e) => setEquivFile(e.target.files[0])}
+          className="w-full mb-2"
+        />
+        <input
+          type="file"
+          accept=".xls,.xlsx"
+          onChange={(e) => setPreciosFile(e.target.files[0])}
+          className="w-full mb-4"
+        />
+
+        <div className="flex space-x-2 mb-4">
+          <button
+            onClick={handlePreview}
+            className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
+            disabled={loading}
+          >
+            Vista previa
+          </button>
+          <button
+            onClick={handleImport}
+            className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition disabled:opacity-50"
+            disabled={loading || !preview}
+          >
+            {loading ? "Importando..." : "Importar"}
+          </button>
+        </div>
+
+        {preview && (
+          <div className="bg-gray-800 p-3 rounded-lg mb-4">
+            <p>Total productos: {preview.total}</p>
+            <p>Nuevos: {preview.newCount}</p>
+            <p>Actualizaciones: {preview.updateCount}</p>
           </div>
         )}
 
-        {!loading && (
-          <>
-            <div className="mb-4">
-              <label className="block font-medium mb-1">
-                Archivo Equivalencias (Codigo ↔ Articulo):
-              </label>
-              <input
-                type="file"
-                accept=".xlsx,.xls"
-                onChange={(e) => setEquivalenciasFile(e.target.files?.[0])}
-              />
-            </div>
-
-            <div className="mb-4">
-              <label className="block font-medium mb-1">
-                Archivo Precios (Articulo ↔ Detalles):
-              </label>
-              <input
-                type="file"
-                accept=".xlsx,.xls"
-                onChange={(e) => setPreciosFile(e.target.files?.[0])}
-              />
-            </div>
-
-            <button
-              onClick={importExcelToFirestore}
-              disabled={!equivalenciasFile || !preciosFile}
-              className="w-full px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 disabled:opacity-50"
-            >
-              Importar
-            </button>
-
-            <button
-              onClick={onClose}
-              className="mt-4 w-full px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-400"
-            >
-              Cancelar
-            </button>
-          </>
-        )}
+        <button
+          onClick={onClose}
+          className="w-full py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
+          disabled={loading}
+        >
+          Cancelar
+        </button>
       </div>
     </div>
   );

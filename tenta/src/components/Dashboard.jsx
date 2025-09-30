@@ -4,7 +4,7 @@ import ScannerModal from "./ScannerModal.jsx";
 import ExcelImporter from "./ExcelImporter.jsx";
 import BackupRestore from "./BackupRestore.jsx";
 
-export default function Dashboard({ onScan }) {
+export default function Dashboard({ onScan, user }) {
   const [showScanner, setShowScanner] = useState(false);
   const [showImporter, setShowImporter] = useState(false);
   const [showBackup, setShowBackup] = useState(false);
@@ -38,8 +38,13 @@ export default function Dashboard({ onScan }) {
 
       {/* Modals / overlays */}
       {showScanner && <ScannerModal onScan={onScan} />}
-      {showImporter && <ExcelImporter onClose={() => setShowImporter(false)} />}
-      {showBackup && <BackupRestore />}
+      {showImporter && (
+        <ExcelImporter
+          onClose={() => setShowImporter(false)}
+          user={user}
+        />
+      )}
+      {showBackup && <BackupRestore onClose={() => setShowBackup(false)} />}
     </div>
   );
 }
