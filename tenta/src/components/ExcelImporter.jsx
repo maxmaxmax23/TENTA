@@ -11,7 +11,7 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
   const [writeCounter, setWriteCounter] = useState(initialWrites);
   const [log, setLog] = useState([]);
 
-  const normalize = (str) => str?.toString().trim() || "";
+  const normalize = (val) => (val !== undefined && val !== null ? val.toString().trim() : "");
 
   const parseExcel = async (file) => {
     const data = await file.arrayBuffer();
@@ -24,17 +24,11 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
     const s = normalize(dateStr).replace(/\s/g, "");
     if (!s) return null;
     let parts = s.includes("/") ? s.split("/") : s.includes("-") ? s.split("-") : null;
-    if (!parts || parts.length < 3) {
-      log.push(`${rowInfo}: fecha inválida "${dateStr}"`);
-      return null;
-    }
+    if (!parts || parts.length < 3) return null;
     let [day, month, year] = parts;
     if (year.length === 2) year = "20" + year;
     const d = new Date(`${year}-${month}-${day}`);
-    if (isNaN(d.getTime())) {
-      log.push(`${rowInfo}: fecha no válida "${dateStr}"`);
-      return null;
-    }
+    if (isNaN(d.getTime())) return null;
     return d;
   };
 
@@ -51,43 +45,58 @@ export default function ExcelImporter({ onClose, user, initialWrites = 0, onWrit
       const equivRows = await parseExcel(equivFile);
       const preciosRows = await parseExcel(preciosFile);
 
-      const equivData = equivRows.map((row, idx) => ({
+      // Filter out completely empty rows
+      const cleanRows = (rows) => rows.filter((r) => r.some((c) => c !== undefined && c !== null && c.toString().trim() !== ""));
+
+      const equivData = cleanRows(equivRows).map((row, idx) => ({
         Articulo: normalize(row[0]),
         Codigo: normalize(row[1]),
         Descripcion: normalize(row[2]),
-        rowInfo: `Equivalencias fila ${idx + 1}`,
-      })).filter((r) => r.Articulo && r.Codigo);
+        rowIndex: idx + 1,
+      })).filter(r => r.Articulo && r.Codigo);
 
-      const preciosData = preciosRows.map((row, idx) => ({
+      const preciosData = cleanRows(preciosRows).map((row, idx) => ({
         Codigo: normalize(row[0]),
         Descripcion: normalize(row[1]),
         Lista: normalize(row[2]),
         NombreListaAnterior: normalize(row[3]),
         VigenciaRaw: normalize(row[4]),
         Precio: normalize(row[5]),
-        rowInfo: `Precios fila ${idx + 1}`,
-      })).filter((r) => r.Codigo);
+        rowIndex: idx + 1,
+      })).filter(r => r.Codigo);
 
       const now = new Date();
       const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
 
       const merged = preciosData
         .map((p) => {
-          const vigDate = parseDate(p.VigenciaRaw, p.rowInfo);
-          if (!vigDate) return null;
+          const vigDate = parseDate(p.VigenciaRaw, `Precios fila ${p.rowIndex}`);
+          if (!vigDate) {
+            newLog.push(`Fila ignorada: Vigencia inválida para Codigo "${p.Codigo}" (fila ${p.rowIndex})`);
+            return null;
+          }
           if (vigDate < oneYearAgo) {
-            newLog.push(`${p.rowInfo}: Vigencia menor a un año "${p.VigenciaRaw}"`);
+            newLog.push(`Fila ignorada: Vigencia menor a un año para Codigo "${p.Codigo}" (fila ${p.rowIndex})`);
             return null;
           }
           const match = equivData.find((e) => e.Codigo === p.Codigo);
           if (!match) {
-            newLog.push(`${p.rowInfo}: No se encontró correspondencia para Codigo "${p.Codigo}"`);
+            newLog.push(`Fila ignorada: No se encontró correspondencia en Equivalencias para Codigo "${p.Codigo}" (fila ${p.rowIndex})`);
             return null;
           }
-          return { id: match.Codigo, Articulo: match.Articulo, ...p };
+          return {
+            id: match.Codigo,
+            Articulo: match.Articulo,
+            Descripcion: p.Descripcion,
+            Lista: p.Lista,
+            NombreListaAnterior: p.NombreListaAnterior,
+            Vigencia: vigDate.toISOString(),
+            Precio: p.Precio,
+          };
         })
         .filter(Boolean);
 
+      // Count new vs updates
       let newCount = 0;
       let updateCount = 0;
 
