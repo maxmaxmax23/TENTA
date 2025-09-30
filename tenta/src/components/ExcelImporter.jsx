@@ -1,8 +1,8 @@
 // File: src/components/ExcelImporter.jsx
 import { useState } from "react";
 import * as XLSX from "xlsx";
-import { db } from "../firebase.js";
-import { collection, setDoc, doc } from "firebase/firestore";
+import { db, auth } from "../firebase.js";
+import { collection, setDoc, doc, getDoc } from "firebase/firestore";
 
 export default function ExcelImporter({ onClose }) {
   const [equivalenciasFile, setEquivalenciasFile] = useState(null);
@@ -28,12 +28,14 @@ export default function ExcelImporter({ onClose }) {
     return date >= lastYear && date <= now;
   };
 
-  const saveBackup = async (merged) => {
-    const backupRef = doc(collection(db, "backups"));
-    await setDoc(backupRef, {
-      timestamp: new Date().toISOString(),
-      data: merged,
-    });
+  const rotateBackups = async () => {
+    const currentRef = doc(db, "backups", "currentImport");
+    const previousRef = doc(db, "backups", "previousImport");
+
+    const currentSnap = await getDoc(currentRef);
+    if (currentSnap.exists()) {
+      await setDoc(previousRef, currentSnap.data());
+    }
   };
 
   const importExcelToFirestore = async () => {
@@ -49,26 +51,32 @@ export default function ExcelImporter({ onClose }) {
       const equivalencias = await parseExcelFile(equivalenciasFile);
       const precios = await parseExcelFile(preciosFile);
 
+      // Map precios by productId
       const preciosMap = new Map();
       for (const p of precios) {
-        if (p.productId) preciosMap.set(p.productId.toString(), p);
+        if (p.Articulos) preciosMap.set(p.Articulos.toString(), p);
       }
 
       const merged = [];
       for (let i = 0; i < equivalencias.length; i++) {
         const eq = equivalencias[i];
-        const productId = eq.productId?.toString();
-        const barcode = eq.barcode?.toString();
+        const productId = eq.Articulo?.toString();
+        const barcode = eq.Codigo?.toString();
         if (!productId || !barcode) continue;
 
         const details = preciosMap.get(productId) || {};
-        if (!isWithinLastYear(details.vigencia)) continue;
+        if (!isWithinLastYear(details.Vigencia)) continue;
 
         merged.push({
           id: productId,
           barcode,
-          ...details,
-          updatedAt: new Date().toISOString(),
+          descripcion: details.Descripcion || "",
+          precio: details.Precio || 0,
+          vigencia: details.Vigencia || "",
+          metadata: {
+            importedBy: auth.currentUser?.email || "unknown",
+            importedAt: new Date().toISOString(),
+          },
         });
 
         setProgress(Math.floor(((i + 1) / equivalencias.length) * 100));
@@ -80,8 +88,14 @@ export default function ExcelImporter({ onClose }) {
         return;
       }
 
-      await saveBackup(merged);
+      // Rotate backups
+      await rotateBackups();
 
+      // Save new import as currentImport
+      const currentRef = doc(db, "backups", "currentImport");
+      await setDoc(currentRef, { timestamp: new Date().toISOString(), user: auth.currentUser?.email, data: merged });
+
+      // Save to Firestore products
       const productsRef = collection(db, "products");
       for (let i = 0; i < merged.length; i++) {
         await setDoc(doc(productsRef, merged[i].id), merged[i]);
@@ -116,7 +130,7 @@ export default function ExcelImporter({ onClose }) {
           <>
             <div className="mb-4">
               <label className="block font-medium mb-1">
-                Archivo Equivalencias (SKU ↔ ID):
+                Archivo Equivalencias (Codigo ↔ Articulo):
               </label>
               <input
                 type="file"
@@ -127,7 +141,7 @@ export default function ExcelImporter({ onClose }) {
 
             <div className="mb-4">
               <label className="block font-medium mb-1">
-                Archivo Precios (ID ↔ Detalles):
+                Archivo Precios (Articulo ↔ Detalles):
               </label>
               <input
                 type="file"
