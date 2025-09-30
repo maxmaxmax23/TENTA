@@ -1,80 +1,79 @@
 // File: src/components/Dashboard.jsx
 import { useState } from "react";
-import ScannerModal from "./ScannerModal.jsx";
-import JSONImporter from "./JSONImporter.jsx";
 
-export default function Dashboard({ onScan }) {
-  const [showScanner, setShowScanner] = useState(false);
-  const [showImporter, setShowImporter] = useState(false);
-
-  // placeholders for future export modals
-  const [showExportJSON, setShowExportJSON] = useState(false);
-  const [showExportExcel, setShowExportExcel] = useState(false);
+export default function Dashboard({ onScan, onOpenScanner }) {
+  const [importing, setImporting] = useState(false);
 
   return (
-    <div className="w-full h-screen bg-black text-gold flex flex-col items-center justify-start p-6 space-y-6">
-      {/* Title */}
-      <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
+    <div className="w-full max-w-md mx-auto p-6">
+      <h1 className="text-2xl font-bold text-center mb-6 text-gold">
+        Dashboard
+      </h1>
 
-      {/* Action buttons */}
-      <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+      <div className="grid grid-cols-1 gap-4">
+        {/* Scan button */}
         <button
-          onClick={() => setShowScanner(true)}
+          onClick={onOpenScanner}
           className="px-4 py-3 bg-gold text-black rounded-2xl font-semibold hover:bg-yellow-500 transition shadow-lg"
         >
           Escanear
         </button>
 
+        {/* Import JSON button */}
         <button
-          onClick={() => setShowImporter(true)}
-          className="px-4 py-3 bg-gray-800 text-gold rounded-2xl font-semibold hover:bg-gray-700 transition shadow-lg"
+          onClick={() => setImporting(true)}
+          className="px-4 py-3 bg-gold text-black rounded-2xl font-semibold hover:bg-yellow-500 transition shadow-lg"
         >
           Importar JSON
         </button>
 
+        {/* Export button (placeholder for now) */}
         <button
-          onClick={() => setShowExportJSON(true)}
-          className="px-4 py-3 bg-gray-800 text-gold rounded-2xl font-semibold hover:bg-gray-700 transition shadow-lg"
+          onClick={() => alert("Exportar JSON/Excel aún no implementado.")}
+          className="px-4 py-3 bg-gold text-black rounded-2xl font-semibold hover:bg-yellow-500 transition shadow-lg"
         >
-          Exportar JSON
+          Exportar
         </button>
 
+        {/* Future inventory button */}
         <button
-          onClick={() => setShowExportExcel(true)}
-          className="px-4 py-3 bg-gray-800 text-gold rounded-2xl font-semibold hover:bg-gray-700 transition shadow-lg"
+          onClick={() => alert("Inventario próximamente.")}
+          className="px-4 py-3 bg-gold text-black rounded-2xl font-semibold hover:bg-yellow-500 transition shadow-lg"
         >
-          Exportar Excel
+          Inventario
         </button>
       </div>
 
-      {/* Future section: inventory, categories, etc. */}
-      <div className="mt-8 w-full max-w-md text-center text-sm text-gray-400">
-        Próximamente: Inventario, Categorías, Multiusuario
-      </div>
-
-      {/* Modals */}
-      {showScanner && <ScannerModal onScan={onScan} />}
-      {showImporter && <JSONImporter onClose={() => setShowImporter(false)} />}
-      {showExportJSON && (
+      {/* Importer Modal (placeholder) */}
+      {importing && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
-          <div className="bg-gray-900 p-6 rounded-xl text-gold shadow-lg">
-            <p>Exportar a JSON (próximamente)</p>
+          <div className="bg-white p-6 rounded-2xl w-96 text-black shadow-xl">
+            <h2 className="text-lg font-bold mb-4">Importar JSON</h2>
+            <input
+              type="file"
+              accept="application/json"
+              className="mb-4 w-full"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = (ev) => {
+                    try {
+                      const json = JSON.parse(ev.target.result);
+                      console.log("Imported JSON:", json);
+                      // TODO: sync to Firestore here
+                      alert("JSON importado correctamente.");
+                    } catch (err) {
+                      alert("Error al importar JSON.");
+                    }
+                  };
+                  reader.readAsText(file);
+                }
+              }}
+            />
             <button
-              onClick={() => setShowExportJSON(false)}
-              className="mt-4 px-4 py-2 bg-gold text-black rounded-lg"
-            >
-              Cerrar
-            </button>
-          </div>
-        </div>
-      )}
-      {showExportExcel && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
-          <div className="bg-gray-900 p-6 rounded-xl text-gold shadow-lg">
-            <p>Exportar a Excel (próximamente)</p>
-            <button
-              onClick={() => setShowExportExcel(false)}
-              className="mt-4 px-4 py-2 bg-gold text-black rounded-lg"
+              onClick={() => setImporting(false)}
+              className="mt-4 px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500"
             >
               Cerrar
             </button>

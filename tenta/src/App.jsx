@@ -1,23 +1,49 @@
+// File: src/App.jsx
 import { useState } from "react";
 import LoginForm from "./components/LoginForm.jsx";
+import Dashboard from "./components/Dashboard.jsx";
 import ScannerModal from "./components/ScannerModal.jsx";
 import ProductModal from "./components/ProductModal.jsx";
 
-function App() {
+export default function App() {
   const [user, setUser] = useState(null);
   const [scannedCode, setScannedCode] = useState(null);
+  const [showScanner, setShowScanner] = useState(false);
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-black text-gold flex items-center justify-center">
+        <LoginForm onLogin={setUser} />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black text-gold flex items-center justify-center">
-      {!user ? (
-        <LoginForm onLogin={setUser} />
-      ) : !scannedCode ? (
-        <ScannerModal onScan={(code) => setScannedCode(code)} />
-      ) : (
-        <ProductModal code={scannedCode} onClose={() => setScannedCode(null)} />
+      <Dashboard
+        onScan={(code) => {
+          setScannedCode(code);
+          setShowScanner(false); // close scanner after scan
+        }}
+        onOpenScanner={() => setShowScanner(true)}
+      />
+
+      {/* Overlays */}
+      {showScanner && (
+        <ScannerModal
+          onScan={(code) => {
+            setScannedCode(code);
+            setShowScanner(false);
+          }}
+        />
+      )}
+
+      {scannedCode && (
+        <ProductModal
+          code={scannedCode}
+          onClose={() => setScannedCode(null)}
+        />
       )}
     </div>
   );
 }
-
-export default App;
