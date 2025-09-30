@@ -12,9 +12,11 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
 
   const parseDate = (str) => {
     if (!str) return null;
-    const parts = str.split("/"); // DD/MM/YYYY
+    const parts = str.split("/"); // DD/MM/YYYY or DD/MM/YY
     if (parts.length < 3) return null;
-    const d = new Date(parts[2], parts[1] - 1, parts[0]);
+    let year = parseInt(parts[2], 10);
+    if (year < 100) year += 2000; // handle YY
+    const d = new Date(year, parseInt(parts[1], 10) - 1, parseInt(parts[0], 10));
     return isNaN(d) ? null : d;
   };
 
@@ -29,15 +31,17 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
     setPreview(null);
 
     try {
-      const readFile = (file) => {
-        const data = XLSX.read(file, { type: "array" });
+      const readFile = async (file) => {
+        const arrayBuffer = await file.arrayBuffer();
+        const data = XLSX.read(arrayBuffer, { type: "array" });
         const sheet = data.Sheets[data.SheetNames[0]];
-        return XLSX.utils.sheet_to_json(sheet, { header: 1 }); // raw arrays
+        return XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" }); // raw arrays
       };
 
-      const equivDataRaw = readFile(equivFile);
-      const precioDataRaw = readFile(precioFile);
+      const equivDataRaw = await readFile(equivFile);
+      const precioDataRaw = await readFile(precioFile);
 
+      // Equivalencias: column 0 = barcode, 1 = productID, 2 = description
       const equivData = equivDataRaw.slice(1).map((row, idx) => ({
         Codigo: row[0],
         Articulo: row[1],
@@ -45,6 +49,7 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
         rowIndex: idx + 2,
       }));
 
+      // Precios: column 0 = productID, 1 = description, 2 = list, 3 = previous list name, 4 = vigencia, 5 = price
       const precioData = precioDataRaw.slice(1).map((row, idx) => ({
         ArticuloID: row[0],
         Descripcion: row[1],
@@ -96,7 +101,12 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
         if (i % 100 === 0) setLog([...newLog]);
       }
 
-      setPreview({ merged, total: merged.length });
+      setPreview({
+        merged,
+        totalPrecios: precioData.length,
+        totalMerged: merged.length,
+        skipped: newLog.length,
+      });
       setLog(newLog);
     } catch (err) {
       console.error(err);
@@ -110,7 +120,6 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
     if (!preview || !preview.merged.length) return;
 
     setProcessing(true);
-    const batchSize = 500; // optional batch limit for Firebase
     let writesCount = 0;
 
     try {
@@ -122,10 +131,10 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
           importedAt: new Date().toISOString(),
         });
         writesCount++;
-        if (i % 50 === 0) setLog((prev) => [...prev, `Importado: ${item.id} (${i + 1}/${preview.total})`]);
+        if (i % 50 === 0) setLog((prev) => [...prev, `Importado: ${item.id} (${i + 1}/${preview.totalMerged})`]);
       }
 
-      onWritesUpdate(writesCount);
+      onWritesUpdate && onWritesUpdate(writesCount);
       alert(`Importación completa: ${writesCount} items escritos`);
       setPreview(null);
       setLog([]);
@@ -161,7 +170,9 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
 
         {preview && (
           <>
-            <p className="mb-2">Items listos para importar: {preview.total}</p>
+            <p className="mb-2">
+              Total Precios: {preview.totalPrecios} | Items listos para importar: {preview.totalMerged} | Ignorados: {preview.skipped}
+            </p>
             <button onClick={handleImport} disabled={processing} className="w-full py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition mb-4">
               {processing ? "Importando..." : "Importar a Firebase"}
             </button>
