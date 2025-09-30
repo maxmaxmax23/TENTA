@@ -4,12 +4,14 @@ import { db } from "../firebase.js";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import * as XLSX from "xlsx";
 
-export default function ExcelImporter({ onClose, user }) {
+export default function ExcelImporter({ onClose, user, initialWrites = 0, onWritesUpdate }) {
   const [equivFile, setEquivFile] = useState(null);
   const [preciosFile, setPreciosFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [writeCounter, setWriteCounter] = useState(initialWrites);
 
+  // Parse XLS/XLSX file into JSON
   const parseExcel = async (file) => {
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
@@ -17,47 +19,59 @@ export default function ExcelImporter({ onClose, user }) {
     return XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
   };
 
+  // Preview merged products + counts
   const handlePreview = async () => {
     if (!equivFile || !preciosFile) {
       alert("Ambos archivos son requeridos");
       return;
     }
 
-    const equivData = await parseExcel(equivFile);
-    const preciosData = await parseExcel(preciosFile);
+    setLoading(true);
 
-    // Filter Precios by vigencia (last year)
-    const now = new Date();
-    const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+    try {
+      const equivData = await parseExcel(equivFile);
+      const preciosData = await parseExcel(preciosFile);
 
-    const merged = preciosData
-      .filter((p) => {
-        const vigenciaParts = p.Vigencia.split("-");
-        const vigenciaDate = new Date(`${vigenciaParts[2]}-${vigenciaParts[1]}-${vigenciaParts[0]}`);
-        return vigenciaDate >= oneYearAgo;
-      })
-      .map((p) => {
-        const match = equivData.find((e) => e.Articulo === p.Articulos);
-        return match
-          ? { id: match.Codigo, ...p, Articulo: match.Articulo }
-          : null;
-      })
-      .filter(Boolean);
+      // Vigencia filter (last 12 months)
+      const now = new Date();
+      const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
 
-    // Count new vs update
-    let newCount = 0;
-    let updateCount = 0;
+      const merged = preciosData
+        .filter((p) => {
+          if (!p.Vigencia) return false;
+          const [day, month, year] = p.Vigencia.split("-");
+          const vigenciaDate = new Date(`${year}-${month}-${day}`);
+          return vigenciaDate >= oneYearAgo;
+        })
+        .map((p) => {
+          const match = equivData.find((e) => e.Articulo === p.Articulos);
+          return match
+            ? { id: match.Codigo, ...p, Articulo: match.Articulo }
+            : null;
+        })
+        .filter(Boolean);
 
-    for (const item of merged) {
-      const docRef = doc(db, "products", item.id);
-      const snap = await getDoc(docRef);
-      if (!snap.exists()) newCount++;
-      else updateCount++;
+      // Count new vs update
+      let newCount = 0;
+      let updateCount = 0;
+
+      for (const item of merged) {
+        const docRef = doc(db, "products", item.id);
+        const snap = await getDoc(docRef);
+        if (!snap.exists()) newCount++;
+        else updateCount++;
+      }
+
+      setPreview({ merged, newCount, updateCount, total: merged.length });
+    } catch (err) {
+      console.error(err);
+      alert("Error al procesar los archivos");
+    } finally {
+      setLoading(false);
     }
-
-    setPreview({ merged, newCount, updateCount, total: merged.length });
   };
 
+  // Import merged products into Firestore
   const handleImport = async () => {
     if (!preview) return;
 
@@ -66,9 +80,20 @@ export default function ExcelImporter({ onClose, user }) {
     setLoading(true);
     try {
       for (const item of preview.merged) {
-        await setDoc(doc(db, "products", item.id), item);
+        await setDoc(doc(db, "products", item.id), {
+          ...item,
+          importedBy: user?.email || "unknown",
+          importedAt: new Date().toISOString(),
+        });
       }
-      alert(`✅ Importación completa: ${preview.total} productos`);
+
+      const writesDone = preview.merged.length;
+      setWriteCounter((prev) => prev + writesDone);
+
+      // Notify Dashboard
+      if (onWritesUpdate) onWritesUpdate(writesDone);
+
+      alert(`✅ Importación completa: ${preview.total} productos\nWrites totales: ${writeCounter + writesDone}`);
       onClose();
     } catch (err) {
       console.error(err);
@@ -82,6 +107,8 @@ export default function ExcelImporter({ onClose, user }) {
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 overflow-auto">
       <div className="w-11/12 max-w-md bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
         <h2 className="text-xl font-bold mb-4">Importar Excel</h2>
+
+        <p className="mb-2">Firestore writes acumulados: {writeCounter}</p>
 
         <input
           type="file"
@@ -118,6 +145,7 @@ export default function ExcelImporter({ onClose, user }) {
             <p>Total productos: {preview.total}</p>
             <p>Nuevos: {preview.newCount}</p>
             <p>Actualizaciones: {preview.updateCount}</p>
+            <p>Writes estimados para esta importación: {preview.total}</p>
           </div>
         )}
 
