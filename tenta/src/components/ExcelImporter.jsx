@@ -10,13 +10,30 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
   const [preview, setPreview] = useState(null);
   const [processing, setProcessing] = useState(false);
 
-  const parseDate = (str) => {
-    if (!str) return null;
-    const parts = str.split("/"); // DD/MM/YYYY or DD/MM/YY
-    if (parts.length < 3) return null;
-    let year = parseInt(parts[2], 10);
-    if (year < 100) year += 2000; // handle YY
-    const d = new Date(year, parseInt(parts[1], 10) - 1, parseInt(parts[0], 10));
+  const parseVigencia = (value) => {
+    if (!value) return null;
+
+    // Excel serial number
+    if (typeof value === "number") {
+      const d = XLSX.SSF.parse_date_code(value);
+      if (d) return new Date(d.y, d.m - 1, d.d);
+    }
+
+    // String DD/MM/YYYY or DD/MM/YY
+    if (typeof value === "string") {
+      const parts = value.split(/[\/-]/);
+      if (parts.length === 3) {
+        let day = parseInt(parts[0], 10);
+        let month = parseInt(parts[1], 10) - 1;
+        let year = parseInt(parts[2], 10);
+        if (year < 100) year += 2000;
+        const d = new Date(year, month, day);
+        if (!isNaN(d)) return d;
+      }
+    }
+
+    // JS Date fallback
+    const d = new Date(value);
     return isNaN(d) ? null : d;
   };
 
@@ -43,33 +60,34 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
 
       const newLog = [];
 
-      // Validate Equivalencias
+      // Equivalencias validation & trim
       const equivData = equivDataRaw.map((row, idx) => {
         if (row.length < 3) {
           newLog.push(`Fila ignorada Equivalencias: columnas insuficientes (fila ${idx + 2})`);
           return null;
         }
         return {
-          Codigo: row[0],
-          Articulo: row[1],
-          Descripcion: row[2],
+          Codigo: row[0].toString().trim(),
+          Articulo: row[1].toString().trim(),
+          Descripcion: row[2].toString().trim(),
         };
       }).filter(Boolean);
 
-      // Validate Precios
+      // Precios validation & trim
       const precioData = precioDataRaw.map((row, idx) => {
         if (row.length < 6) {
           newLog.push(`Fila ignorada Precios: columnas insuficientes (fila ${idx + 2})`);
           return null;
         }
         return {
-          ArticuloID: row[0],
-          Descripcion: row[1],
+          ArticuloID: row[0].toString().trim(),
+          Descripcion: row[1].toString().trim(),
           Lista: row[2],
           NombreListaAnterior: row[3],
           VigenciaRaw: row[4],
           Precio: row[5],
           rowIndex: idx + 2,
+          rawRow: row,
         };
       }).filter(Boolean);
 
@@ -79,21 +97,21 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
 
       for (let i = 0; i < precioData.length; i++) {
         const p = precioData[i];
-        const vigDate = parseDate(p.VigenciaRaw);
+        const vigDate = parseVigencia(p.VigenciaRaw);
 
         if (!vigDate) {
-          newLog.push(`Fila ignorada: Vigencia inválida para ArticuloID "${p.ArticuloID}" (fila ${p.rowIndex})`);
+          newLog.push(`Fila ignorada: Vigencia inválida para ArticuloID "${p.ArticuloID}" fila ${p.rowIndex} (${JSON.stringify(p.rawRow)})`);
           continue;
         }
 
         if (vigDate < oneYearAgo) {
-          newLog.push(`Fila ignorada: Vigencia menor a un año para ArticuloID "${p.ArticuloID}" (fila ${p.rowIndex})`);
+          newLog.push(`Fila ignorada: Vigencia menor a un año para ArticuloID "${p.ArticuloID}" fila ${p.rowIndex}`);
           continue;
         }
 
         const match = equivData.find((e) => e.Codigo === p.ArticuloID);
         if (!match) {
-          newLog.push(`Fila ignorada: No se encontró correspondencia para ArticuloID "${p.ArticuloID}" (fila ${p.rowIndex})`);
+          newLog.push(`Fila ignorada: No se encontró correspondencia para ArticuloID "${p.ArticuloID}" fila ${p.rowIndex}`);
           continue;
         }
 
