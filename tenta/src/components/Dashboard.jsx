@@ -1,17 +1,54 @@
 import { useState } from "react";
 import ScannerModal from "./ScannerModal.jsx";
 import ExcelImporter from "./ExcelImporter.jsx";
+import { db } from "../firebase.js";
+import { collection, getDocs, setDoc, doc } from "firebase/firestore";
 
 export default function Dashboard({ onScan, user }) {
   const [showScanner, setShowScanner] = useState(false);
   const [showImporter, setShowImporter] = useState(false);
-  const [writesCounter, setWritesCounter] = useState(0);
+  const [firebaseWrites, setFirebaseWrites] = useState(0);
+  const [restoreProcessing, setRestoreProcessing] = useState(false);
+
+  const handleRestore = async () => {
+    const confirmRestore = window.confirm(
+      "¿Deseas restaurar el backup anterior? Esto sobrescribirá los productos actuales."
+    );
+    if (!confirmRestore) return;
+
+    try {
+      setRestoreProcessing(true);
+
+      // Get previous backup from Firestore backup collection
+      const backupCol = collection(db, "backups");
+      const snapshot = await getDocs(backupCol);
+      const previousBackupDoc = snapshot.docs.find(doc => doc.id === "previous");
+      if (!previousBackupDoc) {
+        alert("No hay backup previo disponible.");
+        return;
+      }
+
+      const backupData = previousBackupDoc.data().products;
+
+      // Overwrite live products
+      for (const item of backupData) {
+        await setDoc(doc(db, "products", item.id), item);
+      }
+
+      alert(`Restore completo: ${backupData.length} productos restaurados.`);
+    } catch (err) {
+      console.error(err);
+      alert("Error durante la restauración del backup.");
+    } finally {
+      setRestoreProcessing(false);
+    }
+  };
 
   return (
     <div className="w-full h-screen bg-black text-gold flex flex-col items-center justify-center p-4 space-y-4">
       <h1 className="text-2xl font-bold">Dashboard</h1>
 
-      <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+      <div className="flex space-x-4">
         <button
           onClick={() => setShowScanner(true)}
           className="px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition"
@@ -25,24 +62,26 @@ export default function Dashboard({ onScan, user }) {
         >
           Importar
         </button>
+
+        <button
+          onClick={handleRestore}
+          className="px-4 py-2 bg-red-600 text-black rounded-lg hover:bg-red-500 transition disabled:opacity-50"
+          disabled={restoreProcessing}
+        >
+          {restoreProcessing ? "Restaurando..." : "Restaurar Backup"}
+        </button>
       </div>
 
-      <p>Firebase writes acumulados: {writesCounter}</p>
+      <p className="text-sm text-gray-300">
+        Writes acumulados en Firebase: {firebaseWrites}
+      </p>
 
-      {showScanner && (
-        <ScannerModal
-          onScan={(code) => {
-            setShowScanner(false);
-            onScan(code);
-          }}
-        />
-      )}
-
+      {showScanner && <ScannerModal onScan={onScan} />}
       {showImporter && (
         <ExcelImporter
           user={user}
-          initialWrites={writesCounter}
-          onWritesUpdate={(newWrites) => setWritesCounter((prev) => prev + newWrites)}
+          initialWrites={firebaseWrites}
+          onWritesUpdate={(count) => setFirebaseWrites(count)}
           onClose={() => setShowImporter(false)}
         />
       )}

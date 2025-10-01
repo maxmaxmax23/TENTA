@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import { db } from "../firebase.js";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDocs, collection } from "firebase/firestore";
 
 export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate, onClose }) {
   const [equivFile, setEquivFile] = useState(null);
@@ -13,12 +13,10 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
 
   const parseVigencia = (value) => {
     if (!value) return null;
-
     if (typeof value === "number") {
       const d = XLSX.SSF.parse_date_code(value);
       if (d) return new Date(d.y, d.m - 1, d.d);
     }
-
     if (typeof value === "string") {
       const parts = value.split(/[\/-]/);
       if (parts.length === 3) {
@@ -30,9 +28,15 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
         if (!isNaN(d)) return d;
       }
     }
-
     const d = new Date(value);
     return isNaN(d) ? null : d;
+  };
+
+  const readFile = async (file) => {
+    const buffer = await file.arrayBuffer();
+    const workbook = XLSX.read(buffer, { type: "array" });
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    return XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
   };
 
   const handleMerge = async () => {
@@ -46,13 +50,6 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
     setPreview(null);
 
     try {
-      const readFile = async (file) => {
-        const arrayBuffer = await file.arrayBuffer();
-        const data = XLSX.read(arrayBuffer, { type: "array" });
-        const sheet = data.Sheets[data.SheetNames[0]];
-        return XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
-      };
-
       const equivDataRaw = (await readFile(equivFile)).slice(1);
       const precioDataRaw = (await readFile(precioFile)).slice(1);
 
@@ -83,7 +80,6 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
           VigenciaRaw: row[4],
           Precio: row[5],
           rowIndex: idx + 2,
-          rawRow: row,
         };
       }).filter(Boolean);
 
@@ -96,7 +92,7 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
         const vigDate = parseVigencia(p.VigenciaRaw);
 
         if (!vigDate) {
-          newLog.push(`Fila ignorada: Vigencia inválida para ArticuloID "${p.ArticuloID}" fila ${p.rowIndex} (${JSON.stringify(p.rawRow)})`);
+          newLog.push(`Fila ignorada: Vigencia inválida para ArticuloID "${p.ArticuloID}" fila ${p.rowIndex}`);
           continue;
         }
 
@@ -137,6 +133,31 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
     }
   };
 
+  // --- Backup Rotation & History ---
+  const backupLiveData = async () => {
+    const backupCol = collection(db, "backups");
+    const productsSnapshot = await getDocs(collection(db, "products"));
+    const liveProducts = productsSnapshot.docs.map(d => d.data());
+    const timestamp = new Date().toISOString();
+
+    // Rotate latest -> previous
+    const latestDoc = await getDocs(backupCol);
+    const latestData = latestDoc.docs.find(d => d.id === "latest");
+    if (latestData) {
+      await setDoc(doc(backupCol, "previous"), {
+        products: latestData.data().products,
+        timestamp: latestData.data().timestamp,
+        user: latestData.data().user,
+      });
+    }
+
+    // Save current live as latest
+    await setDoc(doc(backupCol, "latest"), { products: liveProducts, timestamp, user: user?.email });
+
+    // Historical log
+    await setDoc(doc(backupCol, `history/${timestamp}`), { products: liveProducts, user: user?.email });
+  };
+
   const handleImport = async () => {
     if (!preview || !preview.merged.length) return;
 
@@ -144,6 +165,8 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
     let writesCount = 0;
 
     try {
+      await backupLiveData();
+
       for (let i = 0; i < preview.merged.length; i++) {
         const item = preview.merged[i];
         await setDoc(doc(db, "products", item.id), {
@@ -154,10 +177,7 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
         writesCount++;
         setWriteCounter((prev) => prev + 1);
 
-        // Update log every 50 writes for visual feedback
-        if (i % 50 === 0) {
-          setLog((prev) => [...prev, `Importado: ${item.id} (${i + 1}/${preview.totalMerged})`]);
-        }
+        if (i % 50 === 0) setLog((prev) => [...prev, `Importado: ${item.id} (${i + 1}/${preview.totalMerged})`]);
       }
 
       onWritesUpdate && onWritesUpdate(writeCounter + writesCount);
@@ -197,22 +217,20 @@ export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate,
         {preview && (
           <>
             <p className="mb-2">
-              Total Precios: {preview.totalPrecios} | Items listos para importar: {preview.totalMerged} | Ignorados: {preview.skipped}
+              Total Precios: {preview.totalPrecios} | Items listos: {preview.totalMerged} | Ignorados: {preview.skipped}
             </p>
             <p className="mb-2 text-sm text-gray-400">Writes acumulados: {writeCounter}</p>
-            <button onClick={handleImport} disabled={processing} className="w-full py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition mb-4">
+            <button onClick={handleImport} disabled={processing} className="w-full py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition disabled:opacity-50">
               {processing ? "Importando..." : "Importar a Firebase"}
             </button>
           </>
         )}
 
-        {log.length > 0 && (
-          <div className="bg-gray-700 p-3 rounded-lg max-h-40 overflow-auto text-sm text-yellow-300">
-            <ul className="list-disc list-inside">
-              {log.map((line, idx) => <li key={idx}>{line}</li>)}
-            </ul>
-          </div>
-        )}
+        <div className="mt-4 h-40 overflow-auto bg-black bg-opacity-50 p-2 rounded">
+          {log.map((line, idx) => (
+            <p key={idx} className="text-xs">{line}</p>
+          ))}
+        </div>
       </div>
     </div>
   );

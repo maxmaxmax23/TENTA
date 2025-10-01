@@ -1,102 +1,116 @@
-// File: src/components/BackupRestore.jsx
 import { useState, useEffect } from "react";
 import { db } from "../firebase.js";
-import { doc, getDoc, setDoc, collection } from "firebase/firestore";
+import { doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
 
-export default function BackupRestore() {
+export default function RestoreBackup({ user, onClose }) {
   const [backups, setBackups] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
-
-  const slots = [
-    { id: "products", name: "Live Products (Firestore)" },
-    { id: "currentImport", name: "Current Import Backup" },
-    { id: "previousImport", name: "Previous Import Backup" },
-  ];
+  const [selected, setSelected] = useState(null);
+  const [processing, setProcessing] = useState(false);
+  const [log, setLog] = useState([]);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   useEffect(() => {
     const fetchBackups = async () => {
-      const arr = [];
-      for (const slot of slots) {
-        const ref = doc(db, "backups", slot.id);
-        const snap = await getDoc(ref);
-        if (snap.exists()) {
-          arr.push({ ...slot, ...snap.data() });
-        } else {
-          arr.push({ ...slot, data: [], timestamp: null, user: null });
-        }
-      }
-      setBackups(arr);
+      const backupCol = collection(db, "backups/history");
+      const snapshot = await getDocs(backupCol);
+      const list = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+      list.sort((a, b) => (a.id < b.id ? 1 : -1));
+      setBackups(list);
     };
     fetchBackups();
   }, []);
 
-  const restoreBackup = async (backupId) => {
-    const backup = backups.find((b) => b.id === backupId);
-    if (!backup || !backup.data || backup.data.length === 0) {
-      alert("Backup vacío o inexistente.");
-      return;
-    }
-
-    if (!window.confirm(`⚠️ Restaurar "${backup.name}" sobre productos activos?`)) return;
-
-    setLoading(true);
-    setProgress(0);
+  const handleRestore = async () => {
+    if (!selected) return;
+    setProcessing(true);
+    setLog([]);
 
     try {
-      const productsRef = collection(db, "products");
-      const total = backup.data.length;
-      for (let i = 0; i < total; i++) {
-        const item = backup.data[i];
-        await setDoc(doc(productsRef, item.id), item);
-        setProgress(Math.floor(((i + 1) / total) * 100));
+      const backupDoc = doc(db, "backups/history", selected);
+      const snapshot = await getDoc(backupDoc);
+      if (!snapshot.exists()) {
+        setLog((prev) => [...prev, "Backup no encontrado"]);
+        return;
       }
 
-      alert(`✅ Restauración completa: ${total} productos cargados.`);
+      const products = snapshot.data().products || [];
+      for (let i = 0; i < products.length; i++) {
+        const item = products[i];
+        await setDoc(doc(db, "products", item.id), item);
+        setLog((prev) => [...prev, `Restaurado: ${item.id} (${i + 1}/${products.length})`]);
+      }
+
+      alert(`Restauración completa: ${products.length} items`);
+      onClose();
     } catch (err) {
       console.error(err);
-      alert("❌ Error al restaurar backup.");
+      alert("Error durante la restauración");
     } finally {
-      setLoading(false);
+      setProcessing(false);
+      setShowConfirm(false);
     }
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-4 bg-gray-900 text-gold rounded-xl shadow-lg">
-      <h2 className="text-xl font-bold mb-4">Restaurar Backup</h2>
-
-      {loading && (
-        <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
-          <div
-            className="bg-gold h-4 rounded-full transition-all"
-            style={{ width: `${progress}%` }}
-          ></div>
-        </div>
-      )}
-
-      {backups.map((b) => (
-        <div
-          key={b.id}
-          className="mb-4 p-3 bg-gray-800 rounded-lg flex justify-between items-center"
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 overflow-auto">
+      <div className="w-11/12 max-w-lg bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
+        <h2 className="text-xl font-bold mb-4">Restaurar Backup</h2>
+        <select
+          value={selected || ""}
+          onChange={(e) => setSelected(e.target.value)}
+          className="w-full mb-4 p-2 rounded bg-black border border-gold text-gold"
         >
-          <div>
-            <p className="font-semibold">{b.name}</p>
-            {b.timestamp && (
-              <p className="text-sm text-gray-400">
-                {b.user} | {new Date(b.timestamp).toLocaleString()}
-              </p>
-            )}
-          </div>
-          {b.id !== "products" && (
-            <button
-              onClick={() => restoreBackup(b.id)}
-              className="px-3 py-1 bg-gold text-black rounded-lg hover:bg-yellow-500 transition"
-            >
-              Restaurar
-            </button>
-          )}
+          <option value="" disabled>Selecciona un backup</option>
+          {backups.map((b) => (
+            <option key={b.id} value={b.id}>
+              {b.id} | usuario: {b.user}
+            </option>
+          ))}
+        </select>
+        <div className="flex space-x-2 mb-4">
+          <button
+            onClick={() => setShowConfirm(true)}
+            disabled={!selected || processing}
+            className="flex-1 py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition disabled:opacity-50"
+          >
+            Restaurar
+          </button>
+          <button
+            onClick={onClose}
+            className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
+          >
+            Cancelar
+          </button>
         </div>
-      ))}
+
+        {showConfirm && (
+          <div className="bg-black bg-opacity-80 p-4 rounded space-y-4 border border-gold">
+            <p className="text-sm">
+              ⚠️ Estás a punto de sobrescribir todos los productos actuales con el backup seleccionado. Esta acción no se puede deshacer.
+            </p>
+            <div className="flex space-x-2">
+              <button
+                onClick={handleRestore}
+                className="flex-1 py-2 bg-red-700 text-black rounded-lg hover:bg-red-600 transition"
+              >
+                Confirmar Restauración
+              </button>
+              <button
+                onClick={() => setShowConfirm(false)}
+                className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        )}
+
+        <div className="mt-4 h-40 overflow-auto bg-black bg-opacity-50 p-2 rounded">
+          {log.map((line, idx) => (
+            <p key={idx} className="text-xs">{line}</p>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
