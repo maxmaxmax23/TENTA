@@ -38,30 +38,42 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
         return XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" }); // raw arrays
       };
 
-      const equivDataRaw = await readFile(equivFile);
-      const precioDataRaw = await readFile(precioFile);
+      const equivDataRaw = (await readFile(equivFile)).slice(1); // skip header
+      const precioDataRaw = (await readFile(precioFile)).slice(1); // skip header
 
-      // Equivalencias: column 0 = barcode, 1 = productID, 2 = description
-      const equivData = equivDataRaw.slice(1).map((row, idx) => ({
-        Codigo: row[0],
-        Articulo: row[1],
-        Descripcion: row[2],
-        rowIndex: idx + 2,
-      }));
+      const newLog = [];
 
-      // Precios: column 0 = productID, 1 = description, 2 = list, 3 = previous list name, 4 = vigencia, 5 = price
-      const precioData = precioDataRaw.slice(1).map((row, idx) => ({
-        ArticuloID: row[0],
-        Descripcion: row[1],
-        Lista: row[2],
-        NombreListaAnterior: row[3],
-        VigenciaRaw: row[4],
-        Precio: row[5],
-        rowIndex: idx + 2,
-      }));
+      // Validate Equivalencias
+      const equivData = equivDataRaw.map((row, idx) => {
+        if (row.length < 3) {
+          newLog.push(`Fila ignorada Equivalencias: columnas insuficientes (fila ${idx + 2})`);
+          return null;
+        }
+        return {
+          Codigo: row[0],
+          Articulo: row[1],
+          Descripcion: row[2],
+        };
+      }).filter(Boolean);
+
+      // Validate Precios
+      const precioData = precioDataRaw.map((row, idx) => {
+        if (row.length < 6) {
+          newLog.push(`Fila ignorada Precios: columnas insuficientes (fila ${idx + 2})`);
+          return null;
+        }
+        return {
+          ArticuloID: row[0],
+          Descripcion: row[1],
+          Lista: row[2],
+          NombreListaAnterior: row[3],
+          VigenciaRaw: row[4],
+          Precio: row[5],
+          rowIndex: idx + 2,
+        };
+      }).filter(Boolean);
 
       const merged = [];
-      const newLog = [];
       const oneYearAgo = new Date();
       oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 
@@ -71,20 +83,17 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
 
         if (!vigDate) {
           newLog.push(`Fila ignorada: Vigencia inválida para ArticuloID "${p.ArticuloID}" (fila ${p.rowIndex})`);
-          if (i % 100 === 0) setLog([...newLog]);
           continue;
         }
 
         if (vigDate < oneYearAgo) {
           newLog.push(`Fila ignorada: Vigencia menor a un año para ArticuloID "${p.ArticuloID}" (fila ${p.rowIndex})`);
-          if (i % 100 === 0) setLog([...newLog]);
           continue;
         }
 
         const match = equivData.find((e) => e.Codigo === p.ArticuloID);
         if (!match) {
           newLog.push(`Fila ignorada: No se encontró correspondencia para ArticuloID "${p.ArticuloID}" (fila ${p.rowIndex})`);
-          if (i % 100 === 0) setLog([...newLog]);
           continue;
         }
 
@@ -97,8 +106,6 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
           Vigencia: vigDate.toISOString(),
           Precio: p.Precio,
         });
-
-        if (i % 100 === 0) setLog([...newLog]);
       }
 
       setPreview({
