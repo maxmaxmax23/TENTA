@@ -3,23 +3,22 @@ import * as XLSX from "xlsx";
 import { db } from "../firebase.js";
 import { doc, setDoc } from "firebase/firestore";
 
-export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onClose }) {
+export default function ExcelImporter({ user, initialWrites = 0, onWritesUpdate, onClose }) {
   const [equivFile, setEquivFile] = useState(null);
   const [precioFile, setPrecioFile] = useState(null);
   const [log, setLog] = useState([]);
   const [preview, setPreview] = useState(null);
   const [processing, setProcessing] = useState(false);
+  const [writeCounter, setWriteCounter] = useState(initialWrites);
 
   const parseVigencia = (value) => {
     if (!value) return null;
 
-    // Excel serial number
     if (typeof value === "number") {
       const d = XLSX.SSF.parse_date_code(value);
       if (d) return new Date(d.y, d.m - 1, d.d);
     }
 
-    // String DD/MM/YYYY or DD/MM/YY
     if (typeof value === "string") {
       const parts = value.split(/[\/-]/);
       if (parts.length === 3) {
@@ -32,7 +31,6 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
       }
     }
 
-    // JS Date fallback
     const d = new Date(value);
     return isNaN(d) ? null : d;
   };
@@ -52,15 +50,14 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
         const arrayBuffer = await file.arrayBuffer();
         const data = XLSX.read(arrayBuffer, { type: "array" });
         const sheet = data.Sheets[data.SheetNames[0]];
-        return XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" }); // raw arrays
+        return XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
       };
 
-      const equivDataRaw = (await readFile(equivFile)).slice(1); // skip header
-      const precioDataRaw = (await readFile(precioFile)).slice(1); // skip header
+      const equivDataRaw = (await readFile(equivFile)).slice(1);
+      const precioDataRaw = (await readFile(precioFile)).slice(1);
 
       const newLog = [];
 
-      // Equivalencias validation & trim
       const equivData = equivDataRaw.map((row, idx) => {
         if (row.length < 3) {
           newLog.push(`Fila ignorada Equivalencias: columnas insuficientes (fila ${idx + 2})`);
@@ -73,7 +70,6 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
         };
       }).filter(Boolean);
 
-      // Precios validation & trim
       const precioData = precioDataRaw.map((row, idx) => {
         if (row.length < 6) {
           newLog.push(`Fila ignorada Precios: columnas insuficientes (fila ${idx + 2})`);
@@ -156,10 +152,15 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
           importedAt: new Date().toISOString(),
         });
         writesCount++;
-        if (i % 50 === 0) setLog((prev) => [...prev, `Importado: ${item.id} (${i + 1}/${preview.totalMerged})`]);
+        setWriteCounter((prev) => prev + 1);
+
+        // Update log every 50 writes for visual feedback
+        if (i % 50 === 0) {
+          setLog((prev) => [...prev, `Importado: ${item.id} (${i + 1}/${preview.totalMerged})`]);
+        }
       }
 
-      onWritesUpdate && onWritesUpdate(writesCount);
+      onWritesUpdate && onWritesUpdate(writeCounter + writesCount);
       alert(`Importación completa: ${writesCount} items escritos`);
       setPreview(null);
       setLog([]);
@@ -198,6 +199,7 @@ export default function ExcelImporter({ user, initialWrites, onWritesUpdate, onC
             <p className="mb-2">
               Total Precios: {preview.totalPrecios} | Items listos para importar: {preview.totalMerged} | Ignorados: {preview.skipped}
             </p>
+            <p className="mb-2 text-sm text-gray-400">Writes acumulados: {writeCounter}</p>
             <button onClick={handleImport} disabled={processing} className="w-full py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition mb-4">
               {processing ? "Importando..." : "Importar a Firebase"}
             </button>
