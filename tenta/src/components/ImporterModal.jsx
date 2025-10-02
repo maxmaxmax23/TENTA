@@ -2,212 +2,194 @@
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import { db, storage } from "../firebase.js";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
-export default function ImporterModal({ onClose, user }) {
-  const [fileEqui, setFileEqui] = useState(null);
-  const [filePre, setFilePre] = useState(null);
-  const [toWrite, setToWrite] = useState([]);
-  const [skipped, setSkipped] = useState([]);
-  const [progress, setProgress] = useState(0);
-  const [step, setStep] = useState(1); // 1=load,2=preview,3=writing
-  const [error, setError] = useState("");
+export default function ImporterModal({ onClose }) {
+  const [equivFile, setEquivFile] = useState(null);
+  const [preciosFile, setPreciosFile] = useState(null);
+  const [mergedData, setMergedData] = useState([]);
+  const [toWriteCount, setToWriteCount] = useState(0);
+  const [skippedCount, setSkippedCount] = useState(0);
+  const [processing, setProcessing] = useState(false);
+  const [log, setLog] = useState([]);
 
   const parseExcel = async (file) => {
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
-    return XLSX.utils.sheet_to_json(sheet, { header: 1 });
+    return XLSX.utils.sheet_to_json(sheet, { header: 1, raw: false });
   };
 
   const mergeFiles = async () => {
-    if (!fileEqui || !filePre) return setError("Selecciona ambos archivos");
-    try {
-      const equiRows = await parseExcel(fileEqui);
-      const preRows = await parseExcel(filePre);
+    if (!equivFile || !preciosFile) {
+      alert("Por favor seleccione ambos archivos.");
+      return;
+    }
 
-      const equiMap = {};
-      // Equivalencias: column 0=barcode, 1=productId, 2=desc
-      equiRows.slice(1).forEach((row) => {
-        if (row[0] && row[1]) equiMap[row[1]] = { barcode: row[0], desc: row[2] };
-      });
+    setProcessing(true);
+    setLog([]);
+    try {
+      const equivRows = await parseExcel(equivFile);
+      const preciosRows = await parseExcel(preciosFile);
+
+      // Skip headers
+      const equivData = equivRows.slice(1);
+      const preciosData = preciosRows.slice(1);
+
+      const merged = [];
+      const skipped = [];
 
       const today = new Date();
-      const lastYear = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+      const oneYearAgo = new Date(today);
+      oneYearAgo.setFullYear(today.getFullYear() - 1);
 
-      const writeArr = [];
-      const skipArr = [];
-      // Precios: column 0=productId, 1=desc, 4=vigencia (DD/MM/YYYY), 5=price
-      preRows.slice(1).forEach((row, idx) => {
+      // Build lookup map for precios by productId
+      const preciosMap = {};
+      preciosData.forEach((row) => {
         const productId = row[0];
-        const vig = row[4];
-        const price = row[5];
-
-        if (!productId || !price || !vig) {
-          skipArr.push({ row: idx + 2, reason: "Datos incompletos", productId });
+        const vigenciaRaw = row[4];
+        const vigenciaParts = vigenciaRaw.split("/"); // DD/MM/YYYY
+        const vigencia = new Date(
+          +vigenciaParts[2],
+          +vigenciaParts[1] - 1,
+          +vigenciaParts[0]
+        );
+        if (vigencia < oneYearAgo) {
+          skipped.push(`Fila ignorada Vigencia antigua para Articulo ${productId}`);
           return;
         }
-
-        const [d, m, y] = vig.split("/").map((v) => parseInt(v, 10));
-        const vigDate = new Date(y + 2000, m - 1, d); // handle YY -> YYYY
-
-        if (isNaN(vigDate.getTime()) || vigDate < lastYear) {
-          skipArr.push({ row: idx + 2, reason: "Vigencia fuera de rango", productId });
-          return;
-        }
-
-        const barcode = equiMap[productId]?.barcode || null;
-        const desc = equiMap[productId]?.desc || row[1];
-
-        writeArr.push({ productId, barcode, desc, vigencia: vig, precio: price });
+        preciosMap[productId] = {
+          productId,
+          description: row[1],
+          listName: row[3],
+          vigencia: vigenciaRaw,
+          price: row[5],
+        };
       });
 
-      setToWrite(writeArr);
-      setSkipped(skipArr);
-      setStep(2);
+      // Merge Equivalencias with Precios
+      equivData.forEach((row) => {
+        const barcode = row[0];
+        const productId = row[1];
+        const description = row[2];
+
+        const precioData = preciosMap[productId];
+        if (!precioData) {
+          skipped.push(`Fila ignorada: No hay precio para Articulo ${productId}`);
+          return;
+        }
+
+        merged.push({
+          barcode,
+          productId,
+          description: description || precioData.description,
+          listName: precioData.listName,
+          vigencia: precioData.vigencia,
+          price: precioData.price,
+        });
+      });
+
+      setMergedData(merged);
+      setToWriteCount(merged.length);
+      setSkippedCount(skipped.length);
+      setLog(skipped);
     } catch (err) {
       console.error(err);
-      setError("Error al procesar los archivos");
+      alert("Error al procesar los archivos");
+    } finally {
+      setProcessing(false);
     }
-  };
-
-  const backupCurrentData = async () => {
-    // get all products
-    const backupName = `backup_import_${Date.now()}.json`;
-    const snapshot = {};
-    for (const item of toWrite) {
-      const docRef = doc(db, "products", item.productId);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) snapshot[item.productId] = docSnap.data();
-    }
-    const blob = new Blob([JSON.stringify(snapshot)], { type: "application/json" });
-    const storageRef = ref(storage, backupName);
-    await uploadBytes(storageRef, blob);
-    const url = await getDownloadURL(storageRef);
-    console.log("Backup uploaded:", url);
   };
 
   const writeToFirestore = async () => {
-    setStep(3);
-    let written = 0;
-    const batchSize = 200;
-    for (let i = 0; i < toWrite.length; i += batchSize) {
-      const batch = toWrite.slice(i, i + batchSize);
-      for (const item of batch) {
-        const docRef = doc(db, "products", item.productId);
-        const existing = await getDoc(docRef);
-        let shouldWrite = true;
-        if (existing.exists()) {
-          const data = existing.data();
-          shouldWrite =
-            data.precio !== item.precio ||
-            data.vigencia !== item.vigencia ||
-            data.desc !== item.desc ||
-            data.barcode !== item.barcode;
-        }
-        if (shouldWrite) {
-          await setDoc(docRef, item);
-          written++;
-        }
-      }
-      setProgress(Math.min(100, Math.round(((i + batch.length) / toWrite.length) * 100)));
+    if (mergedData.length === 0) {
+      alert("No hay datos para importar");
+      return;
     }
-    setStep(1);
-    alert(`Importación completada. Productos escritos: ${written}, ignorados: ${skipped.length}`);
-    onClose();
+
+    setProcessing(true);
+    const batchLog = [];
+    let writes = 0;
+
+    for (const product of mergedData) {
+      const docRef = doc(db, "products", product.productId);
+      const docSnap = await getDoc(docRef);
+
+      let shouldWrite = false;
+      if (!docSnap.exists()) shouldWrite = true;
+      else {
+        const existing = docSnap.data();
+        // Only write if any key data changed
+        if (
+          existing.price !== product.price ||
+          existing.description !== product.description ||
+          existing.barcode !== product.barcode
+        )
+          shouldWrite = true;
+      }
+
+      if (shouldWrite) {
+        await setDoc(docRef, product, { merge: true });
+        writes++;
+        batchLog.push(`Producto escrito: ${product.productId}`);
+      } else batchLog.push(`Producto ignorado: ${product.productId}`);
+    }
+
+    alert(`Importación finalizada. Productos escritos: ${writes}`);
+    setLog(batchLog);
+    setProcessing(false);
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 overflow-auto">
-      <div className="w-full max-w-3xl bg-gray-900 p-6 rounded-xl shadow-lg text-gold space-y-4">
-        <h2 className="text-xl font-bold">Importar Productos</h2>
-        {error && <p className="text-red-500">{error}</p>}
-        {step === 1 && (
-          <>
-            <div className="flex space-x-2">
-              <input
-                type="file"
-                accept=".xls,.xlsx"
-                onChange={(e) => setFileEqui(e.target.files[0])}
-                className="flex-1"
-              />
-              <input
-                type="file"
-                accept=".xls,.xlsx"
-                onChange={(e) => setFilePre(e.target.files[0])}
-                className="flex-1"
-              />
-            </div>
-            <button
-              onClick={mergeFiles}
-              className="px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition"
-            >
-              Procesar y Previsualizar
-            </button>
-          </>
-        )}
-        {step === 2 && (
-          <>
-            <h3 className="font-semibold">Vista previa</h3>
-            <p>Productos a escribir: {toWrite.length}</p>
-            <p>Productos ignorados: {skipped.length}</p>
-            <div className="max-h-60 overflow-auto bg-gray-800 p-2 rounded">
-              <table className="w-full text-sm text-left">
-                <thead>
-                  <tr>
-                    <th className="p-1">Producto ID</th>
-                    <th className="p-1">Barcode</th>
-                    <th className="p-1">Precio</th>
-                    <th className="p-1">Vigencia</th>
-                    <th className="p-1">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {toWrite.map((p) => (
-                    <tr key={p.productId} className="bg-gray-700">
-                      <td className="p-1">{p.productId}</td>
-                      <td className="p-1">{p.barcode}</td>
-                      <td className="p-1">{p.precio}</td>
-                      <td className="p-1">{p.vigencia}</td>
-                      <td className="p-1 text-green-400">A escribir</td>
-                    </tr>
-                  ))}
-                  {skipped.map((p) => (
-                    <tr key={p.row} className="bg-gray-700">
-                      <td className="p-1">{p.productId}</td>
-                      <td className="p-1">-</td>
-                      <td className="p-1">-</td>
-                      <td className="p-1">-</td>
-                      <td className="p-1 text-red-500">{p.reason}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="flex space-x-2 mt-4">
-              <button
-                onClick={writeToFirestore}
-                className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition"
-              >
-                Confirmar escritura en Firebase
-              </button>
-              <button
-                onClick={onClose}
-                className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
-              >
-                Cancelar
-              </button>
-            </div>
-          </>
-        )}
-        {step === 3 && (
-          <>
-            <p>Importando... {progress}% completado</p>
-            <div className="w-full h-4 bg-gray-700 rounded">
-              <div className="h-4 bg-gold" style={{ width: `${progress}%` }}></div>
-            </div>
-          </>
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 overflow-auto">
+      <div className="w-11/12 max-w-2xl bg-gray-900 p-6 rounded-xl shadow-lg text-gold space-y-4">
+        <h2 className="text-xl font-bold mb-2">Importar Productos</h2>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <input
+            type="file"
+            accept=".xls,.xlsx"
+            onChange={(e) => setEquivFile(e.target.files[0])}
+          />
+          <input
+            type="file"
+            accept=".xls,.xlsx"
+            onChange={(e) => setPreciosFile(e.target.files[0])}
+          />
+        </div>
+        <div className="flex gap-4">
+          <button
+            onClick={mergeFiles}
+            disabled={processing}
+            className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition disabled:opacity-50"
+          >
+            {processing ? "Procesando..." : "Procesar y Previsualizar"}
+          </button>
+          <button
+            onClick={writeToFirestore}
+            disabled={processing || mergedData.length === 0}
+            className="flex-1 py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition disabled:opacity-50"
+          >
+            Escribir a Firestore
+          </button>
+          <button
+            onClick={onClose}
+            className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
+          >
+            Cancelar
+          </button>
+        </div>
+
+        {mergedData.length > 0 && (
+          <div className="mt-4 max-h-64 overflow-auto">
+            <p>Productos para escribir: {toWriteCount}</p>
+            <p>Productos ignorados: {skippedCount}</p>
+            <ul className="text-sm space-y-1">
+              {log.map((l, i) => (
+                <li key={i}>{l}</li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </div>
