@@ -1,7 +1,7 @@
 // src/components/LoginForm.jsx
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase.js"; // ✅ make sure .js is included
+import { auth } from "../firebase"
 
 export default function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
