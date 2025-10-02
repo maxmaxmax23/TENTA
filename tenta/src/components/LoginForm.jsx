@@ -1,7 +1,7 @@
-// src/components/LoginForm.jsx
+// File: src/components/LoginForm.jsx
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase"
+import { auth } from "../firebase.js";
 
 export default function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -11,17 +11,15 @@ export default function LoginForm({ onLogin }) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Login clicked", email, password);
-    setError(null);
     setLoading(true);
+    setError(null);
 
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, password);
-      console.log("Login success:", userCred.user);
       onLogin(userCred.user);
     } catch (err) {
-      console.error("Firebase login error:", err);
-      setError(err.code); // display exact Firebase error code
+      console.error(err);
+      setError("⚠ Credenciales inválidas");
     } finally {
       setLoading(false);
     }

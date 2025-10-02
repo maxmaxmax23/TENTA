@@ -4,45 +4,37 @@ import LoginForm from "./components/LoginForm.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import ScannerModal from "./components/ScannerModal.jsx";
 import ProductModal from "./components/ProductModal.jsx";
+import ImporterModal from "./components/ImporterModal.jsx";
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [scannedCode, setScannedCode] = useState(null);
-  const [showScanner, setShowScanner] = useState(false);
+  const [showImporter, setShowImporter] = useState(false);
+  const [firebaseWrites, setFirebaseWrites] = useState(0); // Tracks writes for quota
 
-  if (!user) {
-    return (
-      <div className="min-h-screen bg-black text-gold flex items-center justify-center">
-        <LoginForm onLogin={setUser} />
-      </div>
-    );
-  }
+  const incrementWrites = (count) => setFirebaseWrites((prev) => prev + count);
 
   return (
     <div className="min-h-screen bg-black text-gold flex items-center justify-center">
-      <Dashboard
-        onScan={(code) => {
-          setScannedCode(code);
-          setShowScanner(false); // close scanner after scan
-        }}
-        onOpenScanner={() => setShowScanner(true)}
-      />
+      {!user ? (
+        <LoginForm onLogin={setUser} />
+      ) : scannedCode ? (
+        <ProductModal code={scannedCode} onClose={() => setScannedCode(null)} />
+      ) : (
+        <>
+          <Dashboard
+            onScan={(code) => setScannedCode(code)}
+            onOpenImporter={() => setShowImporter(true)}
+            firebaseWrites={firebaseWrites}
+          />
 
-      {/* Overlays */}
-      {showScanner && (
-        <ScannerModal
-          onScan={(code) => {
-            setScannedCode(code);
-            setShowScanner(false);
-          }}
-        />
-      )}
-
-      {scannedCode && (
-        <ProductModal
-          code={scannedCode}
-          onClose={() => setScannedCode(null)}
-        />
+          {showImporter && (
+            <ImporterModal
+              onClose={() => setShowImporter(false)}
+              incrementWrites={incrementWrites}
+            />
+          )}
+        </>
       )}
     </div>
   );

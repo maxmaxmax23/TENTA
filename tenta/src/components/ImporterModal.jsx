@@ -1,197 +1,159 @@
-// src/components/ImporterModal.jsx
-import React, { useState } from "react";
+// File: src/components/ImporterModal.jsx
+import { useState } from "react";
 import * as XLSX from "xlsx";
-import { db } from "../firebase";
-import { doc, writeBatch } from "firebase/firestore";
+import { db, storage } from "../firebase.js";
+import { doc, setDoc } from "firebase/firestore";
 
-const ImporterModal = ({ isOpen, onClose }) => {
-  const [logs, setLogs] = useState([]);
-  const [progress, setProgress] = useState({ done: 0, total: 0, status: "" });
+export default function ImporterModal({ onClose, incrementWrites }) {
+  const [equivalenciasFile, setEquivalenciasFile] = useState(null);
+  const [preciosFile, setPreciosFile] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [logMessages, setLogMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  if (!isOpen) return null;
+  const appendLog = (msg) => setLogMessages((prev) => [...prev, msg]);
 
-  // Procesar archivos XLSX
-  const handleFiles = async (event) => {
-    const files = event.target.files;
-    if (files.length !== 2) {
-      alert("⚠️ Selecciona 2 archivos: Equivalencias y Precios.");
+  const handleFileChange = (e, type) => {
+    if (type === "equivalencias") setEquivalenciasFile(e.target.files[0]);
+    if (type === "precios") setPreciosFile(e.target.files[0]);
+  };
+
+  const readXLSX = async (file) => {
+    const data = await file.arrayBuffer();
+    const workbook = XLSX.read(data);
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    return XLSX.utils.sheet_to_json(sheet, { header: 1 });
+  };
+
+  const handleImport = async () => {
+    if (!equivalenciasFile || !preciosFile) {
+      appendLog("❌ Debe seleccionar ambos archivos");
       return;
     }
 
-    setLogs([]);
-    setProgress({ done: 0, total: 0, status: "Procesando archivos..." });
+    setLoading(true);
+    setLogMessages([]);
+    setProgress(0);
 
     try {
-      const [file1, file2] = files;
+      appendLog("📖 Leyendo archivos...");
+      const eqData = await readXLSX(equivalenciasFile);
+      const prData = await readXLSX(preciosFile);
 
-      const data1 = await readExcel(file1);
-      const data2 = await readExcel(file2);
+      // Build mapping: barcode -> productId
+      const eqMap = {};
+      eqData.slice(1).forEach((row, idx) => {
+        const [barcode, productId] = row;
+        if (barcode && productId) eqMap[barcode] = productId;
+        else appendLog(`⚠ Fila ignorada en equivalencias: ${idx + 2}`);
+      });
 
-      setLogs((prev) => [...prev, `📂 ${file1.name}: ${data1.length} filas`]);
-      setLogs((prev) => [...prev, `📂 ${file2.name}: ${data2.length} filas`]);
+      // Build final products
+      const productsToWrite = [];
+      prData.slice(1).forEach((row, idx) => {
+        const [productId, , , , vigencia, precio] = row;
+        const barcode = Object.keys(eqMap).find((b) => eqMap[b] === productId);
+        if (!barcode) {
+          appendLog(`⚠ Sin equivalencia para ProductId ${productId}`);
+          return;
+        }
+        if (!vigencia || !precio) {
+          appendLog(`⚠ Vigencia o precio inválido para ProductId ${productId}`);
+          return;
+        }
 
-      // Detectar cuál es Equivalencias (3 columnas) y cuál es Precios (6 columnas)
-      let equivalencias, precios;
-      if (data1[0].length === 3) {
-        equivalencias = data1;
-        precios = data2;
-      } else {
-        equivalencias = data2;
-        precios = data1;
+        // Date filtering: only last year
+        const [dd, mm, yyyy] = vigencia.split("/").map(Number);
+        const vigDate = new Date(yyyy + 2000, mm - 1, dd); // assumes YY format
+        const oneYearAgo = new Date();
+        oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+        if (vigDate < oneYearAgo) return;
+
+        productsToWrite.push({
+          id: productId,
+          barcode,
+          vigencia,
+          precio,
+        });
+      });
+
+      appendLog(`📝 Productos a escribir: ${productsToWrite.length}`);
+
+      // Batch write with throttle
+      const batchSize = 50;
+      for (let i = 0; i < productsToWrite.length; i += batchSize) {
+        const batch = productsToWrite.slice(i, i + batchSize);
+        await Promise.all(
+          batch.map((p) =>
+            setDoc(doc(db, "products", p.barcode), p).catch((err) => {
+              appendLog(`❌ Error en ${p.barcode}: ${err.message}`);
+            })
+          )
+        );
+        setProgress(((i + batch.length) / productsToWrite.length) * 100);
+        incrementWrites(batch.length);
       }
 
-      const merged = mergeData(equivalencias, precios);
-      setLogs((prev) => [...prev, `🔗 Fusionados ${merged.length} productos`]);
-
-      // Importar a Firebase
-      await importToFirestore(merged);
-
+      appendLog("✅ Importación completada!");
     } catch (err) {
-      console.error("❌ Error al procesar los archivos:", err);
-      setLogs((prev) => [...prev, `❌ Error: ${err.message}`]);
+      console.error(err);
+      appendLog(`❌ Error al procesar los archivos: ${err.message}`);
+    } finally {
+      setLoading(false);
     }
-  };
-
-  // Leer XLSX → Array de filas
-  const readExcel = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const data = new Uint8Array(e.target.result);
-          const workbook = XLSX.read(data, { type: "array" });
-          const sheet = workbook.Sheets[workbook.SheetNames[0]];
-          const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: false });
-          resolve(rows.slice(1)); // ignorar headers
-        } catch (err) {
-          reject(err);
-        }
-      };
-      reader.onerror = reject;
-      reader.readAsArrayBuffer(file);
-    });
-
-  // Fusionar equivalencias + precios
-  const mergeData = (equivalencias, precios) => {
-    const mapEquivalencias = new Map();
-    equivalencias.forEach((row) => {
-      const [barcode, productId, descripcion] = row;
-      if (barcode && productId) {
-        mapEquivalencias.set(productId, { barcode, productId, descripcion });
-      }
-    });
-
-    const merged = [];
-    precios.forEach((row, idx) => {
-      const [productId, descArt, lista, descripcion, vigencia, precio] = row;
-      if (!productId) return;
-
-      const eq = mapEquivalencias.get(productId);
-      if (!eq) return;
-
-      merged.push({
-        id: productId.toString(),
-        barcode: eq.barcode,
-        descripcion: descripcion || eq.descripcion || descArt || "",
-        vigencia,
-        precio: parseFloat(precio) || 0,
-        lista,
-      });
-    });
-
-    return merged;
-  };
-
-  // Importar en lotes
-  const importToFirestore = async (products) => {
-    setLoading(true);
-    setProgress({ done: 0, total: products.length, status: "Importando..." });
-
-    const batchSize = 400; // throttle
-    let done = 0;
-
-    for (let i = 0; i < products.length; i += batchSize) {
-      const batch = writeBatch(db);
-      const chunk = products.slice(i, i + batchSize);
-
-      chunk.forEach((product, idx) => {
-        try {
-          if (!product.id) {
-            setLogs((prev) => [...prev, `⚠️ Producto sin ID en fila ${i + idx}, ignorado`]);
-            return;
-          }
-          const ref = doc(db, "products", product.id);
-          batch.set(ref, product, { merge: true });
-        } catch (err) {
-          setLogs((prev) => [...prev, `❌ Producto ${product.id || i + idx} error: ${err.message}`]);
-        }
-      });
-
-      try {
-        await batch.commit();
-        done += chunk.length;
-        setProgress({ done, total: products.length, status: "Importando..." });
-        setLogs((prev) => [...prev, `✅ Lote importado (${done}/${products.length})`]);
-      } catch (err) {
-        console.error("🔥 Error en batch:", err);
-        setLogs((prev) => [...prev, `🔥 Error en batch: ${err.code || ""} ${err.message}`]);
-        if (err.code === "permission-denied") {
-          alert("⚠️ Permisos denegados. Revisa las reglas de Firestore.");
-          break;
-        }
-      }
-    }
-
-    setLoading(false);
-    setProgress((prev) => ({ ...prev, status: "Completado ✅" }));
-    setLogs((prev) => [...prev, "🎉 Importación completada"]);
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-      <div className="bg-white rounded-xl p-6 w-[600px] max-h-[90vh] overflow-y-auto shadow-lg">
-        <h2 className="text-lg font-bold mb-4">📦 Importar productos</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4">
+      <div className="w-11/12 max-w-lg bg-gray-900 p-6 rounded-xl shadow-lg text-gold space-y-4">
+        <h2 className="text-xl font-bold">Importar Productos</h2>
 
         <input
           type="file"
-          accept=".xlsx,.xls"
-          multiple
-          onChange={handleFiles}
-          className="mb-4"
+          accept=".xls,.xlsx"
+          onChange={(e) => handleFileChange(e, "equivalencias")}
+          className="w-full text-sm"
         />
+        <label className="text-sm">Archivo Equivalencias</label>
 
-        {loading && (
-          <div className="mb-4">
-            <p>
-              {progress.status} {progress.done}/{progress.total}
-            </p>
-            <div className="w-full bg-gray-200 h-3 rounded">
-              <div
-                className="bg-green-600 h-3 rounded"
-                style={{ width: `${(progress.done / progress.total) * 100}%` }}
-              ></div>
-            </div>
-          </div>
-        )}
+        <input
+          type="file"
+          accept=".xls,.xlsx"
+          onChange={(e) => handleFileChange(e, "precios")}
+          className="w-full text-sm"
+        />
+        <label className="text-sm">Archivo Precios</label>
 
-        <div className="bg-gray-100 p-2 rounded text-sm h-40 overflow-y-auto">
-          {logs.map((log, idx) => (
-            <div key={idx}>{log}</div>
-          ))}
+        <button
+          onClick={handleImport}
+          disabled={loading}
+          className="w-full py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition disabled:opacity-50"
+        >
+          {loading ? "Importando..." : "Importar"}
+        </button>
+
+        <button
+          onClick={onClose}
+          className="w-full py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
+        >
+          Cancelar
+        </button>
+
+        <div className="w-full bg-gray-800 h-3 rounded overflow-hidden">
+          <div
+            className="bg-gold h-3"
+            style={{ width: `${progress}%`, transition: "width 0.2s" }}
+          ></div>
         </div>
 
-        <div className="mt-4 flex justify-end gap-2">
-          <button
-            onClick={onClose}
-            className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
-          >
-            Cerrar
-          </button>
+        <div className="h-48 overflow-y-auto bg-gray-800 p-2 rounded">
+          {logMessages.map((msg, idx) => (
+            <p key={idx} className="text-sm">
+              {msg}
+            </p>
+          ))}
         </div>
       </div>
     </div>
   );
-};
-
-export default ImporterModal;
+}
