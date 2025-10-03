@@ -1,53 +1,63 @@
-// File: src/components/Dashboard.jsx
-import { useState } from "react";
+// src/components/Dashboard.jsx
+import React, { useState } from "react";
 import ImporterModal from "./ImporterModal";
-import ScannerModal from "./ScannerModal";
-import ProductCard from "./ProductCard";
 
 export default function Dashboard() {
-  const [showImporter, setShowImporter] = useState(false);
-  const [showScanner, setShowScanner] = useState(false);
-  const [firebaseWrites, setFirebaseWrites] = useState(0);
+  const [isImporterOpen, setIsImporterOpen] = useState(false);
+  const [isExportOpen, setIsExportOpen] = useState(false);
+  const [isInventoryOpen, setIsInventoryOpen] = useState(false);
 
   return (
-    <div className="p-4 bg-black min-h-screen text-gold">
-      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
+    <div className="p-4 space-y-4">
+      <h1 className="text-2xl font-bold">Dashboard</h1>
 
-      <div className="flex flex-wrap gap-4 mb-4">
+      <div className="flex flex-col sm:flex-row gap-4">
         <button
-          onClick={() => setShowScanner(true)}
-          className="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition"
-        >
-          Abrir Scanner
-        </button>
-        <button
-          onClick={() => setShowImporter(true)}
-          className="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition"
+          className="bg-black text-gold px-4 py-2 rounded hover:opacity-90"
+          onClick={() => setIsImporterOpen(true)}
         >
           Importar Productos
         </button>
+
+        <button
+          className="bg-black text-gold px-4 py-2 rounded hover:opacity-90"
+          onClick={() => setIsExportOpen(true)}
+        >
+          Exportar JSON / Excel
+        </button>
+
+        <button
+          className="bg-black text-gold px-4 py-2 rounded hover:opacity-90"
+          onClick={() => setIsInventoryOpen(true)}
+        >
+          Inventario
+        </button>
       </div>
 
-      <div className="mb-4">
-        <span className="font-semibold">Firestore writes acumuladas: </span>
-        {firebaseWrites}
-      </div>
+      {/* Importer Modal */}
+      <ImporterModal
+        isOpen={isImporterOpen}
+        onClose={() => setIsImporterOpen(false)}
+      />
 
-      {showImporter && (
-        <ImporterModal
-          onClose={() => setShowImporter(false)}
-          firebaseWritesCounter={firebaseWrites}
-          setFirebaseWritesCounter={setFirebaseWrites}
-        />
+      {/* Future modals (just placeholders for now) */}
+      {isExportOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded shadow-lg">
+            <h2>Exportar JSON / Excel</h2>
+            <button onClick={() => setIsExportOpen(false)}>Cerrar</button>
+          </div>
+        </div>
       )}
 
-      {showScanner && <ScannerModal onClose={() => setShowScanner(false)} />}
-
-      {/* Future: ProductCard grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-        {/* Placeholder for ProductCards */}
-        {/* <ProductCard ... /> */}
-      </div>
+      {isInventoryOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded shadow-lg">
+            <h2>Inventario</h2>
+            <button onClick={() => setIsInventoryOpen(false)}>Cerrar</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
