@@ -1,240 +1,213 @@
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import { db } from "../firebase.js";
-import { collection, doc, getDoc, setDoc, writeBatch } from "firebase/firestore";
+import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
 
 export default function ImporterModal({ onClose }) {
-  const [files, setFiles] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [equivalenciasFile, setEquivalenciasFile] = useState(null);
+  const [preciosFile, setPreciosFile] = useState(null);
+  const [error, setError] = useState(null);
+  const [processing, setProcessing] = useState(false);
   const [preview, setPreview] = useState({
     toWrite: [],
     skipped: [],
     outOfVigencia: [],
   });
-  const [firebaseWrites, setFirebaseWrites] = useState(0);
-  const [error, setError] = useState("");
+  const [writesCounter, setWritesCounter] = useState(0);
 
-  const handleFilesChange = (e) => {
-    setFiles(e.target.files);
-  };
-
-  const parsePrice = (priceStr) => {
-    if (!priceStr) return 0;
-    const normalized = priceStr.toString().replace(/\./g, "").replace(",", ".");
-    const value = parseFloat(normalized);
-    return isNaN(value) ? 0 : value;
-  };
-
-  const parseDate = (dateStr) => {
-    if (!dateStr) return null;
-    const [d, m, y] = dateStr.split("/").map((x) => parseInt(x, 10));
-    return new Date(y + 2000 * (y < 100 ? 1 : 0), m - 1, d);
-  };
-
-  const mergeExcels = (equivalenciasData, preciosData) => {
-    const merged = [];
-
-    const equivalenciasMap = {};
-    equivalenciasData.slice(1).forEach((row) => {
-      const [barcode, productId, description] = row;
-      if (productId) equivalenciasMap[productId] = { barcode, description };
+  const readExcelFile = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const workbook = XLSX.read(e.target.result, { type: "binary" });
+          const sheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[sheetName];
+          const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+          resolve(json);
+        } catch (err) {
+          reject(err);
+        }
+      };
+      reader.onerror = (err) => reject(err);
+      reader.readAsBinaryString(file);
     });
 
-    preciosData.slice(1).forEach((row) => {
-      const [productId, descArt, , , vigenciaStr, priceStr] = row;
-      if (!productId) return;
-      const vigencia = parseDate(vigenciaStr);
-      const price = parsePrice(priceStr);
-      const eq = equivalenciasMap[productId];
-      merged.push({
-        productId,
-        barcode: eq ? eq.barcode : null,
-        description: eq ? eq.description : descArt,
-        price,
-        vigencia,
-      });
-    });
-
-    return merged;
+  const normalizeDate = (str) => {
+    // Converts DD/MM/YY or DD/MM/YYYY to Date object
+    const parts = str.split("/");
+    if (parts.length < 3) return null;
+    let year = parts[2].length === 2 ? "20" + parts[2] : parts[2];
+    return new Date(`${year}-${parts[1]}-${parts[0]}`);
   };
 
   const processFiles = async () => {
-    setError("");
-    if (files.length !== 2) {
+    if (!equivalenciasFile || !preciosFile) {
       setError("Seleccione ambos archivos: Equivalencias y Precios.");
       return;
     }
-    setLoading(true);
+
+    setError(null);
+    setProcessing(true);
+    setPreview({ toWrite: [], skipped: [], outOfVigencia: [] });
+    setWritesCounter(0);
 
     try {
-      const workbooks = [];
-      for (let file of files) {
-        const data = await file.arrayBuffer();
-        const wb = XLSX.read(data, { type: "array" });
-        workbooks.push(wb);
-      }
+      const [equivalenciasData, preciosData] = await Promise.all([
+        readExcelFile(equivalenciasFile),
+        readExcelFile(preciosFile),
+      ]);
 
-      const equivalenciasWS = workbooks[0].Sheets[workbooks[0].SheetNames[0]];
-      const preciosWS = workbooks[1].Sheets[workbooks[1].SheetNames[0]];
+      // Remove headers
+      const eqRows = equivalenciasData.slice(1);
+      const prRows = preciosData.slice(1);
 
-      const equivalenciasData = XLSX.utils.sheet_to_json(equivalenciasWS, { header: 1 });
-      const preciosData = XLSX.utils.sheet_to_json(preciosWS, { header: 1 });
-
-      const merged = mergeExcels(equivalenciasData, preciosData);
-
-      // Filter by vigencia (last 12 months)
-      const now = new Date();
-      const oneYearAgo = new Date(now);
-      oneYearAgo.setFullYear(now.getFullYear() - 1);
+      // Map barcode -> productId
+      const barcodeToId = {};
+      eqRows.forEach((r) => {
+        const barcode = r[0]?.toString().trim();
+        const productId = r[1]?.toString().trim();
+        if (barcode && productId) barcodeToId[barcode] = productId;
+      });
 
       const toWrite = [];
       const skipped = [];
       const outOfVigencia = [];
 
-      for (let product of merged) {
-        if (!product.vigencia || product.vigencia < oneYearAgo) {
-          outOfVigencia.push(product);
+      const now = new Date();
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(now.getFullYear() - 1);
+
+      for (const row of prRows) {
+        const productId = row[0]?.toString().trim();
+        const desc = row[1]?.toString().trim();
+        const vigenciaStr = row[4]?.toString().trim();
+        const priceStr = row[5]?.toString().replace(/\./g, "").replace(",", ".").trim();
+
+        if (!productId || !vigenciaStr) {
+          skipped.push(row);
           continue;
         }
 
-        const docRef = doc(db, "products", product.productId);
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-          const current = docSnap.data();
-          // Only write if any parameter changed
-          if (
-            current.price !== product.price ||
-            current.description !== product.description ||
-            current.barcode !== product.barcode
-          ) {
-            toWrite.push(product);
-          } else {
-            skipped.push(product);
-          }
-        } else {
-          toWrite.push(product);
+        const vigenciaDate = normalizeDate(vigenciaStr);
+        if (!vigenciaDate || vigenciaDate < oneYearAgo) {
+          outOfVigencia.push(row);
+          continue;
         }
+
+        const price = parseFloat(priceStr);
+        if (isNaN(price)) {
+          skipped.push(row);
+          continue;
+        }
+
+        // Find barcodes from equivalencias
+        const barcodes = Object.entries(barcodeToId)
+          .filter(([, id]) => id === productId)
+          .map(([barcode]) => barcode);
+
+        toWrite.push({ productId, desc, price, barcodes });
       }
 
       setPreview({ toWrite, skipped, outOfVigencia });
-    } catch (e) {
-      console.error(e);
+      setWritesCounter(toWrite.length);
+    } catch (err) {
+      console.error(err);
       setError("Error al procesar los archivos.");
     } finally {
-      setLoading(false);
+      setProcessing(false);
     }
   };
 
   const writeToFirebase = async () => {
-    setLoading(true);
-    let writesCount = 0;
+    if (!preview.toWrite.length) return;
+    setProcessing(true);
     try {
-      const batch = writeBatch(db);
-      preview.toWrite.forEach((product) => {
-        const docRef = doc(db, "products", product.productId);
-        batch.set(docRef, {
-          description: product.description,
-          price: product.price,
-          barcode: product.barcode,
-          vigencia: product.vigencia,
-        });
-        writesCount++;
-      });
-      await batch.commit();
-      setFirebaseWrites((prev) => prev + writesCount);
-      alert(`Se han escrito ${writesCount} productos en Firebase.`);
-      setPreview({ toWrite: [], skipped: [], outOfVigencia: [] });
-    } catch (e) {
-      console.error(e);
+      for (const product of preview.toWrite) {
+        const ref = doc(db, "products", product.productId);
+        const snapshot = await getDoc(ref);
+
+        // Only write if something changed
+        const current = snapshot.exists() ? snapshot.data() : {};
+        const changed =
+          current.descripcion !== product.desc ||
+          current.precio !== product.price ||
+          JSON.stringify(current.barcodes || []) !== JSON.stringify(product.barcodes);
+
+        if (changed) {
+          await setDoc(ref, {
+            descripcion: product.desc,
+            precio: product.price,
+            barcodes: product.barcodes,
+          });
+        }
+      }
+      alert("Importación completada con éxito.");
+      onClose();
+    } catch (err) {
+      console.error(err);
       setError("Error al escribir en Firebase.");
     } finally {
-      setLoading(false);
+      setProcessing(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start p-4 overflow-auto">
-      <div className="bg-white rounded-lg w-full max-w-3xl p-6 space-y-4">
-        <h2 className="text-xl font-bold">Importador de Productos</h2>
-        <input type="file" multiple onChange={handleFilesChange} accept=".xlsx,.xls" />
-        {error && <div className="text-red-600">{error}</div>}
-        <div className="flex space-x-2">
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4">
+      <div className="w-11/12 max-w-3xl bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
+        <h2 className="text-xl font-bold mb-4">Importar Productos</h2>
+
+        <div className="flex flex-col space-y-2 mb-4">
+          <label className="font-semibold">Archivo Equivalencias</label>
+          <input
+            type="file"
+            accept=".xlsx,.xls"
+            onChange={(e) => setEquivalenciasFile(e.target.files[0])}
+          />
+        </div>
+
+        <div className="flex flex-col space-y-2 mb-4">
+          <label className="font-semibold">Archivo Precios</label>
+          <input
+            type="file"
+            accept=".xlsx,.xls"
+            onChange={(e) => setPreciosFile(e.target.files[0])}
+          />
+        </div>
+
+        {error && <p className="text-red-500 mb-2">{error}</p>}
+
+        <div className="flex space-x-2 mb-4">
           <button
-            className="bg-blue-600 text-white px-4 py-2 rounded"
             onClick={processFiles}
-            disabled={loading}
+            disabled={processing}
+            className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition disabled:opacity-50"
           >
-            Procesar y Previsualizar
+            {processing ? "Procesando..." : "Previsualizar"}
           </button>
           <button
-            className="bg-green-600 text-white px-4 py-2 rounded"
-            onClick={writeToFirebase}
-            disabled={loading || preview.toWrite.length === 0}
+            onClick={onClose}
+            className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
           >
-            Confirmar Escritura en Firebase
+            Cancelar
           </button>
         </div>
 
-        {loading && <p>Procesando...</p>}
-
-        <div className="mt-4">
-          <p>Productos a escribir: {preview.toWrite.length}</p>
-          <p>Productos sin cambios: {preview.skipped.length}</p>
-          <p>Productos fuera de vigencia: {preview.outOfVigencia.length}</p>
-          <p>Total writes acumuladas: {firebaseWrites}</p>
-        </div>
-
-        <div className="overflow-auto max-h-64 mt-4">
-          <table className="w-full text-sm border border-gray-300">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border px-2">Product ID</th>
-                <th className="border px-2">Barcode</th>
-                <th className="border px-2">Description</th>
-                <th className="border px-2">Price</th>
-                <th className="border px-2">Vigencia</th>
-                <th className="border px-2">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {preview.toWrite.map((p) => (
-                <tr key={p.productId}>
-                  <td className="border px-2">{p.productId}</td>
-                  <td className="border px-2">{p.barcode}</td>
-                  <td className="border px-2">{p.description}</td>
-                  <td className="border px-2">{p.price}</td>
-                  <td className="border px-2">{p.vigencia?.toLocaleDateString()}</td>
-                  <td className="border px-2 text-green-600">To Write</td>
-                </tr>
-              ))}
-              {preview.skipped.map((p) => (
-                <tr key={p.productId}>
-                  <td className="border px-2">{p.productId}</td>
-                  <td className="border px-2">{p.barcode}</td>
-                  <td className="border px-2">{p.description}</td>
-                  <td className="border px-2">{p.price}</td>
-                  <td className="border px-2">{p.vigencia?.toLocaleDateString()}</td>
-                  <td className="border px-2 text-gray-600">Skipped</td>
-                </tr>
-              ))}
-              {preview.outOfVigencia.map((p) => (
-                <tr key={p.productId}>
-                  <td className="border px-2">{p.productId}</td>
-                  <td className="border px-2">{p.barcode}</td>
-                  <td className="border px-2">{p.description}</td>
-                  <td className="border px-2">{p.price}</td>
-                  <td className="border px-2">{p.vigencia?.toLocaleDateString()}</td>
-                  <td className="border px-2 text-red-600">Out of Vigencia</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <button className="mt-4 text-gray-500" onClick={onClose}>
-          Cerrar
-        </button>
+        {preview.toWrite.length > 0 && (
+          <div className="mb-4">
+            <h3 className="font-bold">Resumen</h3>
+            <p>Productos a escribir: {preview.toWrite.length}</p>
+            <p>Ignorados: {preview.skipped.length}</p>
+            <p>Fuera de vigencia: {preview.outOfVigencia.length}</p>
+            <button
+              onClick={writeToFirebase}
+              disabled={processing}
+              className="mt-2 px-4 py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition"
+            >
+              {processing ? "Escribiendo..." : "Escribir en Firebase"}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
