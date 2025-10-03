@@ -2,43 +2,52 @@
 import { useState } from "react";
 import ImporterModal from "./ImporterModal";
 import ScannerModal from "./ScannerModal";
-import BackupManager from "./BackupManager";
+import ProductCard from "./ProductCard";
 
 export default function Dashboard() {
   const [showImporter, setShowImporter] = useState(false);
   const [showScanner, setShowScanner] = useState(false);
-  const [showBackup, setShowBackup] = useState(false);
+  const [firebaseWrites, setFirebaseWrites] = useState(0);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gold p-6">
-      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+    <div className="p-4 bg-black min-h-screen text-gold">
+      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+      <div className="flex flex-wrap gap-4 mb-4">
         <button
           onClick={() => setShowScanner(true)}
-          className="bg-gold text-black p-4 rounded-lg hover:bg-yellow-500 transition"
+          className="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition"
         >
           Abrir Scanner
         </button>
-
         <button
           onClick={() => setShowImporter(true)}
-          className="bg-green-600 text-black p-4 rounded-lg hover:bg-green-500 transition"
+          className="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition"
         >
-          Importar / Previsualizar
-        </button>
-
-        <button
-          onClick={() => setShowBackup(true)}
-          className="bg-gray-700 text-gold p-4 rounded-lg hover:bg-gray-600 transition"
-        >
-          Backup / Restaurar
+          Importar Productos
         </button>
       </div>
 
-      {showImporter && <ImporterModal onClose={() => setShowImporter(false)} />}
+      <div className="mb-4">
+        <span className="font-semibold">Firestore writes acumuladas: </span>
+        {firebaseWrites}
+      </div>
+
+      {showImporter && (
+        <ImporterModal
+          onClose={() => setShowImporter(false)}
+          firebaseWritesCounter={firebaseWrites}
+          setFirebaseWritesCounter={setFirebaseWrites}
+        />
+      )}
+
       {showScanner && <ScannerModal onClose={() => setShowScanner(false)} />}
-      {showBackup && <BackupManager onClose={() => setShowBackup(false)} />}
+
+      {/* Future: ProductCard grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+        {/* Placeholder for ProductCards */}
+        {/* <ProductCard ... /> */}
+      </div>
     </div>
   );
 }
