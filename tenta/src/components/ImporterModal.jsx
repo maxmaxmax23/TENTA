@@ -1,18 +1,14 @@
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import { db } from "../firebase.js";
-import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export default function ImporterModal({ onClose }) {
   const [equivalenciasFile, setEquivalenciasFile] = useState(null);
   const [preciosFile, setPreciosFile] = useState(null);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
-  const [preview, setPreview] = useState({
-    toWrite: [],
-    skipped: [],
-    outOfVigencia: [],
-  });
+  const [preview, setPreview] = useState([]);
   const [writesCounter, setWritesCounter] = useState(0);
 
   const readExcelFile = (file) =>
@@ -34,7 +30,6 @@ export default function ImporterModal({ onClose }) {
     });
 
   const normalizeDate = (str) => {
-    // Converts DD/MM/YY or DD/MM/YYYY to Date object
     const parts = str.split("/");
     if (parts.length < 3) return null;
     let year = parts[2].length === 2 ? "20" + parts[2] : parts[2];
@@ -49,7 +44,7 @@ export default function ImporterModal({ onClose }) {
 
     setError(null);
     setProcessing(true);
-    setPreview({ toWrite: [], skipped: [], outOfVigencia: [] });
+    setPreview([]);
     setWritesCounter(0);
 
     try {
@@ -58,11 +53,9 @@ export default function ImporterModal({ onClose }) {
         readExcelFile(preciosFile),
       ]);
 
-      // Remove headers
       const eqRows = equivalenciasData.slice(1);
       const prRows = preciosData.slice(1);
 
-      // Map barcode -> productId
       const barcodeToId = {};
       eqRows.forEach((r) => {
         const barcode = r[0]?.toString().trim();
@@ -70,47 +63,38 @@ export default function ImporterModal({ onClose }) {
         if (barcode && productId) barcodeToId[barcode] = productId;
       });
 
-      const toWrite = [];
-      const skipped = [];
-      const outOfVigencia = [];
-
       const now = new Date();
       const oneYearAgo = new Date();
       oneYearAgo.setFullYear(now.getFullYear() - 1);
 
-      for (const row of prRows) {
+      const previewData = prRows.map((row) => {
         const productId = row[0]?.toString().trim();
         const desc = row[1]?.toString().trim();
         const vigenciaStr = row[4]?.toString().trim();
         const priceStr = row[5]?.toString().replace(/\./g, "").replace(",", ".").trim();
+        let status = "To Write";
 
         if (!productId || !vigenciaStr) {
-          skipped.push(row);
-          continue;
-        }
-
-        const vigenciaDate = normalizeDate(vigenciaStr);
-        if (!vigenciaDate || vigenciaDate < oneYearAgo) {
-          outOfVigencia.push(row);
-          continue;
+          status = "Skipped";
+        } else {
+          const vigenciaDate = normalizeDate(vigenciaStr);
+          if (!vigenciaDate || vigenciaDate < oneYearAgo) {
+            status = "Out of Vigencia";
+          }
         }
 
         const price = parseFloat(priceStr);
-        if (isNaN(price)) {
-          skipped.push(row);
-          continue;
-        }
+        if (isNaN(price)) status = "Skipped";
 
-        // Find barcodes from equivalencias
         const barcodes = Object.entries(barcodeToId)
           .filter(([, id]) => id === productId)
           .map(([barcode]) => barcode);
 
-        toWrite.push({ productId, desc, price, barcodes });
-      }
+        return { productId, desc, price, barcodes, status };
+      });
 
-      setPreview({ toWrite, skipped, outOfVigencia });
-      setWritesCounter(toWrite.length);
+      setPreview(previewData);
+      setWritesCounter(previewData.filter((p) => p.status === "To Write").length);
     } catch (err) {
       console.error(err);
       setError("Error al procesar los archivos.");
@@ -120,14 +104,15 @@ export default function ImporterModal({ onClose }) {
   };
 
   const writeToFirebase = async () => {
-    if (!preview.toWrite.length) return;
+    const toWrite = preview.filter((p) => p.status === "To Write");
+    if (!toWrite.length) return;
+
     setProcessing(true);
     try {
-      for (const product of preview.toWrite) {
+      for (const product of toWrite) {
         const ref = doc(db, "products", product.productId);
         const snapshot = await getDoc(ref);
 
-        // Only write if something changed
         const current = snapshot.exists() ? snapshot.data() : {};
         const changed =
           current.descripcion !== product.desc ||
@@ -154,7 +139,7 @@ export default function ImporterModal({ onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4">
-      <div className="w-11/12 max-w-3xl bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
+      <div className="w-11/12 max-w-4xl bg-gray-900 p-6 rounded-xl shadow-lg text-gold overflow-y-auto max-h-[90vh]">
         <h2 className="text-xl font-bold mb-4">Importar Productos</h2>
 
         <div className="flex flex-col space-y-2 mb-4">
@@ -193,15 +178,50 @@ export default function ImporterModal({ onClose }) {
           </button>
         </div>
 
-        {preview.toWrite.length > 0 && (
+        {preview.length > 0 && (
           <div className="mb-4">
-            <h3 className="font-bold">Resumen</h3>
-            <p>Productos a escribir: {preview.toWrite.length}</p>
-            <p>Ignorados: {preview.skipped.length}</p>
-            <p>Fuera de vigencia: {preview.outOfVigencia.length}</p>
+            <h3 className="font-bold mb-2">Resumen y Vista Previa</h3>
+            <p>Productos a escribir: {writesCounter}</p>
+            <p>Ignorados: {preview.filter((p) => p.status === "Skipped").length}</p>
+            <p>Fuera de vigencia: {preview.filter((p) => p.status === "Out of Vigencia").length}</p>
+
+            <div className="overflow-x-auto max-h-72 mt-2 border border-gray-600 rounded-lg">
+              <table className="min-w-full text-sm text-left">
+                <thead className="bg-gray-800 sticky top-0">
+                  <tr>
+                    <th className="px-2 py-1">ID</th>
+                    <th className="px-2 py-1">Descripción</th>
+                    <th className="px-2 py-1">Precio</th>
+                    <th className="px-2 py-1">Códigos</th>
+                    <th className="px-2 py-1">Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {preview.map((p, i) => (
+                    <tr
+                      key={i}
+                      className={
+                        p.status === "To Write"
+                          ? "bg-gray-700"
+                          : p.status === "Skipped"
+                          ? "bg-gray-600"
+                          : "bg-gray-500"
+                      }
+                    >
+                      <td className="px-2 py-1">{p.productId}</td>
+                      <td className="px-2 py-1">{p.desc}</td>
+                      <td className="px-2 py-1">{p.price}</td>
+                      <td className="px-2 py-1">{p.barcodes.join(", ")}</td>
+                      <td className="px-2 py-1">{p.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
             <button
               onClick={writeToFirebase}
-              disabled={processing}
+              disabled={processing || writesCounter === 0}
               className="mt-2 px-4 py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition"
             >
               {processing ? "Escribiendo..." : "Escribir en Firebase"}
