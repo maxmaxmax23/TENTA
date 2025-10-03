@@ -1,239 +1,215 @@
 // File: src/components/ImporterModal.jsx
 import { useState } from "react";
-import * as XLSX from "xlsx";
 import { db, storage } from "../firebase.js";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes } from "firebase/storage";
+import * as XLSX from "xlsx";
 
-export default function ImporterModal({ onClose }) {
-  const [files, setFiles] = useState([]);
-  const [mergedProducts, setMergedProducts] = useState([]);
-  const [counters, setCounters] = useState({ toWrite: 0, skipped: 0, untouched: 0 });
-  const [loading, setLoading] = useState(false);
+export default function ImporterModal({ onClose, firebaseWritesCounter, setFirebaseWritesCounter }) {
+  const [equivalenciasFile, setEquivalenciasFile] = useState(null);
+  const [preciosFile, setPreciosFile] = useState(null);
+  const [preview, setPreview] = useState([]);
+  const [processing, setProcessing] = useState(false);
   const [errorLog, setErrorLog] = useState([]);
 
-  const handleFiles = (e) => setFiles(e.target.files);
-
-  const parseXLSX = (file, sheetIndex = 0) => {
-    const reader = new FileReader();
-    return new Promise((resolve, reject) => {
-      reader.onload = (evt) => {
-        try {
-          const wb = XLSX.read(evt.target.result, { type: "binary" });
-          const ws = wb.Sheets[wb.SheetNames[sheetIndex]];
-          const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
-          resolve(data);
-        } catch (err) {
-          reject(err);
-        }
-      };
-      reader.readAsBinaryString(file);
-    });
-  };
-
-  const normalizeDate = (str) => {
-    if (!str) return null;
-    const parts = str.toString().split(/[\/\-]/);
-    if (parts.length !== 3) return null;
-    let [d, m, y] = parts;
-    if (y.length === 2) y = "20" + y;
-    return `${d.padStart(2, "0")}/${m.padStart(2, "0")}/${y}`;
-  };
-
-  const normalizePrice = (str) => {
-    if (!str) return null;
-    return parseFloat(str.toString().replace(",", ".").replace(/[^\d.]/g, "")) || null;
-  };
-
-  const mergeFiles = async () => {
-    if (files.length < 2) {
-      alert("Selecciona los dos archivos en orden: Equivalencias, Precios");
+  const handleProcess = async () => {
+    if (!equivalenciasFile || !preciosFile) {
+      alert("Por favor selecciona ambos archivos: Equivalencias y Precios.");
       return;
     }
-    setLoading(true);
-    const [equivFile, preciosFile] = files;
+
+    setProcessing(true);
+    setPreview([]);
+    setErrorLog([]);
     try {
-      const equivData = await parseXLSX(equivFile);
-      const preciosData = await parseXLSX(preciosFile);
-
-      // Remove headers
-      equivData.shift();
-      preciosData.shift();
-
-      // Build productId -> barcodes map
-      const barcodeMap = {};
-      equivData.forEach((row) => {
-        const [barcode, productId] = row;
-        if (!barcode || !productId) return;
-        if (!barcodeMap[productId]) barcodeMap[productId] = [];
-        barcodeMap[productId].push(barcode.toString());
+      // Read Equivalencias
+      const eqData = XLSX.read(await equivalenciasFile.arrayBuffer(), { type: "array" });
+      const eqSheet = eqData.Sheets[eqData.SheetNames[0]];
+      const eqRows = XLSX.utils.sheet_to_json(eqSheet, { header: 1, raw: false });
+      // Skip header row
+      const eqMap = {};
+      eqRows.slice(1).forEach((row, i) => {
+        const barcode = row[0]?.toString().trim();
+        const productId = row[1]?.toString().trim();
+        if (barcode && productId) {
+          if (!eqMap[productId]) eqMap[productId] = [];
+          eqMap[productId].push(barcode);
+        } else {
+          setErrorLog(prev => [...prev, `Equivalencias fila ${i + 2} ignorada`]);
+        }
       });
 
-      const merged = [];
-      const skipped = [];
-      const untouched = [];
+      // Read Precios
+      const prData = XLSX.read(await preciosFile.arrayBuffer(), { type: "array" });
+      const prSheet = prData.Sheets[prData.SheetNames[0]];
+      const prRows = XLSX.utils.sheet_to_json(prSheet, { header: 1, raw: false });
 
-      for (const row of preciosData) {
-        const [productId, desc, , , vigenciaStr, priceStr] = row;
-        const normalizedDate = normalizeDate(vigenciaStr);
-        const normalizedPrice = normalizePrice(priceStr);
+      const today = new Date();
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(today.getFullYear() - 1);
 
-        if (!productId || !normalizedDate || !normalizedPrice) {
-          skipped.push({ productId, reason: "Datos inválidos o vigencia/price vacía" });
-          continue;
+      const mergedProducts = [];
+
+      prRows.slice(1).forEach((row, i) => {
+        const productId = row[0]?.toString().trim();
+        const description = row[1]?.toString().trim();
+        const vigenciaRaw = row[4]?.toString().trim();
+        const priceRaw = row[5]?.toString().trim();
+
+        if (!productId) {
+          setErrorLog(prev => [...prev, `Precios fila ${i + 2} ignorada: sin productId`]);
+          return;
         }
 
-        const barcodes = barcodeMap[productId] || [];
-
-        // Check if already in DB
-        const docRef = doc(db, "products", productId);
-        const snapshot = await getDoc(docRef);
-        const existing = snapshot.exists() ? snapshot.data() : null;
-
-        // Only write if changed
-        const toWrite = !existing ||
-          existing.descripcion !== desc ||
-          existing.vigencia !== normalizedDate ||
-          existing.precio !== normalizedPrice ||
-          JSON.stringify(existing.barcodes || []) !== JSON.stringify(barcodes);
-
-        if (toWrite) {
-          merged.push({
-            productId,
-            descripcion: desc,
-            vigencia: normalizedDate,
-            precio: normalizedPrice,
-            barcodes,
-            status: "To Write",
-          });
-        } else {
-          untouched.push({
-            productId,
-            descripcion: desc,
-            vigencia: normalizedDate,
-            precio: normalizedPrice,
-            barcodes,
-            status: "Untouched",
-          });
+        // Normalize vigencia date (DD/MM/YY or DD/MM/YYYY)
+        let vigenciaDate = null;
+        if (vigenciaRaw) {
+          const parts = vigenciaRaw.split(/[\/-]/);
+          if (parts.length === 3) {
+            let year = parts[2].length === 2 ? `20${parts[2]}` : parts[2];
+            vigenciaDate = new Date(`${year}-${parts[1]}-${parts[0]}`);
+          }
         }
-      }
 
-      setMergedProducts([...merged, ...untouched]);
-      setCounters({ toWrite: merged.length, skipped: skipped.length, untouched: untouched.length });
-      setErrorLog(skipped);
+        if (!vigenciaDate || vigenciaDate < oneYearAgo || vigenciaDate > today) {
+          mergedProducts.push({ productId, description, status: "fuera de vigencia" });
+          return;
+        }
 
+        // Normalize price
+        let price = parseFloat(priceRaw?.replace(",", "."));
+        if (isNaN(price)) price = 0;
+
+        const barcodes = eqMap[productId] || [];
+
+        mergedProducts.push({
+          productId,
+          description,
+          price,
+          barcodes,
+          status: "pendiente"
+        });
+      });
+
+      setPreview(mergedProducts);
     } catch (err) {
       console.error(err);
-      alert("Error al procesar los archivos: " + err.message);
+      setErrorLog(prev => [...prev, "Error al procesar los archivos"]);
     } finally {
-      setLoading(false);
+      setProcessing(false);
     }
   };
 
-  const processWrite = async () => {
-    if (mergedProducts.length === 0) return;
+  const handleWriteToFirestore = async () => {
+    setProcessing(true);
+    let writesCount = 0;
 
-    setLoading(true);
-    try {
-      // Backup previous import
-      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-      const backupRef = ref(storage, `backups/import_${timestamp}.json`);
-      await uploadBytes(backupRef, new Blob([JSON.stringify(mergedProducts, null, 2)], { type: "application/json" }));
+    for (const p of preview) {
+      if (p.status !== "pendiente") continue;
 
-      // Write to Firestore in batches
-      for (const product of mergedProducts) {
-        if (product.status !== "To Write") continue;
-        const docRef = doc(db, "products", product.productId);
-        await setDoc(docRef, {
-          descripcion: product.descripcion,
-          vigencia: product.vigencia,
-          precio: product.precio,
-          barcodes: product.barcodes,
-        });
+      const docRef = doc(db, "products", p.productId);
+      try {
+        const snapshot = await getDoc(docRef);
+        const currentData = snapshot.exists() ? snapshot.data() : {};
+        // Only write if changed
+        const needUpdate =
+          !snapshot.exists() ||
+          currentData.price !== p.price ||
+          currentData.description !== p.description ||
+          JSON.stringify(currentData.barcodes || []) !== JSON.stringify(p.barcodes);
+
+        if (needUpdate) {
+          await setDoc(docRef, {
+            description: p.description,
+            price: p.price,
+            barcodes: p.barcodes
+          }, { merge: true });
+
+          writesCount++;
+        }
+      } catch (err) {
+        setErrorLog(prev => [...prev, `Error escribiendo ${p.productId}: ${err.message}`]);
       }
-
-      alert(`Importación completa. ${counters.toWrite} productos escritos.`);
-      onClose();
-    } catch (err) {
-      console.error(err);
-      alert("Error al escribir en Firestore: " + err.message);
-    } finally {
-      setLoading(false);
     }
+
+    setFirebaseWritesCounter(prev => prev + writesCount);
+    alert(`Importación completada. Productos escritos: ${writesCount}`);
+    setProcessing(false);
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 overflow-auto">
-      <div className="w-11/12 max-w-3xl bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
-        <h2 className="text-xl font-bold mb-4">Importar Productos</h2>
-        <input type="file" multiple accept=".xls,.xlsx" onChange={handleFiles} className="mb-4" />
-        <div className="flex space-x-2 mb-4">
-          <button
-            onClick={mergeFiles}
-            disabled={loading}
-            className="px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition disabled:opacity-50"
-          >
-            {loading ? "Procesando..." : "Previsualizar"}
-          </button>
-          <button
-            onClick={processWrite}
-            disabled={loading || counters.toWrite === 0}
-            className="px-4 py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition disabled:opacity-50"
-          >
-            Escribir en Firestore
-          </button>
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
-          >
-            Cancelar
-          </button>
-        </div>
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-start p-4 overflow-y-auto">
+      <h2 className="text-xl font-bold text-gold mb-4">Importar Productos</h2>
 
-        <div className="mb-4">
-          <p>Productos a escribir: {counters.toWrite}</p>
-          <p>Productos ignorados: {counters.skipped}</p>
-          <p>Productos sin cambios: {counters.untouched}</p>
-        </div>
+      <div className="w-full max-w-lg space-y-2">
+        <label className="text-gold">Archivo Equivalencias</label>
+        <input type="file" accept=".xls,.xlsx" onChange={e => setEquivalenciasFile(e.target.files[0])} />
 
-        {errorLog.length > 0 && (
-          <div className="mb-4 max-h-40 overflow-auto bg-gray-800 p-2 rounded">
-            <p className="font-bold">Errores:</p>
-            {errorLog.map((err, idx) => (
-              <p key={idx}>{err.productId || "N/A"} - {err.reason}</p>
-            ))}
-          </div>
-        )}
-
-        {mergedProducts.length > 0 && (
-          <div className="overflow-auto max-h-64 bg-gray-800 p-2 rounded">
-            <table className="w-full table-auto text-sm">
-              <thead>
-                <tr>
-                  <th>Producto ID</th>
-                  <th>Descripción</th>
-                  <th>Vigencia</th>
-                  <th>Precio</th>
-                  <th>Codigos</th>
-                  <th>Estado</th>
-                </tr>
-              </thead>
-              <tbody>
-                {mergedProducts.map((p, idx) => (
-                  <tr key={idx}>
-                    <td>{p.productId}</td>
-                    <td>{p.descripcion}</td>
-                    <td>{p.vigencia}</td>
-                    <td>{p.precio}</td>
-                    <td>{p.barcodes.join(", ")}</td>
-                    <td>{p.status}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+        <label className="text-gold">Archivo Precios</label>
+        <input type="file" accept=".xls,.xlsx" onChange={e => setPreciosFile(e.target.files[0])} />
       </div>
+
+      <div className="flex space-x-2 mt-4">
+        <button
+          onClick={handleProcess}
+          disabled={processing}
+          className="px-4 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition"
+        >
+          {processing ? "Procesando..." : "Previsualizar"}
+        </button>
+        <button
+          onClick={handleWriteToFirestore}
+          disabled={processing || preview.length === 0}
+          className="px-4 py-2 bg-green-600 text-black rounded-lg hover:bg-green-500 transition"
+        >
+          Escribir en Firestore
+        </button>
+        <button
+          onClick={onClose}
+          className="px-4 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
+        >
+          Cancelar
+        </button>
+      </div>
+
+      {preview.length > 0 && (
+        <div className="mt-4 w-full max-w-lg bg-gray-900 text-gold p-2 rounded-lg overflow-auto">
+          <h3 className="font-semibold mb-2">Previsualización</h3>
+          <table className="w-full text-sm table-auto">
+            <thead>
+              <tr>
+                <th>ProductId</th>
+                <th>Status</th>
+                <th>Barcodes</th>
+                <th>Price</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {preview.map((p, idx) => (
+                <tr key={idx} className={p.status === "pendiente" ? "bg-gray-800" : "bg-gray-700"}>
+                  <td>{p.productId}</td>
+                  <td>{p.status}</td>
+                  <td>{p.barcodes?.join(", ")}</td>
+                  <td>{p.price}</td>
+                  <td>{p.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {errorLog.length > 0 && (
+        <div className="mt-4 w-full max-w-lg bg-red-900 text-white p-2 rounded-lg overflow-auto">
+          <h3 className="font-semibold mb-2">Errores</h3>
+          <ul>
+            {errorLog.map((err, idx) => (
+              <li key={idx}>{err}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
