@@ -1,154 +1,169 @@
-import { useState } from "react";
-import { ref as storageRef, uploadBytes } from "firebase/storage";
-import { collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { db, storage } from "../firebase.js";
+import React, { useState } from "react";
 import * as XLSX from "xlsx";
+import { db, storage } from "../firebase"; // your firebase instance
+import { ref, uploadBytes } from "firebase/storage";
+import { collection, setDoc, doc, getDoc } from "firebase/firestore";
 
 export default function ImporterModal({ onClose }) {
-  const [files, setFiles] = useState({ equivalencias: null, precios: null });
-  const [processing, setProcessing] = useState(false);
-  const [counters, setCounters] = useState({ toBeWritten: 0, unchanged: 0, outOfVigencia: 0 });
+  const [fileEquivalencias, setFileEquivalencias] = useState(null);
+  const [filePrecios, setFilePrecios] = useState(null);
   const [logs, setLogs] = useState([]);
-
-  const handleFileChange = (e, type) => {
-    setFiles((prev) => ({ ...prev, [type]: e.target.files[0] }));
-  };
+  const [counters, setCounters] = useState({
+    toWrite: 0,
+    skipped: 0,
+    outOfTimeframe: 0,
+  });
+  const [processing, setProcessing] = useState(false);
 
   const parseExcel = (file) => {
     try {
       const data = XLSX.read(file, { type: "array" });
       const sheet = data.Sheets[data.SheetNames[0]];
-      return XLSX.utils.sheet_to_json(sheet, { header: 1 });
+      const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+      return rows.filter((row) => row.some((cell) => cell !== ""));
     } catch (err) {
       throw new Error("Error parsing Excel: " + err.message);
     }
   };
 
-  const normalizeDate = (input) => {
-    if (!input) return null;
-    const parts = input.split(/[\/\-]/); // DD/MM/YY or DD-MM-YYYY
-    if (parts.length < 3) return null;
-    let [day, month, year] = parts.map((p) => parseInt(p, 10));
-    if (year < 100) year += 2000;
-    return `${year}-${String(month).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+  const normalizeDate = (value) => {
+    // Expecting DD/MM/YYYY or DD/MM/YY
+    if (!value) return null;
+    const parts = value.split("/").map((p) => parseInt(p, 10));
+    if (parts.length !== 3) return null;
+    let [day, month, year] = parts;
+    if (year < 100) year += 2000; // two-digit year
+    return `${day.toString().padStart(2, "0")}-${month
+      .toString()
+      .padStart(2, "0")}-${year}`;
   };
 
-  const normalizePrice = (price) => {
-    if (!price) return 0;
-    let p = String(price).replace(/\./g, "").replace(",", ".");
-    return parseFloat(p) || 0;
-  };
-
-  const mergeData = (equivalenciasRows, preciosRows) => {
-    const barcodeMap = {};
-    equivalenciasRows.slice(1).forEach((row) => {
-      const [barcode, productId] = row;
-      if (!productId) return;
-      if (!barcodeMap[productId]) barcodeMap[productId] = [];
-      if (barcode && !barcodeMap[productId].includes(barcode)) barcodeMap[productId].push(String(barcode));
-    });
-
-    const merged = [];
-    preciosRows.slice(1).forEach((row) => {
-      const [productId, desc, , , vigencia, price] = row;
-      if (!productId) return;
-      const normalizedDate = normalizeDate(vigencia);
-      merged.push({
-        productId: String(productId),
-        description: desc,
-        vigencia: normalizedDate,
-        price: normalizePrice(price),
-        barcodes: barcodeMap[productId] || []
-      });
-    });
-
-    return merged;
-  };
-
-  const backupData = async (data) => {
-    const timestamp = Date.now();
-    const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
-    const backupRef = storageRef(storage, `backups/importer_backup_${timestamp}.json`);
-    await uploadBytes(backupRef, blob);
-    setLogs((prev) => [...prev, `Backup created: importer_backup_${timestamp}.json`]);
-  };
-
-  const writeBatchToFirestore = async (merged) => {
-    let toBeWritten = 0, unchanged = 0, outOfVigencia = 0;
-    const now = new Date();
-    for (const product of merged) {
-      if (!product.vigencia || new Date(product.vigencia) < now) {
-        outOfVigencia++;
-        continue;
-      }
-      const docRef = doc(db, "products", product.productId);
-      const snap = await getDoc(docRef);
-      if (!snap.exists()) {
-        await setDoc(docRef, product);
-        toBeWritten++;
-      } else {
-        const data = snap.data();
-        const changed =
-          data.price !== product.price ||
-          data.description !== product.description ||
-          JSON.stringify(data.barcodes || []) !== JSON.stringify(product.barcodes);
-        if (changed) {
-          await updateDoc(docRef, product);
-          toBeWritten++;
-        } else {
-          unchanged++;
-        }
-      }
-    }
-    setCounters({ toBeWritten, unchanged, outOfVigencia });
-    setLogs((prev) => [
-      ...prev,
-      `Write complete. ToBeWritten: ${toBeWritten}, Unchanged: ${unchanged}, OutOfVigencia: ${outOfVigencia}`
-    ]);
-  };
-
-  const handleImport = async () => {
-    if (!files.equivalencias || !files.precios) {
-      alert("Please select both files.");
+  const handleProcess = async () => {
+    if (!fileEquivalencias || !filePrecios) {
+      setLogs((l) => [...l, "Debe seleccionar ambos archivos"]);
       return;
     }
+
     setProcessing(true);
     setLogs([]);
-    setCounters({ toBeWritten: 0, unchanged: 0, outOfVigencia: 0 });
+    setCounters({ toWrite: 0, skipped: 0, outOfTimeframe: 0 });
 
     try {
-      const equivalenciasData = parseExcel(files.equivalencias);
-      const preciosData = parseExcel(files.precios);
-      const merged = mergeData(equivalenciasData, preciosData);
-      await backupData(merged);
-      await writeBatchToFirestore(merged);
+      const rowsEquiv = parseExcel(fileEquivalencias).slice(1); // skip headers
+      const rowsPrecios = parseExcel(filePrecios).slice(1);
+
+      // Build mapping from barcode -> productId
+      const barcodeMap = {};
+      rowsEquiv.forEach((row) => {
+        const [barcode, productId] = row;
+        if (barcode && productId) {
+          if (!barcodeMap[productId]) barcodeMap[productId] = [];
+          barcodeMap[productId].push(barcode.toString());
+        }
+      });
+
+      let toWrite = 0,
+        skipped = 0,
+        outOfTimeframe = 0;
+
+      for (const row of rowsPrecios) {
+        const [productId, desc1, , desc2, vigenciaRaw, precioRaw] = row;
+        if (!productId) {
+          skipped++;
+          continue;
+        }
+
+        const vigencia = normalizeDate(vigenciaRaw);
+        const today = new Date();
+        let inTimeframe = true;
+        if (vigencia) {
+          const [day, month, year] = vigencia.split("-").map((n) => parseInt(n, 10));
+          const vigDate = new Date(year, month - 1, day);
+          // Check last year
+          const oneYearAgo = new Date(today);
+          oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+          inTimeframe = vigDate >= oneYearAgo && vigDate <= today;
+        } else {
+          inTimeframe = false;
+        }
+
+        if (!inTimeframe) {
+          outOfTimeframe++;
+          continue;
+        }
+
+        const price = parseFloat(precioRaw.toString().replace(".", "").replace(",", "."));
+        const barcodes = barcodeMap[productId] || [];
+
+        // write to Firestore
+        const docRef = doc(db, "products", productId);
+        const docSnap = await getDoc(docRef);
+        let needWrite = true;
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          // Only write if any field changes
+          needWrite =
+            data.description !== desc1 ||
+            data.price !== price ||
+            JSON.stringify(data.barcodes || []) !== JSON.stringify(barcodes);
+        }
+
+        if (needWrite) {
+          await setDoc(docRef, {
+            description: desc1,
+            price,
+            barcodes,
+          });
+          toWrite++;
+        } else {
+          skipped++;
+        }
+      }
+
+      setCounters({ toWrite, skipped, outOfTimeframe });
+      setLogs((l) => [
+        ...l,
+        `Importación finalizada: ${toWrite} escritos, ${skipped} sin cambios, ${outOfTimeframe} fuera de vigencia`,
+      ]);
     } catch (err) {
-      setLogs((prev) => [...prev, "Error: " + err.message]);
-    } finally {
-      setProcessing(false);
+      setLogs((l) => [...l, "Error al procesar los archivos: " + err.message]);
     }
+
+    setProcessing(false);
   };
 
   return (
-    <div className="modal">
-      <h2>Importer</h2>
-      <input type="file" accept=".xls,.xlsx" onChange={(e) => handleFileChange(e, "equivalencias")} />
+    <div className="importer-modal">
+      <h2>Importar productos</h2>
+      <input
+        type="file"
+        accept=".xlsx,.xls"
+        onChange={(e) => setFileEquivalencias(e.target.files[0])}
+      />
       <label>Equivalencias</label>
-      <input type="file" accept=".xls,.xlsx" onChange={(e) => handleFileChange(e, "precios")} />
+      <input
+        type="file"
+        accept=".xlsx,.xls"
+        onChange={(e) => setFilePrecios(e.target.files[0])}
+      />
       <label>Precios</label>
-      <button onClick={handleImport} disabled={processing}>Process & Preview</button>
-      <button onClick={onClose}>Close</button>
+      <button onClick={handleProcess} disabled={processing}>
+        {processing ? "Importando..." : "Procesar y Previsualizar"}
+      </button>
       <div>
-        <p>Processing: {processing ? "Yes" : "No"}</p>
-        <p>To Be Written: {counters.toBeWritten}</p>
-        <p>Unchanged: {counters.unchanged}</p>
-        <p>Out of Vigencia: {counters.outOfVigencia}</p>
-        <div className="logs">
-          {logs.map((log, idx) => (
-            <p key={idx}>{log}</p>
-          ))}
-        </div>
+        <p>Productos a escribir: {counters.toWrite}</p>
+        <p>Productos saltados: {counters.skipped}</p>
+        <p>Fuera de vigencia: {counters.outOfTimeframe}</p>
       </div>
+      <div>
+        <h3>Logs:</h3>
+        <ul>
+          {logs.map((log, i) => (
+            <li key={i}>{log}</li>
+          ))}
+        </ul>
+      </div>
+      <button onClick={onClose}>Cerrar</button>
     </div>
   );
 }
