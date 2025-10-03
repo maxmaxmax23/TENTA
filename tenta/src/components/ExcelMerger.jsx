@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { firestore } from "../firebase.js";
+import { collection, doc, getDoc, setDoc, writeBatch } from "firebase/firestore";
 import * as XLSX from "xlsx";
+
 
 export default function ExcelMerger({ onMerge }) {
   const [equivalenciasFile, setEquivalenciasFile] = useState(null);

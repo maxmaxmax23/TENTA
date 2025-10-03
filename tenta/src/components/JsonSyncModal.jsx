@@ -1,5 +1,8 @@
 // File: src/components/JsonSyncModal.jsx
-import { useState } from "react";
+import React, { useState } from "react";
+import { firestore } from "../firebase.js";  
+import { collection, setDoc, doc } from "firebase/firestore";
+
 
 export default function JsonSyncModal({ onClose, syncFunction }) {
   const [loading, setLoading] = useState(false);

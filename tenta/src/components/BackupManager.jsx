@@ -1,7 +1,9 @@
 // File: src/components/BackupManager.jsx
-import { useState } from "react";
-import { db } from "../firebase.js";
+import React, { useState, useEffect } from "react";
+import { firestore, storage } from "../firebase.js";  
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, getDocs, setDoc, doc } from "firebase/firestore";
+
 
 export default function BackupManager() {
   const [loading, setLoading] = useState(false);

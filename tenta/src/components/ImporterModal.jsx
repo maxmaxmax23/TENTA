@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
-import { firestore } from "../firebase.js";
+import { firestore } from "../firebase.js";  
 import ExcelMerger from "./ExcelMerger";
+
 
 export default function ImporterModal({ onClose }) {
   const [mergedData, setMergedData] = useState(null);
