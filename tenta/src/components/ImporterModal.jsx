@@ -1,120 +1,168 @@
-import { useState } from "react";
-import { firestore } from "../firebase.js"; // make sure firebase is initialized
-import { collection, doc, getDoc, setDoc, writeBatch } from "firebase/firestore";
+import React, { useState } from "react";
+import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
+import { firestore } from "../firebase.js";
+import ExcelMerger from "./ExcelMerger";
 
-export default function ImporterModal({ mergedData, onClose }) {
-  const [progress, setProgress] = useState({
-    total: mergedData.length,
-    written: 0,
-    skipped: 0,
-    outOfVigencia: 0
-  });
-  const [logs, setLogs] = useState([]);
+export default function ImporterModal({ onClose }) {
+  const [mergedData, setMergedData] = useState(null);
+  const [stats, setStats] = useState(null);
+  const [log, setLog] = useState([]);
   const [processing, setProcessing] = useState(false);
 
-  const BATCH_SIZE = 400; // safe batch size for Firestore
-
-  const handleImport = async () => {
-    setProcessing(true);
-    setLogs([]);
-    const batch = writeBatch(firestore);
-    let batchCount = 0;
-    let written = 0;
+  // Stats: writes, skipped, out of timeframe
+  const analyzeData = async (data) => {
+    let writes = 0;
     let skipped = 0;
-    let outOfVigencia = 0;
+    let outOfTime = 0;
 
-    const today = new Date();
-    const oneYearAgo = new Date();
-    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-
-    for (let i = 0; i < mergedData.length; i++) {
-      const item = mergedData[i];
-      const docRef = doc(firestore, "products", item.productId);
-      const docSnap = await getDoc(docRef);
-      const itemOutOfVigencia = new Date(item.vigencia.split("-").reverse().join("-")) < oneYearAgo;
-
-      if (itemOutOfVigencia) {
-        outOfVigencia++;
+    for (let product of data) {
+      // If no vigencia or expired → out of timeframe
+      if (!product.vigencia || new Date(product.vigencia) < new Date()) {
+        outOfTime++;
         continue;
       }
 
-      let needsWrite = true;
-      if (docSnap.exists()) {
-        const existing = docSnap.data();
-        // check if any field changed
-        if (
-          existing.description === item.description &&
-          existing.price === item.price &&
-          JSON.stringify(existing.barcodes) === JSON.stringify(item.barcodes) &&
-          existing.vigencia === item.vigencia
-        ) {
-          needsWrite = false;
+      // Check Firebase to see if needs writing
+      const ref = doc(collection(firestore, "products"), product.productId);
+      const snap = await getDoc(ref);
+
+      if (!snap.exists()) {
+        writes++;
+      } else {
+        const existing = snap.data();
+        const changed =
+          existing.price !== product.price ||
+          existing.description !== product.description ||
+          JSON.stringify(existing.barcodes || []) !==
+            JSON.stringify(product.barcodes || []);
+
+        if (changed) writes++;
+        else skipped++;
+      }
+    }
+
+    setStats({ writes, skipped, outOfTime });
+  };
+
+  // Write data to Firebase
+  const writeData = async () => {
+    if (!mergedData) return;
+    setProcessing(true);
+    setLog(["Escribiendo en Firebase..."]);
+
+    try {
+      const batch = writeBatch(firestore);
+      let count = 0;
+
+      for (let product of mergedData) {
+        if (!product.vigencia || new Date(product.vigencia) < new Date()) {
+          continue;
+        }
+
+        const ref = doc(collection(firestore, "products"), product.productId);
+        const snap = await getDoc(ref);
+
+        if (!snap.exists() || snap.data().price !== product.price) {
+          batch.set(ref, product, { merge: true });
+          count++;
+        }
+
+        if (count >= 400) {
+          await batch.commit();
+          setLog((prev) => [...prev, `✅ ${count} productos escritos`]);
+          count = 0;
         }
       }
 
-      if (needsWrite) {
-        batch.set(docRef, item, { merge: true });
-        batchCount++;
-        written++;
-      } else {
-        skipped++;
-      }
+      if (count > 0) await batch.commit();
 
-      // commit batch every BATCH_SIZE
-      if (batchCount >= BATCH_SIZE) {
-        await batch.commit();
-        batchCount = 0;
-      }
-
-      // update live counters
-      setProgress({ total: mergedData.length, written, skipped, outOfVigencia });
+      setLog((prev) => [...prev, "🎉 Importación completada"]);
+    } catch (err) {
+      console.error(err);
+      setLog((prev) => [...prev, `❌ Error: ${err.message}`]);
     }
 
-    // final commit if any remaining
-    if (batchCount > 0) {
-      await batch.commit();
-    }
-
-    setLogs((prev) => [
-      ...prev,
-      `Import completed: Written ${written}, Skipped ${skipped}, Out-of-vigencia ${outOfVigencia}`
-    ]);
     setProcessing(false);
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-2">Importer</h2>
-      <button
-        className={`bg-green-500 text-white px-4 py-2 mb-4 ${processing ? "opacity-50" : ""}`}
-        onClick={handleImport}
-        disabled={processing}
-      >
-        {processing ? "Importing..." : "Start Import"}
-      </button>
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+      <div className="bg-gray-900 text-white rounded-xl p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+        <h2 className="text-xl font-bold mb-4">Importador</h2>
 
-      <div className="mb-2">
-        <strong>Progress:</strong>
-        <ul>
-          <li>Total rows: {progress.total}</li>
-          <li>Written: {progress.written}</li>
-          <li>Skipped (unchanged): {progress.skipped}</li>
-          <li>Out-of-vigencia: {progress.outOfVigencia}</li>
-        </ul>
-      </div>
+        {!mergedData && (
+          <ExcelMerger
+            onMerge={(data) => {
+              setMergedData(data);
+              analyzeData(data);
+            }}
+          />
+        )}
 
-      <div className="mt-2">
-        <strong>Logs:</strong>
-        <ul className="text-sm text-gray-700">
-          {logs.map((l, idx) => (
-            <li key={idx}>{l}</li>
+        {stats && (
+          <div className="mt-4 p-3 bg-gray-800 rounded">
+            <h3 className="font-bold mb-2">Resumen</h3>
+            <p>🟢 Para escribir: {stats.writes}</p>
+            <p>⚪ Skipped (sin cambios): {stats.skipped}</p>
+            <p>🔴 Fuera de vigencia: {stats.outOfTime}</p>
+          </div>
+        )}
+
+        {mergedData && (
+          <div className="mt-4 overflow-x-auto max-h-64 overflow-y-auto text-sm">
+            <table className="w-full border border-gray-700">
+              <thead className="bg-gray-800">
+                <tr>
+                  <th className="p-2">ProductoID</th>
+                  <th className="p-2">Descripción</th>
+                  <th className="p-2">Barcodes</th>
+                  <th className="p-2">Precio</th>
+                  <th className="p-2">Vigencia</th>
+                </tr>
+              </thead>
+              <tbody>
+                {mergedData.slice(0, 20).map((p, i) => (
+                  <tr key={i} className="border-t border-gray-700">
+                    <td className="p-2">{p.productId}</td>
+                    <td className="p-2">{p.description}</td>
+                    <td className="p-2">{p.barcodes?.join(", ")}</td>
+                    <td className="p-2">{p.price}</td>
+                    <td className="p-2">{p.vigencia}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="text-xs mt-2 text-gray-400">
+              Mostrando 20 primeros productos
+            </p>
+          </div>
+        )}
+
+        <div className="mt-4 flex gap-2">
+          <button
+            className="px-4 py-2 bg-gray-600 rounded hover:bg-gray-700"
+            onClick={onClose}
+          >
+            Cerrar
+          </button>
+
+          {mergedData && (
+            <button
+              className="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 disabled:opacity-50"
+              onClick={writeData}
+              disabled={processing}
+            >
+              {processing ? "Procesando..." : "Escribir en Firebase"}
+            </button>
+          )}
+        </div>
+
+        <div className="mt-4 text-sm whitespace-pre-wrap bg-black/40 p-2 rounded">
+          {log.map((line, idx) => (
+            <div key={idx}>{line}</div>
           ))}
-        </ul>
+        </div>
       </div>
-
-      <button className="mt-4 bg-gray-400 px-4 py-2" onClick={onClose}>
-        Close
-      </button>
     </div>
   );
 }
