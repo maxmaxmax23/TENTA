@@ -1,276 +1,235 @@
-// src/components/ImporterModal.jsx
-import { useState } from "react";
+import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import { db } from "../firebase";
-import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  writeBatch,
+  getDoc,
+} from "firebase/firestore";
 
-export default function ImporterModal({ onClose }) {
+const ImporterModal = ({ onClose }) => {
   const [equivalenciasFile, setEquivalenciasFile] = useState(null);
   const [preciosFile, setPreciosFile] = useState(null);
-  const [mergedData, setMergedData] = useState([]);
-  const [summary, setSummary] = useState(null);
-  const [status, setStatus] = useState("");
-  const [importing, setImporting] = useState(false);
+  const [preview, setPreview] = useState([]);
+  const [stats, setStats] = useState(null);
+  const [processing, setProcessing] = useState(false);
+  const [writing, setWriting] = useState(false);
+  const [error, setError] = useState(null);
 
   // --- Helpers ---
-  const parseExcel = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const workbook = XLSX.read(e.target.result, { type: "binary" });
-          const sheet = workbook.Sheets[workbook.SheetNames[0]];
-          resolve(XLSX.utils.sheet_to_json(sheet, { header: 1 }));
-        } catch (err) {
-          reject(err);
-        }
-      };
-      reader.readAsBinaryString(file);
-    });
-
-  const normalizeBarcode = (val) => {
-    if (!val) return null;
-    return String(val).replace(/\s/g, "");
-  };
-
-  const normalizeProductId = (val) => {
-    if (!val) return null;
-    return String(val).trim();
-  };
-
   const normalizeDate = (val) => {
     if (!val) return null;
-    // Excel date serial
+    let d;
+
+    // Excel serial number
     if (typeof val === "number") {
-      return XLSX.SSF.format("dd/mm/yyyy", val);
+      try {
+        d = XLSX.SSF.format("yyyy-mm-dd", val);
+        return d;
+      } catch {
+        return null;
+      }
     }
-    return String(val).trim();
+
+    const parts = String(val).trim().split(/[\/-]/);
+    if (parts.length === 3) {
+      let [day, month, year] = parts.map((p) => p.padStart(2, "0"));
+      if (year.length === 2) year = "20" + year;
+      return `${year}-${month}-${day}`;
+    }
+
+    return null;
   };
 
-  const isWithinLastYear = (dateStr) => {
-    if (!dateStr) return false;
-    const [d, m, y] = dateStr.split(/[/-]/);
-    const parsed = new Date(`20${y.length === 2 ? y : y}-${m}-${d}`);
-    const now = new Date();
-    const oneYearAgo = new Date();
-    oneYearAgo.setFullYear(now.getFullYear() - 1);
-    return parsed >= oneYearAgo && parsed <= now;
+  const normalizePrice = (val) => {
+    if (val == null || val === "") return 0;
+    if (typeof val === "number") return parseFloat(val.toFixed(2));
+    return parseFloat(String(val).replace(",", ".").replace(/\s/g, "")) || 0;
   };
 
-  // --- Main processing ---
-  const handleProcessFiles = async () => {
+  const parseFile = async (file) => {
+    const data = await file.arrayBuffer();
+    const workbook = XLSX.read(data, { type: "array" });
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    return XLSX.utils.sheet_to_json(sheet, { header: 1 });
+  };
+
+  const handleProcess = async () => {
     if (!equivalenciasFile || !preciosFile) {
-      setStatus("❌ Debes seleccionar ambos archivos.");
+      setError("Debes seleccionar ambos archivos.");
       return;
     }
-
-    setStatus("⏳ Procesando archivos...");
+    setProcessing(true);
+    setError(null);
 
     try {
-      const [eqRows, prRows] = await Promise.all([
-        parseExcel(equivalenciasFile),
-        parseExcel(preciosFile),
-      ]);
+      const eqRows = await parseFile(equivalenciasFile);
+      const prRows = await parseFile(preciosFile);
 
-      const eqData = eqRows.slice(1).map((row) => ({
-        barcode: normalizeBarcode(row[0]),
-        productId: normalizeProductId(row[1]),
-        description: row[2] || "",
+      // skip headers
+      const equivalencias = eqRows.slice(1).map((r) => ({
+        codigo: r[0] ? String(r[0]).trim() : null,
+        articulo: r[1] ? String(r[1]).trim() : null,
+        descripcion: r[2] ? String(r[2]).trim() : null,
       }));
 
-      const prData = prRows.slice(1).map((row) => ({
-        productId: normalizeProductId(row[0]),
-        description: row[1] || "",
-        list: row[2],
-        label: row[3],
-        vigencia: normalizeDate(row[4]),
-        price: parseFloat(row[5]) || 0,
+      const precios = prRows.slice(1).map((r) => ({
+        articulo: r[0] ? String(r[0]).trim() : null,
+        desc: r[1] || "",
+        lista: r[2] || "",
+        descripcion: r[3] || "",
+        vigencia: normalizeDate(r[4]),
+        precio: normalizePrice(r[5]),
       }));
 
-      const mapEq = {};
-      eqData.forEach((e) => {
-        if (!e.productId) return;
-        if (!mapEq[e.productId]) mapEq[e.productId] = [];
-        if (e.barcode) mapEq[e.productId].push(e.barcode);
+      const now = new Date();
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(now.getFullYear() - 1);
+
+      let toWrite = [];
+      let skipped = [];
+      let outOfTimeframe = [];
+
+      precios.forEach((precio) => {
+        const eq = equivalencias.find((e) => e.articulo === precio.articulo);
+        if (!eq) {
+          skipped.push({ ...precio, reason: "No match in equivalencias" });
+          return;
+        }
+
+        if (!precio.vigencia) {
+          skipped.push({ ...precio, reason: "Fecha inválida" });
+          return;
+        }
+
+        const vigDate = new Date(precio.vigencia);
+        if (vigDate < oneYearAgo || vigDate > now) {
+          outOfTimeframe.push({ ...precio, reason: "Fuera de rango" });
+          return;
+        }
+
+        toWrite.push({
+          id: eq.articulo,
+          barcode: eq.codigo,
+          name: precio.desc || eq.descripcion,
+          price: precio.precio,
+          vigencia: precio.vigencia,
+        });
       });
 
-      const merged = prData.map((p) => ({
-        productId: p.productId,
-        description: p.description,
-        price: p.price,
-        vigencia: p.vigencia,
-        barcodes: mapEq[p.productId] || [],
-      }));
-
-      // Classification
-      const toWrite = [];
-      const untouched = [];
-      const outOfTime = [];
-      const errors = [];
-
-      for (let m of merged) {
-        if (!m.productId) {
-          errors.push(m);
-          continue;
-        }
-
-        if (!m.vigencia || !isWithinLastYear(m.vigencia)) {
-          outOfTime.push(m);
-          continue;
-        }
-
-        // Check existing in Firestore
-        const docRef = doc(db, "products", m.productId);
-        const snap = await getDoc(docRef);
-        if (snap.exists()) {
-          const existing = snap.data();
-          const isSame =
-            existing.price === m.price &&
-            existing.description === m.description &&
-            existing.vigencia === m.vigencia &&
-            JSON.stringify(existing.barcodes || []) ===
-              JSON.stringify(m.barcodes || []);
-          if (isSame) {
-            untouched.push(m);
-          } else {
-            toWrite.push(m);
-          }
-        } else {
-          toWrite.push(m);
-        }
-      }
-
-      setMergedData([...toWrite, ...untouched, ...outOfTime, ...errors]);
-      setSummary({
+      setPreview(toWrite);
+      setStats({
         toWrite: toWrite.length,
-        untouched: untouched.length,
-        outOfTime: outOfTime.length,
-        errors: errors.length,
+        skipped: skipped.length,
+        outOfTimeframe: outOfTimeframe.length,
       });
-      setStatus("✅ Procesamiento completado. Revisa la vista previa.");
-    } catch (err) {
-      console.error("Error:", err);
-      setStatus("❌ Error al procesar los archivos.");
-    }
-  };
-
-  const handleConfirmImport = async () => {
-    if (!summary?.toWrite) {
-      alert("No hay productos para importar.");
-      return;
-    }
-
-    setImporting(true);
-    setStatus("⏳ Importando datos a Firestore...");
-
-    try {
-      const batch = writeBatch(db);
-      let counter = 0;
-
-      for (let m of mergedData) {
-        if (!m.productId || !m.vigencia) continue;
-        const docRef = doc(db, "products", m.productId);
-        batch.set(docRef, m, { merge: true });
-        counter++;
-
-        if (counter % 400 === 0) {
-          await batch.commit();
-        }
-      }
-
-      if (counter % 400 !== 0) {
-        await batch.commit();
-      }
-
-      setStatus(`✅ Importación completada. ${summary.toWrite} productos escritos.`);
     } catch (err) {
       console.error(err);
-      setStatus("❌ Error al importar en Firestore.");
+      setError("Error procesando archivos.");
     } finally {
-      setImporting(false);
+      setProcessing(false);
+    }
+  };
+
+  const handleWrite = async () => {
+    if (!preview.length) return;
+    setWriting(true);
+    try {
+      const batch = writeBatch(db);
+      for (const item of preview) {
+        const ref = doc(collection(db, "products"), item.id);
+        const snap = await getDoc(ref);
+
+        // only write if different
+        if (!snap.exists() || snap.data().price !== item.price) {
+          batch.set(ref, item, { merge: true });
+        }
+      }
+      await batch.commit();
+      alert("Importación completada");
+    } catch (err) {
+      console.error(err);
+      setError("Error al escribir en Firestore");
+    } finally {
+      setWriting(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-[800px] max-h-[90vh] overflow-y-auto">
-        <h2 className="text-xl font-bold mb-4">Importar productos</h2>
+    <div className="p-4 bg-white rounded shadow-lg max-w-3xl mx-auto">
+      <h2 className="text-xl font-bold mb-4">Importador de productos</h2>
+      {error && <div className="text-red-500 mb-2">{error}</div>}
 
-        <div className="space-y-2">
-          <input type="file" accept=".xlsx" onChange={(e) => setEquivalenciasFile(e.target.files[0])} />
-          <input type="file" accept=".xlsx" onChange={(e) => setPreciosFile(e.target.files[0])} />
+      <input
+        type="file"
+        accept=".xls,.xlsx"
+        onChange={(e) => setEquivalenciasFile(e.target.files[0])}
+      />
+      <input
+        type="file"
+        accept=".xls,.xlsx"
+        onChange={(e) => setPreciosFile(e.target.files[0])}
+      />
+
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
+        onClick={handleProcess}
+        disabled={processing}
+      >
+        {processing ? "Procesando..." : "Procesar y Previsualizar"}
+      </button>
+
+      {stats && (
+        <div className="mt-4">
+          <p>Para escribir: {stats.toWrite}</p>
+          <p>Saltados: {stats.skipped}</p>
+          <p>Fuera de vigencia: {stats.outOfTimeframe}</p>
         </div>
+      )}
 
-        <button
-          onClick={handleProcessFiles}
-          className="mt-3 bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Procesar y Previsualizar
-        </button>
-
-        {status && <p className="mt-2">{status}</p>}
-
-        {summary && (
-          <div className="mt-4">
-            <p>🟢 Para escribir: {summary.toWrite}</p>
-            <p>⚪ Sin cambios: {summary.untouched}</p>
-            <p>🔴 Fuera de vigencia: {summary.outOfTime}</p>
-            <p>⚠️ Errores: {summary.errors}</p>
-          </div>
-        )}
-
-        {mergedData.length > 0 && (
-          <div className="mt-4 overflow-x-auto">
-            <table className="w-full border">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="p-2 border">Estado</th>
-                  <th className="p-2 border">Producto ID</th>
-                  <th className="p-2 border">Códigos</th>
-                  <th className="p-2 border">Descripción</th>
-                  <th className="p-2 border">Precio</th>
-                  <th className="p-2 border">Vigencia</th>
+      {preview.length > 0 && (
+        <>
+          <table className="w-full border mt-4 text-sm">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Barcode</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Vigencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              {preview.slice(0, 20).map((p, i) => (
+                <tr key={i}>
+                  <td>{p.id}</td>
+                  <td>{p.barcode}</td>
+                  <td>{p.name}</td>
+                  <td>{p.price}</td>
+                  <td>{p.vigencia}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {mergedData.slice(0, 100).map((m, i) => {
-                  let estado = "⚠️ Error";
-                  if (isWithinLastYear(m.vigencia)) {
-                    estado = "🟢 Escribir";
-                  } else if (!m.vigencia) {
-                    estado = "⚠️ Sin fecha";
-                  }
-                  return (
-                    <tr key={i} className="border">
-                      <td className="p-1 border">{estado}</td>
-                      <td className="p-1 border">{m.productId}</td>
-                      <td className="p-1 border">{m.barcodes?.join(", ")}</td>
-                      <td className="p-1 border">{m.description}</td>
-                      <td className="p-1 border">{m.price}</td>
-                      <td className="p-1 border">{m.vigencia}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <p className="text-sm mt-2">Mostrando primeras 100 filas...</p>
-          </div>
-        )}
-
-        {summary?.toWrite > 0 && (
+              ))}
+            </tbody>
+          </table>
           <button
-            onClick={handleConfirmImport}
-            disabled={importing}
-            className="mt-4 bg-green-600 text-white px-4 py-2 rounded"
+            className="bg-green-500 text-white px-4 py-2 rounded mt-4"
+            onClick={handleWrite}
+            disabled={writing}
           >
-            {importing ? "Importando..." : "Confirmar Importación"}
+            {writing ? "Escribiendo..." : "Confirmar Importación"}
           </button>
-        )}
+        </>
+      )}
 
-        <button onClick={onClose} className="mt-2 bg-gray-500 text-white px-4 py-2 rounded">
-          Cerrar
-        </button>
-      </div>
+      <button
+        className="bg-gray-300 text-black px-4 py-2 rounded mt-4"
+        onClick={onClose}
+      >
+        Cerrar
+      </button>
     </div>
   );
-}
+};
+
+export default ImporterModal;
