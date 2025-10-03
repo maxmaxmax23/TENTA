@@ -1,32 +1,29 @@
-import React, { useState } from "react";
-import * as XLSX from "xlsx";
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
+import { db } from '../firebase.js';
+import { collection, doc, setDoc, getDoc } from 'firebase/firestore';
 
 export default function ImporterModal({ onClose }) {
   const [equivalenciasFile, setEquivalenciasFile] = useState(null);
   const [preciosFile, setPreciosFile] = useState(null);
-  const [preview, setPreview] = useState([]);
-  const [writesCounter, setWritesCounter] = useState(0);
-  const [processing, setProcessing] = useState(false);
-  const [error, setError] = useState(null);
+  const [previewData, setPreviewData] = useState([]);
+  const [status, setStatus] = useState('');
 
-  const normalizeDate = (str) => {
-    // Expecting DD/MM/YY or DD/MM/YYYY
-    const parts = str.split("/");
-    if (parts.length < 3) return null;
-    let year = parseInt(parts[2], 10);
-    if (year < 100) year += 2000;
-    return new Date(year, parseInt(parts[1], 10) - 1, parseInt(parts[0], 10));
+  const handleFileChange = (e, type) => {
+    const file = e.target.files[0];
+    if (type === 'equivalencias') setEquivalenciasFile(file);
+    if (type === 'precios') setPreciosFile(file);
   };
 
-  const readExcelFile = (file) => {
+  const parseExcel = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.onload = (e) => {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, { type: "array" });
+      reader.onload = (evt) => {
+        const data = new Uint8Array(evt.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
-        const json = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: false });
+        const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
         resolve(json);
       };
       reader.onerror = (err) => reject(err);
@@ -34,131 +31,145 @@ export default function ImporterModal({ onClose }) {
     });
   };
 
+  const normalizeDate = (str) => {
+    if (!str) return null;
+    const parts = str.split('/');
+    if (parts.length !== 3) return null;
+    const day = parts[0].padStart(2, '0');
+    const month = parts[1].padStart(2, '0');
+    let year = parts[2];
+    if (year.length === 2) year = '20' + year;
+    return `${year}-${month}-${day}`;
+  };
+
+  const normalizePrice = (str) => {
+    if (!str) return 0;
+    return parseFloat(str.toString().replace('.', '').replace(',', '.')) || 0;
+  };
+
   const processFiles = async () => {
     if (!equivalenciasFile || !preciosFile) {
-      setError("Seleccione ambos archivos: Equivalencias y Precios.");
+      alert('Please select both files');
       return;
     }
 
-    setError(null);
-    setProcessing(true);
-    setPreview([]);
-    setWritesCounter(0);
+    setStatus('Procesando...');
 
     try {
-      const [equivalenciasData, preciosData] = await Promise.all([
-        readExcelFile(equivalenciasFile),
-        readExcelFile(preciosFile),
-      ]);
+      const eqData = await parseExcel(equivalenciasFile);
+      const prData = await parseExcel(preciosFile);
 
-      const eqRows = equivalenciasData.slice(1).filter((r) => r.length >= 2);
-      const prRows = preciosData.slice(1).filter((r) => r.length >= 5);
+      // Skip headers
+      const eqRows = eqData.slice(1);
+      const prRows = prData.slice(1);
 
-      const barcodeToId = {};
-      eqRows.forEach((r) => {
-        const barcode = r[0]?.toString().trim();
-        const productId = r[1]?.toString().trim();
-        if (barcode && productId) barcodeToId[barcode] = productId;
+      const eqMap = {};
+      eqRows.forEach(([barcode, productId, desc]) => {
+        if (!eqMap[productId]) eqMap[productId] = { barcodes: [] };
+        eqMap[productId].barcodes.push(barcode);
       });
 
-      const now = new Date();
-      const oneYearAgo = new Date();
-      oneYearAgo.setFullYear(now.getFullYear() - 1);
+      const preview = [];
 
-      const previewData = [];
-      for (let i = 0; i < prRows.length; i++) {
-        const row = prRows[i];
-        try {
-          const productId = row[0]?.toString().trim();
-          const desc = row[1]?.toString().trim();
-          const vigenciaStr = row[4]?.toString().trim();
-          const priceStr = row[5]?.toString().replace(/\./g, "").replace(",", ".").trim();
+      for (const row of prRows) {
+        const [productId, , , , vigencia, precio] = row;
+        const vigDate = normalizeDate(vigencia);
+        const normPrice = normalizePrice(precio);
+        const barcodes = eqMap[productId]?.barcodes || [];
 
-          let status = "To Write";
-          if (!productId || !vigenciaStr) status = "Skipped";
-          else {
-            const vigenciaDate = normalizeDate(vigenciaStr);
-            if (!vigenciaDate || vigenciaDate < oneYearAgo) status = "Out of Vigencia";
-          }
+        // Check vigencia
+        const today = new Date();
+        const vigObj = vigDate ? new Date(vigDate) : null;
+        const outOfVigencia = vigObj ? vigObj < today : true;
 
-          const price = parseFloat(priceStr);
-          if (isNaN(price)) status = "Skipped";
-
-          const barcodes = Object.entries(barcodeToId)
-            .filter(([, id]) => id === productId)
-            .map(([barcode]) => barcode);
-
-          previewData.push({ productId, desc, price, barcodes, status });
-        } catch (err) {
-          console.warn(`Fila ${i + 2} ignorada:`, err);
-          previewData.push({ productId: row[0], desc: row[1], price: row[5], barcodes: [], status: "Skipped" });
-        }
+        preview.push({ productId, barcodes, price: normPrice, vigencia: vigDate, outOfVigencia });
       }
 
-      setPreview(previewData);
-      setWritesCounter(previewData.filter((p) => p.status === "To Write").length);
+      setPreviewData(preview);
+      setStatus('Preview listo');
     } catch (err) {
       console.error(err);
-      setError("Error al procesar los archivos.");
-    } finally {
-      setProcessing(false);
+      setStatus('Error al procesar los archivos');
     }
   };
 
+  const writeToFirebase = async () => {
+    setStatus('Escribiendo en Firebase...');
+    const colRef = collection(db, 'products');
+
+    for (const item of previewData) {
+      if (item.outOfVigencia) continue;
+      const docRef = doc(colRef, item.productId);
+      const docSnap = await getDoc(docRef);
+
+      let needsUpdate = true;
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        needsUpdate = (
+          JSON.stringify(data.barcodes || []) !== JSON.stringify(item.barcodes) ||
+          data.price !== item.price ||
+          data.vigencia !== item.vigencia
+        );
+      }
+
+      if (needsUpdate) {
+        await setDoc(docRef, {
+          barcodes: item.barcodes,
+          price: item.price,
+          vigencia: item.vigencia
+        });
+      }
+    }
+
+    setStatus('Importación completada');
+  };
+
   return (
-    <div className="modal">
-      <h2>Importar Productos</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white p-6 rounded-lg w-4/5 max-h-[90vh] overflow-y-auto">
+        <h2 className="text-xl font-bold mb-4">Importador</h2>
 
-      {error && <div className="error">{error}</div>}
+        <div className="mb-4">
+          <label>Equivalencias:</label>
+          <input type="file" accept=".xls,.xlsx" onChange={(e) => handleFileChange(e, 'equivalencias')} />
+        </div>
 
-      <div>
-        <label>Equivalencias:</label>
-        <input type="file" accept=".xls,.xlsx" onChange={(e) => setEquivalenciasFile(e.target.files[0])} />
-      </div>
+        <div className="mb-4">
+          <label>Precios:</label>
+          <input type="file" accept=".xls,.xlsx" onChange={(e) => handleFileChange(e, 'precios')} />
+        </div>
 
-      <div>
-        <label>Precios:</label>
-        <input type="file" accept=".xls,.xlsx" onChange={(e) => setPreciosFile(e.target.files[0])} />
-      </div>
+        <button className="bg-blue-600 text-white px-4 py-2 rounded mr-2" onClick={processFiles}>Procesar y Previsualizar</button>
+        <button className="bg-green-600 text-white px-4 py-2 rounded" onClick={writeToFirebase}>Escribir en Firebase</button>
+        <button className="bg-gray-400 text-white px-4 py-2 rounded ml-2" onClick={onClose}>Cerrar</button>
 
-      <button onClick={processFiles} disabled={processing}>
-        {processing ? "Procesando..." : "Procesar y Previsualizar"}
-      </button>
+        <p className="mt-4">{status}</p>
 
-      <div>
-        <h3>Resumen:</h3>
-        <p>Total filas: {preview.length}</p>
-        <p>Productos a escribir: {writesCounter}</p>
-        <p>Productos omitidos: {preview.filter((p) => p.status === "Skipped").length}</p>
-        <p>Fuera de vigencia: {preview.filter((p) => p.status === "Out of Vigencia").length}</p>
-      </div>
-
-      <div className="preview-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Producto ID</th>
-              <th>Descripción</th>
-              <th>Precio</th>
-              <th>Barcodes</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {preview.map((p, idx) => (
-              <tr key={idx}>
-                <td>{p.productId}</td>
-                <td>{p.desc}</td>
-                <td>{p.price}</td>
-                <td>{p.barcodes.join(", ")}</td>
-                <td>{p.status}</td>
+        {previewData.length > 0 && (
+          <table className="mt-4 w-full border">
+            <thead>
+              <tr>
+                <th>Producto ID</th>
+                <th>Barcodes</th>
+                <th>Price</th>
+                <th>Vigencia</th>
+                <th>Out of Vigencia</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {previewData.map((item, idx) => (
+                <tr key={idx} className={item.outOfVigencia ? 'bg-red-200' : ''}>
+                  <td>{item.productId}</td>
+                  <td>{item.barcodes.join(', ')}</td>
+                  <td>{item.price}</td>
+                  <td>{item.vigencia}</td>
+                  <td>{item.outOfVigencia ? 'Sí' : 'No'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
-
-      <button onClick={onClose}>Cerrar</button>
     </div>
   );
 }
