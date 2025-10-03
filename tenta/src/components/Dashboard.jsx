@@ -1,49 +1,41 @@
-// src/components/Dashboard.jsx
 import { useState } from "react";
+import ExcelMerger from "./ExcelMerger";
 import ImporterModal from "./ImporterModal";
-import ScannerModal from "./ScannerModal";
 
 export default function Dashboard() {
+  const [mergedData, setMergedData] = useState([]);
   const [showImporter, setShowImporter] = useState(false);
-  const [showScanner, setShowScanner] = useState(false);
 
   return (
-    <div className="p-4 min-h-screen bg-gray-50 flex flex-col items-center">
-      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
 
-      <div className="flex flex-col sm:flex-row gap-4">
-        <button
-          onClick={() => setShowScanner(true)}
-          className="px-6 py-3 bg-black text-gold font-semibold rounded-lg hover:bg-gray-800 transition"
-        >
-          Open Scanner
-        </button>
-
-        <button
-          onClick={() => setShowImporter(true)}
-          className="px-6 py-3 bg-black text-gold font-semibold rounded-lg hover:bg-gray-800 transition"
-        >
-          Import / Merge Files
-        </button>
-
-        <button
-          onClick={() => alert("Export feature not implemented yet")}
-          className="px-6 py-3 bg-black text-gold font-semibold rounded-lg hover:bg-gray-800 transition"
-        >
-          Export JSON / Excel
-        </button>
-
-        <button
-          onClick={() => alert("Inventory feature coming soon")}
-          className="px-6 py-3 bg-black text-gold font-semibold rounded-lg hover:bg-gray-800 transition"
-        >
-          Inventory
-        </button>
+      {/* Merge Files */}
+      <div className="mb-4 border p-4">
+        <h2 className="text-xl mb-2">Step 1: Merge Excel Files</h2>
+        <ExcelMerger onMerged={(data) => setMergedData(data)} />
       </div>
 
-      {/* Modals */}
-      {showImporter && <ImporterModal onClose={() => setShowImporter(false)} />}
-      {showScanner && <ScannerModal onClose={() => setShowScanner(false)} />}
+      {/* Import Button */}
+      {mergedData.length > 0 && (
+        <div className="mb-4">
+          <h2 className="text-xl mb-2">Step 2: Import Merged Data</h2>
+          <button
+            className="bg-green-500 text-white px-4 py-2"
+            onClick={() => setShowImporter(true)}
+          >
+            Open Importer
+          </button>
+        </div>
+      )}
+
+      {/* Importer Modal */}
+      {showImporter && (
+        <ImporterModal
+          mergedData={mergedData}
+          onClose={() => setShowImporter(false)}
+        />
+      )}
     </div>
   );
 }

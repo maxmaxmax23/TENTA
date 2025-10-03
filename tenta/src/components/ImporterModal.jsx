@@ -1,169 +1,120 @@
-import React, { useState } from "react";
-import * as XLSX from "xlsx";
-import { db, storage } from "../firebase"; // your firebase instance
-import { ref, uploadBytes } from "firebase/storage";
-import { collection, setDoc, doc, getDoc } from "firebase/firestore";
+import { useState } from "react";
+import { firestore } from "../firebase.js"; // make sure firebase is initialized
+import { collection, doc, getDoc, setDoc, writeBatch } from "firebase/firestore";
 
-export default function ImporterModal({ onClose }) {
-  const [fileEquivalencias, setFileEquivalencias] = useState(null);
-  const [filePrecios, setFilePrecios] = useState(null);
-  const [logs, setLogs] = useState([]);
-  const [counters, setCounters] = useState({
-    toWrite: 0,
+export default function ImporterModal({ mergedData, onClose }) {
+  const [progress, setProgress] = useState({
+    total: mergedData.length,
+    written: 0,
     skipped: 0,
-    outOfTimeframe: 0,
+    outOfVigencia: 0
   });
+  const [logs, setLogs] = useState([]);
   const [processing, setProcessing] = useState(false);
 
-  const parseExcel = (file) => {
-    try {
-      const data = XLSX.read(file, { type: "array" });
-      const sheet = data.Sheets[data.SheetNames[0]];
-      const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
-      return rows.filter((row) => row.some((cell) => cell !== ""));
-    } catch (err) {
-      throw new Error("Error parsing Excel: " + err.message);
-    }
-  };
+  const BATCH_SIZE = 400; // safe batch size for Firestore
 
-  const normalizeDate = (value) => {
-    // Expecting DD/MM/YYYY or DD/MM/YY
-    if (!value) return null;
-    const parts = value.split("/").map((p) => parseInt(p, 10));
-    if (parts.length !== 3) return null;
-    let [day, month, year] = parts;
-    if (year < 100) year += 2000; // two-digit year
-    return `${day.toString().padStart(2, "0")}-${month
-      .toString()
-      .padStart(2, "0")}-${year}`;
-  };
-
-  const handleProcess = async () => {
-    if (!fileEquivalencias || !filePrecios) {
-      setLogs((l) => [...l, "Debe seleccionar ambos archivos"]);
-      return;
-    }
-
+  const handleImport = async () => {
     setProcessing(true);
     setLogs([]);
-    setCounters({ toWrite: 0, skipped: 0, outOfTimeframe: 0 });
+    const batch = writeBatch(firestore);
+    let batchCount = 0;
+    let written = 0;
+    let skipped = 0;
+    let outOfVigencia = 0;
 
-    try {
-      const rowsEquiv = parseExcel(fileEquivalencias).slice(1); // skip headers
-      const rowsPrecios = parseExcel(filePrecios).slice(1);
+    const today = new Date();
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 
-      // Build mapping from barcode -> productId
-      const barcodeMap = {};
-      rowsEquiv.forEach((row) => {
-        const [barcode, productId] = row;
-        if (barcode && productId) {
-          if (!barcodeMap[productId]) barcodeMap[productId] = [];
-          barcodeMap[productId].push(barcode.toString());
-        }
-      });
+    for (let i = 0; i < mergedData.length; i++) {
+      const item = mergedData[i];
+      const docRef = doc(firestore, "products", item.productId);
+      const docSnap = await getDoc(docRef);
+      const itemOutOfVigencia = new Date(item.vigencia.split("-").reverse().join("-")) < oneYearAgo;
 
-      let toWrite = 0,
-        skipped = 0,
-        outOfTimeframe = 0;
+      if (itemOutOfVigencia) {
+        outOfVigencia++;
+        continue;
+      }
 
-      for (const row of rowsPrecios) {
-        const [productId, desc1, , desc2, vigenciaRaw, precioRaw] = row;
-        if (!productId) {
-          skipped++;
-          continue;
-        }
-
-        const vigencia = normalizeDate(vigenciaRaw);
-        const today = new Date();
-        let inTimeframe = true;
-        if (vigencia) {
-          const [day, month, year] = vigencia.split("-").map((n) => parseInt(n, 10));
-          const vigDate = new Date(year, month - 1, day);
-          // Check last year
-          const oneYearAgo = new Date(today);
-          oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-          inTimeframe = vigDate >= oneYearAgo && vigDate <= today;
-        } else {
-          inTimeframe = false;
-        }
-
-        if (!inTimeframe) {
-          outOfTimeframe++;
-          continue;
-        }
-
-        const price = parseFloat(precioRaw.toString().replace(".", "").replace(",", "."));
-        const barcodes = barcodeMap[productId] || [];
-
-        // write to Firestore
-        const docRef = doc(db, "products", productId);
-        const docSnap = await getDoc(docRef);
-        let needWrite = true;
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          // Only write if any field changes
-          needWrite =
-            data.description !== desc1 ||
-            data.price !== price ||
-            JSON.stringify(data.barcodes || []) !== JSON.stringify(barcodes);
-        }
-
-        if (needWrite) {
-          await setDoc(docRef, {
-            description: desc1,
-            price,
-            barcodes,
-          });
-          toWrite++;
-        } else {
-          skipped++;
+      let needsWrite = true;
+      if (docSnap.exists()) {
+        const existing = docSnap.data();
+        // check if any field changed
+        if (
+          existing.description === item.description &&
+          existing.price === item.price &&
+          JSON.stringify(existing.barcodes) === JSON.stringify(item.barcodes) &&
+          existing.vigencia === item.vigencia
+        ) {
+          needsWrite = false;
         }
       }
 
-      setCounters({ toWrite, skipped, outOfTimeframe });
-      setLogs((l) => [
-        ...l,
-        `Importación finalizada: ${toWrite} escritos, ${skipped} sin cambios, ${outOfTimeframe} fuera de vigencia`,
-      ]);
-    } catch (err) {
-      setLogs((l) => [...l, "Error al procesar los archivos: " + err.message]);
+      if (needsWrite) {
+        batch.set(docRef, item, { merge: true });
+        batchCount++;
+        written++;
+      } else {
+        skipped++;
+      }
+
+      // commit batch every BATCH_SIZE
+      if (batchCount >= BATCH_SIZE) {
+        await batch.commit();
+        batchCount = 0;
+      }
+
+      // update live counters
+      setProgress({ total: mergedData.length, written, skipped, outOfVigencia });
     }
 
+    // final commit if any remaining
+    if (batchCount > 0) {
+      await batch.commit();
+    }
+
+    setLogs((prev) => [
+      ...prev,
+      `Import completed: Written ${written}, Skipped ${skipped}, Out-of-vigencia ${outOfVigencia}`
+    ]);
     setProcessing(false);
   };
 
   return (
-    <div className="importer-modal">
-      <h2>Importar productos</h2>
-      <input
-        type="file"
-        accept=".xlsx,.xls"
-        onChange={(e) => setFileEquivalencias(e.target.files[0])}
-      />
-      <label>Equivalencias</label>
-      <input
-        type="file"
-        accept=".xlsx,.xls"
-        onChange={(e) => setFilePrecios(e.target.files[0])}
-      />
-      <label>Precios</label>
-      <button onClick={handleProcess} disabled={processing}>
-        {processing ? "Importando..." : "Procesar y Previsualizar"}
+    <div className="p-4">
+      <h2 className="text-xl font-bold mb-2">Importer</h2>
+      <button
+        className={`bg-green-500 text-white px-4 py-2 mb-4 ${processing ? "opacity-50" : ""}`}
+        onClick={handleImport}
+        disabled={processing}
+      >
+        {processing ? "Importing..." : "Start Import"}
       </button>
-      <div>
-        <p>Productos a escribir: {counters.toWrite}</p>
-        <p>Productos saltados: {counters.skipped}</p>
-        <p>Fuera de vigencia: {counters.outOfTimeframe}</p>
-      </div>
-      <div>
-        <h3>Logs:</h3>
+
+      <div className="mb-2">
+        <strong>Progress:</strong>
         <ul>
-          {logs.map((log, i) => (
-            <li key={i}>{log}</li>
+          <li>Total rows: {progress.total}</li>
+          <li>Written: {progress.written}</li>
+          <li>Skipped (unchanged): {progress.skipped}</li>
+          <li>Out-of-vigencia: {progress.outOfVigencia}</li>
+        </ul>
+      </div>
+
+      <div className="mt-2">
+        <strong>Logs:</strong>
+        <ul className="text-sm text-gray-700">
+          {logs.map((l, idx) => (
+            <li key={idx}>{l}</li>
           ))}
         </ul>
       </div>
-      <button onClick={onClose}>Cerrar</button>
+
+      <button className="mt-4 bg-gray-400 px-4 py-2" onClick={onClose}>
+        Close
+      </button>
     </div>
   );
 }
