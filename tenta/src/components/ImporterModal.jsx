@@ -1,204 +1,150 @@
 // File: src/components/ImporterModal.jsx
 import { useState } from "react";
 import * as XLSX from "xlsx";
-import { db } from "../firebase.js";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
-export default function ImporterModal({ onClose }) {
+export default function ImporterModal({ onClose, onPreview }) {
   const [equivFile, setEquivFile] = useState(null);
-  const [priceFile, setPriceFile] = useState(null);
-  const [status, setStatus] = useState("");
-  const [preview, setPreview] = useState(null);
-  const [writesCount, setWritesCount] = useState(0);
+  const [precioFile, setPrecioFile] = useState(null);
+  const [log, setLog] = useState([]);
 
-  const handleImport = async () => {
-    if (!equivFile || !priceFile) {
-      setStatus("Por favor selecciona ambos archivos.");
+  const handleFileChange = (e, type) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (type === "equiv") setEquivFile(file);
+    else setPrecioFile(file);
+  };
+
+  const parseExcel = async (file) => {
+    const data = await file.arrayBuffer();
+    const workbook = XLSX.read(data, { type: "array" });
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    return XLSX.utils.sheet_to_json(sheet, { header: 1, raw: false });
+  };
+
+  const mergeFiles = async () => {
+    if (!equivFile || !precioFile) {
+      alert("Selecciona ambos archivos: Equivalencias y Precios");
       return;
     }
 
     try {
-      setStatus("Leyendo archivos...");
-      const [equivRows, priceRows] = await Promise.all([
-        readExcel(equivFile),
-        readExcel(priceFile)
+      const [equivRows, precioRows] = await Promise.all([
+        parseExcel(equivFile),
+        parseExcel(precioFile),
       ]);
 
-      setStatus("Procesando y combinando datos...");
-      const mergedProducts = mergeData(equivRows, priceRows);
+      const merged = [];
+      const skipped = [];
+      const today = new Date();
 
-      // Preview
-      const previewData = {
-        total: mergedProducts.length,
-        toWrite: mergedProducts.filter(p => !p.skip).length,
-        skipped: mergedProducts.filter(p => p.skip).length,
-        outOfVigencia: mergedProducts.filter(p => p.outOfVigencia).length
-      };
-      setPreview(previewData);
+      // Skip headers
+      const equivData = equivRows.slice(1);
+      const precioData = precioRows.slice(1);
 
-      const confirm = window.confirm(
-        `Se van a escribir ${previewData.toWrite} productos. Continuar?`
-      );
-      if (!confirm) return;
+      // Build a map of productId -> precios row
+      const precioMap = new Map();
+      precioData.forEach((row) => {
+        const productId = String(row[0] || "").trim();
+        precioMap.set(productId, row);
+      });
 
-      setStatus("Escribiendo en Firebase...");
-      let counter = 0;
+      // Process Equivalencias
+      equivData.forEach((row) => {
+        const barcode = String(row[0] || "").trim();
+        const productId = String(row[1] || "").trim();
+        const description = String(row[2] || "").trim();
 
-      for (const product of mergedProducts) {
-        if (product.skip || product.outOfVigencia) continue;
-
-        const ref = doc(db, "products", product.id);
-        const existing = await getDoc(ref);
-        let needUpdate = true;
-
-        if (existing.exists()) {
-          const data = existing.data();
-          // Check if anything changed
-          needUpdate =
-            data.description !== product.description ||
-            data.price !== product.price ||
-            data.vigencia !== product.vigencia ||
-            JSON.stringify(data.barcodes.sort()) !==
-              JSON.stringify(product.barcodes.sort());
+        if (!productId || !barcode) {
+          skipped.push({ row, reason: "Faltan Codigo o Articulo" });
+          return;
         }
 
-        if (needUpdate) {
-          if (existing.exists()) await updateDoc(ref, product);
-          else await setDoc(ref, product);
-          counter++;
-          setWritesCount(counter);
+        const precioRow = precioMap.get(productId);
+        if (!precioRow) {
+          skipped.push({ row, reason: "No se encontró en Precios" });
+          return;
         }
-      }
 
-      setStatus(`Importación completada. ${counter} productos escritos.`);
+        // Vigencia parsing
+        const vigenciaRaw = String(precioRow[4] || "").trim();
+        const [day, month, year] = vigenciaRaw.split("/").map(Number);
+        if (!day || !month || !year) {
+          skipped.push({ row, reason: "Vigencia invalida" });
+          return;
+        }
+
+        const vigenciaDate = new Date(year + 2000, month - 1, day); // assuming YY -> 20YY
+        const lastYear = new Date();
+        lastYear.setFullYear(today.getFullYear() - 1);
+
+        if (vigenciaDate < lastYear) {
+          skipped.push({ row, reason: "Vigencia fuera de rango" });
+          return;
+        }
+
+        // Price normalization
+        const priceRaw = String(precioRow[5] || "").replace(",", "").trim();
+        const price = parseFloat(priceRaw);
+        if (isNaN(price)) {
+          skipped.push({ row, reason: "Precio invalido" });
+          return;
+        }
+
+        // Barcodes can be comma-separated
+        const barcodes = barcode.split(",").map((b) => b.trim()).filter(Boolean);
+
+        merged.push({
+          productId,
+          description: precioRow[1] || description,
+          price,
+          vigencia: vigenciaDate,
+          barcodes,
+        });
+      });
+
+      setLog([
+        `Total filas procesadas: ${equivData.length}`,
+        `Filas importables: ${merged.length}`,
+        `Filas ignoradas: ${skipped.length}`,
+      ]);
+
+      onPreview(merged, skipped);
     } catch (err) {
       console.error(err);
-      setStatus("Error al procesar los archivos: " + err.message);
+      alert("Error al procesar los archivos");
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 overflow-auto">
-      <div className="w-11/12 max-w-lg bg-gray-900 p-6 rounded-xl shadow-lg text-gold">
-        <h2 className="text-xl font-bold mb-4">Importar Productos</h2>
-
-        <label className="block mb-2">
-          Equivalencias (barcodes → product ID)
-          <input
-            type="file"
-            accept=".xls,.xlsx"
-            onChange={(e) => setEquivFile(e.target.files[0])}
-            className="w-full text-sm mt-1"
-          />
-        </label>
-
-        <label className="block mb-4">
-          Precios (product data)
-          <input
-            type="file"
-            accept=".xls,.xlsx"
-            onChange={(e) => setPriceFile(e.target.files[0])}
-            className="w-full text-sm mt-1"
-          />
-        </label>
-
-        {status && <p className="mb-2">{status}</p>}
-        {preview && (
-          <div className="mb-2 text-sm">
-            <p>Total productos: {preview.total}</p>
-            <p>A escribir: {preview.toWrite}</p>
-            <p>Ignorados: {preview.skipped}</p>
-            <p>Fuera de vigencia: {preview.outOfVigencia}</p>
-            <p>Escrituras realizadas hasta ahora: {writesCount}</p>
-          </div>
-        )}
-
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4">
+      <div className="w-11/12 max-w-lg bg-gray-900 p-6 rounded-xl shadow-lg text-gold space-y-4">
+        <h2 className="text-xl font-bold mb-4">Importar y Previsualizar</h2>
+        <div className="space-y-2">
+          <label className="block">
+            Equivalencias (SKU -> Product ID)
+            <input type="file" accept=".xls,.xlsx" onChange={(e) => handleFileChange(e, "equiv")} className="mt-1 w-full" />
+          </label>
+          <label className="block">
+            Precios
+            <input type="file" accept=".xls,.xlsx" onChange={(e) => handleFileChange(e, "precio")} className="mt-1 w-full" />
+          </label>
+        </div>
         <div className="flex space-x-2">
-          <button
-            onClick={handleImport}
-            className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition"
-          >
-            Procesar y previsualizar
+          <button onClick={mergeFiles} className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition">
+            Procesar y Previsualizar
           </button>
-          <button
-            onClick={onClose}
-            className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
-          >
+          <button onClick={onClose} className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition">
             Cancelar
           </button>
         </div>
+        {log.length > 0 && (
+          <div className="mt-4 bg-gray-800 p-2 rounded text-sm">
+            {log.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
-}
-
-// Utilities
-
-function readExcel(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const data = new Uint8Array(e.target.result);
-      const workbook = XLSX.read(data, { type: "array" });
-      const sheet = workbook.Sheets[workbook.SheetNames[0]];
-      const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
-      resolve(rows.slice(1)); // Skip headers
-    };
-    reader.onerror = reject;
-    reader.readAsArrayBuffer(file);
-  });
-}
-
-function mergeData(equivRows, priceRows) {
-  const productsMap = new Map();
-  const oneYearAgo = new Date();
-  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-
-  // Precios first
-  priceRows.forEach((row, index) => {
-    const productId = row[0]?.toString().trim();
-    const description = row[1]?.toString().trim();
-    const vigencia = normalizeDate(row[4]);
-    const price = normalizePrice(row[5]);
-
-    if (!productId) return;
-    const outOfVigencia = !vigencia || new Date(vigencia) < oneYearAgo;
-    if (!price) return;
-
-    productsMap.set(productId, {
-      id: productId,
-      description,
-      price,
-      vigencia,
-      barcodes: [],
-      skip: false,
-      outOfVigencia
-    });
-  });
-
-  // Equivalencias second
-  equivRows.forEach((row) => {
-    const barcode = row[0]?.toString().trim();
-    const productId = row[1]?.toString().trim();
-    if (!barcode || !productId) return;
-    if (!productsMap.has(productId)) return;
-    const product = productsMap.get(productId);
-    if (!product.barcodes.includes(barcode)) product.barcodes.push(barcode);
-  });
-
-  return Array.from(productsMap.values());
-}
-
-function normalizeDate(dateStr) {
-  if (!dateStr) return null;
-  // Supports DD/MM/YY or DD/MM/YYYY
-  const parts = dateStr.split("/");
-  if (parts.length !== 3) return null;
-  let year = parts[2].length === 2 ? "20" + parts[2] : parts[2];
-  return `${year}-${parts[1].padStart(2, "0")}-${parts[0].padStart(2, "0")}`;
-}
-
-function normalizePrice(priceStr) {
-  if (priceStr === undefined || priceStr === null || priceStr === "") return null;
-  return Number(priceStr.toString().replace(",", "."));
 }
