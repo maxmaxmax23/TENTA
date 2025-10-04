@@ -1,206 +1,195 @@
-// File: src/components/MergerModal.jsx
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 
 export default function MergerModal({ onClose }) {
-  const [equivFile, setEquivFile] = useState(null);
-  const [priceFile, setPriceFile] = useState(null);
+  const [equivalenciasFile, setEquivalenciasFile] = useState(null);
+  const [preciosFile, setPreciosFile] = useState(null);
   const [mergedData, setMergedData] = useState([]);
-  const [counters, setCounters] = useState({ toWrite: 0, skipped: 0, outOfTime: 0 });
-  const [errorLog, setErrorLog] = useState([]);
+  const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0 });
+  const [loading, setLoading] = useState(false);
 
-  const handleFileChange = (e, type) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    if (type === "equiv") setEquivFile(file);
-    else setPriceFile(file);
-  };
-
-  const parseExcel = (file) => {
-    const reader = new FileReader();
-    return new Promise((resolve, reject) => {
-      reader.onload = (evt) => {
-        try {
-          const data = new Uint8Array(evt.target.result);
-          const workbook = XLSX.read(data, { type: "array" });
-          const sheetName = workbook.SheetNames[0];
-          const json = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
-          resolve(json);
-        } catch (err) {
-          reject(err);
-        }
-      };
-      reader.readAsArrayBuffer(file);
-    });
-  };
-
-  const normalizeDate = (str) => {
-    if (!str) return null;
-    const parts = str.toString().split(/[\/\-]/);
-    if (parts.length !== 3) return null;
-    let [day, month, year] = parts.map((p) => parseInt(p, 10));
-    if (year < 100) year += 2000;
-    return new Date(year, month - 1, day);
-  };
-
-  const normalizePrice = (val) => {
-    if (typeof val === "number") return val;
-    if (!val) return 0;
-    return parseFloat(val.toString().replace(/\./g, "").replace(",", "."));
+  const parseExcel = async (file) => {
+    const data = await file.arrayBuffer();
+    const workbook = XLSX.read(data);
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    return XLSX.utils.sheet_to_json(sheet, { header: 1 });
   };
 
   const handleMerge = async () => {
-    setErrorLog([]);
-    if (!equivFile || !priceFile) {
-      setErrorLog(["Ambos archivos deben ser seleccionados"]);
+    if (!equivalenciasFile || !preciosFile) {
+      alert("Selecciona ambos archivos antes de continuar.");
       return;
     }
 
     try {
-      const equivRows = await parseExcel(equivFile);
-      const priceRows = await parseExcel(priceFile);
+      setLoading(true);
 
-      // Skip headers
-      const equivData = equivRows.slice(1);
-      const priceData = priceRows.slice(1);
+      const [eqRows, prRows] = await Promise.all([
+        parseExcel(equivalenciasFile),
+        parseExcel(preciosFile),
+      ]);
 
-      const mergedMap = new Map();
-      const now = new Date();
-      const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+      // Remove headers
+      const eqData = eqRows.slice(1);
+      const prData = prRows.slice(1);
 
-      // Process equivalencias
-      equivData.forEach((row, idx) => {
-        const [barcode, productId, description] = row;
-        if (!productId) {
-          setErrorLog((prev) => [...prev, `Fila ${idx + 2}: Product ID vacío`]);
+      const eqMap = new Map();
+      eqData.forEach((row) => {
+        const barcode = row[0]?.toString().trim();
+        const productId = row[1]?.toString().trim();
+        const description = row[2]?.toString().trim();
+        if (barcode && productId) {
+          if (!eqMap.has(productId)) {
+            eqMap.set(productId, { barcodes: new Set(), description });
+          }
+          eqMap.get(productId).barcodes.add(barcode);
+        }
+      });
+
+      let written = 0;
+      let skipped = 0;
+      let outOfTime = 0;
+      const merged = [];
+
+      prData.forEach((row) => {
+        const productId = row[0]?.toString().trim();
+        const description = row[1]?.toString().trim();
+        const vigenciaRaw = row[4];
+        const priceRaw = row[5];
+
+        if (!productId || !vigenciaRaw || !priceRaw) {
+          skipped++;
           return;
         }
-        mergedMap.set(productId, {
+
+        // Normalize date
+        let vigencia;
+        try {
+          if (typeof vigenciaRaw === "number") {
+            // Excel numeric date
+            const date = XLSX.SSF.parse_date_code(vigenciaRaw);
+            vigencia = new Date(date.y, date.m - 1, date.d);
+          } else {
+            const parts = vigenciaRaw.split(/[\/\-]/);
+            if (parts.length === 3) {
+              const [d, m, y] = parts.map((p) => parseInt(p, 10));
+              vigencia = new Date(2000 + (y % 100), m - 1, d);
+            }
+          }
+        } catch {
+          skipped++;
+          return;
+        }
+
+        // Check timeframe (not older than 2 years)
+        const now = new Date();
+        const twoYearsAgo = new Date(now.setFullYear(now.getFullYear() - 2));
+        if (vigencia < twoYearsAgo) {
+          outOfTime++;
+          return;
+        }
+
+        // Normalize price (replace comma with dot if needed)
+        let price = parseFloat(
+          priceRaw.toString().replace(/\./g, "").replace(",", ".")
+        );
+        if (isNaN(price)) {
+          skipped++;
+          return;
+        }
+
+        const eqMatch = eqMap.get(productId);
+        const barcodes = eqMatch
+          ? Array.from(eqMatch.barcodes)
+          : ["Sin código"];
+
+        merged.push({
           productId,
-          barcodes: barcode ? [barcode.toString()] : [],
-          description: description || "",
-          price: null,
-          vigencia: null,
-          status: "toWrite", // default
+          description: description || eqMatch?.description || "Sin descripción",
+          barcodes,
+          price,
+          vigencia: vigencia.toLocaleDateString("es-AR"),
         });
+        written++;
       });
 
-      // Process precios
-      priceData.forEach((row, idx) => {
-        const [productId, desc, , , vig, price] = row;
-        if (!productId) {
-          setErrorLog((prev) => [...prev, `Fila precios ${idx + 2}: Product ID vacío`]);
-          return;
-        }
-        if (!mergedMap.has(productId)) {
-          setErrorLog((prev) => [...prev, `Fila precios ${idx + 2}: Product ID no encontrado en equivalencias`]);
-          return;
-        }
-        const prod = mergedMap.get(productId);
-        prod.description = desc || prod.description;
-        prod.price = normalizePrice(price);
-        prod.vigencia = normalizeDate(vig);
-
-        // Check vigencia
-        if (!prod.vigencia || prod.vigencia < oneYearAgo) prod.status = "outOfTime";
-      });
-
-      // Calculate counters
-      let toWrite = 0, skipped = 0, outOfTime = 0;
-      mergedMap.forEach((prod) => {
-        if (prod.status === "toWrite") toWrite++;
-        else if (prod.status === "outOfTime") outOfTime++;
-        else skipped++;
-      });
-
-      setMergedData(Array.from(mergedMap.values()));
-      setCounters({ toWrite, skipped, outOfTime });
-    } catch (err) {
-      setErrorLog([`Error al procesar los archivos: ${err.message}`]);
+      setStats({ written, skipped, outOfTime });
+      setMergedData(merged);
+    } catch (error) {
+      console.error("Error al procesar archivos:", error);
+      alert("Error procesando los archivos. Ver consola.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4">
-      <div className="bg-black text-gold p-6 rounded-lg w-full max-w-4xl overflow-auto animate-fadeIn">
-        <h2 className="text-xl font-bold mb-4">Merger Preview</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-900 text-gold rounded-2xl p-4 w-full max-w-md max-h-[90vh] flex flex-col">
+        <h2 className="text-xl font-bold mb-3">Fusionar Archivos Excel</h2>
 
-        <div className="flex gap-4 mb-4">
-          <div>
-            <label className="block mb-1">Equivalencias</label>
-            <input type="file" accept=".xls,.xlsx" onChange={(e) => handleFileChange(e, "equiv")} />
-          </div>
-          <div>
-            <label className="block mb-1">Precios</label>
-            <input type="file" accept=".xls,.xlsx" onChange={(e) => handleFileChange(e, "price")} />
-          </div>
+        <div className="flex flex-col gap-2 mb-4">
+          <input
+            type="file"
+            accept=".xlsx, .xls"
+            onChange={(e) => setEquivalenciasFile(e.target.files[0])}
+            className="text-sm text-white"
+          />
+          <label className="text-xs text-gray-400">Archivo de Equivalencias</label>
+
+          <input
+            type="file"
+            accept=".xlsx, .xls"
+            onChange={(e) => setPreciosFile(e.target.files[0])}
+            className="text-sm text-white"
+          />
+          <label className="text-xs text-gray-400">Archivo de Precios</label>
         </div>
 
         <button
           onClick={handleMerge}
-          className="bg-gold text-black px-4 py-2 rounded mb-4 hover:opacity-80"
+          disabled={loading}
+          className="bg-gold text-black py-2 rounded mb-4 font-semibold"
         >
-          Merge & Preview
+          {loading ? "Procesando..." : "Fusionar y Previsualizar"}
         </button>
 
-        {errorLog.length > 0 && (
-          <div className="bg-red-800 text-red-100 p-2 mb-4 rounded">
-            {errorLog.map((err, idx) => (
-              <div key={idx}>{err}</div>
-            ))}
-          </div>
-        )}
+        <div className="text-sm mb-2">
+          <p>✅ A escribir: {stats.written}</p>
+          <p>⚠️ Ignorados: {stats.skipped}</p>
+          <p>⏰ Fuera de vigencia: {stats.outOfTime}</p>
+        </div>
 
-        {mergedData.length > 0 && (
-          <>
-            <div className="mb-2">
-              <span>To Write: {counters.toWrite}</span>{" | "}
-              <span>Skipped: {counters.skipped}</span>{" | "}
-              <span>Out of Timeframe: {counters.outOfTime}</span>
-            </div>
-            <div className="overflow-auto max-h-96 border border-gold rounded">
-              <table className="w-full text-left">
-                <thead className="bg-gold text-black">
-                  <tr>
-                    <th className="px-2 py-1">Product ID</th>
-                    <th className="px-2 py-1">Barcodes</th>
-                    <th className="px-2 py-1">Description</th>
-                    <th className="px-2 py-1">Price</th>
-                    <th className="px-2 py-1">Vigencia</th>
-                    <th className="px-2 py-1">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {mergedData.map((prod, idx) => (
-                    <tr
-                      key={idx}
-                      className={
-                        prod.status === "outOfTime"
-                          ? "text-red-500"
-                          : prod.status === "skipped"
-                          ? "text-gray-400"
-                          : ""
-                      }
-                    >
-                      <td className="px-2 py-1">{prod.productId}</td>
-                      <td className="px-2 py-1">{prod.barcodes.join(", ")}</td>
-                      <td className="px-2 py-1">{prod.description}</td>
-                      <td className="px-2 py-1">{prod.price}</td>
-                      <td className="px-2 py-1">{prod.vigencia ? prod.vigencia.toLocaleDateString() : ""}</td>
-                      <td className="px-2 py-1">{prod.status}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </>
-        )}
+        <div className="overflow-y-auto max-h-64 border border-gold rounded">
+          <table className="w-full text-xs text-left">
+            <thead className="bg-gold text-black sticky top-0">
+              <tr>
+                <th className="p-1">ID</th>
+                <th className="p-1">Descripción</th>
+                <th className="p-1">Códigos</th>
+                <th className="p-1">Precio</th>
+                <th className="p-1">Vigencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              {mergedData.map((item, idx) => (
+                <tr key={idx} className="border-b border-gray-800">
+                  <td className="p-1">{item.productId}</td>
+                  <td className="p-1">{item.description}</td>
+                  <td className="p-1">{item.barcodes.join(", ")}</td>
+                  <td className="p-1">${item.price.toFixed(2)}</td>
+                  <td className="p-1">{item.vigencia}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <button
           onClick={onClose}
-          className="bg-gray-800 text-gold px-4 py-2 rounded mt-4 hover:opacity-80"
+          className="mt-4 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
         >
-          Close
+          Cerrar
         </button>
       </div>
     </div>
