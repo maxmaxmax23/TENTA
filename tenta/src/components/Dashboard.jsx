@@ -1,29 +1,40 @@
 // File: src/components/Dashboard.jsx
-import React, { useState } from "react";
-import MergerModal from "./MergerModal.jsx";
+import React from "react";
 
-export default function Dashboard({ onScan, firebaseWrites }) {
-  const [showMerger, setShowMerger] = useState(false);
-
+export default function Dashboard({ onScan, onOpenImporter, onOpenMerger, firebaseWrites }) {
   return (
-    <div className="p-6 space-y-4">
-      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
+    <div className="p-4 w-full max-w-lg mx-auto flex flex-col gap-4">
+      <h1 className="text-2xl font-bold text-gold mb-4">Dashboard</h1>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         <button
-          onClick={() => setShowMerger(true)}
-          className="bg-gold text-black px-4 py-2 rounded hover:opacity-80"
+          className="bg-gold text-black py-2 px-4 rounded hover:opacity-80 transition"
+          onClick={onScan}
+        >
+          Scan Product
+        </button>
+
+        <button
+          className="bg-gold text-black py-2 px-4 rounded hover:opacity-80 transition"
+          onClick={onOpenImporter}
+        >
+          Import JSON
+        </button>
+
+        <button
+          className="bg-gold text-black py-2 px-4 rounded hover:opacity-80 transition"
+          onClick={onOpenMerger}
         >
           Merge Excel Files
         </button>
 
-        {/* Other buttons like scan, upload, etc. */}
+        {/* Placeholder for future inventory/export buttons */}
+        {/* <button>Export JSON / Excel</button> */}
+        {/* <button>Inventory</button> */}
       </div>
 
-      {showMerger && <MergerModal onClose={() => setShowMerger(false)} />}
-      
-      <div className="mt-4 text-gold">
-        Firebase Writes: {firebaseWrites}
+      <div className="mt-6 text-gold">
+        <p>Firebase writes so far: {firebaseWrites}</p>
       </div>
     </div>
   );
