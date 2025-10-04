@@ -1,19 +1,10 @@
-// File: src/App.jsx
-import { useState } from "react";
-import LoginForm from "./components/LoginForm.jsx";
-import Dashboard from "./components/Dashboard.jsx";
-import ScannerModal from "./components/ScannerModal.jsx";
-import ProductModal from "./components/ProductModal.jsx";
-import ImporterModal from "./components/ImporterModal.jsx";
-import MergerModal from "./components/MergerModal.jsx";
-
 export default function App() {
   const [user, setUser] = useState(null);
   const [scannedCode, setScannedCode] = useState(null);
   const [showImporter, setShowImporter] = useState(false);
   const [showMerger, setShowMerger] = useState(false);
-  const [mergedDataQueue, setMergedDataQueue] = useState([]);
   const [firebaseWrites, setFirebaseWrites] = useState(0);
+  const [mergedDataQueue, setMergedDataQueue] = useState([]); // NEW: queue of merged products
 
   const incrementWrites = (count) => setFirebaseWrites((prev) => prev + count);
 
@@ -35,15 +26,16 @@ export default function App() {
           {showMerger && (
             <MergerModal
               onClose={() => setShowMerger(false)}
-              setMergedDataQueue={setMergedDataQueue}
+              setMergedDataQueue={setMergedDataQueue} // NEW
             />
           )}
 
           {showImporter && (
             <ImporterModal
               onClose={() => setShowImporter(false)}
-              mergedData={mergedDataQueue}
               incrementWrites={incrementWrites}
+              mergedDataQueue={mergedDataQueue} // NEW: pass the queue
+              clearQueue={() => setMergedDataQueue([])} // NEW: clear after import
             />
           )}
         </>
