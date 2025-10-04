@@ -1,60 +1,103 @@
 import React, { useState } from "react";
+import * as XLSX from "xlsx";
 import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
-import { firestore } from "../firebase.js";
-import ExcelMerger from "./ExcelMerger";
+import { db } from "../firebase.js";
+import ExcelMerger from "./ExcelMerger.jsx";
 
-export default function ImporterModal({ onClose }) {
-  const [products, setProducts] = useState([]);
-  const [status, setStatus] = useState(null);
+export default function ImporterModal({ onClose, incrementWrites }) {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+  const [mergedData, setMergedData] = useState(null);
 
-  const handleMerge = async (mergedProducts) => {
-    setProducts(mergedProducts);
+  const handleFileUpload = (data) => {
+    setMergedData(data);
   };
 
   const handleImport = async () => {
+    if (!mergedData) {
+      setStatus("No hay datos cargados.");
+      return;
+    }
+
+    setLoading(true);
+    setStatus("Procesando...");
+    let batch = writeBatch(db);
+    let writeCount = 0;
+    let batchCount = 0;
+
     try {
-      setStatus("Importing...");
-      const batch = writeBatch(firestore);
+      for (const row of mergedData) {
+        const productId = row["product_id"];
+        if (!productId) continue;
 
-      for (const product of products) {
-        const docRef = doc(collection(firestore, "products"), product.id);
-        const existingDoc = await getDoc(docRef);
+        const ref = doc(collection(db, "products"), productId);
+        const snapshot = await getDoc(ref);
 
-        if (!existingDoc.exists()) {
-          batch.set(docRef, product);
+        let productData = {};
+        if (snapshot.exists()) {
+          const existing = snapshot.data();
+          const barcodes = new Set(existing.barcodes || []);
+          if (row["barcode"]) barcodes.add(row["barcode"]);
+
+          productData = {
+            ...existing,
+            barcodes: Array.from(barcodes),
+            description: row["description"] || existing.description,
+            price: row["price"] || existing.price,
+            lastUpdated: new Date().toISOString(),
+          };
         } else {
-          batch.update(docRef, product);
+          productData = {
+            product_id: productId,
+            barcodes: row["barcode"] ? [row["barcode"]] : [],
+            description: row["description"] || "",
+            price: row["price"] || 0,
+            lastUpdated: new Date().toISOString(),
+          };
+        }
+
+        batch.set(ref, productData);
+        writeCount++;
+
+        if (writeCount % 400 === 0) {
+          await batch.commit();
+          batch = writeBatch(db);
+          batchCount++;
         }
       }
 
       await batch.commit();
-      setStatus("Import complete!");
-    } catch (err) {
-      console.error("Error importing:", err);
-      setStatus("Error during import");
+      incrementWrites(writeCount);
+      setStatus(`Importación completa (${writeCount} registros, ${batchCount + 1} lotes).`);
+    } catch (error) {
+      console.error("Error al importar:", error);
+      setStatus("Error durante la importación.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-3/4 max-h-[90vh] overflow-auto">
-        <h2 className="text-xl font-bold mb-4">Import Products</h2>
-        <ExcelMerger onMerge={handleMerge} />
-        {status && <p className="mt-2">{status}</p>}
-        <div className="mt-4 flex justify-end gap-2">
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4">
+      <div className="bg-gray-900 text-white p-6 rounded-xl shadow-lg w-[90%] max-w-2xl animate-fadeIn">
+        <h2 className="text-2xl mb-4 text-gold">Importar Excel</h2>
+
+        <ExcelMerger onMergeComplete={handleFileUpload} />
+
+        <div className="mt-4 flex justify-between">
           <button
-            className="px-4 py-2 bg-green-500 text-white rounded"
             onClick={handleImport}
+            disabled={loading}
+            className="bg-gold text-black px-4 py-2 rounded disabled:opacity-50"
           >
-            Import
+            {loading ? "Importando..." : "Importar datos"}
           </button>
-          <button
-            className="px-4 py-2 bg-gray-400 text-white rounded"
-            onClick={onClose}
-          >
-            Close
+          <button onClick={onClose} className="bg-red-500 text-white px-4 py-2 rounded">
+            Cerrar
           </button>
         </div>
+
+        {status && <p className="mt-4 text-sm text-gray-300">{status}</p>}
       </div>
     </div>
   );

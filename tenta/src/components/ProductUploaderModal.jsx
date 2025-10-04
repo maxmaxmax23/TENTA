@@ -1,34 +1,26 @@
 import { useState } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
-import { storage, firestore } from "../firebase.js";
+import { storage, db } from "../firebase.js";
 
 export default function ProductUploaderModal({ code, onClose }) {
+  const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
   const [uploading, setUploading] = useState(false);
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
+  const handleUpload = async () => {
+    if (!image) return;
     setUploading(true);
-    const storageRef = ref(storage, `products/${code}/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+    const storageRef = ref(storage, `products/${code}.jpg`);
+    const uploadTask = uploadBytesResumable(storageRef, image);
 
     uploadTask.on(
       "state_changed",
-      (snapshot) => {
-        const pct = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setProgress(pct);
-      },
-      (err) => {
-        console.error("Upload error", err);
-        setUploading(false);
-      },
+      (snapshot) => setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100),
+      (error) => alert("Error al subir imagen: " + error.message),
       async () => {
         const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-        const productRef = doc(firestore, "products", code);
-        await updateDoc(productRef, { imageUrl: downloadURL });
+        await updateDoc(doc(db, "products", code), { image: downloadURL });
         setUploading(false);
         onClose();
       }
@@ -36,17 +28,27 @@ export default function ProductUploaderModal({ code, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
-      <div className="bg-white p-4 rounded shadow-lg">
-        <h2 className="text-lg font-bold mb-4">Upload Product Image</h2>
-        <input type="file" onChange={handleFileChange} />
-        {uploading && <p>Uploading... {progress.toFixed(0)}%</p>}
-        <button
-          className="mt-2 px-4 py-2 bg-red-500 text-white rounded"
-          onClick={onClose}
-        >
-          Cancel
-        </button>
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70">
+      <div className="bg-gray-800 p-6 rounded-xl text-white w-96 animate-fadeIn">
+        <h2 className="text-xl mb-4 text-gold">Subir imagen</h2>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+          className="mb-3"
+        />
+        {uploading ? (
+          <p>Subiendo... {Math.round(progress)}%</p>
+        ) : (
+          <div className="flex justify-between">
+            <button onClick={handleUpload} className="bg-gold px-4 py-2 rounded text-black">
+              Subir
+            </button>
+            <button onClick={onClose} className="bg-red-500 px-4 py-2 rounded text-white">
+              Cancelar
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
