@@ -9,11 +9,6 @@ export default function MergerModal({ onClose, addToQueue }) {
   const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0 });
   const [loading, setLoading] = useState(false);
 
-  const sanitizeId = (id) => {
-    if (!id) return "unknown";
-    return id.toString().replace(/[^a-zA-Z0-9]/g, ""); // remove invalid chars
-  };
-
   const parseExcel = async (file) => {
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
@@ -34,30 +29,29 @@ export default function MergerModal({ onClose, addToQueue }) {
         parseExcel(preciosFile),
       ]);
 
-      const eqData = eqRows.slice(1); // skip headers
+      const eqData = eqRows.slice(1);
       const prData = prRows.slice(1);
 
       const eqMap = new Map();
       eqData.forEach((row) => {
         const barcode = row[0]?.toString().trim();
-        const productId = sanitizeId(row[1]);
+        const productId = row[1]?.toString().trim();
         const description = row[2]?.toString().trim();
         if (barcode && productId) {
-          if (!eqMap.has(productId)) {
-            eqMap.set(productId, { barcodes: new Set(), description });
-          }
+          if (!eqMap.has(productId)) eqMap.set(productId, { barcodes: new Set(), description });
           eqMap.get(productId).barcodes.add(barcode);
         }
       });
 
-      let written = 0;
-      let skipped = 0;
-      let outOfTime = 0;
+      let written = 0, skipped = 0, outOfTime = 0;
       const merged = [];
 
+      const now = new Date();
+      const twelveMonthsAgo = new Date(now);
+      twelveMonthsAgo.setFullYear(now.getFullYear() - 1);
+
       prData.forEach((row) => {
-        const productIdRaw = row[0];
-        const productId = sanitizeId(productIdRaw);
+        const productId = row[0]?.toString().trim();
         const description = row[1]?.toString().trim();
         const vigenciaRaw = row[4];
         const priceRaw = row[5];
@@ -77,7 +71,7 @@ export default function MergerModal({ onClose, addToQueue }) {
             const parts = vigenciaRaw.split(/[\/\-]/);
             if (parts.length === 3) {
               const [d, m, y] = parts.map((p) => parseInt(p, 10));
-              vigencia = new Date(y < 100 ? 2000 + y : y, m - 1, d);
+              vigencia = new Date(2000 + (y % 100), m - 1, d);
             }
           }
         } catch {
@@ -85,10 +79,7 @@ export default function MergerModal({ onClose, addToQueue }) {
           return;
         }
 
-        // Check timeframe: past 12 months
-        const now = new Date();
-        const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
-        if (vigencia < oneYearAgo) {
+        if (vigencia < twelveMonthsAgo) {
           outOfTime++;
           return;
         }
@@ -106,29 +97,31 @@ export default function MergerModal({ onClose, addToQueue }) {
           productId,
           description: description || eqMatch?.description || "Sin descripción",
           barcodes,
-          price: Math.round(price), // integer
+          price,
           vigencia: vigencia.toLocaleDateString("es-AR"),
         });
-
         written++;
       });
 
-      setMergedData(merged);
       setStats({ written, skipped, outOfTime });
-    } catch (err) {
-      console.error("Error al procesar archivos:", err);
-      alert("Error procesando archivos. Ver consola.");
+      setMergedData(merged);
+    } catch (error) {
+      console.error("Error al procesar archivos:", error);
+      alert("Error procesando los archivos. Ver consola.");
     } finally {
       setLoading(false);
     }
   };
 
   const handleAddToQueue = () => {
-    if (mergedData.length > 0 && addToQueue) {
-      addToQueue(mergedData);
-      alert("✅ Datos añadidos a la cola para importar.");
-      onClose();
-    }
+    if (mergedData.length === 0) return alert("No hay datos para añadir a la cola");
+    addToQueue(mergedData);
+    alert(`${mergedData.length} productos añadidos a la cola`);
+    setMergedData([]);
+    setStats({ written: 0, skipped: 0, outOfTime: 0 });
+    setEquivalenciasFile(null);
+    setPreciosFile(null);
+    onClose();
   };
 
   return (
@@ -167,7 +160,7 @@ export default function MergerModal({ onClose, addToQueue }) {
           disabled={mergedData.length === 0}
           className="bg-green-600 text-black py-2 rounded mb-4 font-semibold"
         >
-          Añadir a la Cola
+          Añadir a la cola
         </button>
 
         <div className="text-sm mb-2">
@@ -180,6 +173,7 @@ export default function MergerModal({ onClose, addToQueue }) {
           <table className="w-full text-xs text-left">
             <thead className="bg-gold text-black sticky top-0">
               <tr>
+                <th className="p-1">Estado</th>
                 <th className="p-1">ID</th>
                 <th className="p-1">Descripción</th>
                 <th className="p-1">Códigos</th>
@@ -190,10 +184,13 @@ export default function MergerModal({ onClose, addToQueue }) {
             <tbody>
               {mergedData.map((item, idx) => (
                 <tr key={idx} className="border-b border-gray-800">
+                  <td className="p-1">
+                    {new Date(item.vigencia) < new Date() ? "Fuera de vigencia" : "A escribir"}
+                  </td>
                   <td className="p-1">{item.productId}</td>
                   <td className="p-1">{item.description}</td>
                   <td className="p-1">{item.barcodes.join(", ")}</td>
-                  <td className="p-1">${item.price}</td>
+                  <td className="p-1">${Math.round(item.price)}</td>
                   <td className="p-1">{item.vigencia}</td>
                 </tr>
               ))}

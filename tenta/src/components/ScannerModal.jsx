@@ -1,46 +1,80 @@
+// File: src/components/ScannerModal.jsx
 import React, { useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase.js"; // Correct import
+import PropTypes from "prop-types";
 
-export default function ScannerModal({ onClose, onScan }) {
-  const [inputValue, setInputValue] = useState("");
+export default function ScannerModal({ onClose, onMatchFound }) {
+  const [code, setCode] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (inputValue.trim() === "") return;
-    onScan(inputValue.trim());
-    setInputValue("");
-    onClose();
+  const handleScan = async () => {
+    if (!code.trim()) return;
+    setLoading(true);
+    setError(null);
+
+    try {
+      // First, try to get by productId
+      const productRef = doc(db, "products", code.trim());
+      const productSnap = await getDoc(productRef);
+
+      if (productSnap.exists()) {
+        onMatchFound(productSnap.data());
+      } else {
+        // Scan through barcodes arrays
+        const querySnapshot = await db.collection("products").get();
+        let found = false;
+        querySnapshot.forEach((docSnap) => {
+          const data = docSnap.data();
+          if (Array.isArray(data.barcodes) && data.barcodes.includes(code.trim())) {
+            found = true;
+            onMatchFound(data);
+          }
+        });
+        if (!found) setError("Código no encontrado en productos ni barcodes.");
+      }
+    } catch (err) {
+      console.error("Error buscando el producto:", err);
+      setError("Error al buscar el producto. Ver consola.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4">
-      <div className="bg-gray-900 text-white p-6 rounded-xl shadow-lg w-full max-w-md animate-fadeIn">
-        <h2 className="text-2xl text-gold mb-4">Escanear Código de Barras</h2>
-        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-          <input
-            type="text"
-            autoFocus
-            placeholder="Ingresa o escanea el código"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            className="p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-gold text-white"
-          />
-          <div className="flex justify-between">
-            <button
-              type="submit"
-              className="bg-gold text-black px-4 py-2 rounded hover:bg-yellow-500"
-            >
-              Escanear
-            </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-400"
-            >
-              Cancelar
-            </button>
-          </div>
-        </form>
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-900 text-gold rounded-2xl p-4 w-full max-w-md flex flex-col gap-4">
+        <h2 className="text-xl font-bold">Escanear Producto</h2>
+        <input
+          type="text"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+          placeholder="Ingrese SKU o Código de barras"
+          className="p-2 rounded bg-gray-800 text-white"
+        />
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+        <div className="flex gap-2">
+          <button
+            onClick={handleScan}
+            disabled={loading}
+            className="bg-gold text-black py-2 px-4 rounded hover:opacity-80 transition flex-1"
+          >
+            {loading ? "Buscando..." : "Buscar"}
+          </button>
+          <button
+            onClick={onClose}
+            className="bg-gray-700 text-gold py-2 px-4 rounded hover:bg-gray-600 flex-1"
+          >
+            Cerrar
+          </button>
+        </div>
       </div>
     </div>
   );
 }
+
+ScannerModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  onMatchFound: PropTypes.func.isRequired,
+};
