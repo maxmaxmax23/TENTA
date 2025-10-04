@@ -1,46 +1,64 @@
-import React, { useState } from "react";
+// File: src/components/ImporterModal.jsx
+import React, { useState, useEffect } from "react";
 import { collection, doc, setDoc, writeBatch } from "firebase/firestore";
-import { firestore } from "../firebase.js";
+import { firestore } from "../firebase.js"; // Make sure firestore is exported
+import PropTypes from "prop-types";
 
-export default function ImporterModal({ onClose, incrementWrites, mergedDataQueue, clearQueue }) {
+export default function ImporterModal({ onClose, mergedData, incrementWrites }) {
   const [loading, setLoading] = useState(false);
-  const [stats, setStats] = useState({ written: 0, skipped: 0 });
+  const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0 });
 
-  const handleImport = async () => {
-    if (!mergedDataQueue || mergedDataQueue.length === 0) {
-      alert("No hay datos en la cola para importar.");
+  // Split writes into batches to reduce firestore writes at once
+  const BATCH_SIZE = 500;
+
+  const processImport = async () => {
+    if (!mergedData || mergedData.length === 0) {
+      alert("No data to import.");
       return;
     }
 
     setLoading(true);
     let written = 0;
     let skipped = 0;
-    const batchSize = 50; // throttling
-    try {
-      for (let i = 0; i < mergedDataQueue.length; i += batchSize) {
-        const batch = writeBatch(firestore);
-        const slice = mergedDataQueue.slice(i, i + batchSize);
+    let outOfTime = 0;
 
-        slice.forEach((item) => {
-          if (!item.productId) {
-            skipped++;
+    try {
+      for (let i = 0; i < mergedData.length; i += BATCH_SIZE) {
+        const batch = writeBatch(firestore);
+        const chunk = mergedData.slice(i, i + BATCH_SIZE);
+
+        chunk.forEach((item) => {
+          // Check vigencia (date) again to be safe
+          const vigenciaDate = new Date(item.vigencia);
+          const now = new Date();
+          const oneYearAgo = new Date();
+          oneYearAgo.setFullYear(now.getFullYear() - 1);
+
+          if (vigenciaDate < oneYearAgo) {
+            outOfTime++;
             return;
           }
+
+          // Write each product once with barcodes array
           const docRef = doc(collection(firestore, "products"), item.productId);
-          batch.set(docRef, item, { merge: true });
+          batch.set(docRef, {
+            description: item.description,
+            barcodes: item.barcodes,
+            price: item.price,
+            vigencia: item.vigencia,
+          });
           written++;
         });
 
         await batch.commit();
-        setStats({ written, skipped });
         incrementWrites(written);
       }
 
-      alert(`Importación completa: ${written} escritos, ${skipped} ignorados.`);
-      clearQueue();
+      setStats({ written, skipped, outOfTime });
+      alert(`Import complete. ${written} written, ${skipped} skipped, ${outOfTime} out of timeframe.`);
     } catch (error) {
-      console.error("Error importando a Firebase:", error);
-      alert("Error durante la importación. Ver consola.");
+      console.error("Error writing to Firestore:", error);
+      alert("Error writing to Firestore. Check console.");
     } finally {
       setLoading(false);
     }
@@ -48,26 +66,26 @@ export default function ImporterModal({ onClose, incrementWrites, mergedDataQueu
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-900 text-gold rounded-2xl p-4 w-full max-w-md flex flex-col">
-        <h2 className="text-xl font-bold mb-3">Importar a Firebase</h2>
+      <div className="bg-gray-900 text-gold rounded-2xl p-4 w-full max-w-md max-h-[90vh] flex flex-col">
+        <h2 className="text-xl font-bold mb-3">Importar Productos a Firebase</h2>
 
-        <div className="mb-4">
-          <p>Productos en cola: {mergedDataQueue.length}</p>
-          <p>✅ Escritos: {stats.written}</p>
+        <div className="text-sm mb-2">
+          <p>✅ A escribir: {stats.written}</p>
           <p>⚠️ Ignorados: {stats.skipped}</p>
+          <p>⏰ Fuera de vigencia: {stats.outOfTime}</p>
         </div>
 
         <button
-          onClick={handleImport}
-          disabled={loading || mergedDataQueue.length === 0}
-          className="bg-gold text-black py-2 rounded font-semibold mb-2"
+          onClick={processImport}
+          disabled={loading}
+          className="bg-gold text-black py-2 rounded mb-4 font-semibold"
         >
-          {loading ? "Importando..." : "Importar ahora"}
+          {loading ? "Importando..." : "Importar a Firebase"}
         </button>
 
         <button
           onClick={onClose}
-          className="bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
+          className="mt-4 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
         >
           Cerrar
         </button>
@@ -75,3 +93,9 @@ export default function ImporterModal({ onClose, incrementWrites, mergedDataQueu
     </div>
   );
 }
+
+ImporterModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  mergedData: PropTypes.array.isRequired,
+  incrementWrites: PropTypes.func.isRequired,
+};
