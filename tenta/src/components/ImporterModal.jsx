@@ -1,103 +1,118 @@
+// File: src/components/ImporterModal.jsx
 import React, { useState } from "react";
-import * as XLSX from "xlsx";
-import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
-import { db } from "../firebase.js";
-import ExcelMerger from "./ExcelMerger.jsx";
+import { doc, getDoc, writeBatch } from "firebase/firestore";
+import { db } from "../firebase.js"; // Ensure db is exported from firebase.js
 
-export default function ImporterModal({ onClose, incrementWrites }) {
+export default function ImporterModal({ onClose, mergedData, incrementWrites }) {
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("");
-  const [mergedData, setMergedData] = useState(null);
+  const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0 });
+  const [errorLogs, setErrorLogs] = useState([]);
 
-  const handleFileUpload = (data) => {
-    setMergedData(data);
+  const MAX_BATCH = 500;
+
+  const isDataChanged = (existingDoc, newDoc) => {
+    if (!existingDoc) return true;
+    return (
+      existingDoc.price !== newDoc.price ||
+      existingDoc.description !== newDoc.description ||
+      JSON.stringify(existingDoc.barcodes) !== JSON.stringify(newDoc.barcodes)
+    );
   };
 
-  const handleImport = async () => {
-    if (!mergedData) {
-      setStatus("No hay datos cargados.");
-      return;
-    }
+  const importData = async () => {
+    if (!mergedData || mergedData.length === 0) return;
 
     setLoading(true);
-    setStatus("Procesando...");
-    let batch = writeBatch(db);
-    let writeCount = 0;
-    let batchCount = 0;
+    let written = 0, skipped = 0, outOfTime = 0;
+    const errors = [];
+    const batches = [];
 
     try {
-      for (const row of mergedData) {
-        const productId = row["product_id"];
-        if (!productId) continue;
+      // Split into batches
+      for (let i = 0; i < mergedData.length; i += MAX_BATCH) {
+        const batch = writeBatch(db);
+        const chunk = mergedData.slice(i, i + MAX_BATCH);
 
-        const ref = doc(collection(db, "products"), productId);
-        const snapshot = await getDoc(ref);
+        for (const row of chunk) {
+          try {
+            // Check date first
+            const vigenciaDate = new Date(row.vigencia.split("/").reverse().join("-"));
+            const now = new Date();
+            const oneYearAgo = new Date();
+            oneYearAgo.setFullYear(now.getFullYear() - 1);
+            if (vigenciaDate < oneYearAgo) {
+              outOfTime++;
+              continue;
+            }
 
-        let productData = {};
-        if (snapshot.exists()) {
-          const existing = snapshot.data();
-          const barcodes = new Set(existing.barcodes || []);
-          if (row["barcode"]) barcodes.add(row["barcode"]);
+            const docRef = doc(db, "products", row.productId);
+            const existing = await getDoc(docRef);
+            const existingData = existing.exists() ? existing.data() : null;
 
-          productData = {
-            ...existing,
-            barcodes: Array.from(barcodes),
-            description: row["description"] || existing.description,
-            price: row["price"] || existing.price,
-            lastUpdated: new Date().toISOString(),
-          };
-        } else {
-          productData = {
-            product_id: productId,
-            barcodes: row["barcode"] ? [row["barcode"]] : [],
-            description: row["description"] || "",
-            price: row["price"] || 0,
-            lastUpdated: new Date().toISOString(),
-          };
+            if (!isDataChanged(existingData, row)) {
+              skipped++;
+              continue;
+            }
+
+            batch.set(docRef, row, { merge: true });
+            written++;
+          } catch (err) {
+            errors.push({ row, error: err.message });
+          }
         }
 
-        batch.set(ref, productData);
-        writeCount++;
-
-        if (writeCount % 400 === 0) {
-          await batch.commit();
-          batch = writeBatch(db);
-          batchCount++;
-        }
+        batches.push(batch);
       }
 
-      await batch.commit();
-      incrementWrites(writeCount);
-      setStatus(`Importación completa (${writeCount} registros, ${batchCount + 1} lotes).`);
-    } catch (error) {
-      console.error("Error al importar:", error);
-      setStatus("Error durante la importación.");
+      // Execute batches sequentially (throttle)
+      for (const b of batches) {
+        await b.commit();
+      }
+
+      setStats({ written, skipped, outOfTime });
+      incrementWrites(written);
+      setErrorLogs(errors);
+    } catch (err) {
+      console.error("Error importing:", err);
+      alert("Error al importar los datos. Ver consola.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4">
-      <div className="bg-gray-900 text-white p-6 rounded-xl shadow-lg w-[90%] max-w-2xl animate-fadeIn">
-        <h2 className="text-2xl mb-4 text-gold">Importar Excel</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-900 text-gold rounded-2xl p-4 w-full max-w-md max-h-[90vh] flex flex-col">
+        <h2 className="text-xl font-bold mb-3">Importar Datos a Firebase</h2>
 
-        <ExcelMerger onMergeComplete={handleFileUpload} />
+        <button
+          onClick={importData}
+          disabled={loading}
+          className="bg-gold text-black py-2 rounded mb-4 font-semibold"
+        >
+          {loading ? "Importando..." : "Importar Merged Data"}
+        </button>
 
-        <div className="mt-4 flex justify-between">
-          <button
-            onClick={handleImport}
-            disabled={loading}
-            className="bg-gold text-black px-4 py-2 rounded disabled:opacity-50"
-          >
-            {loading ? "Importando..." : "Importar datos"}
-          </button>
-          <button onClick={onClose} className="bg-red-500 text-white px-4 py-2 rounded">
-            Cerrar
-          </button>
+        <div className="text-sm mb-2">
+          <p>✅ A escribir: {stats.written}</p>
+          <p>⚠️ Ignorados (sin cambio): {stats.skipped}</p>
+          <p>⏰ Fuera de vigencia: {stats.outOfTime}</p>
         </div>
 
-        {status && <p className="mt-4 text-sm text-gray-300">{status}</p>}
+        {errorLogs.length > 0 && (
+          <div className="overflow-y-auto max-h-32 border border-red-500 rounded p-1 text-xs">
+            {errorLogs.map((e, i) => (
+              <p key={i} className="text-red-400">{`ID: ${e.row.productId}, Error: ${e.error}`}</p>
+            ))}
+          </div>
+        )}
+
+        <button
+          onClick={onClose}
+          className="mt-4 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
+        >
+          Cerrar
+        </button>
       </div>
     </div>
   );

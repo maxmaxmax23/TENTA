@@ -5,14 +5,15 @@ import Dashboard from "./components/Dashboard.jsx";
 import ScannerModal from "./components/ScannerModal.jsx";
 import ProductModal from "./components/ProductModal.jsx";
 import ImporterModal from "./components/ImporterModal.jsx";
-import MergerModal from "./components/MergerModal.jsx"; // ✅ NEW
+import MergerModal from "./components/MergerModal.jsx";
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [scannedCode, setScannedCode] = useState(null);
   const [showImporter, setShowImporter] = useState(false);
-  const [showMerger, setShowMerger] = useState(false); // ✅ NEW
-  const [firebaseWrites, setFirebaseWrites] = useState(0); // Tracks writes for quota
+  const [showMerger, setShowMerger] = useState(false);
+  const [mergedDataQueue, setMergedDataQueue] = useState([]);
+  const [firebaseWrites, setFirebaseWrites] = useState(0);
 
   const incrementWrites = (count) => setFirebaseWrites((prev) => prev + count);
 
@@ -27,20 +28,22 @@ export default function App() {
           <Dashboard
             onScan={(code) => setScannedCode(code)}
             onOpenImporter={() => setShowImporter(true)}
-            onOpenMerger={() => setShowMerger(true)} // ✅ NEW BUTTON HOOK
+            onOpenMerger={() => setShowMerger(true)}
             firebaseWrites={firebaseWrites}
           />
+
+          {showMerger && (
+            <MergerModal
+              onClose={() => setShowMerger(false)}
+              setMergedDataQueue={setMergedDataQueue}
+            />
+          )}
 
           {showImporter && (
             <ImporterModal
               onClose={() => setShowImporter(false)}
+              mergedData={mergedDataQueue}
               incrementWrites={incrementWrites}
-            />
-          )}
-
-          {showMerger && (
-            <MergerModal
-              onClose={() => setShowMerger(false)} // ✅ CLOSE HANDLER
             />
           )}
         </>
