@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 
-export default function MergerModal({ onClose, setMergedData }) {
+export default function MergerModal({ onClose, addToQueue }) {
   const [equivalenciasFile, setEquivalenciasFile] = useState(null);
   const [preciosFile, setPreciosFile] = useState(null);
-  const [localMergedData, setLocalMergedData] = useState([]);
+  const [mergedData, setMergedData] = useState([]);
   const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0 });
   const [loading, setLoading] = useState(false);
 
@@ -30,11 +30,9 @@ export default function MergerModal({ onClose, setMergedData }) {
         parseExcel(preciosFile),
       ]);
 
-      // Remove headers
-      const eqData = eqRows.slice(1);
+      const eqData = eqRows.slice(1); // Remove headers
       const prData = prRows.slice(1);
 
-      // Build equivalence map
       const eqMap = new Map();
       eqData.forEach((row) => {
         const barcode = row[0]?.toString().trim();
@@ -59,34 +57,44 @@ export default function MergerModal({ onClose, setMergedData }) {
         const vigenciaRaw = row[4];
         const priceRaw = row[5];
 
-        let status = "merged";
-        let vigencia;
+        if (!productId || !vigenciaRaw || !priceRaw) {
+          skipped++;
+          return;
+        }
 
         // Normalize date
+        let vigencia;
         try {
           if (typeof vigenciaRaw === "number") {
             const date = XLSX.SSF.parse_date_code(vigenciaRaw);
             vigencia = new Date(date.y, date.m - 1, date.d);
-          } else if (vigenciaRaw) {
-            const parts = vigenciaRaw.toString().split(/[\/\-]/);
+          } else {
+            const parts = vigenciaRaw.split(/[\/\-]/);
             if (parts.length === 3) {
               const [d, m, y] = parts.map((p) => parseInt(p, 10));
               vigencia = new Date(2000 + (y % 100), m - 1, d);
             }
           }
         } catch {
-          status = "skipped";
+          skipped++;
+          return;
         }
 
-        // Filter past 12 months
+        // Check timeframe (past 12 months)
         const now = new Date();
-        const twelveMonthsAgo = new Date();
-        twelveMonthsAgo.setFullYear(now.getFullYear() - 1);
-        if (!vigencia || vigencia < twelveMonthsAgo || vigencia > now) status = "outOfTime";
+        const oneYearAgo = new Date(now);
+        oneYearAgo.setFullYear(now.getFullYear() - 1);
+        if (vigencia < oneYearAgo) {
+          outOfTime++;
+          return;
+        }
 
         // Normalize price
-        let price = parseFloat(priceRaw?.toString().replace(/\./g, "").replace(",", "."));
-        if (isNaN(price)) price = 0;
+        let price = parseFloat(priceRaw.toString().replace(/\./g, "").replace(",", "."));
+        if (isNaN(price)) {
+          skipped++;
+          return;
+        }
 
         const eqMatch = eqMap.get(productId);
         const barcodes = eqMatch ? Array.from(eqMatch.barcodes) : ["Sin código"];
@@ -95,26 +103,30 @@ export default function MergerModal({ onClose, setMergedData }) {
           productId,
           description: description || eqMatch?.description || "Sin descripción",
           barcodes,
-          price: Math.round(price),
-          vigencia: vigencia ? vigencia.toLocaleDateString("es-AR") : "",
-          status,
+          price: Math.round(price), // integer, no decimals
+          vigencia: vigencia.toLocaleDateString("es-AR"),
         });
-
-        if (status === "merged") written++;
-        else if (status === "skipped") skipped++;
-        else if (status === "outOfTime") outOfTime++;
+        written++;
       });
 
       setStats({ written, skipped, outOfTime });
-      setLocalMergedData(merged);
-
-      // Pass mergedData to parent for importer queue
-      if (setMergedData) setMergedData(merged);
+      setMergedData(merged);
     } catch (error) {
       console.error("Error al procesar archivos:", error);
       alert("Error procesando los archivos. Ver consola.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  // INCREMENT: Add "Add to Queue" button handler
+  const handleAddToQueue = () => {
+    if (mergedData.length === 0) {
+      alert("No hay datos fusionados para agregar a la cola.");
+      return;
+    }
+    if (addToQueue) {
+      addToQueue(mergedData);
     }
   };
 
@@ -144,9 +156,18 @@ export default function MergerModal({ onClose, setMergedData }) {
         <button
           onClick={handleMerge}
           disabled={loading}
-          className="bg-gold text-black py-2 rounded mb-4 font-semibold"
+          className="bg-gold text-black py-2 rounded mb-2 font-semibold"
         >
           {loading ? "Procesando..." : "Fusionar y Previsualizar"}
+        </button>
+
+        {/* INCREMENT: Add to Queue button */}
+        <button
+          onClick={handleAddToQueue}
+          disabled={mergedData.length === 0}
+          className="bg-green-600 text-black py-2 rounded mb-4 font-semibold"
+        >
+          Agregar a la Cola
         </button>
 
         <div className="text-sm mb-2">
@@ -159,7 +180,6 @@ export default function MergerModal({ onClose, setMergedData }) {
           <table className="w-full text-xs text-left">
             <thead className="bg-gold text-black sticky top-0">
               <tr>
-                <th className="p-1">Estado</th>
                 <th className="p-1">ID</th>
                 <th className="p-1">Descripción</th>
                 <th className="p-1">Códigos</th>
@@ -168,13 +188,12 @@ export default function MergerModal({ onClose, setMergedData }) {
               </tr>
             </thead>
             <tbody>
-              {localMergedData.map((item, idx) => (
+              {mergedData.map((item, idx) => (
                 <tr key={idx} className="border-b border-gray-800">
-                  <td className="p-1">{item.status}</td>
                   <td className="p-1">{item.productId}</td>
                   <td className="p-1">{item.description}</td>
                   <td className="p-1">{item.barcodes.join(", ")}</td>
-                  <td className="p-1">${item.price.toLocaleString("es-AR")}</td>
+                  <td className="p-1">${item.price}</td>
                   <td className="p-1">{item.vigencia}</td>
                 </tr>
               ))}

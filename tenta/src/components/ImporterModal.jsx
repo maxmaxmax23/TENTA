@@ -1,99 +1,77 @@
 // File: src/components/ImporterModal.jsx
 import React, { useState, useEffect } from "react";
-import { collection, doc, setDoc, writeBatch } from "firebase/firestore";
-import { db } from "../firebase.js"; // Incremental patch: correct import
+import { collection, doc, writeBatch, setDoc } from "firebase/firestore";
 import PropTypes from "prop-types";
+import { db } from "../firebase.js"; // Ensure db is exported from firebase.js
 
-export default function ImporterModal({ onClose, incrementWrites, mergedData }) {
-  const [loading, setLoading] = useState(false);
-  const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0 });
+export default function ImporterModal({ onClose, queuedData, incrementWrites }) {
+  const [processing, setProcessing] = useState(false);
+  const [progress, setProgress] = useState({ written: 0, total: 0 });
 
-  // Throttle function to limit write speed
-  const throttle = (fn, delay) => {
-    let lastCall = 0;
-    return async (...args) => {
-      const now = new Date().getTime();
-      if (now - lastCall < delay) {
-        await new Promise((res) => setTimeout(res, delay - (now - lastCall)));
-      }
-      lastCall = new Date().getTime();
-      return fn(...args);
-    };
-  };
-
-  const writeBatchToFirestore = throttle(async (batchData) => {
-    const batch = writeBatch(db);
-    batchData.forEach((item) => {
-      const docRef = doc(collection(db, "products"), item.productId);
-      batch.set(docRef, {
-        description: item.description,
-        barcodes: item.barcodes,
-        price: item.price,
-        vigencia: item.vigencia,
-      });
-    });
-    await batch.commit();
-  }, 500); // 500ms between batches
-
-  const handleImport = async () => {
-    if (!mergedData || mergedData.length === 0) {
-      alert("No hay datos para importar.");
-      return;
+  useEffect(() => {
+    if (queuedData?.length) {
+      setProgress({ written: 0, total: queuedData.length });
     }
+  }, [queuedData]);
 
+  const BATCH_SIZE = 50; // throttled batch size
+
+  const processQueue = async () => {
+    if (!queuedData || queuedData.length === 0) return;
+    setProcessing(true);
+
+    let writtenCount = 0;
     try {
-      setLoading(true);
-      let written = 0;
-      let skipped = 0;
-      let outOfTime = 0;
+      for (let i = 0; i < queuedData.length; i += BATCH_SIZE) {
+        const batch = writeBatch(db);
+        const chunk = queuedData.slice(i, i + BATCH_SIZE);
 
-      // Split mergedData into batches to minimize Firestore writes
-      const batchSize = 50;
-      for (let i = 0; i < mergedData.length; i += batchSize) {
-        const batchChunk = mergedData.slice(i, i + batchSize);
-
-        // Count items
-        batchChunk.forEach((item) => {
-          if (!item.vigencia || !item.price) skipped++;
-          else written++;
+        chunk.forEach((product) => {
+          const docRef = doc(collection(db, "products"), product.productId);
+          batch.set(docRef, {
+            description: product.description,
+            barcodes: product.barcodes,
+            price: product.price,
+            vigencia: product.vigencia,
+          }, { merge: true });
         });
 
-        await writeBatchToFirestore(batchChunk);
+        await batch.commit();
+        writtenCount += chunk.length;
+        setProgress({ written: writtenCount, total: queuedData.length });
+        incrementWrites?.(chunk.length);
       }
 
-      setStats({ written, skipped, outOfTime });
-      incrementWrites(written);
-      alert(`Importación finalizada. Productos escritos: ${written}`);
+      alert("Importación finalizada correctamente.");
     } catch (error) {
-      console.error("Error importando a Firebase:", error);
-      alert("Error durante la importación. Revisa la consola.");
+      console.error("Error importando productos:", error);
+      alert("Error durante la importación. Ver consola.");
     } finally {
-      setLoading(false);
+      setProcessing(false);
     }
   };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
       <div className="bg-gray-900 text-gold rounded-2xl p-4 w-full max-w-md max-h-[90vh] flex flex-col">
-        <h2 className="text-xl font-bold mb-3">Importar Datos a Firebase</h2>
+        <h2 className="text-xl font-bold mb-3">Importar Productos a Firebase</h2>
 
-        <button
-          onClick={handleImport}
-          disabled={loading}
-          className="bg-gold text-black py-2 rounded mb-4 font-semibold"
-        >
-          {loading ? "Importando..." : "Procesar e Importar"}
-        </button>
-
-        <div className="text-sm mb-2">
-          <p>✅ A escribir: {stats.written}</p>
-          <p>⚠️ Ignorados: {stats.skipped}</p>
-          <p>⏰ Fuera de vigencia: {stats.outOfTime}</p>
+        <div className="mb-4">
+          <p>Total en cola: {queuedData?.length || 0}</p>
+          <p>Procesados: {progress.written} / {progress.total}</p>
         </div>
 
         <button
+          onClick={processQueue}
+          disabled={processing || !queuedData?.length}
+          className="bg-gold text-black py-2 rounded mb-4 font-semibold"
+        >
+          {processing ? "Importando..." : "Importar Cola"}
+        </button>
+
+        <button
           onClick={onClose}
-          className="mt-4 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
+          className="mt-2 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
         >
           Cerrar
         </button>
@@ -104,6 +82,6 @@ export default function ImporterModal({ onClose, incrementWrites, mergedData }) 
 
 ImporterModal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  incrementWrites: PropTypes.func.isRequired,
-  mergedData: PropTypes.array.isRequired,
+  queuedData: PropTypes.array,
+  incrementWrites: PropTypes.func,
 };
