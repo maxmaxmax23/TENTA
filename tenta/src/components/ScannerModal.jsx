@@ -1,80 +1,124 @@
 // File: src/components/ScannerModal.jsx
-import React, { useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase.js"; // Correct import
-import PropTypes from "prop-types";
+import React, { useEffect, useRef, useState } from "react";
+import { Html5Qrcode } from "html5-qrcode";
 
-export default function ScannerModal({ onClose, onMatchFound }) {
-  const [code, setCode] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+export default function ScannerModal({ onClose, onScan }) {
+  const [manualCode, setManualCode] = useState("");
+  const [scanning, setScanning] = useState(false);
+  const [scanError, setScanError] = useState("");
+  const scannerRef = useRef(null);
+  const html5QrCodeRef = useRef(null);
 
-  const handleScan = async () => {
-    if (!code.trim()) return;
-    setLoading(true);
-    setError(null);
+  useEffect(() => {
+    return () => {
+      if (html5QrCodeRef.current) {
+        html5QrCodeRef.current
+          .stop()
+          .then(() => html5QrCodeRef.current.clear())
+          .catch(() => {});
+      }
+    };
+  }, []);
+
+  const startScanner = async () => {
+    if (scanning) return;
+    setScanError("");
+    setScanning(true);
 
     try {
-      // First, try to get by productId
-      const productRef = doc(db, "products", code.trim());
-      const productSnap = await getDoc(productRef);
+      const html5QrCode = new Html5Qrcode(scannerRef.current.id);
+      html5QrCodeRef.current = html5QrCode;
 
-      if (productSnap.exists()) {
-        onMatchFound(productSnap.data());
-      } else {
-        // Scan through barcodes arrays
-        const querySnapshot = await db.collection("products").get();
-        let found = false;
-        querySnapshot.forEach((docSnap) => {
-          const data = docSnap.data();
-          if (Array.isArray(data.barcodes) && data.barcodes.includes(code.trim())) {
-            found = true;
-            onMatchFound(data);
-          }
-        });
-        if (!found) setError("Código no encontrado en productos ni barcodes.");
+      const cameras = await Html5Qrcode.getCameras();
+      if (!cameras || cameras.length === 0) {
+        setScanError("No se detectó ninguna cámara.");
+        setScanning(false);
+        return;
       }
+
+      const cameraId = cameras[0].id;
+      await html5QrCode.start(
+        cameraId,
+        {
+          fps: 10,
+          qrbox: { width: 250, height: 150 },
+        },
+        (decodedText) => {
+          stopScanner();
+          setManualCode(decodedText);
+          if (onScan) onScan(decodedText);
+        },
+        (errorMessage) => {
+          // Ignorar errores menores de lectura
+        }
+      );
     } catch (err) {
-      console.error("Error buscando el producto:", err);
-      setError("Error al buscar el producto. Ver consola.");
-    } finally {
-      setLoading(false);
+      console.error("Error iniciando cámara:", err);
+      setScanError("Error iniciando cámara o permisos denegados.");
+      setScanning(false);
     }
   };
 
+  const stopScanner = () => {
+    if (html5QrCodeRef.current) {
+      html5QrCodeRef.current
+        .stop()
+        .then(() => html5QrCodeRef.current.clear())
+        .catch(() => {});
+    }
+    setScanning(false);
+  };
+
+  const handleManualSubmit = (e) => {
+    e.preventDefault();
+    if (!manualCode.trim()) return alert("Ingrese un código o escanee uno.");
+    onScan(manualCode.trim());
+    onClose();
+  };
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center p-4 z-50">
       <div className="bg-gray-900 text-gold rounded-2xl p-4 w-full max-w-md flex flex-col gap-4">
-        <h2 className="text-xl font-bold">Escanear Producto</h2>
-        <input
-          type="text"
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-          placeholder="Ingrese SKU o Código de barras"
-          className="p-2 rounded bg-gray-800 text-white"
-        />
-        {error && <p className="text-red-500 text-sm">{error}</p>}
-        <div className="flex gap-2">
+        <h2 className="text-xl font-bold text-center mb-2">Escanear o Buscar Producto</h2>
+
+        <div id="qr-reader" ref={scannerRef} className="w-full bg-black rounded-lg overflow-hidden" />
+
+        {scanError && <p className="text-red-500 text-sm text-center mt-2">{scanError}</p>}
+
+        <div className="flex flex-col gap-2 mt-4">
+          <form onSubmit={handleManualSubmit} className="flex gap-2">
+            <input
+              type="text"
+              placeholder="Ingresar código o SKU manualmente"
+              value={manualCode}
+              onChange={(e) => setManualCode(e.target.value)}
+              className="flex-1 bg-gray-800 text-white rounded-lg px-3 py-2 text-sm"
+            />
+            <button
+              type="submit"
+              className="bg-gold text-black px-4 py-2 rounded-lg font-semibold"
+            >
+              Buscar
+            </button>
+          </form>
+
           <button
-            onClick={handleScan}
-            disabled={loading}
-            className="bg-gold text-black py-2 px-4 rounded hover:opacity-80 transition flex-1"
+            onClick={scanning ? stopScanner : startScanner}
+            className={`${
+              scanning ? "bg-red-600" : "bg-green-600"
+            } text-black py-2 rounded-lg font-semibold mt-2`}
           >
-            {loading ? "Buscando..." : "Buscar"}
-          </button>
-          <button
-            onClick={onClose}
-            className="bg-gray-700 text-gold py-2 px-4 rounded hover:bg-gray-600 flex-1"
-          >
-            Cerrar
+            {scanning ? "Detener Escaneo" : "Iniciar Escaneo"}
           </button>
         </div>
+
+        <button
+          onClick={onClose}
+          className="mt-4 bg-gray-700 text-gold py-2 rounded-lg hover:bg-gray-600"
+        >
+          Cerrar
+        </button>
       </div>
     </div>
   );
 }
-
-ScannerModal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  onMatchFound: PropTypes.func.isRequired,
-};
