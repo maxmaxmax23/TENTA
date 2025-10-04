@@ -1,48 +1,45 @@
-// File: src/components/JsonSyncModal.jsx
-import React, { useState } from "react";
-import { firestore } from "../firebase.js";  
-import { collection, setDoc, doc } from "firebase/firestore";
+import { useState } from "react";
+import { collection, getDocs, setDoc, doc } from "firebase/firestore";
+import { firestore } from "../firebase.js";
 
-
-export default function JsonSyncModal({ onClose, syncFunction }) {
-  const [loading, setLoading] = useState(false);
-  const [log, setLog] = useState("");
+export default function JsonSyncModal({ onClose }) {
+  const [status, setStatus] = useState("");
 
   const handleSync = async () => {
-    setLoading(true);
-    setLog("Sincronizando...");
-
     try {
-      const result = await syncFunction((msg) => setLog(msg));
-      setLog(`✅ Sincronización completa: ${result}`);
+      setStatus("Syncing data...");
+      const snapshot = await getDocs(collection(firestore, "products"));
+      const data = snapshot.docs.map((d) => d.data());
+
+      await setDoc(doc(firestore, "sync", "latest"), {
+        syncedAt: new Date().toISOString(),
+        count: data.length,
+      });
+
+      setStatus(`Synced ${data.length} products successfully`);
     } catch (err) {
-      console.error(err);
-      setLog("❌ Error durante la sincronización");
-    } finally {
-      setLoading(false);
+      console.error("Sync error:", err);
+      setStatus("Error syncing data");
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4">
-      <div className="w-11/12 max-w-md bg-gray-900 p-6 rounded-xl shadow-lg text-gold space-y-4">
-        <h2 className="text-xl font-bold">Sincronización JSON</h2>
-        {log && <p className="text-sm">{log}</p>}
-        <div className="flex space-x-2">
-          <button
-            onClick={handleSync}
-            disabled={loading}
-            className="flex-1 py-2 bg-gold text-black rounded-lg hover:bg-yellow-500 transition disabled:opacity-50"
-          >
-            {loading ? "Sincronizando..." : "Iniciar Sync"}
-          </button>
-          <button
-            onClick={onClose}
-            className="flex-1 py-2 bg-gray-700 text-gold rounded-lg hover:bg-gray-600 transition"
-          >
-            Cancelar
-          </button>
-        </div>
+    <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+      <div className="bg-white p-6 rounded shadow w-96">
+        <h2 className="text-xl font-bold mb-4">Sync JSON</h2>
+        <button
+          className="bg-green-600 text-white px-4 py-2 rounded"
+          onClick={handleSync}
+        >
+          Sync
+        </button>
+        {status && <p className="mt-2">{status}</p>}
+        <button
+          className="mt-4 text-sm text-gray-600 underline"
+          onClick={onClose}
+        >
+          Close
+        </button>
       </div>
     </div>
   );

@@ -1,41 +1,67 @@
-import { useState } from "react";
-import ExcelMerger from "./ExcelMerger";
-import ImporterModal from "./ImporterModal";
+import { useState, useEffect } from "react";
+import ImporterModal from "./ImporterModal.jsx";
+import BackupManager from "./BackupManager.jsx";
+import JsonSyncModal from "./JsonSyncModal.jsx";
+import ProductCard from "./ProductCard.jsx";
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../firebase.js";
 
 export default function Dashboard() {
-  const [mergedData, setMergedData] = useState([]);
+  const [products, setProducts] = useState([]);
   const [showImporter, setShowImporter] = useState(false);
+  const [showSync, setShowSync] = useState(false);
+  const [status, setStatus] = useState("Cargando productos...");
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const snapshot = await getDocs(collection(firestore, "products"));
+        const items = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProducts(items);
+        setStatus(`Productos cargados: ${items.length}`);
+      } catch (err) {
+        console.error("Error loading products:", err);
+        setStatus("Error cargando productos");
+      }
+    };
+    loadProducts();
+  }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-
-      {/* Merge Files */}
-      <div className="mb-4 border p-4">
-        <h2 className="text-xl mb-2">Step 1: Merge Excel Files</h2>
-        <ExcelMerger onMerged={(data) => setMergedData(data)} />
-      </div>
-
-      {/* Import Button */}
-      {mergedData.length > 0 && (
-        <div className="mb-4">
-          <h2 className="text-xl mb-2">Step 2: Import Merged Data</h2>
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <header className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold">📦 Dashboard de Productos</h1>
+        <div className="flex gap-3">
           <button
-            className="bg-green-500 text-white px-4 py-2"
             onClick={() => setShowImporter(true)}
+            className="bg-blue-600 text-white px-4 py-2 rounded shadow"
           >
-            Open Importer
+            Importar Excel
+          </button>
+          <button
+            onClick={() => setShowSync(true)}
+            className="bg-green-600 text-white px-4 py-2 rounded shadow"
+          >
+            Sincronizar JSON
           </button>
         </div>
-      )}
+      </header>
 
-      {/* Importer Modal */}
-      {showImporter && (
-        <ImporterModal
-          mergedData={mergedData}
-          onClose={() => setShowImporter(false)}
-        />
-      )}
+      <BackupManager />
+
+      <p className="mt-4 text-gray-700">{status}</p>
+
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+
+      {showImporter && <ImporterModal onClose={() => setShowImporter(false)} />}
+      {showSync && <JsonSyncModal onClose={() => setShowSync(false)} />}
     </div>
   );
 }
