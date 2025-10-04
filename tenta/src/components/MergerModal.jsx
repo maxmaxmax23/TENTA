@@ -30,7 +30,7 @@ export default function MergerModal({ onClose, addToQueue }) {
         parseExcel(preciosFile),
       ]);
 
-      const eqData = eqRows.slice(1); // Remove headers
+      const eqData = eqRows.slice(1);
       const prData = prRows.slice(1);
 
       const eqMap = new Map();
@@ -50,6 +50,10 @@ export default function MergerModal({ onClose, addToQueue }) {
       let skipped = 0;
       let outOfTime = 0;
       const merged = [];
+
+      const now = new Date();
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(now.getFullYear() - 1);
 
       prData.forEach((row) => {
         const productId = row[0]?.toString().trim();
@@ -80,30 +84,34 @@ export default function MergerModal({ onClose, addToQueue }) {
           return;
         }
 
-        // Check timeframe (past 12 months)
-        const now = new Date();
-        const oneYearAgo = new Date(now);
-        oneYearAgo.setFullYear(now.getFullYear() - 1);
-        if (vigencia < oneYearAgo) {
+        // Filter by past 12 months
+        if (vigencia < oneYearAgo || vigencia > now) {
           outOfTime++;
           return;
         }
 
-        // Normalize price
-        let price = parseFloat(priceRaw.toString().replace(/\./g, "").replace(",", "."));
+        // Normalize price to integer
+        let price = parseFloat(
+          priceRaw.toString().replace(/\./g, "").replace(",", ".")
+        );
         if (isNaN(price)) {
           skipped++;
           return;
         }
 
+        price = Math.round(price);
+
         const eqMatch = eqMap.get(productId);
-        const barcodes = eqMatch ? Array.from(eqMatch.barcodes) : ["Sin código"];
+        const barcodes = eqMatch
+          ? Array.from(eqMatch.barcodes)
+          : ["Sin código"];
 
         merged.push({
+          status: "merged",
           productId,
           description: description || eqMatch?.description || "Sin descripción",
           barcodes,
-          price: Math.round(price), // integer, no decimals
+          price,
           vigencia: vigencia.toLocaleDateString("es-AR"),
         });
         written++;
@@ -119,14 +127,39 @@ export default function MergerModal({ onClose, addToQueue }) {
     }
   };
 
-  // INCREMENT: Add "Add to Queue" button handler
   const handleAddToQueue = () => {
-    if (mergedData.length === 0) {
-      alert("No hay datos fusionados para agregar a la cola.");
-      return;
-    }
-    if (addToQueue) {
-      addToQueue(mergedData);
+    addToQueue(mergedData);
+    alert(`${mergedData.length} productos añadidos a la cola`);
+  };
+
+  const handleDownload = (format = "xlsx") => {
+    if (!mergedData.length) return alert("No hay datos para descargar");
+
+    if (format === "xlsx") {
+      const ws = XLSX.utils.json_to_sheet(
+        mergedData.map((item) => ({
+          Status: item.status,
+          ID: item.productId,
+          Descripción: item.description,
+          Códigos: item.barcodes.join(", "),
+          Precio: item.price,
+          Vigencia: item.vigencia,
+        }))
+      );
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Merged");
+      XLSX.writeFile(wb, "merged_products.xlsx");
+    } else if (format === "json") {
+      const blob = new Blob([JSON.stringify(mergedData, null, 2)], {
+        type: "application/json",
+      });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "merged_products.json";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   };
 
@@ -153,22 +186,39 @@ export default function MergerModal({ onClose, addToQueue }) {
           <label className="text-xs text-gray-400">Archivo de Precios</label>
         </div>
 
-        <button
-          onClick={handleMerge}
-          disabled={loading}
-          className="bg-gold text-black py-2 rounded mb-2 font-semibold"
-        >
-          {loading ? "Procesando..." : "Fusionar y Previsualizar"}
-        </button>
+        <div className="flex flex-col gap-2 mb-4">
+          <button
+            onClick={handleMerge}
+            disabled={loading}
+            className="bg-gold text-black py-2 rounded font-semibold"
+          >
+            {loading ? "Procesando..." : "Fusionar y Previsualizar"}
+          </button>
 
-        {/* INCREMENT: Add to Queue button */}
-        <button
-          onClick={handleAddToQueue}
-          disabled={mergedData.length === 0}
-          className="bg-green-600 text-black py-2 rounded mb-4 font-semibold"
-        >
-          Agregar a la Cola
-        </button>
+          <button
+            onClick={handleAddToQueue}
+            disabled={!mergedData.length}
+            className="bg-green-600 text-black py-2 rounded font-semibold"
+          >
+            Añadir a la cola
+          </button>
+
+          <button
+            onClick={() => handleDownload("xlsx")}
+            disabled={!mergedData.length}
+            className="bg-blue-600 text-black py-2 rounded font-semibold"
+          >
+            Descargar Excel
+          </button>
+
+          <button
+            onClick={() => handleDownload("json")}
+            disabled={!mergedData.length}
+            className="bg-blue-400 text-black py-2 rounded font-semibold"
+          >
+            Descargar JSON
+          </button>
+        </div>
 
         <div className="text-sm mb-2">
           <p>✅ A escribir: {stats.written}</p>
@@ -180,6 +230,7 @@ export default function MergerModal({ onClose, addToQueue }) {
           <table className="w-full text-xs text-left">
             <thead className="bg-gold text-black sticky top-0">
               <tr>
+                <th className="p-1">Status</th>
                 <th className="p-1">ID</th>
                 <th className="p-1">Descripción</th>
                 <th className="p-1">Códigos</th>
@@ -190,10 +241,11 @@ export default function MergerModal({ onClose, addToQueue }) {
             <tbody>
               {mergedData.map((item, idx) => (
                 <tr key={idx} className="border-b border-gray-800">
+                  <td className="p-1">{item.status}</td>
                   <td className="p-1">{item.productId}</td>
                   <td className="p-1">{item.description}</td>
                   <td className="p-1">{item.barcodes.join(", ")}</td>
-                  <td className="p-1">${item.price}</td>
+                  <td className="p-1">{item.price}</td>
                   <td className="p-1">{item.vigencia}</td>
                 </tr>
               ))}
