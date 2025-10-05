@@ -1,62 +1,30 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import ProductUploaderModal from "./ProductUploaderModal.jsx";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase.js";
 
-/**
- * ScannerModal.jsx
- * - Manual search + scanner toggle
- * - Looks up Firestore products by barcode or productId
- * - Shows multiple matches scrollably
- * - If single match: opens ProductUploaderModal
- */
-
-export default function ScannerModal({ products = [], onClose }) {
+export default function ScannerModal() {
   const readerRef = useRef(null);
-  const [manualSearch, setManualSearch] = useState("");
-  const [matches, setMatches] = useState([]);
   const [scanResult, setScanResult] = useState(null);
   const [scannerKey, setScannerKey] = useState(0);
+  const [manualSearch, setManualSearch] = useState("");
+  const [matches, setMatches] = useState([]);
   const [isScanning, setIsScanning] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // --- Handle Search Logic ---
-  const handleSearch = (term) => {
-    if (!term) {
-      setMatches([]);
-      return;
+  // --- Handle Scanner Read ---
+  const handleScan = (result) => {
+    if (result) {
+      setScanResult(result);
+      setIsScanning(false);
+      handleSearch(result); // Immediately search scanned code
     }
-
-    const lowerTerm = term.toString().trim().toLowerCase();
-    const results = [];
-
-    products.forEach((item) => {
-      const productId = item.productId?.toString().toLowerCase() || "";
-      const barcodes = item.barcodes?.map((b) => b.toString().toLowerCase()) || [];
-      const description = item.description?.toLowerCase() || "";
-
-      const barcodeMatch = barcodes.some((b) => b.includes(lowerTerm));
-      const productIdMatch = productId.includes(lowerTerm);
-      const descMatch = description.includes(lowerTerm);
-
-      if (barcodeMatch || productIdMatch || descMatch) {
-        results.push({
-          ...item,
-          matchedBy: barcodeMatch
-            ? "barcode"
-            : productIdMatch
-            ? "productId"
-            : "description",
-        });
-      }
-    });
-
-    // Prioritize barcode matches first
-    results.sort((a, b) => (a.matchedBy === "barcode" ? -1 : 1));
-    setMatches(results);
   };
 
-  // --- Handle Scanning ---
+  // --- Initialize Scanner ---
   useEffect(() => {
-    if (!readerRef.current || !isScanning) return;
+    if (!isScanning || scanResult) return;
 
     const scanner = new Html5QrcodeScanner(readerRef.current.id, {
       qrbox: { width: 250, height: 250 },
@@ -65,116 +33,128 @@ export default function ScannerModal({ products = [], onClose }) {
       focusMode: "continuous",
     });
 
-    scanner.render(
-      (decodedText) => {
-        setManualSearch(decodedText);
-        handleScan(decodedText);
-        setIsScanning(false);
-        scanner.clear();
-      },
-      (err) => console.warn(err)
-    );
-
+    scanner.render(handleScan, (err) => console.warn(err));
     return () => scanner.clear();
-  }, [readerRef, scannerKey, isScanning]);
+  }, [isScanning, scannerKey, scanResult]);
 
-  const handleScan = (scannedCode) => {
-    const lowerScanned = scannedCode.toString().trim().toLowerCase();
-    const matchedItem = products.find((item) =>
-      item.barcodes?.some((b) => b.toString().toLowerCase() === lowerScanned)
-    );
-
-    if (matchedItem) {
-      setScanResult(matchedItem);
-    } else {
-      console.warn("No matching product found for scanned code:", scannedCode);
-      setScanResult(null);
+  // --- Handle Search Logic ---
+  const handleSearch = async (term) => {
+    if (!term.trim()) {
       setMatches([]);
-      handleSearch(scannedCode); // fallback to show possible partials
+      return;
+    }
+
+    try {
+      const productsRef = collection(db, "products");
+      const qById = query(productsRef, where("productId", "==", term));
+      const qByBarcode = query(productsRef, where("barcodes", "array-contains", term));
+
+      const [idSnapshot, barcodeSnapshot] = await Promise.all([
+        getDocs(qById),
+        getDocs(qByBarcode),
+      ]);
+
+      const results = [
+        ...idSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })),
+        ...barcodeSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })),
+      ];
+
+      // Remove duplicates by id
+      const uniqueResults = results.filter(
+        (v, i, a) => a.findIndex((t) => t.id === v.id) === i
+      );
+
+      setMatches(uniqueResults);
+
+      // Auto-open modal if a single match
+      if (uniqueResults.length === 1) {
+        setSelectedProduct(uniqueResults[0]);
+      }
+    } catch (error) {
+      console.error("Error fetching search results:", error);
     }
   };
 
+  // --- 🔁 Restore Live Search ---
+  useEffect(() => {
+    if (manualSearch && !isScanning) {
+      const delay = setTimeout(() => handleSearch(manualSearch), 200); // debounce
+      return () => clearTimeout(delay);
+    } else {
+      setMatches([]);
+    }
+  }, [manualSearch, isScanning]);
+
+  // --- Reset Logic ---
   const resetScanner = () => {
     setScanResult(null);
     setScannerKey((k) => k + 1);
-    setIsScanning(false);
     setMatches([]);
+    setSelectedProduct(null);
     setManualSearch("");
   };
 
-  const openProduct = (product) => {
-    setScanResult(product);
-    setMatches([]);
-  };
-
-  // --- Render ---
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center p-4 z-50">
-      {!scanResult ? (
-        <div className="w-full max-w-md flex flex-col gap-3 bg-gray-900 text-gold rounded-2xl p-4">
-          <h2 className="text-xl font-bold mb-2 text-center">Buscar / Escanear Producto</h2>
-
-          <div className="flex gap-2">
-            <input
-              type="text"
-              value={manualSearch}
-              onChange={(e) => {
-                setManualSearch(e.target.value);
-                handleSearch(e.target.value);
-              }}
-              placeholder="Buscar por ID, código o descripción..."
-              className="flex-1 p-2 rounded bg-black text-white border border-gold text-sm"
-            />
-            <button
-              onClick={() => setIsScanning((prev) => !prev)}
-              className="bg-gold text-black px-3 rounded text-sm font-semibold"
-            >
-              {isScanning ? "Detener" : "Escanear"}
-            </button>
-          </div>
-
-          {isScanning && (
-            <div
-              key={scannerKey}
-              ref={readerRef}
-              id="reader"
-              className="w-full h-64 bg-black border border-gold rounded-lg overflow-hidden mt-2"
-            ></div>
-          )}
-
-          {/* Matches */}
-          {matches.length > 0 && (
-            <div className="overflow-y-auto max-h-64 mt-3 border border-gold rounded">
-              {matches.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-2 border-b border-gray-800 hover:bg-gray-800 cursor-pointer"
-                  onClick={() => openProduct(item)}
-                >
-                  <p className="text-sm font-bold text-gold">{item.productId}</p>
-                  <p className="text-xs text-gray-300">
-                    Códigos: {item.barcodes?.join(", ")}
-                  </p>
-                  <p className="text-xs text-gray-400 italic truncate">{item.description}</p>
-                  <p className="text-[10px] text-blue-400">
-                    Coincidencia: {item.matchedBy}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-
+    <div className="w-full flex flex-col items-center mt-4 px-4">
+      {/* Search Field + Controls */}
+      <div className="flex flex-col w-full max-w-md gap-2">
+        <input
+          type="text"
+          placeholder="Search by Product ID or Barcode..."
+          value={manualSearch}
+          onChange={(e) => setManualSearch(e.target.value)}
+          className="p-2 border border-gray-400 rounded-md w-full"
+        />
+        <div className="flex justify-center gap-2">
           <button
-            onClick={onClose}
-            className="mt-3 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
+            onClick={() => setIsScanning((prev) => !prev)}
+            className="px-4 py-2 bg-blue-600 text-white rounded-md"
           >
-            Cerrar
+            {isScanning ? "Stop Scanning" : "Start Scanning"}
+          </button>
+          <button
+            onClick={resetScanner}
+            className="px-4 py-2 bg-gray-400 text-white rounded-md"
+          >
+            Reset
           </button>
         </div>
-      ) : (
+      </div>
+
+      {/* QR Scanner */}
+      {isScanning && !scanResult && (
+        <div
+          key={scannerKey}
+          ref={readerRef}
+          id="reader"
+          className="w-full max-w-md h-80 bg-black border border-gold rounded-lg overflow-hidden mt-4"
+        ></div>
+      )}
+
+      {/* Search Results */}
+      {matches.length > 1 && (
+        <div className="w-full max-w-md mt-4 border border-gray-300 rounded-lg max-h-80 overflow-y-auto">
+          {matches.map((item) => (
+            <div
+              key={item.id}
+              className="p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer"
+              onClick={() => setSelectedProduct(item)}
+            >
+              <div className="font-semibold text-sm">{item.productId}</div>
+              <div className="text-xs text-gray-600">{item.description || "No description"}</div>
+              <div className="text-xs text-gray-400">
+                {item.barcodes?.length ? `Barcodes: ${item.barcodes.join(", ")}` : "No barcodes"}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Product Modal */}
+      {selectedProduct && (
         <ProductUploaderModal
-          sku={scanResult.productId}
-          matchedItem={scanResult}
+          sku={selectedProduct.productId}
+          matchedItem={selectedProduct}
           onClose={resetScanner}
         />
       )}
