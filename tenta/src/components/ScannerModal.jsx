@@ -1,3 +1,9 @@
+// INCREMENT ScannerModal.jsx
+// Type: Functional
+// Scope: Fix barcode search to match exact scanned codes while preserving manual search and UI
+// Base Tag: stable-importer-v7
+// Mode: Candidate (test before integration)
+
 import React, { useEffect, useRef, useState } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import ProductUploaderModal from "./ProductUploaderModal.jsx";
@@ -14,7 +20,7 @@ export default function ScannerModal({ onClose }) {
   const [showUploader, setShowUploader] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
 
-  // --- Firestore search by barcode or productId ---
+  // --- Firestore search by productId or barcode ---
   const searchProducts = async (term) => {
     if (!term) {
       setMatchedItems([]);
@@ -29,11 +35,11 @@ export default function ScannerModal({ onClose }) {
       .map((item) => {
         const productIdLower = item.id?.toString().toLowerCase() || "";
         const barcodeArrayLower =
-          item.barcodeArray?.map((b) => b.toString().toLowerCase()) || [];
+          item.barcodeArray?.map((b) => b.toString().toLowerCase().trim()) || [];
 
         const productIdMatch = productIdLower.includes(lowerTerm);
-        const barcodeMatchIndex = barcodeArrayLower.findIndex((b) =>
-          b.includes(lowerTerm)
+        const barcodeMatchIndex = barcodeArrayLower.findIndex(
+          (b) => b === lowerTerm
         );
 
         if (productIdMatch || barcodeMatchIndex !== -1) {
@@ -41,7 +47,7 @@ export default function ScannerModal({ onClose }) {
             ...item,
             matchedBy:
               productIdMatch && barcodeMatchIndex !== -1
-                ? `productId + barcode`
+                ? "productId + barcode"
                 : productIdMatch
                 ? "productId"
                 : `barcode (${item.barcodeArray[barcodeMatchIndex]})`,
@@ -54,7 +60,7 @@ export default function ScannerModal({ onClose }) {
     setMatchedItems(results);
   };
 
-  // --- Scanner logic ---
+  // --- Handle scanning ---
   useEffect(() => {
     if (!readerRef.current || !isScanning) return;
 
@@ -157,10 +163,7 @@ export default function ScannerModal({ onClose }) {
       )}
 
       {showUploader && selectedItem && (
-        <ProductUploaderModal
-          product={selectedItem}
-          onClose={resetScanner}
-        />
+        <ProductUploaderModal product={selectedItem} onClose={resetScanner} />
       )}
     </div>
   );
