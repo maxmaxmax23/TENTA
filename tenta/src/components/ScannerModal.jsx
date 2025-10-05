@@ -49,9 +49,12 @@ export default function ScannerModal({ products = [], onClose }) {
       }
     });
 
-    // Prioritize barcode matches first
+    // Prioritize barcode matches
     results.sort((a, b) => (a.matchedBy === "barcode" ? -1 : 1));
     setMatches(results);
+
+    // Auto-open if only one match
+    if (results.length === 1) openProduct(results[0]);
   };
 
   // --- Handle Scanning ---
@@ -79,18 +82,20 @@ export default function ScannerModal({ products = [], onClose }) {
   }, [readerRef, scannerKey, isScanning]);
 
   const handleScan = (scannedCode) => {
+    setManualSearch(scannedCode); // fill input
     const lowerScanned = scannedCode.toString().trim().toLowerCase();
+
     const matchedItem = products.find((item) =>
-      item.barcodes?.some((b) => b.toString().toLowerCase() === lowerScanned)
+      item.barcodes?.some((b) => b.toString().toLowerCase() === lowerScanned) ||
+      item.productId?.toLowerCase() === lowerScanned
     );
 
     if (matchedItem) {
-      setScanResult(matchedItem);
-    } else {
-      console.warn("No matching product found for scanned code:", scannedCode);
-      setScanResult(null);
+      openProduct(matchedItem);
       setMatches([]);
-      handleSearch(scannedCode); // fallback to show possible partials
+    } else {
+      handleSearch(scannedCode); // fallback to partial matches
+      setScanResult(null);
     }
   };
 
