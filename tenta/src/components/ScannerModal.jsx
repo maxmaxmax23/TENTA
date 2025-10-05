@@ -6,60 +6,55 @@ import { db } from "../firebase.js";
 
 export default function ScannerModal({ onClose }) {
   const readerRef = useRef(null);
+  const [scanResult, setScanResult] = useState("");
+  const [scannerKey, setScannerKey] = useState(0);
   const [manualSearch, setManualSearch] = useState("");
-  const [matches, setMatches] = useState([]);
+  const [matchedItems, setMatchedItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [showUploader, setShowUploader] = useState(false);
-  const [scannerKey, setScannerKey] = useState(0);
   const [isScanning, setIsScanning] = useState(false);
 
   // --- Firestore search by barcode or productId ---
   const searchProducts = async (term) => {
     if (!term) {
-      setMatches([]);
+      setMatchedItems([]);
       return;
     }
-
     const lowerTerm = term.toString().trim().toLowerCase();
+    const q = query(collection(db, "products"));
+    const snapshot = await getDocs(q);
 
-    try {
-      const q = query(collection(db, "products"));
-      const snapshot = await getDocs(q);
+    const results = snapshot.docs
+      .map((d) => ({ id: d.id, ...d.data() }))
+      .map((item) => {
+        const productIdLower = item.id?.toString().toLowerCase() || "";
+        const barcodeArrayLower =
+          item.barcodeArray?.map((b) => b.toString().toLowerCase()) || [];
 
-      const results = snapshot.docs
-        .map((d) => ({ id: d.id, ...d.data() }))
-        .filter((item) => {
-          const barcodeMatch = item.barcodeArray?.some((b) =>
-            b.toString().toLowerCase().includes(lowerTerm)
-          );
-          const idMatch = item.id?.toLowerCase().includes(lowerTerm);
-          return barcodeMatch || idMatch;
-        })
-        .map((item) => {
-          const barcodeMatch = item.barcodeArray?.some((b) =>
-            b.toString().toLowerCase().includes(lowerTerm)
-          );
-          const idMatch = item.id?.toLowerCase().includes(lowerTerm);
+        const productIdMatch = productIdLower.includes(lowerTerm);
+        const barcodeMatchIndex = barcodeArrayLower.findIndex((b) =>
+          b.includes(lowerTerm)
+        );
+
+        if (productIdMatch || barcodeMatchIndex !== -1) {
           return {
             ...item,
-            matchedBy: barcodeMatch ? "barcode" : idMatch ? "productId" : "description",
+            matchedBy:
+              productIdMatch && barcodeMatchIndex !== -1
+                ? `productId + barcode`
+                : productIdMatch
+                ? "productId"
+                : `barcode (${item.barcodeArray[barcodeMatchIndex]})`,
           };
-        });
+        }
+        return null;
+      })
+      .filter(Boolean);
 
-      // Prioritize barcode matches
-      results.sort((a, b) => (a.matchedBy === "barcode" ? -1 : 1));
-
-      setMatches(results);
-
-      // Auto-open if only one match
-      if (results.length === 1) openProduct(results[0]);
-    } catch (error) {
-      console.error("Error searching products:", error);
-      setMatches([]);
-    }
+    setMatchedItems(results);
   };
 
-  // --- Handle scanning ---
+  // --- Scanner logic ---
   useEffect(() => {
     if (!readerRef.current || !isScanning) return;
 
@@ -70,11 +65,12 @@ export default function ScannerModal({ onClose }) {
     });
 
     scanner.render(
-      (decodedText) => {
-        setManualSearch(decodedText);
-        searchProducts(decodedText);
+      (result) => {
+        setScanResult(result);
         setIsScanning(false);
         scanner.clear();
+        setManualSearch(result);
+        searchProducts(result);
       },
       (err) => console.warn("QR error", err)
     );
@@ -82,44 +78,40 @@ export default function ScannerModal({ onClose }) {
     return () => scanner.clear();
   }, [readerRef, isScanning, scannerKey]);
 
-  const openProduct = (item) => {
+  const handleSelect = (item) => {
     setSelectedItem(item);
     setShowUploader(true);
-    setMatches([]);
   };
 
   const resetScanner = () => {
+    setScanResult("");
+    setScannerKey((k) => k + 1);
+    setMatchedItems([]);
     setManualSearch("");
-    setMatches([]);
     setSelectedItem(null);
     setShowUploader(false);
-    setScannerKey((k) => k + 1);
     setIsScanning(false);
   };
 
-  // --- Render (keep approved visual) ---
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center p-4 z-50">
-      {!showUploader ? (
-        <div className="w-full max-w-md flex flex-col gap-3 bg-gray-900 text-gold rounded-2xl p-4">
-          <h2 className="text-xl font-bold mb-2 text-center">Buscar / Escanear Producto</h2>
-
-          <div className="flex gap-2">
+    <div className="w-full flex flex-col items-center p-4">
+      {!showUploader && (
+        <>
+          <div className="flex w-full mb-2">
             <input
-              type="text"
+              className="flex-1 border border-gold bg-black text-gold rounded-l p-2"
+              placeholder="Search or scan product..."
               value={manualSearch}
               onChange={(e) => {
                 setManualSearch(e.target.value);
                 searchProducts(e.target.value);
               }}
-              placeholder="Buscar por ID o código..."
-              className="flex-1 p-2 rounded bg-black text-white border border-gold text-sm"
             />
             <button
-              onClick={() => setIsScanning((prev) => !prev)}
-              className="bg-gold text-black px-3 rounded text-sm font-semibold"
+              className="bg-gold text-black px-3 py-2 rounded-r"
+              onClick={() => setIsScanning(!isScanning)}
             >
-              {isScanning ? "Detener" : "Escanear"}
+              {isScanning ? "Stop" : "Scan"}
             </button>
           </div>
 
@@ -128,22 +120,28 @@ export default function ScannerModal({ onClose }) {
               key={scannerKey}
               ref={readerRef}
               id="reader"
-              className="w-full h-64 bg-black border border-gold rounded-lg overflow-hidden mt-2"
+              className="w-full max-w-md h-80 bg-black border border-gold rounded-lg overflow-hidden"
             ></div>
           )}
 
-          {matches.length > 0 && (
-            <div className="overflow-y-auto max-h-64 mt-3 border border-gold rounded">
-              {matches.map((item) => (
+          {matchedItems.length > 0 && (
+            <div className="mt-3 w-full max-h-96 overflow-y-auto border border-gold rounded-lg">
+              {matchedItems.map((item) => (
                 <div
                   key={item.id}
-                  onClick={() => openProduct(item)}
-                  className="p-2 border-b border-gray-800 hover:bg-gray-800 cursor-pointer"
+                  onClick={() => handleSelect(item)}
+                  className="p-2 border-b border-gold hover:bg-gold hover:text-black cursor-pointer"
                 >
-                  <p className="text-sm font-bold text-gold">{item.id}</p>
-                  <p className="text-xs text-gray-300">Códigos: {item.barcodeArray?.join(", ")}</p>
-                  <p className="text-xs text-gray-400 italic truncate">{item.description}</p>
-                  <p className="text-[10px] text-blue-400">Coincidencia: {item.matchedBy}</p>
+                  <p className="font-bold">{item.id}</p>
+                  <p className="text-sm">{item.description}</p>
+                  {item.barcodeArray && (
+                    <p className="text-xs text-gray-400">
+                      {item.barcodeArray.join(", ")}
+                    </p>
+                  )}
+                  <p className="text-[10px] text-blue-400">
+                    Coincidencia: {item.matchedBy}
+                  </p>
                 </div>
               ))}
             </div>
@@ -151,12 +149,14 @@ export default function ScannerModal({ onClose }) {
 
           <button
             onClick={onClose}
-            className="mt-3 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
+            className="mt-4 bg-gold text-black py-2 px-4 rounded hover:opacity-80"
           >
-            Cerrar
+            Close
           </button>
-        </div>
-      ) : (
+        </>
+      )}
+
+      {showUploader && selectedItem && (
         <ProductUploaderModal
           product={selectedItem}
           onClose={resetScanner}
