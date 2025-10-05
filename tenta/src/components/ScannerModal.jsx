@@ -1,40 +1,57 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import ProductUploaderModal from "./ProductUploaderModal.jsx";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.js";
+
+/**
+ * ScannerModal.jsx
+ * - Manual search + scanner toggle
+ * - Looks up Firestore products by productId or barcode
+ * - Shows multiple matches (scrollable)
+ * - Opens ProductUploaderModal for selected match
+ */
 
 export default function ScannerModal({ onClose }) {
   const readerRef = useRef(null);
-  const [scanResult, setScanResult] = useState("");
-  const [scannerKey, setScannerKey] = useState(0);
   const [manualSearch, setManualSearch] = useState("");
-  const [matchedItems, setMatchedItems] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [showUploader, setShowUploader] = useState(false);
+  const [matches, setMatches] = useState([]);
+  const [scanResult, setScanResult] = useState(null);
+  const [scannerKey, setScannerKey] = useState(0);
   const [isScanning, setIsScanning] = useState(false);
 
-  // Firestore search by barcode or productId
-  const searchProducts = async (term) => {
-    if (!term) return;
+  // 🔍 Search Firestore for matches by productId or barcodes[]
+  const handleSearch = async (term) => {
+    if (!term || term.trim() === "") {
+      setMatches([]);
+      return;
+    }
 
-    const q = query(collection(db, "products"));
-    const snapshot = await getDocs(q);
+    try {
+      const snapshot = await getDocs(collection(db, "products"));
+      const lowerTerm = term.toString().trim().toLowerCase();
 
-    const results = snapshot.docs
-      .map((d) => ({ id: d.id, ...d.data() }))
-      .filter((item) => {
-        // === FIXED BARCODE PROPERTY ===
-        const barcodeMatch = item.barcodes?.some((b) =>
-          b.toString().includes(term)
-        );
-        const idMatch = item.id?.toString().includes(term);
-        return barcodeMatch || idMatch;
-      });
+      const results = snapshot.docs
+        .map((d) => ({ id: d.id, ...d.data() }))
+        .filter((item) => {
+          const productId = item.id?.toString().toLowerCase() || "";
+          const barcodes = item.barcodes?.map((b) => b.toString().toLowerCase()) || [];
+          const description = item.description?.toLowerCase() || "";
 
-    setMatchedItems(results);
+          const barcodeMatch = barcodes.some((b) => b.includes(lowerTerm));
+          const productIdMatch = productId.includes(lowerTerm);
+          const descMatch = description.includes(lowerTerm);
+
+          return barcodeMatch || productIdMatch || descMatch;
+        });
+
+      setMatches(results);
+    } catch (err) {
+      console.error("Search error:", err);
+    }
   };
 
+  // 📷 Scanner setup
   useEffect(() => {
     if (!readerRef.current || !isScanning) return;
 
@@ -42,56 +59,57 @@ export default function ScannerModal({ onClose }) {
       qrbox: { width: 250, height: 250 },
       fps: 10,
       aspectRatio: 1,
+      focusMode: "continuous",
     });
 
     scanner.render(
-      (result) => {
-        setScanResult(result);
+      (decodedText) => {
+        setManualSearch(decodedText);
+        handleSearch(decodedText);
         setIsScanning(false);
         scanner.clear();
-        setManualSearch(result);
-        searchProducts(result);
       },
-      (err) => console.warn("QR error", err)
+      (err) => console.warn(err)
     );
 
     return () => scanner.clear();
-  }, [readerRef, isScanning, scannerKey]);
+  }, [readerRef, scannerKey, isScanning]);
 
-  const handleSelect = (item) => {
-    setSelectedItem(item);
-    setShowUploader(true);
-  };
+  const openProduct = (product) => setScanResult(product);
 
   const resetScanner = () => {
-    setScanResult("");
+    setScanResult(null);
     setScannerKey((k) => k + 1);
-    setMatchedItems([]);
-    setManualSearch("");
-    setSelectedItem(null);
-    setShowUploader(false);
     setIsScanning(false);
+    setMatches([]);
+    setManualSearch("");
   };
 
+  // --- RENDER ---
   return (
-    <div className="w-full flex flex-col items-center p-4">
-      {!showUploader && (
-        <>
-          <div className="flex w-full mb-2">
+    <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center p-4 z-50">
+      {!scanResult ? (
+        <div className="w-full max-w-md flex flex-col gap-3 bg-gray-900 text-gold rounded-2xl p-4">
+          <h2 className="text-xl font-bold mb-2 text-center">
+            Buscar / Escanear Producto
+          </h2>
+
+          <div className="flex gap-2">
             <input
-              className="flex-1 border border-gold bg-black text-gold rounded-l p-2"
-              placeholder="Search or scan product..."
+              type="text"
               value={manualSearch}
               onChange={(e) => {
                 setManualSearch(e.target.value);
-                searchProducts(e.target.value);
+                handleSearch(e.target.value);
               }}
+              placeholder="Buscar por ID, código o descripción..."
+              className="flex-1 p-2 rounded bg-black text-white border border-gold text-sm"
             />
             <button
-              className="bg-gold text-black px-3 py-2 rounded-r"
-              onClick={() => setIsScanning(!isScanning)}
+              onClick={() => setIsScanning((prev) => !prev)}
+              className="bg-gold text-black px-3 rounded text-sm font-semibold"
             >
-              {isScanning ? "Stop" : "Scan"}
+              {isScanning ? "Detener" : "Escanear"}
             </button>
           </div>
 
@@ -100,25 +118,25 @@ export default function ScannerModal({ onClose }) {
               key={scannerKey}
               ref={readerRef}
               id="reader"
-              className="w-full max-w-md h-80 bg-black border border-gold rounded-lg overflow-hidden"
+              className="w-full h-64 bg-black border border-gold rounded-lg overflow-hidden mt-2"
             ></div>
           )}
 
-          {matchedItems.length > 0 && (
-            <div className="mt-3 w-full max-h-96 overflow-y-auto border border-gold rounded-lg">
-              {matchedItems.map((item) => (
+          {matches.length > 0 && (
+            <div className="overflow-y-auto max-h-64 mt-3 border border-gold rounded">
+              {matches.map((item, idx) => (
                 <div
-                  key={item.id}
-                  onClick={() => handleSelect(item)}
-                  className="p-2 border-b border-gold hover:bg-gold hover:text-black cursor-pointer"
+                  key={idx}
+                  className="p-2 border-b border-gray-800 hover:bg-gray-800 cursor-pointer"
+                  onClick={() => openProduct(item)}
                 >
-                  <p className="font-bold">{item.id}</p>
-                  <p className="text-sm">{item.description}</p>
-                  {item.barcodes && (
-                    <p className="text-xs text-gray-400">
-                      {item.barcodes.join(", ")}
-                    </p>
-                  )}
+                  <p className="text-sm font-bold text-gold">{item.id}</p>
+                  <p className="text-xs text-gray-300">
+                    Códigos: {item.barcodes?.join(", ")}
+                  </p>
+                  <p className="text-xs text-gray-400 italic truncate">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -126,18 +144,13 @@ export default function ScannerModal({ onClose }) {
 
           <button
             onClick={onClose}
-            className="mt-4 bg-gold text-black py-2 px-4 rounded hover:opacity-80"
+            className="mt-3 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
           >
-            Close
+            Cerrar
           </button>
-        </>
-      )}
-
-      {showUploader && selectedItem && (
-        <ProductUploaderModal
-          product={selectedItem}
-          onClose={resetScanner}
-        />
+        </div>
+      ) : (
+        <ProductUploaderModal product={scanResult} onClose={resetScanner} />
       )}
     </div>
   );
