@@ -1,9 +1,3 @@
-// INCREMENT ScannerModal.jsx
-// Type: Functional
-// Scope: Fix barcode search to match exact scanned codes while preserving manual search and UI
-// Base Tag: stable-importer-v7
-// Mode: Candidate (test before integration)
-
 import React, { useEffect, useRef, useState } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import ProductUploaderModal from "./ProductUploaderModal.jsx";
@@ -20,47 +14,27 @@ export default function ScannerModal({ onClose }) {
   const [showUploader, setShowUploader] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
 
-  // --- Firestore search by productId or barcode ---
+  // Firestore search by barcode or productId
   const searchProducts = async (term) => {
-    if (!term) {
-      setMatchedItems([]);
-      return;
-    }
-    const lowerTerm = term.toString().trim().toLowerCase();
+    if (!term) return;
+
     const q = query(collection(db, "products"));
     const snapshot = await getDocs(q);
 
     const results = snapshot.docs
       .map((d) => ({ id: d.id, ...d.data() }))
-      .map((item) => {
-        const productIdLower = item.id?.toString().toLowerCase() || "";
-        const barcodeArrayLower =
-          item.barcodeArray?.map((b) => b.toString().toLowerCase().trim()) || [];
-
-        const productIdMatch = productIdLower.includes(lowerTerm);
-        const barcodeMatchIndex = barcodeArrayLower.findIndex(
-          (b) => b === lowerTerm
+      .filter((item) => {
+        // === FIXED BARCODE PROPERTY ===
+        const barcodeMatch = item.barcodes?.some((b) =>
+          b.toString().includes(term)
         );
-
-        if (productIdMatch || barcodeMatchIndex !== -1) {
-          return {
-            ...item,
-            matchedBy:
-              productIdMatch && barcodeMatchIndex !== -1
-                ? "productId + barcode"
-                : productIdMatch
-                ? "productId"
-                : `barcode (${item.barcodeArray[barcodeMatchIndex]})`,
-          };
-        }
-        return null;
-      })
-      .filter(Boolean);
+        const idMatch = item.id?.toString().includes(term);
+        return barcodeMatch || idMatch;
+      });
 
     setMatchedItems(results);
   };
 
-  // --- Handle scanning ---
   useEffect(() => {
     if (!readerRef.current || !isScanning) return;
 
@@ -140,14 +114,11 @@ export default function ScannerModal({ onClose }) {
                 >
                   <p className="font-bold">{item.id}</p>
                   <p className="text-sm">{item.description}</p>
-                  {item.barcodeArray && (
+                  {item.barcodes && (
                     <p className="text-xs text-gray-400">
-                      {item.barcodeArray.join(", ")}
+                      {item.barcodes.join(", ")}
                     </p>
                   )}
-                  <p className="text-[10px] text-blue-400">
-                    Coincidencia: {item.matchedBy}
-                  </p>
                 </div>
               ))}
             </div>
@@ -163,7 +134,10 @@ export default function ScannerModal({ onClose }) {
       )}
 
       {showUploader && selectedItem && (
-        <ProductUploaderModal product={selectedItem} onClose={resetScanner} />
+        <ProductUploaderModal
+          product={selectedItem}
+          onClose={resetScanner}
+        />
       )}
     </div>
   );
