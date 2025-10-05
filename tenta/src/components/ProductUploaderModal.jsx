@@ -1,54 +1,99 @@
-import { useState } from "react";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import React, { useState } from "react";
+import { db, storage } from "../firebase.js";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
-import { storage, db } from "../firebase.js";
 
-export default function ProductUploaderModal({ code, onClose }) {
-  const [image, setImage] = useState(null);
-  const [progress, setProgress] = useState(0);
+export default function ProductUploaderModal({ product, onClose }) {
+  const [photoURL, setPhotoURL] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [message, setMessage] = useState("");
 
-  const handleUpload = async () => {
-    if (!image) return;
-    setUploading(true);
-    const storageRef = ref(storage, `products/${code}.jpg`);
-    const uploadTask = uploadBytesResumable(storageRef, image);
+  const handleFileSelect = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    await uploadImage(file);
+  };
 
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100),
-      (error) => alert("Error al subir imagen: " + error.message),
-      async () => {
-        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-        await updateDoc(doc(db, "products", code), { image: downloadURL });
-        setUploading(false);
-        onClose();
-      }
-    );
+  const handleTakePhoto = async () => {
+    try {
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "image/*";
+      input.capture = "environment";
+      input.onchange = async (e) => {
+        const file = e.target.files[0];
+        if (file) await uploadImage(file);
+      };
+      input.click();
+    } catch (err) {
+      console.error("Camera error:", err);
+      setMessage("Camera not supported on this device.");
+    }
+  };
+
+  const uploadImage = async (file) => {
+    try {
+      setUploading(true);
+      const fileRef = ref(storage, `productImages/${product.id}.jpg`);
+      await uploadBytes(fileRef, file);
+      const url = await getDownloadURL(fileRef);
+      await updateDoc(doc(db, "products", product.id), { photoURL: url });
+      setPhotoURL(url);
+      setMessage("✅ Photo uploaded successfully.");
+    } catch (err) {
+      console.error(err);
+      setMessage("❌ Upload failed.");
+    } finally {
+      setUploading(false);
+    }
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70">
-      <div className="bg-gray-800 p-6 rounded-xl text-white w-96 animate-fadeIn">
-        <h2 className="text-xl mb-4 text-gold">Subir imagen</h2>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
-          className="mb-3"
-        />
-        {uploading ? (
-          <p>Subiendo... {Math.round(progress)}%</p>
+    <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center p-4 text-gold">
+      <div className="w-full max-w-md bg-zinc-900 border border-gold rounded-xl p-4 text-center">
+        <h2 className="text-xl font-bold mb-4">{product.description}</h2>
+
+        {photoURL ? (
+          <img
+            src={photoURL}
+            alt="Product"
+            className="w-full h-48 object-cover rounded-lg mb-3"
+          />
         ) : (
-          <div className="flex justify-between">
-            <button onClick={handleUpload} className="bg-gold px-4 py-2 rounded text-black">
-              Subir
-            </button>
-            <button onClick={onClose} className="bg-red-500 px-4 py-2 rounded text-white">
-              Cancelar
-            </button>
+          <div className="w-full h-48 bg-zinc-800 rounded-lg flex items-center justify-center mb-3">
+            No photo yet
           </div>
         )}
+
+        <div className="flex flex-col gap-2">
+          <button
+            onClick={handleTakePhoto}
+            className="bg-gold text-black py-2 rounded hover:opacity-80"
+            disabled={uploading}
+          >
+            📷 Take Photo
+          </button>
+
+          <label className="bg-gold text-black py-2 rounded hover:opacity-80 cursor-pointer">
+            🖼️ Select File
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleFileSelect}
+              disabled={uploading}
+            />
+          </label>
+
+          {message && <p className="mt-2 text-sm">{message}</p>}
+
+          <button
+            onClick={onClose}
+            className="mt-3 bg-transparent border border-gold py-2 rounded hover:bg-gold hover:text-black"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
