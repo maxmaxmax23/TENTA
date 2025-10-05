@@ -34,9 +34,13 @@ export default function ProductUploaderModal({ product, onClose }) {
   const uploadImage = async (file) => {
     try {
       setUploading(true);
+
+      // ✅ Storage path fixed to match rules
       const fileRef = ref(storage, `images/${product.id}.jpg`);
+
       await uploadBytes(fileRef, file);
       const url = await getDownloadURL(fileRef);
+
       await updateDoc(doc(db, "products", product.id), { photoURL: url });
       setPhotoURL(url);
       setMessage("✅ Photo uploaded successfully.");
