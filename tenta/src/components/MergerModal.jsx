@@ -1,12 +1,15 @@
-// File: src/components/MergerModal.jsx
+// File: src/components/MergerModal.jsx (FINAL PATCH)
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
+// ADDITION: Import Firestore utilities
+import { doc, updateDoc, Timestamp } from "firebase/firestore";
+import { db } from "../firebase.js"; 
 
-export default function MergerModal({ onClose, addToQueue }) {
+export default function MergerModal({ onClose, addToQueue }) { 
   const [equivalenciasFile, setEquivalenciasFile] = useState(null);
   const [preciosFile, setPreciosFile] = useState(null);
   const [mergedData, setMergedData] = useState([]);
-  const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0 });
+  const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0, failed: 0 }); 
   const [loading, setLoading] = useState(false);
 
   const parseExcel = async (file) => {
@@ -17,6 +20,7 @@ export default function MergerModal({ onClose, addToQueue }) {
   };
 
   const handleMerge = async () => {
+    // UNCHANGED LOGIC for merging and parsing files
     if (!equivalenciasFile || !preciosFile) {
       alert("Selecciona ambos archivos antes de continuar.");
       return;
@@ -61,7 +65,7 @@ export default function MergerModal({ onClose, addToQueue }) {
           return;
         }
 
-        // Normalize date
+        // Normalize date (complex logic unchanged)
         let vigencia;
         try {
           if (typeof vigenciaRaw === "number") {
@@ -103,7 +107,7 @@ export default function MergerModal({ onClose, addToQueue }) {
         written++;
       });
 
-      setStats({ written, skipped, outOfTime });
+      setStats({ written, skipped, outOfTime, failed: 0 }); 
       setMergedData(merged);
     } catch (error) {
       console.error("Error al procesar archivos:", error);
@@ -113,15 +117,46 @@ export default function MergerModal({ onClose, addToQueue }) {
     }
   };
 
-  const handleAddToQueue = () => {
-    if (mergedData.length === 0) return alert("No hay datos para añadir a la cola");
-    addToQueue(mergedData);
-    alert(`${mergedData.length} productos añadidos a la cola`);
+
+  // ADDITION: New persistence function replacing the transient queue (addToQueue)
+  const handlePersistData = async () => {
+    if (mergedData.length === 0) return alert("No hay datos para persistir");
+
+    setLoading(true);
+    let successfulWrites = 0;
+    let failedWrites = 0;
+    
+    for (const item of mergedData) {
+        try {
+            const productRef = doc(db, "products", item.productId);
+            
+            // CRITICAL: Update the product's barcodes, price, and lastUpdated timestamp
+            await updateDoc(productRef, {
+                // Remove the "Sin código" placeholder before writing to DB
+                barcodes: item.barcodes.filter(b => b !== "Sin código"), 
+                price: item.price,
+                lastUpdated: Timestamp.now(), // ESSENTIAL: Triggers incremental sync
+            });
+            successfulWrites++;
+        } catch (error) {
+            console.error(`Error al persistir producto ${item.productId}:`, error);
+            failedWrites++;
+        }
+    }
+
+    setLoading(false);
+    setStats(prev => ({ 
+        ...prev, 
+        written: successfulWrites, 
+        failed: failedWrites,
+    })); 
+    
+    alert(`${successfulWrites} productos persistidos en la base de datos. ${failedWrites} fallaron.`);
+    
+    // Clear data after processing
     setMergedData([]);
-    setStats({ written: 0, skipped: 0, outOfTime: 0 });
     setEquivalenciasFile(null);
     setPreciosFile(null);
-    onClose();
   };
 
   return (
@@ -155,17 +190,20 @@ export default function MergerModal({ onClose, addToQueue }) {
           {loading ? "Procesando..." : "Fusionar y Previsualizar"}
         </button>
 
+        {/* MODIFICATION: Button calls the persistence function */}
         <button
-          onClick={handleAddToQueue}
-          disabled={mergedData.length === 0}
+          onClick={handlePersistData}
+          disabled={mergedData.length === 0 || loading}
           className="bg-green-600 text-black py-2 rounded mb-4 font-semibold"
         >
-          Añadir a la cola
+          {loading ? "Persistiendo..." : "Persistir en Firebase"}
         </button>
 
         <div className="text-sm mb-2">
-          <p>✅ A escribir: {stats.written}</p>
-          <p>⚠️ Ignorados: {stats.skipped}</p>
+          {/* MODIFICATION: Display the success/failure counts from the persistence step */}
+          <p>✅ Persistidos: {stats.written}</p>
+          <p>❌ Fallaron: {stats.failed}</p>
+          <p>⚠️ Ignorados (en Excel): {stats.skipped}</p>
           <p>⏰ Fuera de vigencia: {stats.outOfTime}</p>
         </div>
 
@@ -185,7 +223,8 @@ export default function MergerModal({ onClose, addToQueue }) {
               {mergedData.map((item, idx) => (
                 <tr key={idx} className="border-b border-gray-800">
                   <td className="p-1">
-                    {new Date(item.vigencia) < new Date() ? "Fuera de vigencia" : "A escribir"}
+                    {/* Display the correct status for the persistence step */}
+                    {new Date(item.vigencia) < new Date() ? "Revisar" : "Listo para persistir"}
                   </td>
                   <td className="p-1">{item.productId}</td>
                   <td className="p-1">{item.description}</td>
