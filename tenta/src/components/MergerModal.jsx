@@ -1,9 +1,32 @@
-// File: src/components/MergerModal.jsx (FINAL PATCH)
+// File: src/components/MergerModal.jsx (FINAL PATCH - Full Schema Expansion and Persistence)
+
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
-// ADDITION: Import Firestore utilities
-import { doc, updateDoc, Timestamp } from "firebase/firestore";
+import { doc, setDoc, Timestamp, writeBatch } from "firebase/firestore"; 
 import { db } from "../firebase.js"; 
+import {
+  Box,
+  VStack,
+  HStack,
+  Text,
+  Button,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Progress,
+} from "@chakra-ui/react";
+
+const BATCH_SIZE = 500; 
 
 export default function MergerModal({ onClose, addToQueue }) { 
   const [equivalenciasFile, setEquivalenciasFile] = useState(null);
@@ -11,16 +34,18 @@ export default function MergerModal({ onClose, addToQueue }) {
   const [mergedData, setMergedData] = useState([]);
   const [stats, setStats] = useState({ written: 0, skipped: 0, outOfTime: 0, failed: 0 }); 
   const [loading, setLoading] = useState(false);
+  const [persisting, setPersisting] = useState(false); 
+  const [progress, setProgress] = useState(0); 
 
   const parseExcel = async (file) => {
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
-    return XLSX.utils.sheet_to_json(sheet, { header: 1 });
+    // header: 1 means treat the first row as data, returning an array of arrays (zero-indexed)
+    return XLSX.utils.sheet_to_json(sheet, { header: 1 }); 
   };
 
   const handleMerge = async () => {
-    // UNCHANGED LOGIC for merging and parsing files
     if (!equivalenciasFile || !preciosFile) {
       alert("Selecciona ambos archivos antes de continuar.");
       return;
@@ -33,39 +58,85 @@ export default function MergerModal({ onClose, addToQueue }) {
         parseExcel(preciosFile),
       ]);
 
-      const eqData = eqRows.slice(1);
-      const prData = prRows.slice(1);
+      const rawEqData = eqRows.slice(1);
+      const rawPrData = prRows.slice(1);
 
+      // --- STEP 1: Build Conflict Superset and Barcode Map ---
       const eqMap = new Map();
-      eqData.forEach((row) => {
+      const barcodeSuperset = new Set(); 
+
+      rawEqData.forEach((row) => {
         const barcode = row[0]?.toString().trim();
         const productId = row[1]?.toString().trim();
         const description = row[2]?.toString().trim();
+        
         if (barcode && productId) {
+          // 1. Check #1: Self-Referential Skip (Barcode === Product ID)
+          if (barcode === productId) {
+             return; 
+          }
+
+          barcodeSuperset.add(barcode); 
+          
           if (!eqMap.has(productId)) eqMap.set(productId, { barcodes: new Set(), description });
           eqMap.get(productId).barcodes.add(barcode);
         }
       });
+      // --- END STEP 1 ---
+      
 
-      let written = 0, skipped = 0, outOfTime = 0;
+      let written = 0;
+      let skipped = 0; 
+      let outOfTime = 0;
       const merged = [];
-
       const now = new Date();
       const twelveMonthsAgo = new Date(now);
       twelveMonthsAgo.setFullYear(now.getFullYear() - 1);
 
-      prData.forEach((row) => {
-        const productId = row[0]?.toString().trim();
+      // --- STEP 2: Filter Obsolete IDs from Precios File (Conflict Resolution) ---
+      let prData = []; 
+      let conflictCount = 0;
+      
+      rawPrData.forEach(row => {
+          const productId = row[0]?.toString().trim();
+          
+          if (productId && barcodeSuperset.has(productId)) {
+              conflictCount++; 
+              return; 
+          }
+          prData.push(row); 
+      });
+      
+      skipped += conflictCount;
+      // --- END STEP 2 ---
+
+
+      // --- STEP 3: Process Filtered Data and Finalize Merged Array ---
+      prData.forEach((row) => { 
+        let rawProductId = row[0]?.toString().trim(); 
         const description = row[1]?.toString().trim();
         const vigenciaRaw = row[4];
         const priceRaw = row[5];
+        
+        // ADDITION: Extract new fields (assuming indexes 6, 7, 8, 9)
+        const stockRaw = row[6];
+        const variantsRaw = row[7];
+        const providerRaw = row[8];
+        const inventoryRaw = row[9];
+        // END ADDITION
 
-        if (!productId || !vigenciaRaw || !priceRaw) {
-          skipped++;
+        // Validation check for fundamental errors 
+        if (!rawProductId || !vigenciaRaw || !priceRaw) {
+          skipped++; 
           return;
         }
 
-        // Normalize date (complex logic unchanged)
+        // Apply ID sanitization 
+        let productId = rawProductId;
+        if (productId) {
+            productId = productId.replace(/\//g, '-'); 
+        }
+
         let vigencia;
         try {
           if (typeof vigenciaRaw === "number") {
@@ -79,7 +150,7 @@ export default function MergerModal({ onClose, addToQueue }) {
             }
           }
         } catch {
-          skipped++;
+          skipped++; 
           return;
         }
 
@@ -90,23 +161,36 @@ export default function MergerModal({ onClose, addToQueue }) {
 
         let price = parseFloat(priceRaw.toString().replace(/\./g, "").replace(",", "."));
         if (isNaN(price)) {
-          skipped++;
+          skipped++; 
           return;
         }
 
-        const eqMatch = eqMap.get(productId);
-        const barcodes = eqMatch ? Array.from(eqMatch.barcodes) : ["Sin código"];
+        const eqMatch = eqMap.get(rawProductId); 
+        const barcodes = eqMatch ? Array.from(eqMap.get(rawProductId).barcodes) : ["Sin código"];
+
+        // --- FINAL SCHEMA NORMALIZATION ---
+        const lastKnownStock = parseInt(stockRaw?.toString().trim()) || 0;
+        const currentInventory = parseInt(inventoryRaw?.toString().trim()) || 0;
+        const variants = variantsRaw?.toString().trim() || ""; // Default to empty string
+        const provider = providerRaw?.toString().trim() || ""; // Default to empty string
+        // --- END FINAL SCHEMA NORMALIZATION ---
 
         merged.push({
-          productId,
+          productId: productId, 
           description: description || eqMatch?.description || "Sin descripción",
           barcodes,
           price,
           vigencia: vigencia.toLocaleDateString("es-AR"),
+          
+          // ADDITION: New Schema Fields
+          lastKnownStock,
+          variants,
+          provider,
+          currentInventory,
         });
         written++;
       });
-
+      
       setStats({ written, skipped, outOfTime, failed: 0 }); 
       setMergedData(merged);
     } catch (error) {
@@ -118,132 +202,182 @@ export default function MergerModal({ onClose, addToQueue }) {
   };
 
 
-  // ADDITION: New persistence function replacing the transient queue (addToQueue)
   const handlePersistData = async () => {
     if (mergedData.length === 0) return alert("No hay datos para persistir");
 
-    setLoading(true);
+    if (!db || typeof writeBatch !== 'function') {
+        console.error("CRITICAL ERROR: Firebase/Firestore is not initialized or imported correctly. Check src/firebase.js.");
+        alert("ERROR: No se pudo conectar con la base de datos. Verifica la consola.");
+        setPersisting(false);
+        return; 
+    }
+    
+    setPersisting(true); 
+    setProgress(0);
+    const totalItems = mergedData.length;
     let successfulWrites = 0;
     let failedWrites = 0;
     
-    for (const item of mergedData) {
-        try {
-            const productRef = doc(db, "products", item.productId);
-            
-            // CRITICAL: Update the product's barcodes, price, and lastUpdated timestamp
-            await updateDoc(productRef, {
-                // Remove the "Sin código" placeholder before writing to DB
-                barcodes: item.barcodes.filter(b => b !== "Sin código"), 
-                price: item.price,
-                lastUpdated: Timestamp.now(), // ESSENTIAL: Triggers incremental sync
-            });
-            successfulWrites++;
-        } catch (error) {
-            console.error(`Error al persistir producto ${item.productId}:`, error);
-            failedWrites++;
+    for (let i = 0; i < totalItems; i += BATCH_SIZE) {
+        let batch = writeBatch(db);
+        const chunk = mergedData.slice(i, i + BATCH_SIZE);
+        
+        // 1. Fill the batch
+        for (const item of chunk) {
+            try { 
+                const productRef = doc(db, "products", item.productId);
+                
+                // FINAL PAYLOAD: Includes all new fields, guaranteed to be present (even if zero/empty string)
+                batch.set(productRef, {
+                    barcodes: item.barcodes.filter(b => b !== "Sin código"), 
+                    price: item.price,
+                    description: item.description, 
+                    lastUpdated: Timestamp.now(), 
+                    
+                    // ADDITION: New Schema Fields
+                    lastKnownStock: item.lastKnownStock,
+                    variants: item.variants,
+                    provider: item.provider,
+                    currentInventory: item.currentInventory,
+                }, { merge: true }); 
+                
+                successfulWrites++;
+            } catch (error) {
+                console.error(`Error al preparar batch para ${item.productId}:`, error);
+                failedWrites++;
+            }
         }
+
+        // 2. Commit the batch (single network call)
+        try {
+            await batch.commit();
+        } catch (error) {
+            console.error(`FATAL ERROR AL PERSISTIR BATCH ${i / BATCH_SIZE}. Revisa Reglas de Seguridad o Conexión:`, error);
+            failedWrites += chunk.length; 
+            successfulWrites -= chunk.length; 
+            break; 
+        }
+        
+        // 3. Update the progress bar
+        const newProgress = ((i + BATCH_SIZE) / totalItems) * 100;
+        setProgress(Math.min(newProgress, 100));
     }
 
-    setLoading(false);
+    setPersisting(false);
+    
     setStats(prev => ({ 
         ...prev, 
-        written: successfulWrites, 
+        written: Math.max(0, successfulWrites), 
         failed: failedWrites,
     })); 
     
-    alert(`${successfulWrites} productos persistidos en la base de datos. ${failedWrites} fallaron.`);
+    alert(`Proceso Completo. ${Math.max(0, successfulWrites)} productos persistidos. ${failedWrites} fallaron.`);
     
-    // Clear data after processing
     setMergedData([]);
     setEquivalenciasFile(null);
     setPreciosFile(null);
   };
 
+  const handleAddToQueue = () => { /* Placeholder for deprecated function */ }; 
+
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-900 text-gold rounded-2xl p-4 w-full max-w-md max-h-[90vh] flex flex-col">
-        <h2 className="text-xl font-bold mb-3">Fusionar Archivos Excel</h2>
+    <Modal isOpen onClose={onClose} size="xl" scrollBehavior="inside" isCentered>
+      <ModalOverlay bg="blackAlpha.800" />
+      <ModalContent bg="gray.900" color="gold" borderRadius="xl" p={4}>
+        <ModalHeader>Fusionar Archivos Excel</ModalHeader>
+        <ModalBody>
+          <VStack spacing={3} mb={3} align="stretch">
+            <input
+              type="file"
+              accept=".xlsx, .xls"
+              onChange={(e) => setEquivalenciasFile(e.target.files[0])}
+            />
+            <Text fontSize="sm" color="gray.400">
+              Archivo de Equivalencias
+            </Text>
 
-        <div className="flex flex-col gap-2 mb-4">
-          <input
-            type="file"
-            accept=".xlsx, .xls"
-            onChange={(e) => setEquivalenciasFile(e.target.files[0])}
-            className="text-sm text-white"
-          />
-          <label className="text-xs text-gray-400">Archivo de Equivalencias</label>
+            <input
+              type="file"
+              accept=".xlsx, .xls"
+              onChange={(e) => setPreciosFile(e.target.files[0])}
+            />
+            <Text fontSize="sm" color="gray.400">
+              Archivo de Precios
+            </Text>
 
-          <input
-            type="file"
-            accept=".xlsx, .xls"
-            onChange={(e) => setPreciosFile(e.target.files[0])}
-            className="text-sm text-white"
-          />
-          <label className="text-xs text-gray-400">Archivo de Precios</label>
-        </div>
+            <Button
+              colorScheme="gold"
+              onClick={handleMerge}
+              isLoading={loading}
+              loadingText="Procesando... (Excel)"
+              isDisabled={persisting} 
+            >
+              Fusionar y Previsualizar
+            </Button>
 
-        <button
-          onClick={handleMerge}
-          disabled={loading}
-          className="bg-gold text-black py-2 rounded mb-2 font-semibold"
-        >
-          {loading ? "Procesando..." : "Fusionar y Previsualizar"}
-        </button>
+            <Button
+              colorScheme="green"
+              onClick={handlePersistData}
+              isLoading={persisting}
+              loadingText="Persistiendo en Firebase..."
+              isDisabled={mergedData.length === 0 || loading || persisting}
+            >
+              Persistir en Firebase
+            </Button>
+          </VStack>
+          
+          {persisting && (
+            <Box mb={4}>
+              <Text fontSize="sm" color="gold" mb={1}>
+                Progreso: {Math.round(progress)}%
+              </Text>
+              <Progress value={progress} size="sm" colorScheme="green" hasStripe isAnimated={progress < 100}/>
+            </Box>
+          )}
 
-        {/* MODIFICATION: Button calls the persistence function */}
-        <button
-          onClick={handlePersistData}
-          disabled={mergedData.length === 0 || loading}
-          className="bg-green-600 text-black py-2 rounded mb-4 font-semibold"
-        >
-          {loading ? "Persistiendo..." : "Persistir en Firebase"}
-        </button>
+          <Box mb={3}>
+            <Text fontSize="sm">
+              ✅ **Persistidos:** {stats.written} | ❌ **Fallaron:** {stats.failed} | ⚠️ **Ignorados (en Excel):** {stats.skipped} | ⏰ **Fuera de vigencia:** {stats.outOfTime}
+            </Text>
+          </Box>
+          
+          {mergedData.length > 0 && (
+            <TableContainer maxH="300px" overflowY="auto" border="1px" borderColor="gold" borderRadius="md">
+              <Table variant="simple" size="sm">
+                <Thead bg="gold" color="black" position="sticky" top={0}>
+                  <Tr>
+                    <Th>Estado</Th>
+                    <Th>ID</Th>
+                    <Th>Descripción</Th>
+                    <Th>Códigos</Th>
+                    <Th>Precio</Th>
+                    <Th>Vigencia</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {mergedData.map((item, idx) => (
+                    <Tr key={idx} borderBottom="1px" borderColor="gray.700">
+                      <Td>{new Date(item.vigencia) < new Date() ? "Revisar" : "Listo para persistir"}</Td>
+                      <Td>{item.productId}</Td>
+                      <Td>{item.description}</Td>
+                      <Td>{item.barcodes.join(", ")}</Td>
+                      <Td>${Math.round(item.price)}</Td>
+                      <Td>{item.vigencia}</Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+              </Table>
+            </TableContainer>
+          )}
+        </ModalBody>
 
-        <div className="text-sm mb-2">
-          {/* MODIFICATION: Display the success/failure counts from the persistence step */}
-          <p>✅ Persistidos: {stats.written}</p>
-          <p>❌ Fallaron: {stats.failed}</p>
-          <p>⚠️ Ignorados (en Excel): {stats.skipped}</p>
-          <p>⏰ Fuera de vigencia: {stats.outOfTime}</p>
-        </div>
-
-        <div className="overflow-y-auto max-h-64 border border-gold rounded">
-          <table className="w-full text-xs text-left">
-            <thead className="bg-gold text-black sticky top-0">
-              <tr>
-                <th className="p-1">Estado</th>
-                <th className="p-1">ID</th>
-                <th className="p-1">Descripción</th>
-                <th className="p-1">Códigos</th>
-                <th className="p-1">Precio</th>
-                <th className="p-1">Vigencia</th>
-              </tr>
-            </thead>
-            <tbody>
-              {mergedData.map((item, idx) => (
-                <tr key={idx} className="border-b border-gray-800">
-                  <td className="p-1">
-                    {/* Display the correct status for the persistence step */}
-                    {new Date(item.vigencia) < new Date() ? "Revisar" : "Listo para persistir"}
-                  </td>
-                  <td className="p-1">{item.productId}</td>
-                  <td className="p-1">{item.description}</td>
-                  <td className="p-1">{item.barcodes.join(", ")}</td>
-                  <td className="p-1">${Math.round(item.price)}</td>
-                  <td className="p-1">{item.vigencia}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <button
-          onClick={onClose}
-          className="mt-4 bg-gray-700 text-gold py-2 rounded hover:bg-gray-600"
-        >
-          Cerrar
-        </button>
-      </div>
-    </div>
+        <ModalFooter>
+          <Button variant="outline" borderColor="gold" color="gold" _hover={{ bg: "gold", color: "black" }} onClick={onClose}>
+            Cerrar
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   );
 }
